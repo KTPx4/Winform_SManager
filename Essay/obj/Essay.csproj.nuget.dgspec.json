@@ -48,6 +48,10 @@
             "DevExpress.Win.Design": {
               "target": "Package",
               "version": "[23.1.5, )"
+            },
+            "Jenga.NET": {
+              "target": "Package",
+              "version": "[4.0.0, )"
             }
           },
           "imports": [

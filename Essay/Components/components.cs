@@ -9,24 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing.Drawing2D;
 
 namespace Essay.Components
 {
     public class components
     {
+
     }
 
-    public class Screens
-    {
-
-
-
-        public Screens()
-        {
-
-        }
-       
-
-    
-    }
 }

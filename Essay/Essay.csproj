@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="DevExpress.Win.Design" Version="23.1.5" />
+    <PackageReference Include="Jenga.NET" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>

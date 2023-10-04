@@ -10,10 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.Windows.Controls;
+using DevExpress.XtraReports.UI;
+
 
 namespace Essay
 {
-    public partial class login : DevExpress.XtraEditors.XtraForm
+    public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         private String titlePanel = "#306ed8";
 
@@ -24,34 +28,40 @@ namespace Essay
 
 
 
-        public login()
+        public frmLogin()
         {
             InitializeComponent();
+            Style(); ;
         }
 
         private void login_Load(object sender, EventArgs e)
         {
-            Test t = new Test();
-            t.user = "px4";
 
 
 
 
         }
 
-        private void HoverPanel(Panel p, Color color)
+        private void Style()
         {
-            p.BackColor = color;
+
+            // Tạo một instance của RJPanel
+            panelLogin.BackColor = Color.FromArgb(100, 183, 195, 199);
+
+
+            // this.Controls.Add(PanelLogin);
+
         }
 
+        //Title 
         private void ptbMini_MouseHover(object sender, EventArgs e)
         {
-            panelMini.BackColor = System.Drawing.ColorTranslator.FromHtml(titlePanel);
+            panelMini.BackColor = Color.FromArgb(100, 250, 250, 250);
         }
 
         private void ptbClose_MouseHover(object sender, EventArgs e)
         {
-            panelClose.BackColor = System.Drawing.ColorTranslator.FromHtml(titlePanel);
+            panelClose.BackColor = Color.FromArgb(100, 250, 250, 250);
 
         }
 
@@ -75,6 +85,8 @@ namespace Essay
             this.WindowState = FormWindowState.Minimized;
         }
 
+
+        // Title moving
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
         {
             _dragging = true;
@@ -90,11 +102,21 @@ namespace Essay
         {
             if (_dragging)
             {
-
-
                 Point p = PointToScreen(e.Location);
                 Location = new Point(p.X - _startPoint.X, p.Y - _startPoint.Y);
             }
+        }
+
+        private void btnLogin_MouseHover(object sender, EventArgs e)
+        {
+            btnLogin.BackgroundColor = Color.Fuchsia;
+            btnLogin.ForeColor = Color.White;
+        }
+
+        private void btnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogin.BackgroundColor = Color.Transparent;
+            btnLogin.ForeColor = Color.Fuchsia;
         }
     }
 }
