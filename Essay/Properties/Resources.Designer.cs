@@ -63,6 +63,26 @@ namespace Essay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap An_astronaut_on_a_planet_full_of_monsters__1_ {
+            get {
+                object obj = ResourceManager.GetObject("An astronaut on a planet full of monsters (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap An_astronaut_on_a_planet_full_of_monsters_2 {
+            get {
+                object obj = ResourceManager.GetObject("An astronaut on a planet full of monsters_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
@@ -86,6 +106,86 @@ namespace Essay.Properties {
         internal static System.Drawing.Bitmap close3 {
             get {
                 object obj = ResourceManager.GetObject("close3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_close_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-close-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_close_16_black {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-close-16_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_close_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-close-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_full_screen_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-full-screen-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_maximize_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-maximize-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_minimize_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-minimize-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_minimize_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-minimize-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_macos_un_full_screen_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-macos-un-full-screen-16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
