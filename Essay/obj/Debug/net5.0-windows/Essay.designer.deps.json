@@ -1,0 +1,21 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "DevExpress.Win.Design/23.1.5": {}
+    }
+  },
+  "libraries": {
+    "DevExpress.Win.Design/23.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YDB70TG/+eSrPuWTbUMgTOoCz4vyjXro/yrv2+HOl47V5DH21/qWGvEQH7A6SVuJPoSRWvNsz6eXLnhrDfiHSw==",
+      "path": "devexpress.win.design/23.1.5",
+      "hashPath": "devexpress.win.design.23.1.5.nupkg.sha512"
+    }
+  }
+}

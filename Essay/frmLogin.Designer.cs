@@ -29,117 +29,49 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            panelClose = new DevExpress.XtraEditors.PanelControl();
-            ptbClose = new PictureBox();
-            panelMini = new DevExpress.XtraEditors.PanelControl();
-            ptbMini = new PictureBox();
-            panelTitle = new DevExpress.XtraEditors.PanelControl();
+            panelTitle = new Panel();
             panelLogin = new Components.PanelBoder();
+            panel3 = new Panel();
+            ptbClear_2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            txtPass = new TextBox();
+            ckShow = new CheckBox();
+            panel1 = new Panel();
+            ptbClear_1 = new PictureBox();
+            txtUser = new TextBox();
+            pictureBox4 = new PictureBox();
             btnLogin = new Components.ButtonBorder();
-            pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
-            pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)panelControl1).BeginInit();
-            panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)panelClose).BeginInit();
-            panelClose.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ptbClose).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelMini).BeginInit();
-            panelMini.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)panelTitle).BeginInit();
+            panel2 = new Panel();
+            panelClose = new Panel();
+            pictureBox2 = new PictureBox();
+            panelMini = new Panel();
+            pictureBox1 = new PictureBox();
             panelTitle.SuspendLayout();
             panelLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureEdit2.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbClear_2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbClear_1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel2.SuspendLayout();
+            panelClose.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panelMini.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // panelControl1
-            // 
-            panelControl1.Appearance.BackColor = Color.Transparent;
-            panelControl1.Appearance.Options.UseBackColor = true;
-            panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            panelControl1.Controls.Add(panelClose);
-            panelControl1.Controls.Add(panelMini);
-            panelControl1.Dock = DockStyle.Right;
-            panelControl1.Location = new Point(352, 0);
-            panelControl1.Name = "panelControl1";
-            panelControl1.Size = new Size(62, 36);
-            panelControl1.TabIndex = 2;
-            // 
-            // panelClose
-            // 
-            panelClose.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            panelClose.Controls.Add(ptbClose);
-            panelClose.Dock = DockStyle.Right;
-            panelClose.Location = new Point(33, 0);
-            panelClose.Name = "panelClose";
-            panelClose.Size = new Size(29, 36);
-            panelClose.TabIndex = 1;
-            // 
-            // ptbClose
-            // 
-            ptbClose.BackColor = Color.Transparent;
-            ptbClose.BackgroundImage = (Image)resources.GetObject("ptbClose.BackgroundImage");
-            ptbClose.BackgroundImageLayout = ImageLayout.Zoom;
-            ptbClose.Cursor = Cursors.Hand;
-            ptbClose.Location = new Point(1, 6);
-            ptbClose.Name = "ptbClose";
-            ptbClose.Size = new Size(25, 20);
-            ptbClose.SizeMode = PictureBoxSizeMode.StretchImage;
-            ptbClose.TabIndex = 0;
-            ptbClose.TabStop = false;
-            ptbClose.Click += ptbClose_Click;
-            ptbClose.MouseLeave += ptbClose_MouseLeave;
-            ptbClose.MouseHover += ptbClose_MouseHover;
-            // 
-            // panelMini
-            // 
-            panelMini.Appearance.BackColor = Color.Transparent;
-            panelMini.Appearance.Options.UseBackColor = true;
-            panelMini.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            panelMini.Controls.Add(ptbMini);
-            panelMini.Dock = DockStyle.Left;
-            panelMini.Location = new Point(0, 0);
-            panelMini.Name = "panelMini";
-            panelMini.Size = new Size(29, 36);
-            panelMini.TabIndex = 1;
-            // 
-            // ptbMini
-            // 
-            ptbMini.BackColor = Color.Transparent;
-            ptbMini.BackgroundImage = (Image)resources.GetObject("ptbMini.BackgroundImage");
-            ptbMini.BackgroundImageLayout = ImageLayout.Stretch;
-            ptbMini.Cursor = Cursors.Hand;
-            ptbMini.Location = new Point(3, 4);
-            ptbMini.Name = "ptbMini";
-            ptbMini.Size = new Size(23, 25);
-            ptbMini.SizeMode = PictureBoxSizeMode.StretchImage;
-            ptbMini.TabIndex = 0;
-            ptbMini.TabStop = false;
-            ptbMini.Click += ptbMini_Click;
-            ptbMini.MouseLeave += ptbMini_MouseLeave;
-            ptbMini.MouseHover += ptbMini_MouseHover;
             // 
             // panelTitle
             // 
-            panelTitle.Appearance.BackColor = Color.Transparent;
-            panelTitle.Appearance.Options.UseBackColor = true;
-            panelTitle.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            panelTitle.Controls.Add(panelControl1);
-            panelTitle.Dock = DockStyle.Top;
+            panelTitle.BackColor = Color.Transparent;
+            panelTitle.Controls.Add(panelLogin);
+            panelTitle.Controls.Add(panel2);
+            panelTitle.Cursor = Cursors.NoMove2D;
+            panelTitle.Dock = DockStyle.Fill;
             panelTitle.Location = new Point(0, 0);
-            panelTitle.Margin = new Padding(2);
             panelTitle.Name = "panelTitle";
-            panelTitle.Size = new Size(414, 36);
+            panelTitle.Size = new Size(366, 513);
             panelTitle.TabIndex = 0;
-            panelTitle.MouseDown += panelTitle_MouseDown;
-            panelTitle.MouseMove += panelTitle_MouseMove;
-            panelTitle.MouseUp += panelTitle_MouseUp;
             // 
             // panelLogin
             // 
@@ -147,15 +79,128 @@
             panelLogin.BorderColor = Color.White;
             panelLogin.BorderRadius = 7;
             panelLogin.BorderSize = 2;
+            panelLogin.Controls.Add(panel3);
+            panelLogin.Controls.Add(ckShow);
+            panelLogin.Controls.Add(panel1);
             panelLogin.Controls.Add(btnLogin);
-            panelLogin.Controls.Add(pictureEdit2);
-            panelLogin.Controls.Add(pictureEdit1);
-            panelLogin.Controls.Add(textEdit2);
-            panelLogin.Controls.Add(textEdit1);
-            panelLogin.Location = new Point(68, 76);
+            panelLogin.Cursor = Cursors.Default;
+            panelLogin.Location = new Point(19, 59);
+            panelLogin.Margin = new Padding(4, 3, 4, 3);
             panelLogin.Name = "panelLogin";
-            panelLogin.Size = new Size(284, 217);
-            panelLogin.TabIndex = 3;
+            panelLogin.Size = new Size(331, 205);
+            panelLogin.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.MistyRose;
+            panel3.Controls.Add(ptbClear_2);
+            panel3.Controls.Add(pictureBox3);
+            panel3.Controls.Add(txtPass);
+            panel3.Location = new Point(52, 86);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(229, 47);
+            panel3.TabIndex = 5;
+            // 
+            // ptbClear_2
+            // 
+            ptbClear_2.BackColor = Color.Transparent;
+            ptbClear_2.Cursor = Cursors.Hand;
+            ptbClear_2.Image = Properties.Resources.icons8_macos_close_16_black;
+            ptbClear_2.Location = new Point(210, 16);
+            ptbClear_2.Name = "ptbClear_2";
+            ptbClear_2.Size = new Size(15, 16);
+            ptbClear_2.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbClear_2.TabIndex = 2;
+            ptbClear_2.TabStop = false;
+            ptbClear_2.Click += ptbClear_2_Click;
+            ptbClear_2.MouseLeave += btnClear_Leave;
+            ptbClear_2.MouseHover += btnClear_Hover;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Location = new Point(2, 11);
+            pictureBox3.Margin = new Padding(4, 3, 4, 3);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(28, 27);
+            pictureBox3.TabIndex = 5;
+            pictureBox3.TabStop = false;
+            // 
+            // txtPass
+            // 
+            txtPass.BackColor = Color.MistyRose;
+            txtPass.BorderStyle = BorderStyle.None;
+            txtPass.Font = new Font("Javanese Text", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtPass.Location = new Point(34, 5);
+            txtPass.Name = "txtPass";
+            txtPass.PasswordChar = '*';
+            txtPass.Size = new Size(174, 37);
+            txtPass.TabIndex = 4;
+            txtPass.TextAlign = HorizontalAlignment.Center;
+            // 
+            // ckShow
+            // 
+            ckShow.AutoSize = true;
+            ckShow.BackColor = Color.Transparent;
+            ckShow.Cursor = Cursors.Hand;
+            ckShow.ForeColor = Color.Transparent;
+            ckShow.Location = new Point(283, 104);
+            ckShow.Name = "ckShow";
+            ckShow.Size = new Size(15, 14);
+            ckShow.TabIndex = 0;
+            ckShow.UseVisualStyleBackColor = false;
+            ckShow.CheckedChanged += ckShow_CheckedChanged;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.MistyRose;
+            panel1.Controls.Add(ptbClear_1);
+            panel1.Controls.Add(txtUser);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Location = new Point(52, 23);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(229, 47);
+            panel1.TabIndex = 5;
+            // 
+            // ptbClear_1
+            // 
+            ptbClear_1.BackColor = Color.Transparent;
+            ptbClear_1.Cursor = Cursors.Hand;
+            ptbClear_1.Image = Properties.Resources.icons8_macos_close_16_black;
+            ptbClear_1.Location = new Point(210, 15);
+            ptbClear_1.Name = "ptbClear_1";
+            ptbClear_1.Size = new Size(15, 16);
+            ptbClear_1.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbClear_1.TabIndex = 2;
+            ptbClear_1.TabStop = false;
+            ptbClear_1.Click += ptbClear_1_Click;
+            ptbClear_1.MouseLeave += btnClear_Leave;
+            ptbClear_1.MouseHover += btnClear_Hover;
+            // 
+            // txtUser
+            // 
+            txtUser.BackColor = Color.MistyRose;
+            txtUser.BorderStyle = BorderStyle.None;
+            txtUser.Font = new Font("Javanese Text", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtUser.Location = new Point(34, 5);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(174, 37);
+            txtUser.TabIndex = 4;
+            txtUser.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
+            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox4.Location = new Point(2, 11);
+            pictureBox4.Margin = new Padding(4, 3, 4, 3);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(28, 27);
+            pictureBox4.TabIndex = 5;
+            pictureBox4.TabStop = false;
             // 
             // btnLogin
             // 
@@ -164,121 +209,129 @@
             btnLogin.BorderColor = Color.Fuchsia;
             btnLogin.BorderRadius = 5;
             btnLogin.BorderSize = 2;
+            btnLogin.Cursor = Cursors.Hand;
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogin.ForeColor = Color.Fuchsia;
-            btnLogin.Location = new Point(86, 148);
+            btnLogin.Location = new Point(107, 145);
+            btnLogin.Margin = new Padding(4, 3, 4, 3);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(99, 41);
+            btnLogin.Size = new Size(115, 47);
             btnLogin.TabIndex = 3;
             btnLogin.Text = "Login";
             btnLogin.TextColor = Color.Fuchsia;
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             btnLogin.MouseLeave += btnLogin_MouseLeave;
             btnLogin.MouseHover += btnLogin_MouseHover;
             // 
-            // pictureEdit2
+            // panel2
             // 
-            pictureEdit2.EditValue = resources.GetObject("pictureEdit2.EditValue");
-            pictureEdit2.Location = new Point(34, 94);
-            pictureEdit2.Name = "pictureEdit2";
-            pictureEdit2.Properties.Appearance.BackColor = Color.Snow;
-            pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
-            pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            pictureEdit2.Size = new Size(36, 40);
-            pictureEdit2.TabIndex = 1;
+            panel2.Controls.Add(panelClose);
+            panel2.Controls.Add(panelMini);
+            panel2.Location = new Point(300, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(66, 39);
+            panel2.TabIndex = 1;
             // 
-            // pictureEdit1
+            // panelClose
             // 
-            pictureEdit1.EditValue = resources.GetObject("pictureEdit1.EditValue");
-            pictureEdit1.Location = new Point(34, 39);
-            pictureEdit1.Name = "pictureEdit1";
-            pictureEdit1.Properties.Appearance.BackColor = Color.Snow;
-            pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            pictureEdit1.Size = new Size(36, 40);
-            pictureEdit1.TabIndex = 1;
+            panelClose.Controls.Add(pictureBox2);
+            panelClose.Location = new Point(34, 0);
+            panelClose.Name = "panelClose";
+            panelClose.Size = new Size(32, 39);
+            panelClose.TabIndex = 1;
             // 
-            // textEdit2
+            // pictureBox2
             // 
-            textEdit2.Location = new Point(34, 94);
-            textEdit2.Name = "textEdit2";
-            textEdit2.Properties.Appearance.BackColor = Color.Honeydew;
-            textEdit2.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            textEdit2.Properties.Appearance.Options.UseBackColor = true;
-            textEdit2.Properties.Appearance.Options.UseFont = true;
-            textEdit2.Properties.AutoHeight = false;
-            textEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            textEdit2.Properties.Padding = new Padding(37, 0, 0, 0);
-            textEdit2.Size = new Size(218, 40);
-            textEdit2.TabIndex = 2;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.Location = new Point(7, 7);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(15, 24);
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += ptbClose_Click;
+            pictureBox2.MouseLeave += ptbClose_MouseLeave;
+            pictureBox2.MouseHover += ptbClose_MouseHover;
             // 
-            // textEdit1
+            // panelMini
             // 
-            textEdit1.Location = new Point(34, 39);
-            textEdit1.Name = "textEdit1";
-            textEdit1.Properties.Appearance.BackColor = Color.Honeydew;
-            textEdit1.Properties.Appearance.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            textEdit1.Properties.Appearance.Options.UseBackColor = true;
-            textEdit1.Properties.Appearance.Options.UseFont = true;
-            textEdit1.Properties.AutoHeight = false;
-            textEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            textEdit1.Properties.Padding = new Padding(37, 0, 0, 0);
-            textEdit1.Size = new Size(218, 40);
-            textEdit1.TabIndex = 2;
+            panelMini.Controls.Add(pictureBox1);
+            panelMini.Location = new Point(0, 0);
+            panelMini.Name = "panelMini";
+            panelMini.Size = new Size(32, 39);
+            panelMini.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Location = new Point(8, 7);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(18, 24);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += ptbMini_Click;
+            pictureBox1.MouseLeave += ptbMini_MouseLeave;
+            pictureBox1.MouseHover += ptbMini_MouseHover;
             // 
             // frmLogin
             // 
-            Appearance.BackColor = Color.Silver;
-            Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImageLayoutStore = ImageLayout.Stretch;
-            BackgroundImageStore = (Image)resources.GetObject("$this.BackgroundImageStore");
-            ClientSize = new Size(414, 608);
-            Controls.Add(panelLogin);
+            BackgroundImage = Properties.Resources.An_astronaut_on_a_planet_full_of_monsters_2;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(366, 513);
             Controls.Add(panelTitle);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(2);
             Name = "frmLogin";
-            Text = "login";
-            Load += login_Load;
-            ((System.ComponentModel.ISupportInitialize)panelControl1).EndInit();
-            panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)panelClose).EndInit();
-            panelClose.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ptbClose).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelMini).EndInit();
-            panelMini.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
-            ((System.ComponentModel.ISupportInitialize)panelTitle).EndInit();
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "frmLogin";
+            Load += frmLogin_Load;
             panelTitle.ResumeLayout(false);
             panelLogin.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureEdit2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
+            panelLogin.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbClear_2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbClear_1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel2.ResumeLayout(false);
+            panelClose.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panelMini.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.PanelControl panelClose;
-        private PictureBox ptbClose;
-        private DevExpress.XtraEditors.PanelControl panelMini;
-        private PictureBox ptbMini;
-        private DevExpress.XtraEditors.PanelControl panelTitle;
+        private Panel panelTitle;
+        private Panel panel2;
+        private Panel panelClose;
+        private PictureBox pictureBox2;
+        private Panel panelMini;
+        private PictureBox pictureBox1;
         private Components.PanelBoder panelLogin;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
         private Components.ButtonBorder btnLogin;
+        private CheckBox ckShow;
+        private PictureBox ptbClear_1;
+        private PictureBox ptbClear_2;
+
+        private TextBox txtUser;
+        private Panel panel1;
+        private Panel panel3;
+        private TextBox txtPass;
     }
 }
