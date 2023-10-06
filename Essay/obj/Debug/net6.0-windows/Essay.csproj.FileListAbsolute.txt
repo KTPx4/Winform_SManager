@@ -20,4 +20,6 @@ D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\refint\
 D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.pdb
 D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.genruntimeconfig.cache
 D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\ref\Essay.dll
-D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\DevExpress.WinterJoySkin.dll
+D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.UserControl1.resources
+D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.Manager_Account.resources
+D:\Px4_TDTU\TDTU\3HK1\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.UserControl2.resources
