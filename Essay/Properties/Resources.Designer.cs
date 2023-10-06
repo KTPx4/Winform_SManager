@@ -113,6 +113,46 @@ namespace Essay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_home_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-home-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_home_32__0ABEFF {
+            get {
+                object obj = ResourceManager.GetObject("icons8-home-32_#0ABEFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_home_windows_10_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-home-windows-10-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_macos_close_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-macos-close-16", resourceCulture);
@@ -186,6 +226,56 @@ namespace Essay.Properties {
         internal static System.Drawing.Bitmap icons8_macos_un_full_screen_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-macos-un-full-screen-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_menu_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menu-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_rectangle_pulsar_line_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-rectangle-pulsar-line-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_report_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-report-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_student_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-student-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-user-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

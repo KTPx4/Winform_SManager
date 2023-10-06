@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "DevExpress.Win.WinterJoySkin/1.0.2": {
-        "runtime": {
-          "lib/netcoreapp3.0/DevExpress.WinterJoySkin.dll": {
-            "assemblyVersion": "1.0.2.0",
-            "fileVersion": "1.0.2.0"
-          }
-        }
-      },
       "Krypton.Toolkit/70.22.11.312": {
         "runtime": {
           "lib/net6.0-windows7.0/Krypton.Toolkit.dll": {
@@ -25,13 +17,6 @@
     }
   },
   "libraries": {
-    "DevExpress.Win.WinterJoySkin/1.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LmwJltgWcUIXlyIJCwl13d4ajYHnMifdqoRwbyv39SYmvaMNH19JMNg5/nxG8WG7b2DkQwSIy8aQRj9fXVQ7JA==",
-      "path": "devexpress.win.winterjoyskin/1.0.2",
-      "hashPath": "devexpress.win.winterjoyskin.1.0.2.nupkg.sha512"
-    },
     "Krypton.Toolkit/70.22.11.312": {
       "type": "package",
       "serviceable": true,

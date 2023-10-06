@@ -83,7 +83,6 @@
             panelLogin.Controls.Add(ckShow);
             panelLogin.Controls.Add(panel1);
             panelLogin.Controls.Add(btnLogin);
-            panelLogin.Cursor = Cursors.Default;
             panelLogin.Location = new Point(19, 59);
             panelLogin.Margin = new Padding(4, 3, 4, 3);
             panelLogin.Name = "panelLogin";
@@ -290,6 +289,7 @@
             ClientSize = new Size(366, 513);
             Controls.Add(panelTitle);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLogin";
