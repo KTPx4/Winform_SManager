@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Essay
+namespace Essay.Pages
 {
-    public partial class UserControl1 : UserControl
+    public partial class MUser : UserControl
     {
-        public UserControl1()
+        public MUser()
         {
             InitializeComponent();
         }

@@ -84,7 +84,7 @@
             pnNavbar.MinimumSize = new Size(54, 563);
             pnNavbar.Name = "pnNavbar";
             pnNavbar.Size = new Size(180, 563);
-            pnNavbar.StateCommon.Color1 = Color.FromArgb(52, 58, 64);
+            pnNavbar.StateCommon.Color1 = Color.FromArgb(33, 37, 41);
             pnNavbar.TabIndex = 0;
             pnNavbar.Paint += pnNavbar_Paint;
             // 
@@ -339,8 +339,8 @@
             panelMini.Location = new Point(748, 0);
             panelMini.Name = "panelMini";
             panelMini.Size = new Size(32, 53);
-            panelMini.StateCommon.Color1 = Color.FromArgb(74, 112, 122);
-            panelMini.StateCommon.Color2 = Color.FromArgb(221, 221, 218);
+            panelMini.StateCommon.Color1 = Color.Transparent;
+            panelMini.StateCommon.Color2 = Color.Transparent;
             panelMini.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
             panelMini.TabIndex = 3;
             // 
@@ -366,8 +366,8 @@
             panelClose.Location = new Point(780, 0);
             panelClose.Name = "panelClose";
             panelClose.Size = new Size(32, 53);
-            panelClose.StateCommon.Color1 = Color.FromArgb(74, 112, 122);
-            panelClose.StateCommon.Color2 = Color.FromArgb(221, 221, 218);
+            panelClose.StateCommon.Color1 = Color.Transparent;
+            panelClose.StateCommon.Color2 = Color.Transparent;
             panelClose.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
             panelClose.TabIndex = 1;
             // 
@@ -391,8 +391,8 @@
             lbTitleForm.Location = new Point(324, 11);
             lbTitleForm.Name = "lbTitleForm";
             lbTitleForm.Size = new Size(87, 42);
-            lbTitleForm.StateCommon.ShortText.Color1 = Color.MediumBlue;
-            lbTitleForm.StateCommon.ShortText.Color2 = Color.Red;
+            lbTitleForm.StateCommon.ShortText.Color1 = Color.Red;
+            lbTitleForm.StateCommon.ShortText.Color2 = Color.Blue;
             lbTitleForm.StateCommon.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
             lbTitleForm.StateCommon.ShortText.Font = new Font("Lucida Sans Unicode", 18F, FontStyle.Bold, GraphicsUnit.Point);
             lbTitleForm.TabIndex = 3;

@@ -1,6 +1,6 @@
-﻿namespace Essay
+﻿namespace Essay.Pages
 {
-    partial class UserControl2
+    partial class MUser
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,16 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // UserControl2
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            components = new System.ComponentModel.Container();
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
-            Name = "UserControl2";
-            Size = new Size(834, 514);
-            ResumeLayout(false);
         }
 
         #endregion

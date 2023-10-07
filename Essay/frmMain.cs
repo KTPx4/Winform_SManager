@@ -21,12 +21,12 @@ namespace Essay
         public frmMain()
         {
 
-
+            /*
             frmLogin = new frmLogin();
             if (frmLogin.ShowDialog() != DialogResult.OK)
             {
                 Environment.Exit(0);
-            }
+            }*/
 
             InitializeComponent();
 
