@@ -15,7 +15,7 @@ namespace Essay
 {
     public partial class frmMain : KryptonForm
     {
-        private frmLogin frmLogin;
+        private frmLogin frmLogin = null;
         private static bool isExpandedNav = true;
 
         public frmMain()
@@ -29,12 +29,19 @@ namespace Essay
             }*/
 
             InitializeComponent();
+            Style();
+
+        }
+
+        private void Style()
+        {
+            bdLine2.Hide();
 
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            pnTittle = new DraggableKryptonPanel(pnTittle, this);
+            pnTitle = new DraggablePanel(pnTitle, this);
 
 
 
@@ -49,12 +56,12 @@ namespace Essay
         //Title custom
         private void ptbMini_MouseHover(object sender, EventArgs e)
         {
-            panelMini.StateCommon.Color1 = Color.FromArgb(100, 250, 250, 250);
+            pnMini.BackColor = Color.FromArgb(100, 250, 250, 250);
         }
 
         private void ptbClose_MouseHover(object sender, EventArgs e)
         {
-            panelClose.StateCommon.Color1 = Color.FromArgb(100, 250, 250, 250);
+            pnClose.BackColor = Color.FromArgb(100, 250, 250, 250);
 
         }
 
@@ -62,16 +69,19 @@ namespace Essay
 
         private void ptbMini_MouseLeave(object sender, EventArgs e)
         {
-            panelMini.StateCommon.Color1 = Color.FromArgb(74, 112, 122);
-            panelMini.StateCommon.Color2 = Color.FromArgb(221, 221, 218);
+            // panelMini.StateCommon.Color1 = Color.FromArgb(74, 112, 122);
+            //panelMini.StateCommon.Color2 = Color.FromArgb(221, 221, 218);
+            pnMini.BackColor = Color.Transparent;
 
         }
 
         private void ptbClose_MouseLeave(object sender, EventArgs e)
         {
 
-            panelClose.StateCommon.Color1 = Color.FromArgb(74, 112, 122);
-            panelClose.StateCommon.Color2 = Color.FromArgb(221, 221, 218);
+            // panelClose.StateCommon.Color1 = Color.FromArgb(74, 112, 122);
+            //panelClose.StateCommon.Color2 = Color.FromArgb(221, 221, 218);
+            pnClose.BackColor = Color.Transparent;
+
         }
 
         private void ptbClose_Click(object sender, EventArgs e)
@@ -109,14 +119,22 @@ namespace Essay
             pnMenuNav.BackColor = Color.Transparent;
         }
 
+
+        // click navbar
         private void timerNavBar_Tick(object sender, EventArgs e)
         {
             if (isExpandedNav)
             {
                 pnNavbar.Width -= 60;
-                if (pnMenuNav.Width <= pnNavbar.MinimumSize.Width)
+                if (pnNavbar.Width <= pnNavbar.MinimumSize.Width)
                 {
                     isExpandedNav = false;
+
+                    pnMenuNav.BackgroundImage = Properties.Resources.icons8_double_right_16;
+                    bdLine1.Hide();
+                    bdLine2.Show();
+                    pnAllNavbar.BorderStyle = BorderStyle.None;
+
                     timerNavBar.Stop();
                 }
 
@@ -124,9 +142,14 @@ namespace Essay
             else
             {
                 pnNavbar.Width += 60;
-                if (pnMenuNav.Width >= pnNavbar.MaximumSize.Width)
+                if (pnNavbar.Width >= pnNavbar.MaximumSize.Width)
                 {
                     isExpandedNav = true;
+                    pnMenuNav.BackgroundImage = Properties.Resources.icons8_double_left_16;
+                    bdLine1.Show();
+                    bdLine2.Hide();
+                    pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
+
                     timerNavBar.Stop();
                 }
             }
@@ -136,6 +159,28 @@ namespace Essay
         {
 
             timerNavBar.Start();
+
+        }
+
+        private void pnGAvt_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bdLine1_Paint(object sender, PaintEventArgs e)
+        {
+
+
+        }
+
+        private void pnContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnMenuNav_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
