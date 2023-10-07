@@ -2,15 +2,15 @@
 ## Project using winform .NET Core
 ## Main functional of the `Application`
 ```
-	> Manager User 
-		>> Staff 
-		>> Managerment
-	> Manager Student 
-		>> Student 
-		>> Certificate
-	> Report
-		>> Import / Export List Student
-		>> Import / Export List Certificate
+> Manager User 
+>> Staff 
+>> Managerment
+> Manager Student 
+>> Student 
+>> Certificate
+> Report
+>> Import / Export List Student
+>> Import / Export List Certificate
 ```
 
 ----
