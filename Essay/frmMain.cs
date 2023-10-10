@@ -11,13 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Essay.Components;
 using Component;
+using Essay.Pages;
+
 namespace Essay
 {
     public partial class frmMain : KryptonForm
     {
         private frmLogin frmLogin = null;
         private static bool isExpandedNav = true;
-
+        public Action<int, int> ULocationP;
+        private static bool isTabUsers = false;
         public frmMain()
         {
 
@@ -42,7 +45,7 @@ namespace Essay
         private void frmMain_Load(object sender, EventArgs e)
         {
             pnTitle = new DraggablePanel(pnTitle, this);
-
+            
 
 
         }
@@ -51,7 +54,7 @@ namespace Essay
         {
 
         }
-
+      
 
         //Title custom
         private void ptbMini_MouseHover(object sender, EventArgs e)
@@ -123,8 +126,13 @@ namespace Essay
         // click navbar
         private void timerNavBar_Tick(object sender, EventArgs e)
         {
+            
             if (isExpandedNav)
             {
+                if(isTabUsers)
+                {
+                    ULocationP(20, 0);
+                }
                 pnNavbar.Width -= 60;
                 if (pnNavbar.Width <= pnNavbar.MinimumSize.Width)
                 {
@@ -134,6 +142,7 @@ namespace Essay
                     bdLine1.Hide();
                     bdLine2.Show();
                     pnAllNavbar.BorderStyle = BorderStyle.None;
+                    btnStudents.Text = "";
 
                     timerNavBar.Stop();
                 }
@@ -141,6 +150,10 @@ namespace Essay
             }
             else
             {
+                if (isTabUsers)
+                {
+                    ULocationP(-20, 0);
+                }
                 pnNavbar.Width += 60;
                 if (pnNavbar.Width >= pnNavbar.MaximumSize.Width)
                 {
@@ -149,6 +162,7 @@ namespace Essay
                     bdLine1.Show();
                     bdLine2.Hide();
                     pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
+                    btnStudents.Text = "Students";
 
                     timerNavBar.Stop();
                 }
@@ -181,6 +195,22 @@ namespace Essay
         private void pnMenuNav_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            pnContent.Controls.Clear();
+            isTabUsers = true;
+            frmMUser user = new frmMUser();
+            ULocationP = user.ULocationP;
+            user.Dock = DockStyle.Fill;
+            pnContent.Controls.Add(user);
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            pnContent.Controls.Clear();
         }
     }
 }
