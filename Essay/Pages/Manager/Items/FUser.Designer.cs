@@ -30,190 +30,186 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FUser));
             pnID = new Panel();
-            panel8 = new Panel();
-            button2 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            panel7 = new Panel();
-            label4 = new Label();
-            panel4 = new Panel();
-            label3 = new Label();
-            panel6 = new Panel();
-            label2 = new Label();
-            panel5 = new Panel();
-            label1 = new Label();
-            panel3 = new Panel();
-            pictureBox1 = new PictureBox();
+            pnButton = new Panel();
+            btnBlock = new Button();
+            btnDel = new Button();
+            btnViews = new Button();
+            pnStatus = new Panel();
+            lbStatus = new Label();
+            pnSdt = new Panel();
+            lbSdt = new Label();
+            pnName = new Panel();
+            lbName = new Label();
+            pnPrivateID = new Panel();
+            lbID = new Label();
+            pnAvt = new Panel();
+            ptbAvt = new PictureBox();
             pnID.SuspendLayout();
-            panel8.SuspendLayout();
-            panel7.SuspendLayout();
-            panel4.SuspendLayout();
-            panel6.SuspendLayout();
-            panel5.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnButton.SuspendLayout();
+            pnStatus.SuspendLayout();
+            pnSdt.SuspendLayout();
+            pnName.SuspendLayout();
+            pnPrivateID.SuspendLayout();
+            pnAvt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbAvt).BeginInit();
             SuspendLayout();
             // 
             // pnID
             // 
-            pnID.Controls.Add(panel8);
-            pnID.Controls.Add(panel7);
-            pnID.Controls.Add(panel4);
-            pnID.Controls.Add(panel6);
-            pnID.Controls.Add(panel5);
-            pnID.Controls.Add(panel3);
+            pnID.Controls.Add(pnButton);
+            pnID.Controls.Add(pnStatus);
+            pnID.Controls.Add(pnSdt);
+            pnID.Controls.Add(pnName);
+            pnID.Controls.Add(pnPrivateID);
+            pnID.Controls.Add(pnAvt);
             pnID.Location = new Point(0, 0);
             pnID.Name = "pnID";
             pnID.Size = new Size(614, 62);
             pnID.TabIndex = 0;
-            pnID.Paint += panel1_Paint;
             // 
-            // panel8
+            // pnButton
             // 
-            panel8.Controls.Add(button2);
-            panel8.Controls.Add(button5);
-            panel8.Controls.Add(button4);
-            panel8.Dock = DockStyle.Left;
-            panel8.Location = new Point(443, 0);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(115, 62);
-            panel8.TabIndex = 18;
-            panel8.Paint += panel8_Paint;
+            pnButton.Controls.Add(btnBlock);
+            pnButton.Controls.Add(btnDel);
+            pnButton.Controls.Add(btnViews);
+            pnButton.Dock = DockStyle.Left;
+            pnButton.Location = new Point(443, 0);
+            pnButton.Name = "pnButton";
+            pnButton.Size = new Size(130, 62);
+            pnButton.TabIndex = 18;
             // 
-            // button2
+            // btnBlock
             // 
-            button2.Location = new Point(39, 22);
-            button2.Name = "button2";
-            button2.Size = new Size(32, 23);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnBlock.Location = new Point(51, 21);
+            btnBlock.Name = "btnBlock";
+            btnBlock.Size = new Size(32, 23);
+            btnBlock.TabIndex = 1;
+            btnBlock.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnDel
             // 
-            button5.Location = new Point(1, 22);
-            button5.Name = "button5";
-            button5.Size = new Size(32, 23);
-            button5.TabIndex = 1;
-            button5.Text = "button2";
-            button5.UseVisualStyleBackColor = true;
+            btnDel.BackColor = Color.IndianRed;
+            btnDel.FlatStyle = FlatStyle.Flat;
+            btnDel.Location = new Point(9, 21);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(32, 23);
+            btnDel.TabIndex = 1;
+            btnDel.UseVisualStyleBackColor = false;
+            btnDel.Click += btnDelete_Click;
             // 
-            // button4
+            // btnViews
             // 
-            button4.Location = new Point(77, 22);
-            button4.Name = "button4";
-            button4.Size = new Size(32, 23);
-            button4.TabIndex = 0;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            btnViews.Location = new Point(91, 21);
+            btnViews.Name = "btnViews";
+            btnViews.Size = new Size(32, 23);
+            btnViews.TabIndex = 0;
+            btnViews.UseVisualStyleBackColor = true;
             // 
-            // panel7
+            // pnStatus
             // 
-            panel7.Controls.Add(label4);
-            panel7.Dock = DockStyle.Left;
-            panel7.ForeColor = SystemColors.ButtonFace;
-            panel7.Location = new Point(395, 0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(48, 62);
-            panel7.TabIndex = 17;
+            pnStatus.Controls.Add(lbStatus);
+            pnStatus.Dock = DockStyle.Left;
+            pnStatus.ForeColor = SystemColors.ButtonFace;
+            pnStatus.Location = new Point(395, 0);
+            pnStatus.Name = "pnStatus";
+            pnStatus.Size = new Size(48, 62);
+            pnStatus.TabIndex = 17;
             // 
-            // label4
+            // lbStatus
             // 
-            label4.Dock = DockStyle.Fill;
-            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Aqua;
-            label4.Location = new Point(0, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(48, 62);
-            label4.TabIndex = 2;
-            label4.Text = "Offline";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
-            label4.Click += label4_Click;
+            lbStatus.Dock = DockStyle.Fill;
+            lbStatus.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbStatus.ForeColor = Color.Aqua;
+            lbStatus.Location = new Point(0, 0);
+            lbStatus.Name = "lbStatus";
+            lbStatus.Size = new Size(48, 62);
+            lbStatus.TabIndex = 2;
+            lbStatus.Text = "Offline";
+            lbStatus.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panel4
+            // pnSdt
             // 
-            panel4.Controls.Add(label3);
-            panel4.Dock = DockStyle.Left;
-            panel4.ForeColor = SystemColors.Control;
-            panel4.Location = new Point(293, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(102, 62);
-            panel4.TabIndex = 14;
+            pnSdt.Controls.Add(lbSdt);
+            pnSdt.Dock = DockStyle.Left;
+            pnSdt.ForeColor = SystemColors.Control;
+            pnSdt.Location = new Point(293, 0);
+            pnSdt.Name = "pnSdt";
+            pnSdt.Size = new Size(102, 62);
+            pnSdt.TabIndex = 14;
             // 
-            // label3
+            // lbSdt
             // 
-            label3.Dock = DockStyle.Fill;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(102, 62);
-            label3.TabIndex = 1;
-            label3.Text = "0909080705";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
+            lbSdt.Dock = DockStyle.Fill;
+            lbSdt.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSdt.ForeColor = Color.Black;
+            lbSdt.Location = new Point(0, 0);
+            lbSdt.Name = "lbSdt";
+            lbSdt.Size = new Size(102, 62);
+            lbSdt.TabIndex = 1;
+            lbSdt.Text = "0909080705";
+            lbSdt.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panel6
+            // pnName
             // 
-            panel6.Controls.Add(label2);
-            panel6.Dock = DockStyle.Left;
-            panel6.Location = new Point(130, 0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(163, 62);
-            panel6.TabIndex = 15;
+            pnName.Controls.Add(lbName);
+            pnName.Dock = DockStyle.Left;
+            pnName.Location = new Point(130, 0);
+            pnName.Name = "pnName";
+            pnName.Size = new Size(163, 62);
+            pnName.TabIndex = 15;
             // 
-            // label2
+            // lbName
             // 
-            label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(0, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(163, 62);
-            label2.TabIndex = 0;
-            label2.Text = "Join Thormash Worker";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lbName.Dock = DockStyle.Fill;
+            lbName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbName.ForeColor = Color.Black;
+            lbName.Location = new Point(0, 0);
+            lbName.Name = "lbName";
+            lbName.Size = new Size(163, 62);
+            lbName.TabIndex = 0;
+            lbName.Text = "Join Thormash Worker";
+            lbName.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panel5
+            // pnPrivateID
             // 
-            panel5.AutoScroll = true;
-            panel5.Controls.Add(label1);
-            panel5.Dock = DockStyle.Left;
-            panel5.Location = new Point(48, 0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(82, 62);
-            panel5.TabIndex = 16;
+            pnPrivateID.AutoScroll = true;
+            pnPrivateID.Controls.Add(lbID);
+            pnPrivateID.Dock = DockStyle.Left;
+            pnPrivateID.Location = new Point(48, 0);
+            pnPrivateID.Name = "pnPrivateID";
+            pnPrivateID.Size = new Size(82, 62);
+            pnPrivateID.TabIndex = 16;
             // 
-            // label1
+            // lbID
             // 
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(82, 62);
-            label1.TabIndex = 0;
-            label1.Text = "00101l";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
+            lbID.Dock = DockStyle.Fill;
+            lbID.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbID.ForeColor = Color.Black;
+            lbID.Location = new Point(0, 0);
+            lbID.Name = "lbID";
+            lbID.Size = new Size(82, 62);
+            lbID.TabIndex = 0;
+            lbID.Text = "00101l";
+            lbID.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panel3
+            // pnAvt
             // 
-            panel3.Controls.Add(pictureBox1);
-            panel3.Dock = DockStyle.Left;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(48, 62);
-            panel3.TabIndex = 13;
+            pnAvt.Controls.Add(ptbAvt);
+            pnAvt.Dock = DockStyle.Left;
+            pnAvt.Location = new Point(0, 0);
+            pnAvt.Name = "pnAvt";
+            pnAvt.Size = new Size(48, 62);
+            pnAvt.TabIndex = 13;
             // 
-            // pictureBox1
+            // ptbAvt
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(42, 47);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            ptbAvt.Image = (Image)resources.GetObject("ptbAvt.Image");
+            ptbAvt.Location = new Point(3, 8);
+            ptbAvt.Name = "ptbAvt";
+            ptbAvt.Size = new Size(42, 47);
+            ptbAvt.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbAvt.TabIndex = 0;
+            ptbAvt.TabStop = false;
             // 
             // FUser
             // 
@@ -225,32 +221,32 @@
             Size = new Size(615, 74);
             Load += User_Load;
             pnID.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnButton.ResumeLayout(false);
+            pnStatus.ResumeLayout(false);
+            pnSdt.ResumeLayout(false);
+            pnName.ResumeLayout(false);
+            pnPrivateID.ResumeLayout(false);
+            pnAvt.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ptbAvt).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnID;
-        private Panel panel8;
-        private Button button2;
-        private Button button5;
-        private Button button4;
-        private Panel panel7;
-        private Panel panel4;
-        private Panel panel6;
-        private Panel panel5;
-        private Panel panel3;
-        private PictureBox pictureBox1;
-        private Label label2;
-        private Label label1;
-        private Label label4;
-        private Label label3;
+        private Panel pnButton;
+        private Button btnBlock;
+        private Button btnDel;
+        private Button btnViews;
+        private Panel pnStatus;
+        private Panel pnSdt;
+        private Panel pnName;
+        private Panel pnPrivateID;
+        private Panel pnAvt;
+        private PictureBox ptbAvt;
+        private Label lbName;
+        private Label lbID;
+        private Label lbStatus;
+        private Label lbSdt;
     }
 }

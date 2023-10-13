@@ -424,7 +424,6 @@
             // 
             // timerNavBar
             // 
-            timerNavBar.Interval = 120;
             timerNavBar.Tick += timerNavBar_Tick;
             // 
             // pnRightTitle

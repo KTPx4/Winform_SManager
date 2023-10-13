@@ -19,7 +19,7 @@ namespace Essay
     {
 
 
-
+        private bool once = false;
         private frmLogin frmLogin = null;
         public Action ULocationP;
         private static bool isTabUsers = false;
@@ -168,14 +168,13 @@ namespace Essay
 
                 Variables._Width_SetCent = 45;
 
-                if (isTabUsers) // move to center/default when the navbar change
-                {
-                    ULocationP();
-                }
+
 
                 pnNavbar.Width -= 60;
+
                 if (pnNavbar.Width <= pnNavbar.MinimumSize.Width)
                 {
+
                     Variables._isExpandedNav = false;
 
                     pnMenuNav.BackgroundImage = Properties.Resources.icons8_double_right_16;
@@ -184,7 +183,13 @@ namespace Essay
                     pnAllNavbar.BorderStyle = BorderStyle.None;
                     btnStudents.Text = "";
 
+                    if (isTabUsers) // move to center/default when the navbar change
+                    {
+                        ULocationP();
+
+                    }
                     timerNavBar.Stop();
+
                 }
 
             }
@@ -193,20 +198,25 @@ namespace Essay
 
 
                 Variables._Width_SetCent = 0;
-                if (isTabUsers) // move to center/default when the navbar change
-                {
-                    ULocationP();
-                }
+
+
 
                 pnNavbar.Width += 60;
+
                 if (pnNavbar.Width >= pnNavbar.MaximumSize.Width)
                 {
+
                     Variables._isExpandedNav = true;
                     pnMenuNav.BackgroundImage = Properties.Resources.icons8_double_left_16;
                     bdLine1.Show();
                     bdLine2.Hide();
                     pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
                     btnStudents.Text = "Students";
+                    if (isTabUsers) // move to center/default when the navbar change
+                    {
+                        ULocationP();
+
+                    }
 
                     timerNavBar.Stop();
                 }

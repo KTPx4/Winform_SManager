@@ -60,24 +60,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\px4vn\\.nuget\\packages\\": {},
-    "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages": {}
+    "C:\\Users\\Px4\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+      "projectUniqueName": "D:\\Px4_TDTU\\TDTU\\3HK1\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
       "projectName": "Essay",
-      "projectPath": "D:\\University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
-      "packagesPath": "C:\\Users\\px4vn\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\net\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
+      "projectPath": "D:\\Px4_TDTU\\TDTU\\3HK1\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+      "packagesPath": "C:\\Users\\Px4\\.nuget\\packages\\",
+      "outputPath": "D:\\Px4_TDTU\\TDTU\\3HK1\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\px4vn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
+        "C:\\Users\\Px4\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -85,7 +80,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
+        "C:\\Users\\Public\\Documents\\Infragistics\\NuGet\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -128,7 +123,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

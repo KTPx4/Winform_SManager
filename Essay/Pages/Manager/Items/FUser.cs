@@ -1,4 +1,5 @@
 ﻿using Essay.Components;
+using Krypton.Toolkit;
 using System;
 using System.Linq;
 
@@ -34,16 +35,14 @@ namespace Essay.Pages.Items
             InitializeComponent();
             DeleteUser = deleteU;
             ID = iD;
-            panel5.VerticalScroll.Visible = false;
-            panel5.VerticalScroll.Enabled = false;
-            panel5.HorizontalScroll.Visible = false;
-            panel5.HorizontalScroll.Enabled = false;
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteUser(this);
         }
+
         private Color GenerateRandomColor()
         {
             Random random = new Random();
@@ -51,36 +50,16 @@ namespace Essay.Pages.Items
             return randomColor;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void User_Load(object sender, EventArgs e)
         {
             // pnID.BackColor = GenerateRandomColor();
-            pnID.BackColor = Variables._Back_Items_User;
+
+            pnID.BackColor = Variables._Back_Items_Manager;
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(pnID.Location.X.ToString() + "; y= " + pnID.Location.X.ToString());
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

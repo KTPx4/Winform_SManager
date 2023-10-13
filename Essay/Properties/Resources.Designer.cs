@@ -183,6 +183,26 @@ namespace Essay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_find_ios_16_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-find-ios-16-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_find_ios_16_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-find-ios-16-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_home_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-home-32", resourceCulture);

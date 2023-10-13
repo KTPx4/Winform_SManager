@@ -84,7 +84,7 @@ namespace Essay.Pages
             pnListItems.Controls.Add(us);
 
             us.Dock = DockStyle.Top;
-            //  loadListItems();
+
         }
 
         private void upLocationP()
@@ -130,6 +130,11 @@ namespace Essay.Pages
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnListItems_Paint(object sender, PaintEventArgs e)
         {
 
         }
