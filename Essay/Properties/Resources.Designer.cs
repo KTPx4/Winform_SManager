@@ -123,6 +123,26 @@ namespace Essay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_ios_16_filled_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-ios-16-filled-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_ios_16_filled_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-ios-16-filled-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_double_left_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-double-left-16", resourceCulture);
@@ -276,6 +296,16 @@ namespace Essay.Properties {
         internal static System.Drawing.Bitmap icons8_menu_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_minus_material_filled_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-minus-material-filled-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
