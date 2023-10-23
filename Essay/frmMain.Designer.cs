@@ -51,15 +51,17 @@
             btnProfile = new Krypton.Toolkit.KryptonButton();
             lbTypeUser = new Label();
             lbUser = new Label();
-            ptbMini = new PictureBox();
-            ptbClose = new PictureBox();
-            lbTitleForm = new Krypton.Toolkit.KryptonLabel();
-            timerNavBar = new System.Windows.Forms.Timer(components);
-            pnRightTitle = new Panel();
-            pnMini = new Panel();
-            pnClose = new Panel();
             pnContent = new Panel();
             pnTitle = new Panel();
+            lbTitleForm = new Krypton.Toolkit.KryptonLabel();
+            pnRightTitle = new Panel();
+            pnMini = new Panel();
+            ptbMini = new PictureBox();
+            pnClose = new Panel();
+            ptbClose = new PictureBox();
+            timerNavBar = new System.Windows.Forms.Timer(components);
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pnNavbar).BeginInit();
             pnNavbar.SuspendLayout();
             pn1.SuspendLayout();
@@ -70,12 +72,14 @@
             pnStudent.SuspendLayout();
             pnHome.SuspendLayout();
             pnAvt.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ptbClose).BeginInit();
+            pnTitle.SuspendLayout();
             pnRightTitle.SuspendLayout();
             pnMini.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
             pnClose.SuspendLayout();
-            pnTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbClose).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pnNavbar
@@ -379,6 +383,56 @@
             lbUser.MouseLeave += LeaveAvt;
             lbUser.MouseHover += HoverAvt;
             // 
+            // pnContent
+            // 
+            pnContent.Dock = DockStyle.Fill;
+            pnContent.Location = new Point(3, 68);
+            pnContent.Name = "pnContent";
+            pnContent.Size = new Size(814, 492);
+            pnContent.TabIndex = 2;
+            // 
+            // pnTitle
+            // 
+            pnTitle.BackColor = Color.Transparent;
+            pnTitle.Controls.Add(lbTitleForm);
+            pnTitle.Dock = DockStyle.Left;
+            pnTitle.Location = new Point(0, 0);
+            pnTitle.Name = "pnTitle";
+            pnTitle.Size = new Size(590, 59);
+            pnTitle.TabIndex = 3;
+            // 
+            // lbTitleForm
+            // 
+            lbTitleForm.Location = new Point(17, 11);
+            lbTitleForm.Name = "lbTitleForm";
+            lbTitleForm.Size = new Size(87, 42);
+            lbTitleForm.StateCommon.ShortText.Color1 = Color.Linen;
+            lbTitleForm.StateCommon.ShortText.Color2 = Color.LightSkyBlue;
+            lbTitleForm.StateCommon.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
+            lbTitleForm.StateCommon.ShortText.Font = new Font("Lucida Sans Unicode", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbTitleForm.TabIndex = 3;
+            lbTitleForm.Values.Text = "Home ";
+            // 
+            // pnRightTitle
+            // 
+            pnRightTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnRightTitle.BackColor = Color.Transparent;
+            pnRightTitle.Controls.Add(pnMini);
+            pnRightTitle.Controls.Add(pnClose);
+            pnRightTitle.Location = new Point(658, 1);
+            pnRightTitle.Name = "pnRightTitle";
+            pnRightTitle.Size = new Size(153, 56);
+            pnRightTitle.TabIndex = 0;
+            // 
+            // pnMini
+            // 
+            pnMini.BackColor = Color.Transparent;
+            pnMini.Controls.Add(ptbMini);
+            pnMini.Location = new Point(77, 0);
+            pnMini.Name = "pnMini";
+            pnMini.Size = new Size(36, 53);
+            pnMini.TabIndex = 5;
+            // 
             // ptbMini
             // 
             ptbMini.BackColor = Color.Transparent;
@@ -393,6 +447,15 @@
             ptbMini.Click += ptbMini_Click;
             ptbMini.MouseLeave += ptbMini_MouseLeave;
             ptbMini.MouseHover += ptbMini_MouseHover;
+            // 
+            // pnClose
+            // 
+            pnClose.BackColor = Color.Transparent;
+            pnClose.Controls.Add(ptbClose);
+            pnClose.Location = new Point(113, 0);
+            pnClose.Name = "pnClose";
+            pnClose.Size = new Size(36, 53);
+            pnClose.TabIndex = 4;
             // 
             // ptbClose
             // 
@@ -410,68 +473,36 @@
             ptbClose.MouseLeave += ptbClose_MouseLeave;
             ptbClose.MouseHover += ptbClose_MouseHover;
             // 
-            // lbTitleForm
-            // 
-            lbTitleForm.Location = new Point(17, 11);
-            lbTitleForm.Name = "lbTitleForm";
-            lbTitleForm.Size = new Size(87, 42);
-            lbTitleForm.StateCommon.ShortText.Color1 = Color.Linen;
-            lbTitleForm.StateCommon.ShortText.Color2 = Color.LightSkyBlue;
-            lbTitleForm.StateCommon.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
-            lbTitleForm.StateCommon.ShortText.Font = new Font("Lucida Sans Unicode", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lbTitleForm.TabIndex = 3;
-            lbTitleForm.Values.Text = "Home ";
-            // 
             // timerNavBar
             // 
+            timerNavBar.Interval = 130;
             timerNavBar.Tick += timerNavBar_Tick;
             // 
-            // pnRightTitle
+            // tableLayoutPanel1
             // 
-            pnRightTitle.BackColor = Color.Transparent;
-            pnRightTitle.Controls.Add(pnMini);
-            pnRightTitle.Controls.Add(pnClose);
-            pnRightTitle.Dock = DockStyle.Right;
-            pnRightTitle.Location = new Point(843, 0);
-            pnRightTitle.Name = "pnRightTitle";
-            pnRightTitle.Size = new Size(149, 59);
-            pnRightTitle.TabIndex = 0;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 99.99999F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(pnContent, 0, 1);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(172, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.5452929F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.4547043F));
+            tableLayoutPanel1.Size = new Size(820, 563);
+            tableLayoutPanel1.TabIndex = 1;
             // 
-            // pnMini
+            // panel1
             // 
-            pnMini.BackColor = Color.Transparent;
-            pnMini.Controls.Add(ptbMini);
-            pnMini.Location = new Point(77, 0);
-            pnMini.Name = "pnMini";
-            pnMini.Size = new Size(36, 53);
-            pnMini.TabIndex = 5;
-            // 
-            // pnClose
-            // 
-            pnClose.BackColor = Color.Transparent;
-            pnClose.Controls.Add(ptbClose);
-            pnClose.Location = new Point(113, 0);
-            pnClose.Name = "pnClose";
-            pnClose.Size = new Size(36, 53);
-            pnClose.TabIndex = 4;
-            // 
-            // pnContent
-            // 
-            pnContent.Dock = DockStyle.Bottom;
-            pnContent.Location = new Point(172, 59);
-            pnContent.Name = "pnContent";
-            pnContent.Size = new Size(820, 504);
-            pnContent.TabIndex = 2;
-            // 
-            // pnTitle
-            // 
-            pnTitle.BackColor = Color.Transparent;
-            pnTitle.Controls.Add(lbTitleForm);
-            pnTitle.Dock = DockStyle.Left;
-            pnTitle.Location = new Point(172, 0);
-            pnTitle.Name = "pnTitle";
-            pnTitle.Size = new Size(665, 59);
-            pnTitle.TabIndex = 3;
+            panel1.Controls.Add(pnRightTitle);
+            panel1.Controls.Add(pnTitle);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(814, 59);
+            panel1.TabIndex = 3;
             // 
             // frmMain
             // 
@@ -479,9 +510,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 40, 40);
             ClientSize = new Size(992, 563);
-            Controls.Add(pnTitle);
-            Controls.Add(pnRightTitle);
-            Controls.Add(pnContent);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(pnNavbar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -503,13 +532,15 @@
             pnHome.ResumeLayout(false);
             pnAvt.ResumeLayout(false);
             pnAvt.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ptbClose).EndInit();
-            pnRightTitle.ResumeLayout(false);
-            pnMini.ResumeLayout(false);
-            pnClose.ResumeLayout(false);
             pnTitle.ResumeLayout(false);
             pnTitle.PerformLayout();
+            pnRightTitle.ResumeLayout(false);
+            pnMini.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
+            pnClose.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ptbClose).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -550,5 +581,7 @@
         private Panel pnClose;
         private Panel pnMini;
         private Panel panel2;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
     }
 }

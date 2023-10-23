@@ -42,16 +42,14 @@
             label1 = new Label();
             panel14 = new Panel();
             panel1 = new Panel();
+            button2 = new Button();
+            cbbType = new ComboBox();
             pictureBox1 = new PictureBox();
             txtFind = new Krypton.Toolkit.KryptonTextBox();
             pnSetCenter = new Panel();
             pnSide = new Krypton.Toolkit.KryptonPanel();
-            kryptonBorderEdge4 = new Krypton.Toolkit.KryptonBorderEdge();
-            kryptonBorderEdge3 = new Krypton.Toolkit.KryptonBorderEdge();
-            kryptonBorderEdge2 = new Krypton.Toolkit.KryptonBorderEdge();
             button1 = new Button();
             kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
-            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -140,6 +138,7 @@
             label4.TabIndex = 0;
             label4.Text = "Status";
             label4.TextAlign = ContentAlignment.MiddleRight;
+            label4.Click += label4_Click;
             // 
             // panel11
             // 
@@ -216,7 +215,8 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(cbbType);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(txtFind);
             panel1.Dock = DockStyle.Top;
@@ -225,11 +225,30 @@
             panel1.Size = new Size(619, 98);
             panel1.TabIndex = 6;
             // 
+            // button2
+            // 
+            button2.BackgroundImage = Properties.Resources.icons8_reload_16;
+            button2.BackgroundImageLayout = ImageLayout.Center;
+            button2.Location = new Point(553, 37);
+            button2.Name = "button2";
+            button2.Size = new Size(33, 26);
+            button2.TabIndex = 0;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // cbbType
+            // 
+            cbbType.FormattingEnabled = true;
+            cbbType.Items.AddRange(new object[] { "All", "Managers", "Employees" });
+            cbbType.Location = new Point(455, 39);
+            cbbType.Name = "cbbType";
+            cbbType.Size = new Size(83, 23);
+            cbbType.TabIndex = 2;
+            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.White;
             pictureBox1.Image = Properties.Resources.icons8_find_ios_16_16;
-            pictureBox1.Location = new Point(461, 39);
+            pictureBox1.Location = new Point(399, 39);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(29, 22);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -238,7 +257,7 @@
             // 
             // txtFind
             // 
-            txtFind.Location = new Point(81, 32);
+            txtFind.Location = new Point(19, 32);
             txtFind.Multiline = true;
             txtFind.Name = "txtFind";
             txtFind.Size = new Size(419, 36);
@@ -256,17 +275,17 @@
             // 
             // pnSetCenter
             // 
+            pnSetCenter.BackColor = Color.Transparent;
             pnSetCenter.Dock = DockStyle.Left;
             pnSetCenter.Location = new Point(0, 0);
+            pnSetCenter.MaximumSize = new Size(45, 504);
+            pnSetCenter.MinimumSize = new Size(0, 504);
             pnSetCenter.Name = "pnSetCenter";
             pnSetCenter.Size = new Size(0, 504);
             pnSetCenter.TabIndex = 3;
             // 
             // pnSide
             // 
-            pnSide.Controls.Add(kryptonBorderEdge4);
-            pnSide.Controls.Add(kryptonBorderEdge3);
-            pnSide.Controls.Add(kryptonBorderEdge2);
             pnSide.Controls.Add(button1);
             pnSide.Controls.Add(kryptonBorderEdge1);
             pnSide.Dock = DockStyle.Fill;
@@ -277,33 +296,6 @@
             pnSide.StateCommon.Color1 = Color.Transparent;
             pnSide.TabIndex = 0;
             pnSide.Paint += kryptonPanel1_Paint_1;
-            // 
-            // kryptonBorderEdge4
-            // 
-            kryptonBorderEdge4.Dock = DockStyle.Top;
-            kryptonBorderEdge4.Location = new Point(1, 0);
-            kryptonBorderEdge4.Name = "kryptonBorderEdge4";
-            kryptonBorderEdge4.Size = new Size(195, 1);
-            kryptonBorderEdge4.StateCommon.Color1 = Color.DarkGray;
-            kryptonBorderEdge4.Text = "kryptonBorderEdge4";
-            // 
-            // kryptonBorderEdge3
-            // 
-            kryptonBorderEdge3.Dock = DockStyle.Right;
-            kryptonBorderEdge3.Location = new Point(196, 0);
-            kryptonBorderEdge3.Name = "kryptonBorderEdge3";
-            kryptonBorderEdge3.Orientation = Orientation.Vertical;
-            kryptonBorderEdge3.Size = new Size(1, 503);
-            kryptonBorderEdge3.StateCommon.Color1 = Color.DarkGray;
-            // 
-            // kryptonBorderEdge2
-            // 
-            kryptonBorderEdge2.Dock = DockStyle.Bottom;
-            kryptonBorderEdge2.Location = new Point(1, 503);
-            kryptonBorderEdge2.Name = "kryptonBorderEdge2";
-            kryptonBorderEdge2.Size = new Size(196, 1);
-            kryptonBorderEdge2.StateCommon.Color1 = Color.DarkGray;
-            kryptonBorderEdge2.Text = "kryptonBorderEdge2";
             // 
             // button1
             // 
@@ -319,21 +311,13 @@
             // 
             // kryptonBorderEdge1
             // 
-            kryptonBorderEdge1.Dock = DockStyle.Left;
-            kryptonBorderEdge1.Location = new Point(0, 0);
+            kryptonBorderEdge1.Location = new Point(0, 41);
             kryptonBorderEdge1.Name = "kryptonBorderEdge1";
             kryptonBorderEdge1.Orientation = Orientation.Vertical;
-            kryptonBorderEdge1.Size = new Size(1, 504);
-            kryptonBorderEdge1.StateCommon.Color1 = Color.DarkGray;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "All", "Managers", "Employees" });
-            comboBox1.Location = new Point(515, 39);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(83, 23);
-            comboBox1.TabIndex = 2;
+            kryptonBorderEdge1.Size = new Size(1, 450);
+            kryptonBorderEdge1.StateCommon.Color1 = Color.WhiteSmoke;
+            kryptonBorderEdge1.StateCommon.Color2 = Color.DarkGray;
+            kryptonBorderEdge1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
             // 
             // frmMUser
             // 
@@ -369,9 +353,6 @@
         private Krypton.Toolkit.KryptonPanel pnSide;
         private Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge1;
         private Button button1;
-        private Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge3;
-        private Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge2;
-        private Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge4;
         private Panel pnSetCenter;
         private FlowLayoutPanel pnListItems;
         private Panel panel2;
@@ -388,6 +369,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private Krypton.Toolkit.KryptonTextBox txtFind;
-        private ComboBox comboBox1;
+        private ComboBox cbbType;
+        private Button button2;
     }
 }

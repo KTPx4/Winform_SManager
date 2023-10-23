@@ -56,6 +56,7 @@
             // 
             // pnID
             // 
+            pnID.BackColor = Color.FromArgb(110, 194, 247);
             pnID.Controls.Add(pnButton);
             pnID.Controls.Add(pnStatus);
             pnID.Controls.Add(pnSdt);
@@ -107,6 +108,7 @@
             // 
             // pnStatus
             // 
+            pnStatus.BackColor = Color.Transparent;
             pnStatus.Controls.Add(lbStatus);
             pnStatus.Dock = DockStyle.Left;
             pnStatus.ForeColor = SystemColors.ButtonFace;
@@ -117,9 +119,10 @@
             // 
             // lbStatus
             // 
+            lbStatus.BackColor = Color.Transparent;
             lbStatus.Dock = DockStyle.Fill;
-            lbStatus.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lbStatus.ForeColor = Color.Aqua;
+            lbStatus.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbStatus.ForeColor = Color.Red;
             lbStatus.Location = new Point(0, 0);
             lbStatus.Name = "lbStatus";
             lbStatus.Size = new Size(48, 62);
@@ -140,7 +143,7 @@
             // lbSdt
             // 
             lbSdt.Dock = DockStyle.Fill;
-            lbSdt.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbSdt.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             lbSdt.ForeColor = Color.Black;
             lbSdt.Location = new Point(0, 0);
             lbSdt.Name = "lbSdt";
@@ -161,7 +164,7 @@
             // lbName
             // 
             lbName.Dock = DockStyle.Fill;
-            lbName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbName.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             lbName.ForeColor = Color.Black;
             lbName.Location = new Point(0, 0);
             lbName.Name = "lbName";
@@ -183,7 +186,7 @@
             // lbID
             // 
             lbID.Dock = DockStyle.Fill;
-            lbID.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbID.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             lbID.ForeColor = Color.Black;
             lbID.Location = new Point(0, 0);
             lbID.Name = "lbID";

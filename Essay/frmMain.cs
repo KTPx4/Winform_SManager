@@ -21,7 +21,7 @@ namespace Essay
 
         private bool once = false;
         private frmLogin frmLogin = null;
-        public Action ULocationP;
+        public Action<int> ULocationP;
         private static bool isTabUsers = false;
 
         public frmMain()
@@ -157,7 +157,25 @@ namespace Essay
             pnMenuNav.BackColor = Variables._BackGround;
         }
 
+        private void showText(bool b)
+        {
+            if (b)
+            {
+                btnStudents.Text = "Students";
+                btnHome.Text = "Home";
+                btnReport.Text = "Report";
+                btnUsers.Text = "Users";
 
+            }
+            else
+            {
+                btnStudents.Text = "";
+                btnHome.Text = "";
+                btnReport.Text = "";
+                btnUsers.Text = "";
+
+            }
+        }
         // click navbar
         private void timerNavBar_Tick(object sender, EventArgs e)
         {
@@ -167,8 +185,11 @@ namespace Essay
 
 
                 Variables._Width_SetCent = 45;
+                if (isTabUsers) // move to center/default when the navbar change
+                {
+                    // ULocationP(10);
 
-
+                }
 
                 pnNavbar.Width -= 60;
 
@@ -181,13 +202,11 @@ namespace Essay
                     bdLine1.Hide();
                     bdLine2.Show();
                     pnAllNavbar.BorderStyle = BorderStyle.None;
-                    btnStudents.Text = "";
+                    showText(false);
 
-                    if (isTabUsers) // move to center/default when the navbar change
-                    {
-                        ULocationP();
 
-                    }
+                    // this.ResumeLayout();
+
                     timerNavBar.Stop();
 
                 }
@@ -198,7 +217,11 @@ namespace Essay
 
 
                 Variables._Width_SetCent = 0;
+                if (isTabUsers) // move to center/default when the navbar change
+                {
+                    //   ULocationP(10);
 
+                }
 
 
                 pnNavbar.Width += 60;
@@ -211,12 +234,9 @@ namespace Essay
                     bdLine1.Show();
                     bdLine2.Hide();
                     pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
-                    btnStudents.Text = "Students";
-                    if (isTabUsers) // move to center/default when the navbar change
-                    {
-                        ULocationP();
+                    showText(true);
 
-                    }
+                    //  this.ResumeLayout();
 
                     timerNavBar.Stop();
                 }
@@ -226,6 +246,7 @@ namespace Essay
         private void pnMenuNav_Click(object sender, EventArgs e)
         {
 
+            //  this.SuspendLayout();
             timerNavBar.Start();
 
         }
@@ -251,8 +272,10 @@ namespace Essay
             isTabUsers = true;
             frmMUser user = new frmMUser();
             ULocationP = user.ULocationP;
+            // user.Anchor = AnchorStyles.Right;
             user.Dock = DockStyle.Fill;
             pnContent.Controls.Add(user);
+
 
         }
 
@@ -265,5 +288,11 @@ namespace Essay
         {
 
         }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+        }
+
+
     }
 }

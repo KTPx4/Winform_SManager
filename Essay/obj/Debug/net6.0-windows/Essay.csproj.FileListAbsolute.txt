@@ -46,3 +46,27 @@ D:\University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\refint\Essa
 D:\University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.pdb
 D:\University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.genruntimeconfig.cache
 D:\University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\ref\Essay.dll
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\Essay.exe
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\Essay.dll.config
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\Essay.deps.json
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\Essay.runtimeconfig.json
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\Essay.dll
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\Essay.pdb
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net6.0-windows\Krypton.Toolkit.dll
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.csproj.AssemblyReference.cache
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.frmLogin.resources
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.frmMain.resources
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.Pages.frmMUser.resources
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.Pages.Items.FUser.resources
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.Properties.Resources.resources
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.csproj.GenerateResource.cache
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.GeneratedMSBuildEditorConfig.editorconfig
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.AssemblyInfoInputs.cache
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.AssemblyInfo.cs
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.csproj.CoreCompileInputs.cache
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.csproj.CopyComplete
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.dll
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\refint\Essay.dll
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.pdb
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\Essay.genruntimeconfig.cache
+D:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net6.0-windows\ref\Essay.dll

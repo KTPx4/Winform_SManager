@@ -13,7 +13,7 @@ namespace Essay.Pages
 
 
 
-        public Action ULocationP;
+        public Action<int> ULocationP;
         public Action<FUser> deleteUser;
 
         private String id = "ID";
@@ -29,9 +29,11 @@ namespace Essay.Pages
         }
         private void Style()
         {
-            upLocationP();
-            //pnTitleItems.Location = new Point(x_Items + 50, pnTitleItems.Location.Y);
-            // pnTitleItems.Location = new Point(VariableMain._X_Label_User, pnTitleItems.Location.Y);
+            // setLocation();
+            cbbType.SelectedIndex = 0;
+
+
+
         }
         private void DeleteUser(FUser u)
         {
@@ -86,13 +88,37 @@ namespace Essay.Pages
             us.Dock = DockStyle.Top;
 
         }
-
-        private void upLocationP()
+        private void setLocation()
+        {
+            pnSetCenter.Width = Variables._Width_SetCent;
+        }
+        private void upLocationP(int x)
         {
 
             try
             {
-                pnSetCenter.Width = Variables._Width_SetCent;
+
+                if (Variables._isExpandedNav)
+                {
+                    if (pnSetCenter.Width >= pnSetCenter.MaximumSize.Width)
+                    {
+
+                        return;
+                    }
+                    pnSetCenter.Width += x;
+                }
+                else
+                {
+                    if (pnSetCenter.Width <= pnSetCenter.MinimumSize.Width)
+                    {
+
+                        return;
+                    }
+                    pnSetCenter.Width -= x;
+                }
+
+                //pnSetCenter.Width = Variables._Width_SetCent;
+
                 //    pnTitleItems.Location = new Point(VariableMain._X_Label_User, pnTitleItems.Location.Y);
                 /*foreach (FUser item in ListItems)
                 {
@@ -136,6 +162,30 @@ namespace Essay.Pages
 
         private void pnListItems_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
     }
