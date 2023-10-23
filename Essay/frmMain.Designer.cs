@@ -32,8 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             pnNavbar = new Krypton.Toolkit.KryptonPanel();
             pnMenuNav = new Panel();
-            panel3 = new Panel();
-            panel1 = new Panel();
+            pn2 = new Panel();
+            pn1 = new Panel();
+            panel2 = new Panel();
             pnAllNavbar = new Panel();
             pnListsNavs = new Panel();
             pnReport = new Panel();
@@ -50,20 +51,20 @@
             btnProfile = new Krypton.Toolkit.KryptonButton();
             lbTypeUser = new Label();
             lbUser = new Label();
-            panel2 = new Panel();
-            btnThemes = new Krypton.Toolkit.KryptonButton();
-            ptbMini = new PictureBox();
-            ptbClose = new PictureBox();
-            lbTitleForm = new Krypton.Toolkit.KryptonLabel();
-            timerNavBar = new System.Windows.Forms.Timer(components);
-            panel4 = new Panel();
-            panel5 = new Panel();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            pnContent = new Panel();
             pnTitle = new Panel();
-            pnClose = new Panel();
+            lbTitleForm = new Krypton.Toolkit.KryptonLabel();
+            pnRightTitle = new Panel();
             pnMini = new Panel();
+            ptbMini = new PictureBox();
+            pnClose = new Panel();
+            ptbClose = new PictureBox();
+            timerNavBar = new System.Windows.Forms.Timer(components);
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pnNavbar).BeginInit();
             pnNavbar.SuspendLayout();
+            pn1.SuspendLayout();
             pnAllNavbar.SuspendLayout();
             pnListsNavs.SuspendLayout();
             pnReport.SuspendLayout();
@@ -71,26 +72,26 @@
             pnStudent.SuspendLayout();
             pnHome.SuspendLayout();
             pnAvt.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ptbClose).BeginInit();
-            panel4.SuspendLayout();
-            panel5.SuspendLayout();
             pnTitle.SuspendLayout();
+            pnRightTitle.SuspendLayout();
+            pnMini.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
             pnClose.SuspendLayout();
-            this.pnMini.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbClose).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // pnNavbar
             // 
             pnNavbar.Controls.Add(pnMenuNav);
-            pnNavbar.Controls.Add(panel3);
-            pnNavbar.Controls.Add(panel1);
+            pnNavbar.Controls.Add(pn2);
+            pnNavbar.Controls.Add(pn1);
             pnNavbar.Controls.Add(pnAllNavbar);
             pnNavbar.Dock = DockStyle.Left;
             pnNavbar.Location = new Point(0, 0);
             pnNavbar.MaximumSize = new Size(172, 563);
-            pnNavbar.MinimumSize = new Size(54, 563);
+            pnNavbar.MinimumSize = new Size(71, 563);
             pnNavbar.Name = "pnNavbar";
             pnNavbar.Size = new Size(172, 563);
             pnNavbar.StateCommon.Color1 = Color.Transparent;
@@ -109,26 +110,36 @@
             pnMenuNav.Size = new Size(20, 103);
             pnMenuNav.TabIndex = 12;
             pnMenuNav.Click += pnMenuNav_Click;
+            pnMenuNav.MouseLeave += pnMenuNav_MouseLeave;
+            pnMenuNav.MouseHover += pnMenuNav_MouseHover;
             // 
-            // panel3
+            // pn2
             // 
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(163, 521);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(9, 42);
-            panel3.TabIndex = 2;
+            pn2.Dock = DockStyle.Bottom;
+            pn2.Location = new Point(163, 521);
+            pn2.Name = "pn2";
+            pn2.Size = new Size(9, 42);
+            pn2.TabIndex = 2;
             // 
-            // panel1
+            // pn1
             // 
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(163, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(9, 418);
-            panel1.TabIndex = 1;
+            pn1.Controls.Add(panel2);
+            pn1.Dock = DockStyle.Top;
+            pn1.Location = new Point(163, 0);
+            pn1.Name = "pn1";
+            pn1.Size = new Size(9, 418);
+            pn1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(8, 161);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(155, 256);
+            panel2.TabIndex = 0;
             // 
             // pnAllNavbar
             // 
-            pnAllNavbar.BackColor = Color.Transparent;
+            pnAllNavbar.BackColor = Color.FromArgb(45, 46, 45);
             pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
             pnAllNavbar.Controls.Add(pnListsNavs);
             pnAllNavbar.Controls.Add(bdLine1);
@@ -178,11 +189,13 @@
             btnReport.ImageAlign = ContentAlignment.MiddleLeft;
             btnReport.Location = new Point(0, 10);
             btnReport.Name = "btnReport";
-            btnReport.Padding = new Padding(5);
+            btnReport.Padding = new Padding(13, 0, 5, 0);
             btnReport.Size = new Size(190, 45);
             btnReport.TabIndex = 4;
             btnReport.Text = "Report";
             btnReport.UseVisualStyleBackColor = false;
+            btnReport.MouseLeave += LeaveHoverBtn;
+            btnReport.MouseHover += HoverBtn;
             // 
             // pnUser
             // 
@@ -209,11 +222,14 @@
             btnUsers.ImageAlign = ContentAlignment.MiddleLeft;
             btnUsers.Location = new Point(0, 10);
             btnUsers.Name = "btnUsers";
-            btnUsers.Padding = new Padding(5);
+            btnUsers.Padding = new Padding(13, 0, 5, 0);
             btnUsers.Size = new Size(190, 39);
             btnUsers.TabIndex = 2;
             btnUsers.Text = "Users";
             btnUsers.UseVisualStyleBackColor = false;
+            btnUsers.Click += btnUsers_Click;
+            btnUsers.MouseLeave += LeaveHoverBtn;
+            btnUsers.MouseHover += HoverBtn;
             // 
             // pnStudent
             // 
@@ -240,11 +256,13 @@
             btnStudents.ImageAlign = ContentAlignment.MiddleLeft;
             btnStudents.Location = new Point(0, 10);
             btnStudents.Name = "btnStudents";
-            btnStudents.Padding = new Padding(5);
+            btnStudents.Padding = new Padding(13, 0, 5, 0);
             btnStudents.Size = new Size(190, 39);
             btnStudents.TabIndex = 3;
             btnStudents.Text = "Students";
             btnStudents.UseVisualStyleBackColor = false;
+            btnStudents.MouseLeave += LeaveHoverBtn;
+            btnStudents.MouseHover += HoverBtn;
             // 
             // pnHome
             // 
@@ -259,7 +277,7 @@
             // 
             // btnHome
             // 
-            btnHome.BackColor = Color.FromArgb(76, 86, 97);
+            btnHome.BackColor = Color.Transparent;
             btnHome.Cursor = Cursors.Hand;
             btnHome.Dock = DockStyle.Left;
             btnHome.FlatAppearance.BorderSize = 0;
@@ -272,11 +290,14 @@
             btnHome.ImageAlign = ContentAlignment.MiddleLeft;
             btnHome.Location = new Point(0, 10);
             btnHome.Name = "btnHome";
-            btnHome.Padding = new Padding(5);
+            btnHome.Padding = new Padding(13, 0, 5, 0);
             btnHome.Size = new Size(190, 42);
             btnHome.TabIndex = 1;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
+            btnHome.MouseLeave += LeaveHoverBtn;
+            btnHome.MouseHover += HoverBtn;
             // 
             // bdLine1
             // 
@@ -287,7 +308,6 @@
             bdLine1.StateCommon.Color2 = Color.FromArgb(192, 255, 255);
             bdLine1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
             bdLine1.Text = "kryptonBorderEdge1";
-            bdLine1.Paint += bdLine1_Paint;
             // 
             // bdLine2
             // 
@@ -315,7 +335,7 @@
             // 
             btnProfile.CornerRoundingRadius = 50F;
             btnProfile.Cursor = Cursors.Hand;
-            btnProfile.Location = new Point(3, 18);
+            btnProfile.Location = new Point(13, 8);
             btnProfile.Name = "btnProfile";
             btnProfile.Size = new Size(46, 46);
             btnProfile.StateCommon.Back.Color1 = Color.Transparent;
@@ -340,7 +360,7 @@
             lbTypeUser.Cursor = Cursors.Hand;
             lbTypeUser.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbTypeUser.ForeColor = Color.Aqua;
-            lbTypeUser.Location = new Point(68, 46);
+            lbTypeUser.Location = new Point(68, 34);
             lbTypeUser.Name = "lbTypeUser";
             lbTypeUser.Size = new Size(43, 15);
             lbTypeUser.TabIndex = 3;
@@ -355,7 +375,7 @@
             lbUser.Cursor = Cursors.Hand;
             lbUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbUser.ForeColor = Color.White;
-            lbUser.Location = new Point(68, 21);
+            lbUser.Location = new Point(68, 9);
             lbUser.Name = "lbUser";
             lbUser.Size = new Size(38, 21);
             lbUser.TabIndex = 3;
@@ -363,57 +383,23 @@
             lbUser.MouseLeave += LeaveAvt;
             lbUser.MouseHover += HoverAvt;
             // 
-            // panel2
+            // pnContent
             // 
-            panel2.BackColor = Color.FromArgb(40, 40, 40);
-            panel2.Controls.Add(btnThemes);
-            panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(64, 59);
-            panel2.TabIndex = 4;
+            pnContent.Dock = DockStyle.Fill;
+            pnContent.Location = new Point(3, 68);
+            pnContent.Name = "pnContent";
+            pnContent.Size = new Size(814, 492);
+            pnContent.TabIndex = 2;
             // 
-            // btnThemes
+            // pnTitle
             // 
-            btnThemes.CornerRoundingRadius = 15F;
-            btnThemes.Location = new Point(4, 19);
-            btnThemes.Name = "btnThemes";
-            btnThemes.Size = new Size(56, 24);
-            btnThemes.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            btnThemes.StateCommon.Border.Rounding = 15F;
-            btnThemes.StateCommon.Border.Width = 1;
-            btnThemes.TabIndex = 4;
-            btnThemes.Values.Text = "";
-            // 
-            // ptbMini
-            // 
-            ptbMini.BackColor = Color.Transparent;
-            ptbMini.BackgroundImage = Properties.Resources.substract;
-            ptbMini.BackgroundImageLayout = ImageLayout.Stretch;
-            ptbMini.Cursor = Cursors.Hand;
-            ptbMini.Location = new Point(8, 19);
-            ptbMini.Name = "ptbMini";
-            ptbMini.Size = new Size(20, 24);
-            ptbMini.TabIndex = 1;
-            ptbMini.TabStop = false;
-            ptbMini.Click += ptbMini_Click;
-            ptbMini.MouseLeave += ptbMini_MouseLeave;
-            ptbMini.MouseHover += ptbMini_MouseHover;
-            // 
-            // ptbClose
-            // 
-            ptbClose.BackColor = Color.Transparent;
-            ptbClose.BackgroundImage = Properties.Resources.close3;
-            ptbClose.BackgroundImageLayout = ImageLayout.Zoom;
-            ptbClose.Cursor = Cursors.Hand;
-            ptbClose.Location = new Point(10, 19);
-            ptbClose.Name = "ptbClose";
-            ptbClose.Size = new Size(15, 24);
-            ptbClose.TabIndex = 1;
-            ptbClose.TabStop = false;
-            ptbClose.Click += ptbClose_Click;
-            ptbClose.MouseLeave += ptbClose_MouseLeave;
-            ptbClose.MouseHover += ptbClose_MouseHover;
+            pnTitle.BackColor = Color.Transparent;
+            pnTitle.Controls.Add(lbTitleForm);
+            pnTitle.Dock = DockStyle.Left;
+            pnTitle.Location = new Point(0, 0);
+            pnTitle.Name = "pnTitle";
+            pnTitle.Size = new Size(590, 59);
+            pnTitle.TabIndex = 3;
             // 
             // lbTitleForm
             // 
@@ -427,66 +413,96 @@
             lbTitleForm.TabIndex = 3;
             lbTitleForm.Values.Text = "Home ";
             // 
-            // timerNavBar
+            // pnRightTitle
             // 
-            timerNavBar.Interval = 120;
-            timerNavBar.Tick += timerNavBar_Tick;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(this.pnMini);
-            panel4.Controls.Add(pnClose);
-            panel4.Controls.Add(panel2);
-            panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(843, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(149, 59);
-            panel4.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(kryptonButton1);
-            panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(172, 59);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(820, 504);
-            panel5.TabIndex = 2;
-            // 
-            // kryptonButton1
-            // 
-            kryptonButton1.CornerRoundingRadius = -1F;
-            kryptonButton1.Location = new Point(28, 268);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.Size = new Size(226, 96);
-            kryptonButton1.TabIndex = 0;
-            kryptonButton1.Values.Text = "kryptonButton1";
-            // 
-            // pnTitle
-            // 
-            pnTitle.Controls.Add(lbTitleForm);
-            pnTitle.Dock = DockStyle.Left;
-            pnTitle.Location = new Point(172, 0);
-            pnTitle.Name = "pnTitle";
-            pnTitle.Size = new Size(665, 59);
-            pnTitle.TabIndex = 3;
-            // 
-            // pnClose
-            // 
-            pnClose.Controls.Add(ptbClose);
-            pnClose.Dock = DockStyle.Right;
-            pnClose.Location = new Point(113, 0);
-            pnClose.Name = "pnClose";
-            pnClose.Size = new Size(36, 59);
-            pnClose.TabIndex = 4;
+            pnRightTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnRightTitle.BackColor = Color.Transparent;
+            pnRightTitle.Controls.Add(pnMini);
+            pnRightTitle.Controls.Add(pnClose);
+            pnRightTitle.Location = new Point(658, 1);
+            pnRightTitle.Name = "pnRightTitle";
+            pnRightTitle.Size = new Size(153, 56);
+            pnRightTitle.TabIndex = 0;
             // 
             // pnMini
             // 
-            this.pnMini.Controls.Add(ptbMini);
-            this.pnMini.Dock = DockStyle.Right;
-            this.pnMini.Location = new Point(77, 0);
-            this.pnMini.Name = "pnMini";
-            this.pnMini.Size = new Size(36, 59);
-            this.pnMini.TabIndex = 5;
+            pnMini.BackColor = Color.Transparent;
+            pnMini.Controls.Add(ptbMini);
+            pnMini.Location = new Point(77, 0);
+            pnMini.Name = "pnMini";
+            pnMini.Size = new Size(36, 53);
+            pnMini.TabIndex = 5;
+            // 
+            // ptbMini
+            // 
+            ptbMini.BackColor = Color.Transparent;
+            ptbMini.BackgroundImage = Properties.Resources.icons8_minus_material_filled_32;
+            ptbMini.BackgroundImageLayout = ImageLayout.Stretch;
+            ptbMini.Cursor = Cursors.Hand;
+            ptbMini.Location = new Point(8, 17);
+            ptbMini.Name = "ptbMini";
+            ptbMini.Size = new Size(20, 24);
+            ptbMini.TabIndex = 1;
+            ptbMini.TabStop = false;
+            ptbMini.Click += ptbMini_Click;
+            ptbMini.MouseLeave += ptbMini_MouseLeave;
+            ptbMini.MouseHover += ptbMini_MouseHover;
+            // 
+            // pnClose
+            // 
+            pnClose.BackColor = Color.Transparent;
+            pnClose.Controls.Add(ptbClose);
+            pnClose.Location = new Point(113, 0);
+            pnClose.Name = "pnClose";
+            pnClose.Size = new Size(36, 53);
+            pnClose.TabIndex = 4;
+            // 
+            // ptbClose
+            // 
+            ptbClose.BackColor = Color.Transparent;
+            ptbClose.BackgroundImage = Properties.Resources.icons8_close_ios_16_filled_321;
+            ptbClose.BackgroundImageLayout = ImageLayout.Zoom;
+            ptbClose.Cursor = Cursors.Hand;
+            ptbClose.InitialImage = null;
+            ptbClose.Location = new Point(10, 17);
+            ptbClose.Name = "ptbClose";
+            ptbClose.Size = new Size(15, 24);
+            ptbClose.TabIndex = 1;
+            ptbClose.TabStop = false;
+            ptbClose.Click += ptbClose_Click;
+            ptbClose.MouseLeave += ptbClose_MouseLeave;
+            ptbClose.MouseHover += ptbClose_MouseHover;
+            // 
+            // timerNavBar
+            // 
+            timerNavBar.Interval = 130;
+            timerNavBar.Tick += timerNavBar_Tick;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 99.99999F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(pnContent, 0, 1);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(172, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.5452929F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.4547043F));
+            tableLayoutPanel1.Size = new Size(820, 563);
+            tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(pnRightTitle);
+            panel1.Controls.Add(pnTitle);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(814, 59);
+            panel1.TabIndex = 3;
             // 
             // frmMain
             // 
@@ -494,9 +510,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(40, 40, 40);
             ClientSize = new Size(992, 563);
-            Controls.Add(pnTitle);
-            Controls.Add(panel4);
-            Controls.Add(panel5);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(pnNavbar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -508,6 +522,7 @@
             Load += frmMain_Load;
             ((System.ComponentModel.ISupportInitialize)pnNavbar).EndInit();
             pnNavbar.ResumeLayout(false);
+            pn1.ResumeLayout(false);
             pnAllNavbar.ResumeLayout(false);
             pnAllNavbar.PerformLayout();
             pnListsNavs.ResumeLayout(false);
@@ -517,15 +532,15 @@
             pnHome.ResumeLayout(false);
             pnAvt.ResumeLayout(false);
             pnAvt.PerformLayout();
-            panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ptbClose).EndInit();
-            panel4.ResumeLayout(false);
-            panel5.ResumeLayout(false);
             pnTitle.ResumeLayout(false);
             pnTitle.PerformLayout();
+            pnRightTitle.ResumeLayout(false);
+            pnMini.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
             pnClose.ResumeLayout(false);
-            this.pnMini.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ptbClose).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -542,14 +557,13 @@
         private Label lbUser;
         private Label lbTypeUser;
         private System.Windows.Forms.Timer timerNavBar;
-      //  private Krypton.Toolkit.KryptonPanel panelMini;
-       // private Krypton.Toolkit.KryptonPanel pnClose;
+        //  private Krypton.Toolkit.KryptonPanel panelMini;
+        // private Krypton.Toolkit.KryptonPanel pnClose;
         private Krypton.Toolkit.KryptonBorderEdge bdLine1;
         private Panel pnAvt;
         private Krypton.Toolkit.KryptonBorderEdge bdLine2;
-        private Krypton.Toolkit.KryptonButton btnThemes;
         private Panel pnMenuNav;
-        private Panel panel1;
+        private Panel pn1;
         private Panel pnAllNavbar;
         private Panel pnListsNavs;
         private Panel pnReport;
@@ -560,14 +574,14 @@
         private Button btnStudents;
         private Panel pnHome;
         private Button btnHome;
-        private Panel panel2;
-        private Panel panel3;
-        private Panel panel4;
-        private Panel panel5;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Panel pn2;
+        private Panel pnRightTitle;
+        private Panel pnContent;
         private Panel pnTitle;
-        private Panel panel7;
         private Panel pnClose;
         private Panel pnMini;
+        private Panel panel2;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
     }
 }
