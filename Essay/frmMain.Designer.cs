@@ -110,6 +110,7 @@
             pnMenuNav.Size = new Size(20, 103);
             pnMenuNav.TabIndex = 12;
             pnMenuNav.Click += pnMenuNav_Click;
+         //   pnMenuNav.Paint += pnMenuNav_Paint;
             pnMenuNav.MouseLeave += pnMenuNav_MouseLeave;
             pnMenuNav.MouseHover += pnMenuNav_MouseHover;
             // 

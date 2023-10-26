@@ -48,6 +48,11 @@
             txtFind = new Krypton.Toolkit.KryptonTextBox();
             pnSetCenter = new Panel();
             pnSide = new Krypton.Toolkit.KryptonPanel();
+            groupBox2 = new GroupBox();
+            label5 = new Label();
+            cbbStatus = new ComboBox();
+            groupBox1 = new GroupBox();
+            button3 = new Button();
             button1 = new Button();
             kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -63,6 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnSide).BeginInit();
             pnSide.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -138,7 +145,6 @@
             label4.TabIndex = 0;
             label4.Text = "Status";
             label4.TextAlign = ContentAlignment.MiddleRight;
-            label4.Click += label4_Click;
             // 
             // panel11
             // 
@@ -155,7 +161,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(20, 10);
+            label3.Location = new Point(19, 10);
             label3.Name = "label3";
             label3.Size = new Size(53, 20);
             label3.TabIndex = 0;
@@ -198,7 +204,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(47, 10);
+            label1.Location = new Point(46, 10);
             label1.Name = "label1";
             label1.Size = new Size(25, 20);
             label1.TabIndex = 0;
@@ -286,7 +292,8 @@
             // 
             // pnSide
             // 
-            pnSide.Controls.Add(button1);
+            pnSide.Controls.Add(groupBox2);
+            pnSide.Controls.Add(groupBox1);
             pnSide.Controls.Add(kryptonBorderEdge1);
             pnSide.Dock = DockStyle.Fill;
             pnSide.Location = new Point(0, 0);
@@ -295,26 +302,81 @@
             pnSide.Size = new Size(197, 504);
             pnSide.StateCommon.Color1 = Color.Transparent;
             pnSide.TabIndex = 0;
-            pnSide.Paint += kryptonPanel1_Paint_1;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(cbbStatus);
+            groupBox2.ForeColor = Color.White;
+            groupBox2.Location = new Point(2, 232);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(191, 134);
+            groupBox2.TabIndex = 3;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Filter";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(73, 44);
+            label5.Name = "label5";
+            label5.Size = new Size(39, 15);
+            label5.TabIndex = 1;
+            label5.Text = "Status";
+            // 
+            // cbbStatus
+            // 
+            cbbStatus.FormattingEnabled = true;
+            cbbStatus.Items.AddRange(new object[] { "Normal", "Locked", "Deleted" });
+            cbbStatus.Location = new Point(14, 62);
+            cbbStatus.Name = "cbbStatus";
+            cbbStatus.Size = new Size(167, 23);
+            cbbStatus.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(button1);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(2, 23);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(191, 203);
+            groupBox1.TabIndex = 3;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Control";
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Turquoise;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(38, 85);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 39);
+            button3.TabIndex = 1;
+            button3.Text = "Add Staff";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += addStaff_Click;
             // 
             // button1
             // 
             button1.BackColor = Color.Aquamarine;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(67, 39);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(38, 22);
             button1.Name = "button1";
-            button1.Size = new Size(74, 36);
+            button1.Size = new Size(112, 39);
             button1.TabIndex = 1;
-            button1.Text = "Add";
+            button1.Text = "Add Manager";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += addManager_Click;
             // 
             // kryptonBorderEdge1
             // 
-            kryptonBorderEdge1.Location = new Point(0, 41);
+            kryptonBorderEdge1.Location = new Point(0, 6);
             kryptonBorderEdge1.Name = "kryptonBorderEdge1";
             kryptonBorderEdge1.Orientation = Orientation.Vertical;
-            kryptonBorderEdge1.Size = new Size(1, 450);
+            kryptonBorderEdge1.Size = new Size(1, 497);
             kryptonBorderEdge1.StateCommon.Color1 = Color.WhiteSmoke;
             kryptonBorderEdge1.StateCommon.Color2 = Color.DarkGray;
             kryptonBorderEdge1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
@@ -327,6 +389,7 @@
             Controls.Add(splitContainer1);
             Name = "frmMUser";
             Size = new Size(820, 504);
+            Load += frmMUser_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -344,6 +407,9 @@
             ((System.ComponentModel.ISupportInitialize)pnSide).EndInit();
             pnSide.ResumeLayout(false);
             pnSide.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -371,5 +437,10 @@
         private Krypton.Toolkit.KryptonTextBox txtFind;
         private ComboBox cbbType;
         private Button button2;
+        private GroupBox groupBox1;
+        private Button button3;
+        private GroupBox groupBox2;
+        private Label label5;
+        private ComboBox cbbStatus;
     }
 }

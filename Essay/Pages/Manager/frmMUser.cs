@@ -1,6 +1,10 @@
 ﻿using Essay.Components;
+
 using Essay.Pages.Items;
+
 using System;
+using System.Data;
+using System.Data.Linq;
 using System.Linq;
 
 namespace Essay.Pages
@@ -27,14 +31,14 @@ namespace Essay.Pages
             deleteUser = DeleteUser;
             Style();
         }
+
         private void Style()
         {
             // setLocation();
             cbbType.SelectedIndex = 0;
 
-
-
         }
+
         private void DeleteUser(FUser u)
         {
             if (u != null)
@@ -74,13 +78,13 @@ namespace Essay.Pages
             }
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void addManager_Click(object sender, EventArgs e)
         {
 
-            String ids = id + num.ToString();
-            num++;
-            FUser us = new FUser(deleteUser, ids);
-            us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
+
+            FUser us = new FUser(deleteUser, true, "000", "fsf smith", "00001111", true, "");
+
+            //    us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
 
             ListItems.Add(us);
             pnListItems.Controls.Add(us);
@@ -88,10 +92,24 @@ namespace Essay.Pages
             us.Dock = DockStyle.Top;
 
         }
+        private void addStaff_Click(object sender, EventArgs e)
+        {
+
+
+            FUser us = new FUser(deleteUser, false, "11", "Joinh smith", "00001111", false, "husky2.png");
+            //   us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
+
+            ListItems.Add(us);
+            pnListItems.Controls.Add(us);
+
+            us.Dock = DockStyle.Top;
+        }
+
         private void setLocation()
         {
             pnSetCenter.Width = Variables._Width_SetCent;
         }
+
         private void upLocationP(int x)
         {
 
@@ -140,53 +158,41 @@ namespace Essay.Pages
 
         }
 
-        private void kryptonPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
 
+
+
+
+        private void frmMUser_Load(object sender, EventArgs e)
+        {
+            cbbType.SelectedIndex = 0;
+            cbbStatus.SelectedIndex = 0;
+            kryptonBorderEdge1.Hide();
+
+            //DataContextDataContext testdb = new DataContextDataContext();
+
+            //Admin ad = new Admin()
+            //{
+            //    User = "px4",
+            //    Password = "12345",
+            //    Name = "px4k3",
+            //    LinkAVT = "/img"
+            //};
+            //testdb.Admins.InsertOnSubmit(ad);
+            //testdb.SubmitChanges();
+
+            //dgvT.DataSource = testdb.Admins.ToList();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            //  MessageBox.Show(pnTitleItems.Location.X.ToString() + ";" + pnTitleItems.Location.Y.ToString());
-        }
-
-        private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnListItems_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            try
+            {
+                System.IO.Directory.CreateDirectory(Variables._pathAvt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
