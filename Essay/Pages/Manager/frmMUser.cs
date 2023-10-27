@@ -1,5 +1,5 @@
 ﻿using Essay.Components;
-
+using Essay.Pages.Dialog;
 using Essay.Pages.Items;
 
 using System;
@@ -81,15 +81,28 @@ namespace Essay.Pages
         private void addManager_Click(object sender, EventArgs e)
         {
 
+            //dialogProfile dialogProfile = new dialogProfile(1, 0)
+            //{
+            //    id = "1243",
+            //    name = "px4",
+            //    user = "px4k3",
+            //    password = "kkkk",
+            //    phone = "1111111",
+            //    Status = 0,
+            //    birthDay = new DateTime(2023, 10,20)
 
-            FUser us = new FUser(deleteUser, true, "000", "fsf smith", "00001111", true, "");
+            //};
+            //dialogProfile.Show();
 
-            //    us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
 
-            ListItems.Add(us);
-            pnListItems.Controls.Add(us);
+            //FUser us = new FUser(deleteUser, true, "000", "fsf smith", "00001111", true, "");
 
-            us.Dock = DockStyle.Top;
+            ////    us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
+
+            //ListItems.Add(us);
+            //pnListItems.Controls.Add(us);
+
+            //us.Dock = DockStyle.Top;
 
         }
         private void addStaff_Click(object sender, EventArgs e)

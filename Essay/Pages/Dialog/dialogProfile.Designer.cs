@@ -253,7 +253,7 @@
             pnStatus.BackColor = Color.Transparent;
             pnStatus.Controls.Add(txtStatus);
             pnStatus.Controls.Add(label4);
-            pnStatus.Location = new Point(35, 220);
+            pnStatus.Location = new Point(244, 218);
             pnStatus.Name = "pnStatus";
             pnStatus.Size = new Size(172, 34);
             pnStatus.TabIndex = 10;
@@ -262,7 +262,7 @@
             // 
             txtStatus.Location = new Point(43, 5);
             txtStatus.Name = "txtStatus";
-            txtStatus.Size = new Size(126, 23);
+            txtStatus.Size = new Size(130, 23);
             txtStatus.TabIndex = 2;
             // 
             // label4
@@ -281,7 +281,7 @@
             pnPhone.BackColor = Color.Transparent;
             pnPhone.Controls.Add(txtPhone);
             pnPhone.Controls.Add(label7);
-            pnPhone.Location = new Point(245, 220);
+            pnPhone.Location = new Point(35, 218);
             pnPhone.Name = "pnPhone";
             pnPhone.Size = new Size(172, 34);
             pnPhone.TabIndex = 11;
@@ -309,7 +309,7 @@
             pnPass.BackColor = Color.Transparent;
             pnPass.Controls.Add(txtPass);
             pnPass.Controls.Add(label6);
-            pnPass.Location = new Point(245, 174);
+            pnPass.Location = new Point(245, 172);
             pnPass.Name = "pnPass";
             pnPass.Size = new Size(172, 34);
             pnPass.TabIndex = 12;
@@ -394,7 +394,7 @@
             pnName.BackColor = Color.Transparent;
             pnName.Controls.Add(txtName);
             pnName.Controls.Add(label2);
-            pnName.Location = new Point(35, 174);
+            pnName.Location = new Point(35, 172);
             pnName.Name = "pnName";
             pnName.Size = new Size(172, 34);
             pnName.TabIndex = 15;
@@ -450,7 +450,7 @@
             pnControl.Controls.Add(btnSave);
             pnControl.Controls.Add(btnAction);
             pnControl.Controls.Add(btnCancel);
-            pnControl.Location = new Point(94, 296);
+            pnControl.Location = new Point(144, 296);
             pnControl.Name = "pnControl";
             pnControl.Size = new Size(308, 52);
             pnControl.TabIndex = 10;
