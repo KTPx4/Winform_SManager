@@ -75,6 +75,8 @@ namespace Essay
             //content
             pnContent.BackColor = Variables._BackGround;
 
+          
+       
         }
 
         private void frmMain_Load(object sender, EventArgs e)

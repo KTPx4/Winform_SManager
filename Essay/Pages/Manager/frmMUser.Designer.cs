@@ -90,17 +90,17 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(pnSide);
-            splitContainer1.Size = new Size(814, 492);
-            splitContainer1.SplitterDistance = 613;
+            splitContainer1.Size = new Size(815, 492);
+            splitContainer1.SplitterDistance = 603;
             splitContainer1.TabIndex = 0;
             // 
             // pnListItems
             // 
             pnListItems.AutoScroll = true;
             pnListItems.Dock = DockStyle.Fill;
-            pnListItems.Location = new Point(0, 139);
+            pnListItems.Location = new Point(0, 138);
             pnListItems.Name = "pnListItems";
-            pnListItems.Size = new Size(613, 353);
+            pnListItems.Size = new Size(603, 354);
             pnListItems.TabIndex = 8;
             // 
             // panel2
@@ -112,9 +112,9 @@
             panel2.Controls.Add(panel13);
             panel2.Controls.Add(panel14);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 98);
+            panel2.Location = new Point(0, 97);
             panel2.Name = "panel2";
-            panel2.Size = new Size(613, 41);
+            panel2.Size = new Size(603, 41);
             panel2.TabIndex = 7;
             // 
             // panel9
@@ -129,9 +129,9 @@
             // 
             panel10.Controls.Add(label4);
             panel10.Dock = DockStyle.Left;
-            panel10.Location = new Point(413, 0);
+            panel10.Location = new Point(412, 0);
             panel10.Name = "panel10";
-            panel10.Size = new Size(54, 41);
+            panel10.Size = new Size(55, 41);
             panel10.TabIndex = 23;
             // 
             // label4
@@ -141,7 +141,7 @@
             label4.ForeColor = Color.White;
             label4.Location = new Point(0, 0);
             label4.Name = "label4";
-            label4.Size = new Size(54, 41);
+            label4.Size = new Size(55, 41);
             label4.TabIndex = 0;
             label4.Text = "Status";
             label4.TextAlign = ContentAlignment.MiddleRight;
@@ -151,7 +151,7 @@
             panel11.Controls.Add(label3);
             panel11.Dock = DockStyle.Left;
             panel11.ForeColor = SystemColors.Control;
-            panel11.Location = new Point(305, 0);
+            panel11.Location = new Point(304, 0);
             panel11.Name = "panel11";
             panel11.Size = new Size(108, 41);
             panel11.TabIndex = 20;
@@ -161,7 +161,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(19, 10);
+            label3.Location = new Point(19, 9);
             label3.Name = "label3";
             label3.Size = new Size(53, 20);
             label3.TabIndex = 0;
@@ -172,7 +172,7 @@
             // 
             panel12.Controls.Add(label2);
             panel12.Dock = DockStyle.Left;
-            panel12.Location = new Point(130, 0);
+            panel12.Location = new Point(129, 0);
             panel12.Name = "panel12";
             panel12.Size = new Size(175, 41);
             panel12.TabIndex = 21;
@@ -196,7 +196,7 @@
             panel13.Dock = DockStyle.Left;
             panel13.Location = new Point(48, 0);
             panel13.Name = "panel13";
-            panel13.Size = new Size(82, 41);
+            panel13.Size = new Size(81, 41);
             panel13.TabIndex = 22;
             // 
             // label1
@@ -204,7 +204,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(46, 10);
+            label1.Location = new Point(47, 9);
             label1.Name = "label1";
             label1.Size = new Size(25, 20);
             label1.TabIndex = 0;
@@ -228,7 +228,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(613, 98);
+            panel1.Size = new Size(603, 97);
             panel1.TabIndex = 6;
             // 
             // button2
@@ -237,7 +237,7 @@
             button2.BackgroundImageLayout = ImageLayout.Center;
             button2.Location = new Point(553, 37);
             button2.Name = "button2";
-            button2.Size = new Size(33, 26);
+            button2.Size = new Size(33, 25);
             button2.TabIndex = 0;
             button2.UseVisualStyleBackColor = true;
             // 
@@ -256,7 +256,7 @@
             pictureBox1.Image = Properties.Resources.icons8_find_ios_16_16;
             pictureBox1.Location = new Point(399, 39);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(29, 22);
+            pictureBox1.Size = new Size(29, 23);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -264,6 +264,8 @@
             // txtFind
             // 
             txtFind.Location = new Point(19, 32);
+            txtFind.MaximumSize = new Size(419, 36);
+            txtFind.MinimumSize = new Size(419, 36);
             txtFind.Multiline = true;
             txtFind.Name = "txtFind";
             txtFind.Size = new Size(419, 36);
@@ -295,22 +297,23 @@
             pnSide.Controls.Add(groupBox2);
             pnSide.Controls.Add(groupBox1);
             pnSide.Controls.Add(kryptonBorderEdge1);
-            pnSide.Dock = DockStyle.Right;
+            pnSide.Dock = DockStyle.Fill;
             pnSide.Location = new Point(0, 0);
             pnSide.Name = "pnSide";
             pnSide.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlCustom1;
-            pnSide.Size = new Size(197, 492);
+            pnSide.Size = new Size(208, 492);
             pnSide.StateCommon.Color1 = Color.Transparent;
             pnSide.TabIndex = 0;
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(cbbStatus);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(2, 206);
+            groupBox2.Location = new Point(1, 207);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(191, 134);
+            groupBox2.Size = new Size(204, 135);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filter";
@@ -318,7 +321,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(73, 44);
+            label5.Location = new Point(52, 43);
             label5.Name = "label5";
             label5.Size = new Size(39, 15);
             label5.TabIndex = 1;
@@ -326,33 +329,36 @@
             // 
             // cbbStatus
             // 
+            cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Normal", "Locked", "Deleted" });
-            cbbStatus.Location = new Point(14, 62);
+            cbbStatus.Location = new Point(15, 63);
             cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(167, 23);
+            cbbStatus.Size = new Size(179, 23);
             cbbStatus.TabIndex = 0;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button1);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(2, 23);
+            groupBox1.Location = new Point(1, 23);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(191, 177);
+            groupBox1.Size = new Size(204, 177);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Control";
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button3.BackColor = Color.Turquoise;
             button3.FlatStyle = FlatStyle.Flat;
             button3.ForeColor = Color.Black;
-            button3.Location = new Point(38, 85);
+            button3.Location = new Point(22, 91);
             button3.Name = "button3";
-            button3.Size = new Size(112, 39);
+            button3.Size = new Size(163, 39);
             button3.TabIndex = 1;
             button3.Text = "Add Staff";
             button3.UseVisualStyleBackColor = false;
@@ -360,12 +366,13 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             button1.BackColor = Color.Aquamarine;
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(38, 22);
+            button1.Location = new Point(22, 36);
             button1.Name = "button1";
-            button1.Size = new Size(112, 39);
+            button1.Size = new Size(163, 39);
             button1.TabIndex = 1;
             button1.Text = "Add Manager";
             button1.UseVisualStyleBackColor = false;
@@ -373,7 +380,7 @@
             // 
             // kryptonBorderEdge1
             // 
-            kryptonBorderEdge1.Location = new Point(0, 6);
+            kryptonBorderEdge1.Location = new Point(0, 7);
             kryptonBorderEdge1.Name = "kryptonBorderEdge1";
             kryptonBorderEdge1.Orientation = Orientation.Vertical;
             kryptonBorderEdge1.Size = new Size(1, 497);
@@ -385,11 +392,10 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            AutoSize = true;
             BackColor = Color.Transparent;
             Controls.Add(splitContainer1);
             Name = "frmMUser";
-            Size = new Size(814, 492);
+            Size = new Size(815, 492);
             Load += frmMUser_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
