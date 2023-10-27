@@ -74,9 +74,9 @@
             // 
             // splitContainer1
             // 
+            splitContainer1.BackColor = Color.Transparent;
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.FixedPanel = FixedPanel.Panel2;
-            splitContainer1.IsSplitterFixed = true;
             splitContainer1.Location = new Point(0, 0);
             splitContainer1.Name = "splitContainer1";
             // 
@@ -90,8 +90,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(pnSide);
-            splitContainer1.Size = new Size(820, 504);
-            splitContainer1.SplitterDistance = 619;
+            splitContainer1.Size = new Size(814, 492);
+            splitContainer1.SplitterDistance = 613;
             splitContainer1.TabIndex = 0;
             // 
             // pnListItems
@@ -100,7 +100,7 @@
             pnListItems.Dock = DockStyle.Fill;
             pnListItems.Location = new Point(0, 139);
             pnListItems.Name = "pnListItems";
-            pnListItems.Size = new Size(619, 365);
+            pnListItems.Size = new Size(613, 353);
             pnListItems.TabIndex = 8;
             // 
             // panel2
@@ -114,7 +114,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 98);
             panel2.Name = "panel2";
-            panel2.Size = new Size(619, 41);
+            panel2.Size = new Size(613, 41);
             panel2.TabIndex = 7;
             // 
             // panel9
@@ -228,7 +228,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(619, 98);
+            panel1.Size = new Size(613, 98);
             panel1.TabIndex = 6;
             // 
             // button2
@@ -295,11 +295,11 @@
             pnSide.Controls.Add(groupBox2);
             pnSide.Controls.Add(groupBox1);
             pnSide.Controls.Add(kryptonBorderEdge1);
-            pnSide.Dock = DockStyle.Fill;
+            pnSide.Dock = DockStyle.Right;
             pnSide.Location = new Point(0, 0);
             pnSide.Name = "pnSide";
             pnSide.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlCustom1;
-            pnSide.Size = new Size(197, 504);
+            pnSide.Size = new Size(197, 492);
             pnSide.StateCommon.Color1 = Color.Transparent;
             pnSide.TabIndex = 0;
             // 
@@ -308,7 +308,7 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(cbbStatus);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(2, 232);
+            groupBox2.Location = new Point(2, 206);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(191, 134);
             groupBox2.TabIndex = 3;
@@ -340,7 +340,7 @@
             groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(2, 23);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(191, 203);
+            groupBox1.Size = new Size(191, 177);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             groupBox1.Text = "Control";
@@ -383,12 +383,13 @@
             // 
             // frmMUser
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSize = true;
             BackColor = Color.Transparent;
             Controls.Add(splitContainer1);
             Name = "frmMUser";
-            Size = new Size(820, 504);
+            Size = new Size(814, 492);
             Load += frmMUser_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);

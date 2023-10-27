@@ -110,7 +110,6 @@
             pnMenuNav.Size = new Size(20, 103);
             pnMenuNav.TabIndex = 12;
             pnMenuNav.Click += pnMenuNav_Click;
-         //   pnMenuNav.Paint += pnMenuNav_Paint;
             pnMenuNav.MouseLeave += pnMenuNav_MouseLeave;
             pnMenuNav.MouseHover += pnMenuNav_MouseHover;
             // 
@@ -386,8 +385,10 @@
             // 
             // pnContent
             // 
+            pnContent.BackColor = Color.FromArgb(40, 40, 40);
             pnContent.Dock = DockStyle.Fill;
             pnContent.Location = new Point(3, 68);
+            pnContent.MinimumSize = new Size(814, 492);
             pnContent.Name = "pnContent";
             pnContent.Size = new Size(814, 492);
             pnContent.TabIndex = 2;

@@ -129,24 +129,7 @@ namespace Essay.Pages
             try
             {
 
-                if (Variables._isExpandedNav)
-                {
-                    if (pnSetCenter.Width >= pnSetCenter.MaximumSize.Width)
-                    {
-
-                        return;
-                    }
-                    pnSetCenter.Width += x;
-                }
-                else
-                {
-                    if (pnSetCenter.Width <= pnSetCenter.MinimumSize.Width)
-                    {
-
-                        return;
-                    }
-                    pnSetCenter.Width -= x;
-                }
+                this.Width = this.Width + x;
 
                 //pnSetCenter.Width = Variables._Width_SetCent;
 

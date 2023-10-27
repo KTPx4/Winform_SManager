@@ -185,9 +185,10 @@ namespace Essay
 
 
                 Variables._Width_SetCent = 45;
-                if (isTabUsers) // move to center/default when the navbar change
+                if (isTabUsers && !once) // move to center/default when the navbar change 
                 {
-                    // ULocationP(10);
+                    once = !once; // true
+                    // ULocationP(100);
 
                 }
 
@@ -205,8 +206,8 @@ namespace Essay
                     showText(false);
 
 
-                    // this.ResumeLayout();
-
+                    this.ResumeLayout();
+                    once = !once; // false
                     timerNavBar.Stop();
 
                 }
@@ -217,9 +218,10 @@ namespace Essay
 
 
                 Variables._Width_SetCent = 0;
-                if (isTabUsers) // move to center/default when the navbar change
+                if (isTabUsers && !once) // move to center/default when the navbar change
                 {
-                    //   ULocationP(10);
+                    once = !once; // true
+                                  // ULocationP(-100);
 
                 }
 
@@ -236,8 +238,8 @@ namespace Essay
                     pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
                     showText(true);
 
-                    //  this.ResumeLayout();
-
+                    this.ResumeLayout();
+                    once = !once; // false
                     timerNavBar.Stop();
                 }
             }
@@ -246,7 +248,7 @@ namespace Essay
         private void pnMenuNav_Click(object sender, EventArgs e)
         {
 
-            //  this.SuspendLayout();
+            this.SuspendLayout();
             timerNavBar.Start();
 
         }
@@ -273,8 +275,8 @@ namespace Essay
             frmMUser user = new frmMUser();
             ULocationP = user.ULocationP;
             // user.Anchor = AnchorStyles.Right;
-            user.Dock = DockStyle.Fill;
             pnContent.Controls.Add(user);
+            user.Dock = DockStyle.Fill;
 
 
         }
