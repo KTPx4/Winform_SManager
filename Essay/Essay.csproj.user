@@ -26,4 +26,9 @@
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Update="Model\EssayDB.dbml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
 </Project>

@@ -9,14 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Essay.Components;
-using Component;
+//using Components;
 using Essay.Pages;
+using Essay.Pages.Dialog;
+using Components;
 
 namespace Essay
 {
     public partial class frmMain : KryptonForm
     {
+        public String NameUser { get; set; }
+        public String TypeUser { get; set; }
+        public String linkAvt {  get; set; }
+
 
 
         private bool once = false;
@@ -37,10 +42,17 @@ namespace Essay
             }*/
 
             InitializeComponent();
-            Style();
+           
+            
 
         }
-
+        private void setupProfile()
+        {
+            lbName.Text = NameUser;
+            lbTypeUser.Text = TypeUser;
+            btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
+        //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
+        }
         private void Style()
         {
             bdLine2.Hide();
@@ -57,7 +69,7 @@ namespace Essay
             pnAvt.BackColor = Variables._BackNav;
 
             // label
-            lbUser.BackColor = Variables._BackNav;
+            lbName.BackColor = Variables._BackNav;
             lbTypeUser.BackColor = Variables._BackNav;
 
 
@@ -85,6 +97,8 @@ namespace Essay
         {
             pnTitle = new DraggablePanel(pnTitle, this);
 
+            Style(); 
+            setupProfile();
 
 
         }
@@ -139,7 +153,7 @@ namespace Essay
         private void HoverAvt(object sender, EventArgs e)
         {
             pnAvt.BackColor = Variables._HoverENav;
-            lbUser.BackColor = Variables._HoverENav;
+            lbName.BackColor = Variables._HoverENav;
             lbTypeUser.BackColor = Variables._HoverENav;
         }
         private void LeaveAvt(object sender, EventArgs e)
@@ -147,7 +161,7 @@ namespace Essay
             //pnAvt.BackColor = Color.FromArgb(255, 76, 86, 97);
 
             pnAvt.BackColor = Variables._BackNav;
-            lbUser.BackColor = Variables._BackNav;
+            lbName.BackColor = Variables._BackNav;
             lbTypeUser.BackColor = Variables._BackNav;
         }
 
@@ -295,11 +309,13 @@ namespace Essay
         // open profile
         private void OpenProfile()
         {
+            dialogProfile pf = new dialogProfile("Pxk3", 1);
+            pf.Show();
 
         }
         private void btnProfile_Click(object sender, EventArgs e)
         {
-
+            OpenProfile();
         }
     }
 }

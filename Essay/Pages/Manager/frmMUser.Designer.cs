@@ -30,19 +30,8 @@
         {
             splitContainer1 = new SplitContainer();
             pnListItems = new FlowLayoutPanel();
-            pnTitle = new Panel();
-            panel9 = new Panel();
-            panel10 = new Panel();
-            label4 = new Label();
-            panel11 = new Panel();
-            label3 = new Label();
-            panel12 = new Panel();
-            label2 = new Label();
-            panel13 = new Panel();
-            label1 = new Label();
-            panel14 = new Panel();
             panel1 = new Panel();
-            button2 = new Button();
+            btnReload = new Button();
             cbbType = new ComboBox();
             pictureBox1 = new PictureBox();
             txtFind = new Krypton.Toolkit.KryptonTextBox();
@@ -59,11 +48,6 @@
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
-            pnTitle.SuspendLayout();
-            panel10.SuspendLayout();
-            panel11.SuspendLayout();
-            panel12.SuspendLayout();
-            panel13.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnSide).BeginInit();
@@ -84,7 +68,6 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(pnListItems);
-            splitContainer1.Panel1.Controls.Add(pnTitle);
             splitContainer1.Panel1.Controls.Add(panel1);
             splitContainer1.Panel1.Controls.Add(pnSetCenter);
             // 
@@ -99,142 +82,15 @@
             // 
             pnListItems.AutoScroll = true;
             pnListItems.Dock = DockStyle.Fill;
-            pnListItems.Location = new Point(0, 177);
-            pnListItems.Margin = new Padding(2);
+            pnListItems.Location = new Point(0, 98);
+            pnListItems.Margin = new Padding(0);
             pnListItems.Name = "pnListItems";
-            pnListItems.Size = new Size(588, 315);
+            pnListItems.Size = new Size(588, 394);
             pnListItems.TabIndex = 8;
-            // 
-            // pnTitle
-            // 
-            pnTitle.Controls.Add(panel9);
-            pnTitle.Controls.Add(panel10);
-            pnTitle.Controls.Add(panel11);
-            pnTitle.Controls.Add(panel12);
-            pnTitle.Controls.Add(panel13);
-            pnTitle.Controls.Add(panel14);
-            pnTitle.Dock = DockStyle.Top;
-            pnTitle.Location = new Point(0, 98);
-            pnTitle.Margin = new Padding(2);
-            pnTitle.Name = "pnTitle";
-            pnTitle.Size = new Size(588, 79);
-            pnTitle.TabIndex = 7;
-            // 
-            // panel9
-            // 
-            panel9.Dock = DockStyle.Left;
-            panel9.Location = new Point(466, 0);
-            panel9.Margin = new Padding(2);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(130, 79);
-            panel9.TabIndex = 24;
-            // 
-            // panel10
-            // 
-            panel10.Controls.Add(label4);
-            panel10.Dock = DockStyle.Left;
-            panel10.Location = new Point(412, 0);
-            panel10.Margin = new Padding(2);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(54, 79);
-            panel10.TabIndex = 23;
-            // 
-            // label4
-            // 
-            label4.Dock = DockStyle.Fill;
-            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(0, 0);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(54, 79);
-            label4.TabIndex = 0;
-            label4.Text = "Status";
-            label4.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // panel11
-            // 
-            panel11.Controls.Add(label3);
-            panel11.Dock = DockStyle.Left;
-            panel11.ForeColor = SystemColors.Control;
-            panel11.Location = new Point(304, 0);
-            panel11.Margin = new Padding(2);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(108, 79);
-            panel11.TabIndex = 20;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(23, 11);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(53, 20);
-            label3.TabIndex = 0;
-            label3.Text = "Phone";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panel12
-            // 
-            panel12.Controls.Add(label2);
-            panel12.Dock = DockStyle.Left;
-            panel12.Location = new Point(130, 0);
-            panel12.Margin = new Padding(2);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(174, 79);
-            panel12.TabIndex = 21;
-            // 
-            // label2
-            // 
-            label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(0, 0);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(174, 79);
-            label2.TabIndex = 0;
-            label2.Text = "Name";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panel13
-            // 
-            panel13.AutoScroll = true;
-            panel13.Controls.Add(label1);
-            panel13.Dock = DockStyle.Left;
-            panel13.Location = new Point(48, 0);
-            panel13.Margin = new Padding(2);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(82, 79);
-            panel13.TabIndex = 22;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(28, 10);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(25, 20);
-            label1.TabIndex = 0;
-            label1.Text = "ID";
-            label1.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // panel14
-            // 
-            panel14.Dock = DockStyle.Left;
-            panel14.Location = new Point(0, 0);
-            panel14.Margin = new Padding(2);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(48, 79);
-            panel14.TabIndex = 19;
             // 
             // panel1
             // 
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnReload);
             panel1.Controls.Add(cbbType);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(txtFind);
@@ -245,16 +101,17 @@
             panel1.Size = new Size(588, 98);
             panel1.TabIndex = 6;
             // 
-            // button2
+            // btnReload
             // 
-            button2.BackgroundImage = Properties.Resources.icons8_reload_16;
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.Location = new Point(554, 38);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(34, 26);
-            button2.TabIndex = 0;
-            button2.UseVisualStyleBackColor = true;
+            btnReload.BackgroundImage = Properties.Resources.icons8_reload_16;
+            btnReload.BackgroundImageLayout = ImageLayout.Center;
+            btnReload.Location = new Point(554, 38);
+            btnReload.Margin = new Padding(2);
+            btnReload.Name = "btnReload";
+            btnReload.Size = new Size(34, 26);
+            btnReload.TabIndex = 0;
+            btnReload.UseVisualStyleBackColor = true;
+            btnReload.Click += Reload_Click;
             // 
             // cbbType
             // 
@@ -432,13 +289,6 @@
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            pnTitle.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel12.ResumeLayout(false);
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -459,22 +309,11 @@
         private Button button1;
         private Panel pnSetCenter;
         private FlowLayoutPanel pnListItems;
-        private Panel pnTitle;
-        private Panel panel9;
-        private Panel panel10;
-        private Label label4;
-        private Panel panel11;
-        private Label label3;
-        private Panel panel12;
-        private Label label2;
-        private Panel panel13;
-        private Label label1;
-        private Panel panel14;
         private Panel panel1;
         private PictureBox pictureBox1;
         private Krypton.Toolkit.KryptonTextBox txtFind;
         private ComboBox cbbType;
-        private Button button2;
+        private Button btnReload;
         private GroupBox groupBox1;
         private Button button3;
         private GroupBox groupBox2;

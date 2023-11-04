@@ -23,7 +23,7 @@ namespace Essay.Pages.Items
             pnMenuNav.BackgroundImage = Properties.Resources.icons8_double_left_16;
          */
         public bool _isManager { get; set; }
-        public String _UID { get; set; }
+        public String _UserName { get; set; }
         public String _Name { get; set; }
         public String _Phone { get; set; }
         public bool _isOnline { get; set; }
@@ -40,7 +40,7 @@ namespace Essay.Pages.Items
             DeleteUser = null;
 
 
-            _UID = "";
+            _UserName = "";
             _Name = "";
             _Phone = "";
             _isOnline = false;
@@ -53,7 +53,7 @@ namespace Essay.Pages.Items
         {
             InitializeComponent();
             DeleteUser = deleteU;
-            _UID = iD;
+            _UserName = iD;
             _Name = "";
             _Phone = "";
             _isOnline = false;
@@ -61,16 +61,11 @@ namespace Essay.Pages.Items
             _isManager = false;
 
         }
-        public FUser(Action<FUser> deleteU, bool isManager, string iD, string name, string phone, bool isOnline, string link)
+        public FUser(Action<FUser> deleteU)
         {
             InitializeComponent();
             DeleteUser = deleteU;
-            _UID = iD;
-            _Name = name;
-            _Phone = phone;
-            _isOnline = isOnline;
-            _LinkAvt = link;
-            _isManager = isManager;
+
         }
 
         private void CreateTitle()
@@ -101,7 +96,7 @@ namespace Essay.Pages.Items
         {
             pnID.Location = new Point(Variables._X_Item_User, pnID.Location.Y);
             pnID.BackColor = _isManager ? Variables._Back_Items_Manager : Variables._Back_Items_User;
-            lbID.Text = _UID;
+            lbID.Text = _UserName;
             lbName.Text = _Name;
             lbSdt.Text = _Phone;
             lbStatus.Text = _isOnline ? "Online" : "Offline";
@@ -110,7 +105,7 @@ namespace Essay.Pages.Items
             // change img 
             if (_LinkAvt != "")
             {
-                ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}";
+                ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
 
             }
         }

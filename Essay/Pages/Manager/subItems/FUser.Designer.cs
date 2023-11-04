@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FUser));
             pnID = new Panel();
             pnButton = new Panel();
-            btnBlock = new Button();
-            btnDel = new Button();
-            btnViews = new Button();
+            btnViews = new PictureBox();
+            btnBlock = new PictureBox();
+            btnDel = new PictureBox();
             pnStatus = new Panel();
             lbStatus = new Label();
             pnSdt = new Panel();
@@ -46,6 +46,9 @@
             ptbAvt = new PictureBox();
             pnID.SuspendLayout();
             pnButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnViews).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnBlock).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDel).BeginInit();
             pnStatus.SuspendLayout();
             pnSdt.SuspendLayout();
             pnName.SuspendLayout();
@@ -64,52 +67,51 @@
             pnID.Controls.Add(pnPrivateID);
             pnID.Controls.Add(pnAvt);
             pnID.Location = new Point(0, 0);
-            pnID.Margin = new Padding(3, 4, 3, 4);
             pnID.Name = "pnID";
-            pnID.Size = new Size(702, 83);
+            pnID.Size = new Size(588, 62);
             pnID.TabIndex = 0;
             // 
             // pnButton
             // 
+            pnButton.Controls.Add(btnViews);
             pnButton.Controls.Add(btnBlock);
             pnButton.Controls.Add(btnDel);
-            pnButton.Controls.Add(btnViews);
-            pnButton.Dock = DockStyle.Right;
-            pnButton.Location = new Point(544, 0);
-            pnButton.Margin = new Padding(3, 4, 3, 4);
+            pnButton.Dock = DockStyle.Fill;
+            pnButton.Location = new Point(464, 0);
             pnButton.Name = "pnButton";
-            pnButton.Size = new Size(158, 83);
+            pnButton.Size = new Size(124, 62);
             pnButton.TabIndex = 18;
-            // 
-            // btnBlock
-            // 
-            btnBlock.Location = new Point(63, 27);
-            btnBlock.Margin = new Padding(3, 4, 3, 4);
-            btnBlock.Name = "btnBlock";
-            btnBlock.Size = new Size(37, 31);
-            btnBlock.TabIndex = 1;
-            btnBlock.UseVisualStyleBackColor = true;
-            // 
-            // btnDel
-            // 
-            btnDel.BackColor = Color.IndianRed;
-            btnDel.FlatStyle = FlatStyle.Flat;
-            btnDel.Location = new Point(15, 27);
-            btnDel.Margin = new Padding(3, 4, 3, 4);
-            btnDel.Name = "btnDel";
-            btnDel.Size = new Size(37, 31);
-            btnDel.TabIndex = 1;
-            btnDel.UseVisualStyleBackColor = false;
-            btnDel.Click += btnDelete_Click;
             // 
             // btnViews
             // 
-            btnViews.Location = new Point(109, 27);
-            btnViews.Margin = new Padding(3, 4, 3, 4);
+            btnViews.Image = Properties.Resources.icons8_view_32;
+            btnViews.Location = new Point(78, 22);
             btnViews.Name = "btnViews";
-            btnViews.Size = new Size(37, 31);
-            btnViews.TabIndex = 0;
-            btnViews.UseVisualStyleBackColor = true;
+            btnViews.Size = new Size(26, 24);
+            btnViews.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnViews.TabIndex = 2;
+            btnViews.TabStop = false;
+            // 
+            // btnBlock
+            // 
+            btnBlock.Image = Properties.Resources.icons8_lock_32_Yellow2;
+            btnBlock.Location = new Point(43, 19);
+            btnBlock.Name = "btnBlock";
+            btnBlock.Size = new Size(26, 24);
+            btnBlock.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnBlock.TabIndex = 2;
+            btnBlock.TabStop = false;
+            // 
+            // btnDel
+            // 
+            btnDel.Image = Properties.Resources.icons8_delete_32;
+            btnDel.Location = new Point(8, 20);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(26, 26);
+            btnDel.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnDel.TabIndex = 2;
+            btnDel.TabStop = false;
+            btnDel.Click += btnDelete_Click;
             // 
             // pnStatus
             // 
@@ -117,10 +119,9 @@
             pnStatus.Controls.Add(lbStatus);
             pnStatus.Dock = DockStyle.Left;
             pnStatus.ForeColor = SystemColors.ButtonFace;
-            pnStatus.Location = new Point(452, 0);
-            pnStatus.Margin = new Padding(3, 4, 3, 4);
+            pnStatus.Location = new Point(395, 0);
             pnStatus.Name = "pnStatus";
-            pnStatus.Size = new Size(86, 83);
+            pnStatus.Size = new Size(69, 62);
             pnStatus.TabIndex = 17;
             // 
             // lbStatus
@@ -131,21 +132,19 @@
             lbStatus.ForeColor = Color.Blue;
             lbStatus.Location = new Point(0, 0);
             lbStatus.Name = "lbStatus";
-            lbStatus.Size = new Size(86, 83);
+            lbStatus.Size = new Size(69, 62);
             lbStatus.TabIndex = 2;
             lbStatus.Text = "Offline";
             lbStatus.TextAlign = ContentAlignment.MiddleCenter;
-          //  lbStatus.Click += lbStatus_Click;
             // 
             // pnSdt
             // 
             pnSdt.Controls.Add(lbSdt);
             pnSdt.Dock = DockStyle.Left;
             pnSdt.ForeColor = SystemColors.Control;
-            pnSdt.Location = new Point(335, 0);
-            pnSdt.Margin = new Padding(3, 4, 3, 4);
+            pnSdt.Location = new Point(293, 0);
             pnSdt.Name = "pnSdt";
-            pnSdt.Size = new Size(117, 83);
+            pnSdt.Size = new Size(102, 62);
             pnSdt.TabIndex = 14;
             // 
             // lbSdt
@@ -155,7 +154,7 @@
             lbSdt.ForeColor = Color.Black;
             lbSdt.Location = new Point(0, 0);
             lbSdt.Name = "lbSdt";
-            lbSdt.Size = new Size(117, 83);
+            lbSdt.Size = new Size(102, 62);
             lbSdt.TabIndex = 1;
             lbSdt.Text = "0909080705";
             lbSdt.TextAlign = ContentAlignment.MiddleLeft;
@@ -164,10 +163,9 @@
             // 
             pnName.Controls.Add(lbName);
             pnName.Dock = DockStyle.Left;
-            pnName.Location = new Point(149, 0);
-            pnName.Margin = new Padding(3, 4, 3, 4);
+            pnName.Location = new Point(130, 0);
             pnName.Name = "pnName";
-            pnName.Size = new Size(186, 83);
+            pnName.Size = new Size(163, 62);
             pnName.TabIndex = 15;
             // 
             // lbName
@@ -177,7 +175,7 @@
             lbName.ForeColor = Color.Black;
             lbName.Location = new Point(0, 0);
             lbName.Name = "lbName";
-            lbName.Size = new Size(186, 83);
+            lbName.Size = new Size(163, 62);
             lbName.TabIndex = 0;
             lbName.Text = "Join Thormash Worker";
             lbName.TextAlign = ContentAlignment.MiddleCenter;
@@ -187,10 +185,9 @@
             pnPrivateID.AutoScroll = true;
             pnPrivateID.Controls.Add(lbID);
             pnPrivateID.Dock = DockStyle.Left;
-            pnPrivateID.Location = new Point(55, 0);
-            pnPrivateID.Margin = new Padding(3, 4, 3, 4);
+            pnPrivateID.Location = new Point(48, 0);
             pnPrivateID.Name = "pnPrivateID";
-            pnPrivateID.Size = new Size(94, 83);
+            pnPrivateID.Size = new Size(82, 62);
             pnPrivateID.TabIndex = 16;
             // 
             // lbID
@@ -200,7 +197,7 @@
             lbID.ForeColor = Color.Black;
             lbID.Location = new Point(0, 0);
             lbID.Name = "lbID";
-            lbID.Size = new Size(94, 83);
+            lbID.Size = new Size(82, 62);
             lbID.TabIndex = 0;
             lbID.Text = "00101l";
             lbID.TextAlign = ContentAlignment.MiddleCenter;
@@ -210,9 +207,8 @@
             pnAvt.Controls.Add(ptbAvt);
             pnAvt.Dock = DockStyle.Left;
             pnAvt.Location = new Point(0, 0);
-            pnAvt.Margin = new Padding(3, 4, 3, 4);
             pnAvt.Name = "pnAvt";
-            pnAvt.Size = new Size(55, 83);
+            pnAvt.Size = new Size(48, 62);
             pnAvt.TabIndex = 13;
             // 
             // ptbAvt
@@ -220,25 +216,26 @@
             ptbAvt.Dock = DockStyle.Fill;
             ptbAvt.Image = (Image)resources.GetObject("ptbAvt.Image");
             ptbAvt.Location = new Point(0, 0);
-            ptbAvt.Margin = new Padding(3, 4, 3, 4);
             ptbAvt.Name = "ptbAvt";
-            ptbAvt.Size = new Size(55, 83);
+            ptbAvt.Size = new Size(48, 62);
             ptbAvt.SizeMode = PictureBoxSizeMode.StretchImage;
             ptbAvt.TabIndex = 0;
             ptbAvt.TabStop = false;
             // 
             // FUser
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             Controls.Add(pnID);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FUser";
-            Size = new Size(709, 99);
+            Size = new Size(597, 74);
             Load += User_Load;
             pnID.ResumeLayout(false);
             pnButton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnViews).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnBlock).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDel).EndInit();
             pnStatus.ResumeLayout(false);
             pnSdt.ResumeLayout(false);
             pnName.ResumeLayout(false);
@@ -252,9 +249,6 @@
 
         private Panel pnID;
         private Panel pnButton;
-        private Button btnBlock;
-        private Button btnDel;
-        private Button btnViews;
         private Panel pnStatus;
         private Panel pnSdt;
         private Panel pnName;
@@ -265,5 +259,8 @@
         private Label lbID;
         private Label lbStatus;
         private Label lbSdt;
+        private PictureBox btnDel;
+        private PictureBox btnViews;
+        private PictureBox btnBlock;
     }
 }

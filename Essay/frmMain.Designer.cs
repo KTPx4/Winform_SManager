@@ -50,7 +50,7 @@
             pnAvt = new Panel();
             btnProfile = new Krypton.Toolkit.KryptonButton();
             lbTypeUser = new Label();
-            lbUser = new Label();
+            lbName = new Label();
             pnContent = new Panel();
             pnTitle = new Panel();
             lbTitleForm = new Krypton.Toolkit.KryptonLabel();
@@ -341,13 +341,14 @@
             // 
             pnAvt.Controls.Add(btnProfile);
             pnAvt.Controls.Add(lbTypeUser);
-            pnAvt.Controls.Add(lbUser);
+            pnAvt.Controls.Add(lbName);
             pnAvt.Dock = DockStyle.Top;
             pnAvt.Location = new Point(0, 0);
             pnAvt.Margin = new Padding(2, 3, 2, 3);
             pnAvt.Name = "pnAvt";
             pnAvt.Size = new Size(154, 80);
             pnAvt.TabIndex = 4;
+            pnAvt.Click += btnProfile_Click;
             // 
             // btnProfile
             // 
@@ -386,24 +387,26 @@
             lbTypeUser.Size = new Size(43, 15);
             lbTypeUser.TabIndex = 3;
             lbTypeUser.Text = "Admin";
+            lbTypeUser.Click += btnProfile_Click;
             lbTypeUser.MouseLeave += LeaveAvt;
             lbTypeUser.MouseHover += HoverAvt;
             // 
-            // lbUser
+            // lbName
             // 
-            lbUser.AutoSize = true;
-            lbUser.BackColor = Color.Transparent;
-            lbUser.Cursor = Cursors.Hand;
-            lbUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbUser.ForeColor = Color.White;
-            lbUser.Location = new Point(65, 10);
-            lbUser.Margin = new Padding(2, 0, 2, 0);
-            lbUser.Name = "lbUser";
-            lbUser.Size = new Size(38, 21);
-            lbUser.TabIndex = 3;
-            lbUser.Text = "Px4";
-            lbUser.MouseLeave += LeaveAvt;
-            lbUser.MouseHover += HoverAvt;
+            lbName.AutoSize = true;
+            lbName.BackColor = Color.Transparent;
+            lbName.Cursor = Cursors.Hand;
+            lbName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbName.ForeColor = Color.White;
+            lbName.Location = new Point(65, 10);
+            lbName.Margin = new Padding(2, 0, 2, 0);
+            lbName.Name = "lbName";
+            lbName.Size = new Size(38, 21);
+            lbName.TabIndex = 3;
+            lbName.Text = "Px4";
+            lbName.Click += btnProfile_Click;
+            lbName.MouseLeave += LeaveAvt;
+            lbName.MouseHover += HoverAvt;
             // 
             // pnContent
             // 
@@ -590,7 +593,7 @@
         private PictureBox ptbClose;
         private Krypton.Toolkit.KryptonLabel lbTitleForm;
         private Krypton.Toolkit.KryptonButton btnProfile;
-        private Label lbUser;
+        private Label lbName;
         private Label lbTypeUser;
         private System.Windows.Forms.Timer timerNavBar;
         //  private Krypton.Toolkit.KryptonPanel panelMini;

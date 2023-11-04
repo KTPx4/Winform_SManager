@@ -1,4 +1,6 @@
 ﻿using Essay.Components;
+using Essay.Controllers;
+using Essay.Model;
 using Essay.Pages.Dialog;
 using Essay.Pages.Items;
 
@@ -89,7 +91,8 @@ namespace Essay.Pages
                 password = "kkkk",
                 phone = "1111111",
                 Status = 0,
-                birthDay = new DateTime(2023, 10, 20)
+                birthDay = new DateTime(2023, 10, 20),
+                linkAvt = "husky2.png"
 
             };
             dialogProfile.Show();
@@ -159,17 +162,71 @@ namespace Essay.Pages
 
 
 
+        private void LoadDB() // for load list user from db
+        {
+            try
+            {
+                FUser title = new FUser();
+                title.Dock = DockStyle.Top;
+                pnListItems.Controls.Clear();
+                pnListItems.Controls.Add(title);
 
+                List<Employee> listEmployee = new EmployeeController().GetAll();
+                List<Manager> listManager = new ManagerController().GetAll();
+
+                foreach (var m in listManager)
+                {
+                    FUser f = new FUser(deleteUser)
+                    {
+                        _isManager = true,
+                        _UserName = m.User,
+                        _Name = m.Name,
+                        _Phone = m.Phone,
+                        _isOnline = (bool)m.isOnline,
+                        _LinkAvt = m.LinkAVT
+                    };
+
+                    ListItems.Add(f);
+                    pnListItems.Controls.Add(f);
+                    f.Dock = DockStyle.Top;
+
+                }
+
+                foreach (var em in listEmployee)
+                {
+                    FUser f = new FUser(deleteUser)
+                    {
+                        _isManager = false,
+                        _UserName = em.User,
+                        _Name = em.Name,
+                        _Phone = em.Phone,
+                        _isOnline = (bool)em.isOnline,
+                        _LinkAvt = em.LinkAVT
+                    };
+
+                    ListItems.Add(f);
+                    pnListItems.Controls.Add(f);
+                    f.Dock = DockStyle.Top;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error :" + e.Message);
+            }
+
+        }
 
         private void frmMUser_Load(object sender, EventArgs e)
         {
             cbbType.SelectedIndex = 0;
             cbbStatus.SelectedIndex = 0;
             kryptonBorderEdge1.Hide();
-            FUser title = new FUser();
-            title.Dock = DockStyle.Fill;
-            pnTitle.Controls.Clear();
-            pnTitle.Controls.Add(title);
+
+
+            //load list
+            LoadDB();
 
             //DataContextDataContext testdb = new DataContextDataContext();
 
@@ -196,6 +253,11 @@ namespace Essay.Pages
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Reload_Click(object sender, EventArgs e)
+        {
+            LoadDB();
         }
     }
 }

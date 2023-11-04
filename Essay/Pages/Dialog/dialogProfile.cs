@@ -1,4 +1,4 @@
-﻿using Component;
+﻿using Components;
 using Essay.Components;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Essay.Pages.Dialog
 {
@@ -22,8 +23,10 @@ namespace Essay.Pages.Dialog
         public string password { get; set; }
         public string phone { get; set; }
         public DateTime birthDay { get; set; }
-
+        public string linkAvt { get; set; }
         public int Status { get; set; }
+
+
 
         private int typeUser = 0; // 0 -> manager, 1-> employee
         private int typeOpen = 0; // 0 -> add new, 1-> edit
@@ -45,104 +48,132 @@ namespace Essay.Pages.Dialog
             this.typeOpen = typeOpen;
             this.typeUser = typeUser;
         }
-        public dialogProfile(String Username)
+        public dialogProfile(String Username, int typeUser) // for edit user
         {
             InitializeComponent();
-            typeOpen = 1;
-
-            // get type user by load from data
+            typeOpen = 1; // edit
+            this.typeUser = typeUser;              // 
+            this.user = Username;
             LoadInfor(Username);
+            // get type user by load from data 
 
         }
 
-        // pnControl 94, 296 : 3button
-        // 134, 296 : 2button
-
         private void LoadInfor(String user) // load infor mation and type user to variable
         {
+            // test
+           // this.typeUser = 1; // hide button block
+
+            // action load data to variable
+
+
 
         }
 
         void loadForm()
         {
-            pnTitle = new DraggablePanel(pnTitle, this);
-            if (typeOpen == 0) // type add new profile
+            try
             {
-                pnControl.Location = new Point(144, 296);
-                btnAction.Hide();
-                btnEdit.Hide();
-                pnStatus.Hide();
-                pnGroupTxt.Enabled = true;
+                pnTitle = new DraggablePanel(pnTitle, this);
+                txtStatus.Enabled = false;
+                if (typeOpen == 0) // type add new profile
+                {
+                    // pnControl 94, 296 : 3button
+                    // 134, 296 : 2button
+                    pnControl.Location = new Point(144, 296);
 
-                if (typeUser == 0)
-                {
-                    // action add manager
+
+                    btnAction.Hide();
+                    btnEdit.Hide();
+                    pnStatus.Hide();
+                    pnGroupTxt.Enabled = true;
+
+                    if (typeUser == 0)
+                    {
+                        // action add manager
+                    }
+                    else if (typeUser == 1)
+                    {
+                        // action add employee
+                    }
                 }
-                else if (typeUser == 1)
+                else if (typeOpen == 1) // type edit profile and show button action if manager
                 {
-                    // action add employee
+
+
+                    // pnControl 94, 296 : 3button
+                    // 134, 296 : 2button
+
+
+                    //fill textbox
+                    // txtID.Text = id;
+                    txtName.Text = name;
+                    txtPass.Text = password;
+                    txtPhone.Text = phone;
+                    txtUser.Text = user;
+                    txtDate.DateTime = birthDay;
+                    try
+                    {
+                        btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
+
+                    }catch (Exception ex) 
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+
+                    MessageBox.Show(typeUser.ToString());
+                    if (typeUser == 0) // check type user can use button block/unblock
+                    {
+                        pnControl.Location = new Point(94, 296);
+
+
+                        btnAction.Show();
+                        btnEdit.Show();
+                        if (Status == 0)
+                        {
+                            textStatus = "Active";
+                            btnAction.Text = "Block";
+                            typeBtnAction = 1; // action block
+                        }
+                        else if (Status == 1)
+                        {
+                            textStatus = "Blocked";
+                            btnAction.Text = "Active";
+                            typeBtnAction = 0; // action active
+
+
+                        }
+                        else
+                        {
+                            textStatus = "Deleted";
+                            btnAction.Text = "Restore";
+                            typeBtnAction = 0; // action active
+
+                        }
+                    }
+                    else
+                    {
+                        pnControl.Location = new Point(144, 296);
+                        btnAction.Hide();
+                        btnEdit.Show();
+                    }
+
+                    txtStatus.Text = textStatus;
+
+
                 }
             }
-            else if (typeOpen == 1 && typeUser == 0) // type edit profile and show button action if manager
+            catch (Exception e)
             {
-
-
-                pnControl.Location = new Point(94, 296);
-                btnAction.Show();
-                btnEdit.Show();
-
-                //fill textbox
-                // txtID.Text = id;
-                txtName.Text = name;
-                txtPass.Text = password;
-                txtPhone.Text = phone;
-                txtUser.Text = user;
-                txtDate.DateTime = birthDay;
-
-                if (Status == 0)
-                {
-                    textStatus = "Active";
-                    btnAction.Text = "Block";
-                    typeBtnAction = 1; // action block
-                }
-                else if (Status == 1)
-                {
-                    textStatus = "Blocked";
-                    btnAction.Text = "Active";
-                    typeBtnAction = 0; // action active
-
-
-                }
-                else
-                {
-                    textStatus = "Deleted";
-                    btnAction.Text = "Restore";
-                    typeBtnAction = 0; // action active
-
-                }
-                txtStatus.Text = textStatus;
-
+                MessageBox.Show("Error: " + e.Message);
             }
-            else if (typeOpen == 1) // edit for each account -> hide button block / unblock
-            {
-                pnControl.Location = new Point(144, 296);
-                btnAction.Hide();
-                btnEdit.Show();
-
-                //fill textbox
-                // txtID.Text = id;
-                txtName.Text = name;
-                txtPass.Text = password;
-                txtPhone.Text = phone;
-                txtUser.Text = user;
-                txtDate.Text = birthDay.ToString();
-
-
-            }
+           
+         
         }
 
         private void dialogProfile_Load(object sender, EventArgs e)
         {
+          
             loadForm();
         }
 

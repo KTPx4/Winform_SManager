@@ -2,7 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-namespace Component
+namespace Components
 {
     public class DraggableKryptonPanel : KryptonPanel
     {
