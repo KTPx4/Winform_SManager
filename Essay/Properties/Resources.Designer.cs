@@ -123,6 +123,26 @@ namespace Essay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Husky {
+            get {
+                object obj = ResourceManager.GetObject("Husky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap husky2 {
+            get {
+                object obj = ResourceManager.GetObject("husky2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_close_ios_16_filled_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-close-ios-16-filled-32", resourceCulture);
@@ -136,6 +156,16 @@ namespace Essay.Properties {
         internal static System.Drawing.Bitmap icons8_close_ios_16_filled_321 {
             get {
                 object obj = ResourceManager.GetObject("icons8-close-ios-16-filled-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-delete-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +256,36 @@ namespace Essay.Properties {
         internal static System.Drawing.Bitmap icons8_home_windows_10_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-home-windows-10-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_lock_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-lock-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_lock_32_Yellow {
+            get {
+                object obj = ResourceManager.GetObject("icons8-lock-32_Yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_lock_32_Yellow2 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-lock-32_Yellow2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -396,6 +456,16 @@ namespace Essay.Properties {
         internal static System.Drawing.Bitmap icons8_user_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_view_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-view-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

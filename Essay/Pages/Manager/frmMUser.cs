@@ -1,6 +1,12 @@
 ﻿using Essay.Components;
+using Essay.Controllers;
+using Essay.Model;
+using Essay.Pages.Dialog;
 using Essay.Pages.Items;
+
 using System;
+using System.Data;
+using System.Data.Linq;
 using System.Linq;
 
 namespace Essay.Pages
@@ -27,14 +33,14 @@ namespace Essay.Pages
             deleteUser = DeleteUser;
             Style();
         }
+
         private void Style()
         {
             // setLocation();
             cbbType.SelectedIndex = 0;
 
-
-
         }
+
         private void DeleteUser(FUser u)
         {
             if (u != null)
@@ -74,48 +80,62 @@ namespace Essay.Pages
             }
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void addManager_Click(object sender, EventArgs e)
         {
 
-            String ids = id + num.ToString();
-            num++;
-            FUser us = new FUser(deleteUser, ids);
-            us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
+            dialogProfile dialogProfile = new dialogProfile(1, 0)
+            {
+                id = "1243",
+                name = "px4",
+                user = "px4k3",
+                password = "kkkk",
+                phone = "1111111",
+                Status = 0,
+                birthDay = new DateTime(2023, 10, 20),
+                linkAvt = "husky2.png"
 
-            ListItems.Add(us);
-            pnListItems.Controls.Add(us);
+            };
+            dialogProfile.Show();
 
-            us.Dock = DockStyle.Top;
+
+            //FUser us = new FUser(deleteUser, true, "000", "fsf smith", "00001111", true, "");
+
+            ////    us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
+
+            //ListItems.Add(us);
+            //pnListItems.Controls.Add(us);
+
+            //us.Dock = DockStyle.Top;
 
         }
+        private void addStaff_Click(object sender, EventArgs e)
+        {
+
+
+            //   FUser us = new FUser(deleteUser, false, "11", "Joinh smith", "00001111", false, "husky2.png");
+            //   us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
+
+            //ListItems.Add(us);
+            // pnListItems.Controls.Add(us);
+
+            //us.Dock = DockStyle.Top;
+
+            dialogProfile dialogProfile = new dialogProfile();
+            dialogProfile.Show();
+        }
+
         private void setLocation()
         {
             pnSetCenter.Width = Variables._Width_SetCent;
         }
+
         private void upLocationP(int x)
         {
 
             try
             {
 
-                if (Variables._isExpandedNav)
-                {
-                    if (pnSetCenter.Width >= pnSetCenter.MaximumSize.Width)
-                    {
-
-                        return;
-                    }
-                    pnSetCenter.Width += x;
-                }
-                else
-                {
-                    if (pnSetCenter.Width <= pnSetCenter.MinimumSize.Width)
-                    {
-
-                        return;
-                    }
-                    pnSetCenter.Width -= x;
-                }
+                this.Width = this.Width + x;
 
                 //pnSetCenter.Width = Variables._Width_SetCent;
 
@@ -140,53 +160,104 @@ namespace Essay.Pages
 
         }
 
-        private void kryptonPanel1_Paint_1(object sender, PaintEventArgs e)
+
+
+        private void LoadDB() // for load list user from db
         {
+            try
+            {
+                FUser title = new FUser();
+                title.Dock = DockStyle.Top;
+                pnListItems.Controls.Clear();
+                pnListItems.Controls.Add(title);
+
+                List<Employee> listEmployee = new EmployeeController().GetAll();
+                List<Manager> listManager = new ManagerController().GetAll();
+
+                foreach (var m in listManager)
+                {
+                    FUser f = new FUser(deleteUser)
+                    {
+                        _isManager = true,
+                        _UserName = m.User,
+                        _Name = m.Name,
+                        _Phone = m.Phone,
+                        _isOnline = (bool)m.isOnline,
+                        _LinkAvt = m.LinkAVT
+                    };
+
+                    ListItems.Add(f);
+                    pnListItems.Controls.Add(f);
+                    f.Dock = DockStyle.Top;
+
+                }
+
+                foreach (var em in listEmployee)
+                {
+                    FUser f = new FUser(deleteUser)
+                    {
+                        _isManager = false,
+                        _UserName = em.User,
+                        _Name = em.Name,
+                        _Phone = em.Phone,
+                        _isOnline = (bool)em.isOnline,
+                        _LinkAvt = em.LinkAVT
+                    };
+
+                    ListItems.Add(f);
+                    pnListItems.Controls.Add(f);
+                    f.Dock = DockStyle.Top;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error :" + e.Message);
+            }
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void frmMUser_Load(object sender, EventArgs e)
         {
-            //  MessageBox.Show(pnTitleItems.Location.X.ToString() + ";" + pnTitleItems.Location.Y.ToString());
+            cbbType.SelectedIndex = 0;
+            cbbStatus.SelectedIndex = 0;
+            kryptonBorderEdge1.Hide();
+
+
+            //load list
+            LoadDB();
+
+            //DataContextDataContext testdb = new DataContextDataContext();
+
+            //Admin ad = new Admin()
+            //{
+            //    User = "px4",
+            //    Password = "12345",
+            //    Name = "px4k3",
+            //    LinkAVT = "/img"
+            //};
+            //testdb.Admins.InsertOnSubmit(ad);
+            //testdb.SubmitChanges();
+
+            //dgvT.DataSource = testdb.Admins.ToList();
         }
 
-        private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                System.IO.Directory.CreateDirectory(Variables._pathAvt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Reload_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pnListItems_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            LoadDB();
         }
     }
 }

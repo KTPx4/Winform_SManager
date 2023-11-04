@@ -22,6 +22,9 @@ namespace Essay.Components
         public static int _X_Label_User = 60;
         public static int _Width_SetCent = 0;
 
+        public static String _rootIMG = "Img";
+        public static String _pathAvt = $"{_rootIMG}/Avt";
+
 
     }
 

@@ -154,7 +154,7 @@ namespace Essay.Components
         {
             if (borderRadius > this.Height)
                 borderRadius = this.Height;
-            }
+        }
         protected override void OnMouseEnter(EventArgs e)
         {
             // Không làm gì cả khi chuột vào

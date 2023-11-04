@@ -50,7 +50,7 @@
             pnAvt = new Panel();
             btnProfile = new Krypton.Toolkit.KryptonButton();
             lbTypeUser = new Label();
-            lbUser = new Label();
+            lbName = new Label();
             pnContent = new Panel();
             pnTitle = new Panel();
             lbTitleForm = new Krypton.Toolkit.KryptonLabel();
@@ -90,10 +90,11 @@
             pnNavbar.Controls.Add(pnAllNavbar);
             pnNavbar.Dock = DockStyle.Left;
             pnNavbar.Location = new Point(0, 0);
-            pnNavbar.MaximumSize = new Size(172, 563);
-            pnNavbar.MinimumSize = new Size(71, 563);
+            pnNavbar.Margin = new Padding(2, 3, 2, 3);
+            pnNavbar.MaximumSize = new Size(164, 626);
+            pnNavbar.MinimumSize = new Size(67, 626);
             pnNavbar.Name = "pnNavbar";
-            pnNavbar.Size = new Size(172, 563);
+            pnNavbar.Size = new Size(164, 626);
             pnNavbar.StateCommon.Color1 = Color.Transparent;
             pnNavbar.TabIndex = 0;
             pnNavbar.Paint += pnNavbar_Paint;
@@ -105,9 +106,10 @@
             pnMenuNav.BackgroundImageLayout = ImageLayout.Zoom;
             pnMenuNav.Cursor = Cursors.Hand;
             pnMenuNav.Dock = DockStyle.Right;
-            pnMenuNav.Location = new Point(152, 418);
+            pnMenuNav.Location = new Point(145, 465);
+            pnMenuNav.Margin = new Padding(2, 3, 2, 3);
             pnMenuNav.Name = "pnMenuNav";
-            pnMenuNav.Size = new Size(20, 103);
+            pnMenuNav.Size = new Size(19, 115);
             pnMenuNav.TabIndex = 12;
             pnMenuNav.Click += pnMenuNav_Click;
             pnMenuNav.MouseLeave += pnMenuNav_MouseLeave;
@@ -116,25 +118,28 @@
             // pn2
             // 
             pn2.Dock = DockStyle.Bottom;
-            pn2.Location = new Point(163, 521);
+            pn2.Location = new Point(156, 580);
+            pn2.Margin = new Padding(2, 3, 2, 3);
             pn2.Name = "pn2";
-            pn2.Size = new Size(9, 42);
+            pn2.Size = new Size(8, 46);
             pn2.TabIndex = 2;
             // 
             // pn1
             // 
             pn1.Controls.Add(panel2);
             pn1.Dock = DockStyle.Top;
-            pn1.Location = new Point(163, 0);
+            pn1.Location = new Point(156, 0);
+            pn1.Margin = new Padding(2, 3, 2, 3);
             pn1.Name = "pn1";
-            pn1.Size = new Size(9, 418);
+            pn1.Size = new Size(8, 465);
             pn1.TabIndex = 1;
             // 
             // panel2
             // 
-            panel2.Location = new Point(8, 161);
+            panel2.Location = new Point(7, 178);
+            panel2.Margin = new Padding(2, 3, 2, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(155, 256);
+            panel2.Size = new Size(147, 285);
             panel2.TabIndex = 0;
             // 
             // pnAllNavbar
@@ -147,8 +152,9 @@
             pnAllNavbar.Controls.Add(pnAvt);
             pnAllNavbar.Dock = DockStyle.Left;
             pnAllNavbar.Location = new Point(0, 0);
+            pnAllNavbar.Margin = new Padding(2, 3, 2, 3);
             pnAllNavbar.Name = "pnAllNavbar";
-            pnAllNavbar.Size = new Size(163, 563);
+            pnAllNavbar.Size = new Size(156, 626);
             pnAllNavbar.TabIndex = 0;
             // 
             // pnListsNavs
@@ -159,19 +165,21 @@
             pnListsNavs.Controls.Add(pnStudent);
             pnListsNavs.Controls.Add(pnHome);
             pnListsNavs.Dock = DockStyle.Bottom;
-            pnListsNavs.Location = new Point(0, 93);
+            pnListsNavs.Location = new Point(0, 104);
+            pnListsNavs.Margin = new Padding(2, 3, 2, 3);
             pnListsNavs.Name = "pnListsNavs";
-            pnListsNavs.Size = new Size(161, 468);
+            pnListsNavs.Size = new Size(154, 520);
             pnListsNavs.TabIndex = 9;
             // 
             // pnReport
             // 
             pnReport.Controls.Add(btnReport);
             pnReport.Dock = DockStyle.Top;
-            pnReport.Location = new Point(0, 150);
+            pnReport.Location = new Point(0, 166);
+            pnReport.Margin = new Padding(2, 3, 2, 3);
             pnReport.Name = "pnReport";
-            pnReport.Padding = new Padding(0, 10, 0, 0);
-            pnReport.Size = new Size(161, 55);
+            pnReport.Padding = new Padding(0, 11, 0, 0);
+            pnReport.Size = new Size(154, 62);
             pnReport.TabIndex = 4;
             // 
             // btnReport
@@ -187,10 +195,11 @@
             btnReport.ForeColor = Color.White;
             btnReport.Image = Properties.Resources.icons8_report_32;
             btnReport.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReport.Location = new Point(0, 10);
+            btnReport.Location = new Point(0, 11);
+            btnReport.Margin = new Padding(2, 3, 2, 3);
             btnReport.Name = "btnReport";
             btnReport.Padding = new Padding(13, 0, 5, 0);
-            btnReport.Size = new Size(190, 45);
+            btnReport.Size = new Size(181, 51);
             btnReport.TabIndex = 4;
             btnReport.Text = "Report";
             btnReport.UseVisualStyleBackColor = false;
@@ -201,10 +210,11 @@
             // 
             pnUser.Controls.Add(btnUsers);
             pnUser.Dock = DockStyle.Top;
-            pnUser.Location = new Point(0, 101);
+            pnUser.Location = new Point(0, 112);
+            pnUser.Margin = new Padding(2, 3, 2, 3);
             pnUser.Name = "pnUser";
-            pnUser.Padding = new Padding(0, 10, 0, 0);
-            pnUser.Size = new Size(161, 49);
+            pnUser.Padding = new Padding(0, 11, 0, 0);
+            pnUser.Size = new Size(154, 54);
             pnUser.TabIndex = 2;
             // 
             // btnUsers
@@ -220,10 +230,11 @@
             btnUsers.ForeColor = Color.White;
             btnUsers.Image = Properties.Resources.icons8_user_32;
             btnUsers.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUsers.Location = new Point(0, 10);
+            btnUsers.Location = new Point(0, 11);
+            btnUsers.Margin = new Padding(2, 3, 2, 3);
             btnUsers.Name = "btnUsers";
             btnUsers.Padding = new Padding(13, 0, 5, 0);
-            btnUsers.Size = new Size(190, 39);
+            btnUsers.Size = new Size(181, 43);
             btnUsers.TabIndex = 2;
             btnUsers.Text = "Users";
             btnUsers.UseVisualStyleBackColor = false;
@@ -235,10 +246,11 @@
             // 
             pnStudent.Controls.Add(btnStudents);
             pnStudent.Dock = DockStyle.Top;
-            pnStudent.Location = new Point(0, 52);
+            pnStudent.Location = new Point(0, 58);
+            pnStudent.Margin = new Padding(2, 3, 2, 3);
             pnStudent.Name = "pnStudent";
-            pnStudent.Padding = new Padding(0, 10, 0, 0);
-            pnStudent.Size = new Size(161, 49);
+            pnStudent.Padding = new Padding(0, 11, 0, 0);
+            pnStudent.Size = new Size(154, 54);
             pnStudent.TabIndex = 3;
             // 
             // btnStudents
@@ -254,10 +266,11 @@
             btnStudents.ForeColor = Color.White;
             btnStudents.Image = Properties.Resources.icons8_student_32;
             btnStudents.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStudents.Location = new Point(0, 10);
+            btnStudents.Location = new Point(0, 11);
+            btnStudents.Margin = new Padding(2, 3, 2, 3);
             btnStudents.Name = "btnStudents";
             btnStudents.Padding = new Padding(13, 0, 5, 0);
-            btnStudents.Size = new Size(190, 39);
+            btnStudents.Size = new Size(181, 43);
             btnStudents.TabIndex = 3;
             btnStudents.Text = "Students";
             btnStudents.UseVisualStyleBackColor = false;
@@ -270,9 +283,10 @@
             pnHome.Controls.Add(btnHome);
             pnHome.Dock = DockStyle.Top;
             pnHome.Location = new Point(0, 0);
+            pnHome.Margin = new Padding(2, 3, 2, 3);
             pnHome.Name = "pnHome";
-            pnHome.Padding = new Padding(0, 10, 0, 0);
-            pnHome.Size = new Size(161, 52);
+            pnHome.Padding = new Padding(0, 11, 0, 0);
+            pnHome.Size = new Size(154, 58);
             pnHome.TabIndex = 1;
             // 
             // btnHome
@@ -288,10 +302,11 @@
             btnHome.ForeColor = Color.White;
             btnHome.Image = Properties.Resources.icons8_home_32__0ABEFF;
             btnHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHome.Location = new Point(0, 10);
+            btnHome.Location = new Point(0, 11);
+            btnHome.Margin = new Padding(2, 3, 2, 3);
             btnHome.Name = "btnHome";
             btnHome.Padding = new Padding(13, 0, 5, 0);
-            btnHome.Size = new Size(190, 42);
+            btnHome.Size = new Size(181, 47);
             btnHome.TabIndex = 1;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
@@ -301,9 +316,10 @@
             // 
             // bdLine1
             // 
-            bdLine1.Location = new Point(34, 72);
+            bdLine1.Location = new Point(33, 80);
+            bdLine1.Margin = new Padding(2, 3, 2, 3);
             bdLine1.Name = "bdLine1";
-            bdLine1.Size = new Size(98, 1);
+            bdLine1.Size = new Size(94, 1);
             bdLine1.StateCommon.Color1 = Color.White;
             bdLine1.StateCommon.Color2 = Color.FromArgb(192, 255, 255);
             bdLine1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
@@ -312,9 +328,10 @@
             // bdLine2
             // 
             bdLine2.Dock = DockStyle.Top;
-            bdLine2.Location = new Point(0, 72);
+            bdLine2.Location = new Point(0, 80);
+            bdLine2.Margin = new Padding(2, 3, 2, 3);
             bdLine2.Name = "bdLine2";
-            bdLine2.Size = new Size(161, 1);
+            bdLine2.Size = new Size(154, 1);
             bdLine2.StateCommon.Color1 = Color.White;
             bdLine2.StateCommon.Color2 = Color.FromArgb(192, 255, 255);
             bdLine2.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
@@ -324,20 +341,23 @@
             // 
             pnAvt.Controls.Add(btnProfile);
             pnAvt.Controls.Add(lbTypeUser);
-            pnAvt.Controls.Add(lbUser);
+            pnAvt.Controls.Add(lbName);
             pnAvt.Dock = DockStyle.Top;
             pnAvt.Location = new Point(0, 0);
+            pnAvt.Margin = new Padding(2, 3, 2, 3);
             pnAvt.Name = "pnAvt";
-            pnAvt.Size = new Size(161, 72);
+            pnAvt.Size = new Size(154, 80);
             pnAvt.TabIndex = 4;
+            pnAvt.Click += btnProfile_Click;
             // 
             // btnProfile
             // 
             btnProfile.CornerRoundingRadius = 50F;
             btnProfile.Cursor = Cursors.Hand;
-            btnProfile.Location = new Point(13, 8);
+            btnProfile.Location = new Point(13, 9);
+            btnProfile.Margin = new Padding(2, 3, 2, 3);
             btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(46, 46);
+            btnProfile.Size = new Size(44, 44);
             btnProfile.StateCommon.Back.Color1 = Color.Transparent;
             btnProfile.StateCommon.Back.Color2 = Color.Transparent;
             btnProfile.StateCommon.Back.Image = (Image)resources.GetObject("btnProfile.StateCommon.Back.Image");
@@ -350,6 +370,7 @@
             btnProfile.StateTracking.Back.Color1 = Color.FromArgb(192, 0, 192);
             btnProfile.TabIndex = 2;
             btnProfile.Values.Text = "";
+            btnProfile.Click += btnProfile_Click;
             btnProfile.MouseLeave += LeaveAvt;
             btnProfile.MouseHover += HoverAvt;
             // 
@@ -360,35 +381,42 @@
             lbTypeUser.Cursor = Cursors.Hand;
             lbTypeUser.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbTypeUser.ForeColor = Color.Aqua;
-            lbTypeUser.Location = new Point(68, 34);
+            lbTypeUser.Location = new Point(65, 38);
+            lbTypeUser.Margin = new Padding(2, 0, 2, 0);
             lbTypeUser.Name = "lbTypeUser";
             lbTypeUser.Size = new Size(43, 15);
             lbTypeUser.TabIndex = 3;
             lbTypeUser.Text = "Admin";
+            lbTypeUser.Click += btnProfile_Click;
             lbTypeUser.MouseLeave += LeaveAvt;
             lbTypeUser.MouseHover += HoverAvt;
             // 
-            // lbUser
+            // lbName
             // 
-            lbUser.AutoSize = true;
-            lbUser.BackColor = Color.Transparent;
-            lbUser.Cursor = Cursors.Hand;
-            lbUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbUser.ForeColor = Color.White;
-            lbUser.Location = new Point(68, 9);
-            lbUser.Name = "lbUser";
-            lbUser.Size = new Size(38, 21);
-            lbUser.TabIndex = 3;
-            lbUser.Text = "Px4";
-            lbUser.MouseLeave += LeaveAvt;
-            lbUser.MouseHover += HoverAvt;
+            lbName.AutoSize = true;
+            lbName.BackColor = Color.Transparent;
+            lbName.Cursor = Cursors.Hand;
+            lbName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbName.ForeColor = Color.White;
+            lbName.Location = new Point(65, 10);
+            lbName.Margin = new Padding(2, 0, 2, 0);
+            lbName.Name = "lbName";
+            lbName.Size = new Size(38, 21);
+            lbName.TabIndex = 3;
+            lbName.Text = "Px4";
+            lbName.Click += btnProfile_Click;
+            lbName.MouseLeave += LeaveAvt;
+            lbName.MouseHover += HoverAvt;
             // 
             // pnContent
             // 
+            pnContent.BackColor = Color.FromArgb(40, 40, 40);
             pnContent.Dock = DockStyle.Fill;
-            pnContent.Location = new Point(3, 68);
+            pnContent.Location = new Point(2, 75);
+            pnContent.Margin = new Padding(2, 3, 2, 3);
+            pnContent.MinimumSize = new Size(775, 546);
             pnContent.Name = "pnContent";
-            pnContent.Size = new Size(814, 492);
+            pnContent.Size = new Size(777, 548);
             pnContent.TabIndex = 2;
             // 
             // pnTitle
@@ -397,13 +425,15 @@
             pnTitle.Controls.Add(lbTitleForm);
             pnTitle.Dock = DockStyle.Left;
             pnTitle.Location = new Point(0, 0);
+            pnTitle.Margin = new Padding(2, 3, 2, 3);
             pnTitle.Name = "pnTitle";
-            pnTitle.Size = new Size(590, 59);
+            pnTitle.Size = new Size(562, 66);
             pnTitle.TabIndex = 3;
             // 
             // lbTitleForm
             // 
-            lbTitleForm.Location = new Point(17, 11);
+            lbTitleForm.Location = new Point(16, 12);
+            lbTitleForm.Margin = new Padding(2, 3, 2, 3);
             lbTitleForm.Name = "lbTitleForm";
             lbTitleForm.Size = new Size(87, 42);
             lbTitleForm.StateCommon.ShortText.Color1 = Color.Linen;
@@ -419,18 +449,20 @@
             pnRightTitle.BackColor = Color.Transparent;
             pnRightTitle.Controls.Add(pnMini);
             pnRightTitle.Controls.Add(pnClose);
-            pnRightTitle.Location = new Point(658, 1);
+            pnRightTitle.Location = new Point(628, 2);
+            pnRightTitle.Margin = new Padding(2, 3, 2, 3);
             pnRightTitle.Name = "pnRightTitle";
-            pnRightTitle.Size = new Size(153, 56);
+            pnRightTitle.Size = new Size(146, 62);
             pnRightTitle.TabIndex = 0;
             // 
             // pnMini
             // 
             pnMini.BackColor = Color.Transparent;
             pnMini.Controls.Add(ptbMini);
-            pnMini.Location = new Point(77, 0);
+            pnMini.Location = new Point(74, 0);
+            pnMini.Margin = new Padding(2, 3, 2, 3);
             pnMini.Name = "pnMini";
-            pnMini.Size = new Size(36, 53);
+            pnMini.Size = new Size(34, 58);
             pnMini.TabIndex = 5;
             // 
             // ptbMini
@@ -439,9 +471,10 @@
             ptbMini.BackgroundImage = Properties.Resources.icons8_minus_material_filled_32;
             ptbMini.BackgroundImageLayout = ImageLayout.Stretch;
             ptbMini.Cursor = Cursors.Hand;
-            ptbMini.Location = new Point(8, 17);
+            ptbMini.Location = new Point(7, 18);
+            ptbMini.Margin = new Padding(2, 3, 2, 3);
             ptbMini.Name = "ptbMini";
-            ptbMini.Size = new Size(20, 24);
+            ptbMini.Size = new Size(19, 26);
             ptbMini.TabIndex = 1;
             ptbMini.TabStop = false;
             ptbMini.Click += ptbMini_Click;
@@ -452,9 +485,10 @@
             // 
             pnClose.BackColor = Color.Transparent;
             pnClose.Controls.Add(ptbClose);
-            pnClose.Location = new Point(113, 0);
+            pnClose.Location = new Point(107, 0);
+            pnClose.Margin = new Padding(2, 3, 2, 3);
             pnClose.Name = "pnClose";
-            pnClose.Size = new Size(36, 53);
+            pnClose.Size = new Size(34, 58);
             pnClose.TabIndex = 4;
             // 
             // ptbClose
@@ -464,9 +498,10 @@
             ptbClose.BackgroundImageLayout = ImageLayout.Zoom;
             ptbClose.Cursor = Cursors.Hand;
             ptbClose.InitialImage = null;
-            ptbClose.Location = new Point(10, 17);
+            ptbClose.Location = new Point(10, 18);
+            ptbClose.Margin = new Padding(2, 3, 2, 3);
             ptbClose.Name = "ptbClose";
-            ptbClose.Size = new Size(15, 24);
+            ptbClose.Size = new Size(14, 26);
             ptbClose.TabIndex = 1;
             ptbClose.TabStop = false;
             ptbClose.Click += ptbClose_Click;
@@ -482,16 +517,17 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 99.99999F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 19F));
             tableLayoutPanel1.Controls.Add(pnContent, 0, 1);
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(172, 0);
+            tableLayoutPanel1.Location = new Point(164, 0);
+            tableLayoutPanel1.Margin = new Padding(2, 3, 2, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.5452929F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.4547043F));
-            tableLayoutPanel1.Size = new Size(820, 563);
+            tableLayoutPanel1.Size = new Size(781, 626);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -499,22 +535,25 @@
             panel1.Controls.Add(pnRightTitle);
             panel1.Controls.Add(pnTitle);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(2, 3);
+            panel1.Margin = new Padding(2, 3, 2, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(814, 59);
+            panel1.Size = new Size(777, 66);
             panel1.TabIndex = 3;
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(40, 40, 40);
-            ClientSize = new Size(992, 563);
+            ClientSize = new Size(945, 626);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(pnNavbar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new Size(700, 456);
+            Margin = new Padding(2, 3, 2, 3);
+            MinimumSize = new Size(666, 506);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
             StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -554,7 +593,7 @@
         private PictureBox ptbClose;
         private Krypton.Toolkit.KryptonLabel lbTitleForm;
         private Krypton.Toolkit.KryptonButton btnProfile;
-        private Label lbUser;
+        private Label lbName;
         private Label lbTypeUser;
         private System.Windows.Forms.Timer timerNavBar;
         //  private Krypton.Toolkit.KryptonPanel panelMini;

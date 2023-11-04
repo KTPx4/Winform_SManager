@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {}
+    "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {}
   },
   "projects": {
-    "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {
+    "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+        "projectUniqueName": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
         "projectName": "Essay",
-        "projectPath": "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+        "projectPath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
         "packagesPath": "C:\\Users\\px4vn\\.nuget\\packages\\",
-        "outputPath": "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
+        "outputPath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net7.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net7.0-windows7.0": {
+            "targetAlias": "net7.0-windows",
             "projectReferences": {}
           }
         },
@@ -42,12 +42,20 @@
         }
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
           "dependencies": {
+            "DevExpress.Win.Design": {
+              "target": "Package",
+              "version": "[23.1.6, )"
+            },
             "Krypton.Toolkit": {
               "target": "Package",
               "version": "[70.22.11.312, )"
+            },
+            "netstandard-System.Data.Linq": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             }
           },
           "imports": [
@@ -65,11 +73,11 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

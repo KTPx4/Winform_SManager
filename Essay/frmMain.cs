@@ -9,20 +9,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Essay.Components;
-using Component;
+//using Components;
 using Essay.Pages;
+using Essay.Pages.Dialog;
+using Components;
 
 namespace Essay
 {
     public partial class frmMain : KryptonForm
     {
+        public String NameUser { get; set; }
+        public String TypeUser { get; set; }
+        public String linkAvt {  get; set; }
+
 
 
         private bool once = false;
         private frmLogin frmLogin = null;
         public Action<int> ULocationP;
         private static bool isTabUsers = false;
+
+        private String User;
 
         public frmMain()
         {
@@ -35,10 +42,17 @@ namespace Essay
             }*/
 
             InitializeComponent();
-            Style();
+           
+            
 
         }
-
+        private void setupProfile()
+        {
+            lbName.Text = NameUser;
+            lbTypeUser.Text = TypeUser;
+            btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
+        //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
+        }
         private void Style()
         {
             bdLine2.Hide();
@@ -55,7 +69,7 @@ namespace Essay
             pnAvt.BackColor = Variables._BackNav;
 
             // label
-            lbUser.BackColor = Variables._BackNav;
+            lbName.BackColor = Variables._BackNav;
             lbTypeUser.BackColor = Variables._BackNav;
 
 
@@ -75,12 +89,16 @@ namespace Essay
             //content
             pnContent.BackColor = Variables._BackGround;
 
+
+
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             pnTitle = new DraggablePanel(pnTitle, this);
 
+            Style(); 
+            setupProfile();
 
 
         }
@@ -135,7 +153,7 @@ namespace Essay
         private void HoverAvt(object sender, EventArgs e)
         {
             pnAvt.BackColor = Variables._HoverENav;
-            lbUser.BackColor = Variables._HoverENav;
+            lbName.BackColor = Variables._HoverENav;
             lbTypeUser.BackColor = Variables._HoverENav;
         }
         private void LeaveAvt(object sender, EventArgs e)
@@ -143,7 +161,7 @@ namespace Essay
             //pnAvt.BackColor = Color.FromArgb(255, 76, 86, 97);
 
             pnAvt.BackColor = Variables._BackNav;
-            lbUser.BackColor = Variables._BackNav;
+            lbName.BackColor = Variables._BackNav;
             lbTypeUser.BackColor = Variables._BackNav;
         }
 
@@ -185,9 +203,10 @@ namespace Essay
 
 
                 Variables._Width_SetCent = 45;
-                if (isTabUsers) // move to center/default when the navbar change
+                if (isTabUsers && !once) // move to center/default when the navbar change 
                 {
-                    // ULocationP(10);
+                    once = !once; // true
+                    // ULocationP(100);
 
                 }
 
@@ -205,8 +224,8 @@ namespace Essay
                     showText(false);
 
 
-                    // this.ResumeLayout();
-
+                    this.ResumeLayout();
+                    once = !once; // false
                     timerNavBar.Stop();
 
                 }
@@ -217,9 +236,10 @@ namespace Essay
 
 
                 Variables._Width_SetCent = 0;
-                if (isTabUsers) // move to center/default when the navbar change
+                if (isTabUsers && !once) // move to center/default when the navbar change
                 {
-                    //   ULocationP(10);
+                    once = !once; // true
+                                  // ULocationP(-100);
 
                 }
 
@@ -236,8 +256,8 @@ namespace Essay
                     pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
                     showText(true);
 
-                    //  this.ResumeLayout();
-
+                    this.ResumeLayout();
+                    once = !once; // false
                     timerNavBar.Stop();
                 }
             }
@@ -246,7 +266,7 @@ namespace Essay
         private void pnMenuNav_Click(object sender, EventArgs e)
         {
 
-            //  this.SuspendLayout();
+            this.SuspendLayout();
             timerNavBar.Start();
 
         }
@@ -273,8 +293,9 @@ namespace Essay
             frmMUser user = new frmMUser();
             ULocationP = user.ULocationP;
             // user.Anchor = AnchorStyles.Right;
-            user.Dock = DockStyle.Fill;
             pnContent.Controls.Add(user);
+            user.Dock = DockStyle.Fill;
+            this.lbTitleForm.Text = "Manager User";
 
 
         }
@@ -284,15 +305,17 @@ namespace Essay
             pnContent.Controls.Clear();
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+
+        // open profile
+        private void OpenProfile()
         {
+            dialogProfile pf = new dialogProfile("Pxk3", 1);
+            pf.Show();
 
         }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        private void btnProfile_Click(object sender, EventArgs e)
         {
+            OpenProfile();
         }
-
-
     }
 }

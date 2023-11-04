@@ -13,11 +13,22 @@
     <Compile Update="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Pages\Dialog\dialogProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pages\Dialog\PopupMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Pages\Manager\frmMUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Pages\Manager\Items\FUser.cs">
+    <Compile Update="Pages\Manager\subItems\FUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Model\EssayDB.dbml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>
