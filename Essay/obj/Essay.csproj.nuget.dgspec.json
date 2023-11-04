@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {}
+    "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {}
   },
   "projects": {
-    "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {
+    "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+        "projectUniqueName": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
         "projectName": "Essay",
-        "projectPath": "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+        "projectPath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
         "packagesPath": "C:\\Users\\px4vn\\.nuget\\packages\\",
-        "outputPath": "D:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
+        "outputPath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
@@ -45,6 +45,10 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "dependencies": {
+            "DevExpress.Win.Design": {
+              "target": "Package",
+              "version": "[23.1.6, )"
+            },
             "Krypton.Toolkit": {
               "target": "Package",
               "version": "[70.22.11.312, )"
@@ -69,7 +73,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },

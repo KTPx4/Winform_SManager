@@ -24,6 +24,8 @@ namespace Essay
         public Action<int> ULocationP;
         private static bool isTabUsers = false;
 
+        private String User;
+
         public frmMain()
         {
 
@@ -75,8 +77,8 @@ namespace Essay
             //content
             pnContent.BackColor = Variables._BackGround;
 
-          
-       
+
+
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -279,6 +281,7 @@ namespace Essay
             // user.Anchor = AnchorStyles.Right;
             pnContent.Controls.Add(user);
             user.Dock = DockStyle.Fill;
+            this.lbTitleForm.Text = "Manager User";
 
 
         }
@@ -289,5 +292,14 @@ namespace Essay
         }
 
 
+        // open profile
+        private void OpenProfile()
+        {
+
+        }
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

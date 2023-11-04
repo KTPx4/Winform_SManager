@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Design" Version="23.1.6" />
     <PackageReference Include="Krypton.Toolkit" Version="70.22.11.312" />
     <PackageReference Include="netstandard-System.Data.Linq" Version="1.0.1" />
   </ItemGroup>

@@ -29,6 +29,7 @@ namespace Essay.Pages.Items
         public bool _isOnline { get; set; }
         public string _LinkAvt { get; set; }
 
+        private bool isTile = false;
 
 
         Action<FUser> DeleteUser;
@@ -45,6 +46,7 @@ namespace Essay.Pages.Items
             _isOnline = false;
             _LinkAvt = "";
             _isManager = false;
+            isTile = true;
         }
 
         public FUser(Action<FUser> deleteU, string iD)
@@ -71,6 +73,30 @@ namespace Essay.Pages.Items
             _isManager = isManager;
         }
 
+        private void CreateTitle()
+        {
+            pnID.Location = new Point(Variables._X_Item_User, pnID.Location.Y);
+            pnID.BackColor = Color.Transparent;
+            lbID.Text = "ID";
+            lbID.Font = new Font("Segoe UI", 12, FontStyle.Bold); // Segoe UI, 11.25pt, style=Bold
+            lbID.ForeColor = Color.White;
+
+            lbName.Text = "Name";
+            lbName.Font = new Font("Segoe UI", 12, FontStyle.Bold); // Segoe UI, 11.25pt, style=Bold
+            lbName.ForeColor = Color.White;
+
+            lbSdt.Text = "Phone";
+            lbSdt.Font = new Font("Segoe UI", 12, FontStyle.Bold); // Segoe UI, 11.25pt, style=Bold
+            lbSdt.ForeColor = Color.White;
+
+            lbStatus.Text = "Status";
+            lbStatus.Font = new Font("Segoe UI", 12, FontStyle.Bold); // Segoe UI, 11.25pt, style=Bold
+            lbStatus.ForeColor = Color.White;
+            ptbAvt.Hide();
+            pnButton.Hide();
+
+        }
+
         private void loadForm()
         {
             pnID.Location = new Point(Variables._X_Item_User, pnID.Location.Y);
@@ -88,11 +114,18 @@ namespace Essay.Pages.Items
 
             }
         }
+
         private void User_Load(object sender, EventArgs e)
         {
             // pnID.BackColor = GenerateRandomColor();
-
-            loadForm();
+            if (!isTile)
+            {
+                loadForm();
+            }
+            else
+            {
+                CreateTitle();
+            }
 
 
         }
@@ -116,11 +149,6 @@ namespace Essay.Pages.Items
             Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
             return randomColor;
         }
-
-
-
-
-
 
     }
 }

@@ -81,18 +81,18 @@ namespace Essay.Pages
         private void addManager_Click(object sender, EventArgs e)
         {
 
-            //dialogProfile dialogProfile = new dialogProfile(1, 0)
-            //{
-            //    id = "1243",
-            //    name = "px4",
-            //    user = "px4k3",
-            //    password = "kkkk",
-            //    phone = "1111111",
-            //    Status = 0,
-            //    birthDay = new DateTime(2023, 10,20)
+            dialogProfile dialogProfile = new dialogProfile(1, 0)
+            {
+                id = "1243",
+                name = "px4",
+                user = "px4k3",
+                password = "kkkk",
+                phone = "1111111",
+                Status = 0,
+                birthDay = new DateTime(2023, 10, 20)
 
-            //};
-            //dialogProfile.Show();
+            };
+            dialogProfile.Show();
 
 
             //FUser us = new FUser(deleteUser, true, "000", "fsf smith", "00001111", true, "");
@@ -109,13 +109,16 @@ namespace Essay.Pages
         {
 
 
-            FUser us = new FUser(deleteUser, false, "11", "Joinh smith", "00001111", false, "husky2.png");
+            //   FUser us = new FUser(deleteUser, false, "11", "Joinh smith", "00001111", false, "husky2.png");
             //   us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
 
-            ListItems.Add(us);
-            pnListItems.Controls.Add(us);
+            //ListItems.Add(us);
+            // pnListItems.Controls.Add(us);
 
-            us.Dock = DockStyle.Top;
+            //us.Dock = DockStyle.Top;
+
+            dialogProfile dialogProfile = new dialogProfile();
+            dialogProfile.Show();
         }
 
         private void setLocation()
@@ -163,6 +166,10 @@ namespace Essay.Pages
             cbbType.SelectedIndex = 0;
             cbbStatus.SelectedIndex = 0;
             kryptonBorderEdge1.Hide();
+            FUser title = new FUser();
+            title.Dock = DockStyle.Fill;
+            pnTitle.Controls.Clear();
+            pnTitle.Controls.Add(title);
 
             //DataContextDataContext testdb = new DataContextDataContext();
 

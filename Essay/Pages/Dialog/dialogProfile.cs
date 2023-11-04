@@ -22,13 +22,15 @@ namespace Essay.Pages.Dialog
         public string password { get; set; }
         public string phone { get; set; }
         public DateTime birthDay { get; set; }
-        
+
         public int Status { get; set; }
 
         private int typeUser = 0; // 0 -> manager, 1-> employee
         private int typeOpen = 0; // 0 -> add new, 1-> edit
         private string textStatus = "";
         private int typeBtnAction = 0; // 0 -> active, 1-> block, -1-> delete
+        private static String textPhone = "";
+
         public dialogProfile()
         {
             InitializeComponent();
@@ -43,8 +45,24 @@ namespace Essay.Pages.Dialog
             this.typeOpen = typeOpen;
             this.typeUser = typeUser;
         }
+        public dialogProfile(String Username)
+        {
+            InitializeComponent();
+            typeOpen = 1;
+
+            // get type user by load from data
+            LoadInfor(Username);
+
+        }
+
         // pnControl 94, 296 : 3button
         // 134, 296 : 2button
+
+        private void LoadInfor(String user) // load infor mation and type user to variable
+        {
+
+        }
+
         void loadForm()
         {
             pnTitle = new DraggablePanel(pnTitle, this);
@@ -56,11 +74,11 @@ namespace Essay.Pages.Dialog
                 pnStatus.Hide();
                 pnGroupTxt.Enabled = true;
 
-                if(typeUser == 0)
+                if (typeUser == 0)
                 {
                     // action add manager
                 }
-                else if(typeUser == 1)
+                else if (typeUser == 1)
                 {
                     // action add employee
                 }
@@ -74,12 +92,12 @@ namespace Essay.Pages.Dialog
                 btnEdit.Show();
 
                 //fill textbox
-                txtID.Text = id;
+                // txtID.Text = id;
                 txtName.Text = name;
                 txtPass.Text = password;
                 txtPhone.Text = phone;
                 txtUser.Text = user;
-                txtDate.Value = birthDay;
+                txtDate.DateTime = birthDay;
 
                 if (Status == 0)
                 {
@@ -105,14 +123,14 @@ namespace Essay.Pages.Dialog
                 txtStatus.Text = textStatus;
 
             }
-            else if (typeOpen == 1) // edit for each account
+            else if (typeOpen == 1) // edit for each account -> hide button block / unblock
             {
                 pnControl.Location = new Point(144, 296);
                 btnAction.Hide();
                 btnEdit.Show();
 
                 //fill textbox
-                txtID.Text = id;
+                // txtID.Text = id;
                 txtName.Text = name;
                 txtPass.Text = password;
                 txtPhone.Text = phone;
@@ -128,6 +146,7 @@ namespace Essay.Pages.Dialog
             loadForm();
         }
 
+        //change avt
         private void btnProfile_Click(object sender, EventArgs e)
         {
 
@@ -215,5 +234,43 @@ namespace Essay.Pages.Dialog
         {
             pnGroupTxt.Enabled = true;
         }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ckShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+
+            txtPass.PasswordChar = ckShowPass.Checked ? '\0' : '*';
+
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPhone.Text == "")
+            {
+                textPhone = "";
+                return;
+            }
+
+            if (int.TryParse(txtPhone.Text, out int number))
+            {
+                textPhone = txtPhone.Text;
+            }
+            else
+            {
+                txtPhone.Text = textPhone;
+                txtPhone.Select(txtPhone.Text.Length, 0);
+            }
+
+
+
+        }
+      
+
+
+       
     }
 }

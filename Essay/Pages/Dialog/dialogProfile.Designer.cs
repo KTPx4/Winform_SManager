@@ -41,7 +41,6 @@
             btnProfile = new Krypton.Toolkit.KryptonButton();
             grbInfor = new GroupBox();
             pnGroupTxt = new Panel();
-            ckShowPass = new CheckBox();
             pnStatus = new Panel();
             txtStatus = new TextBox();
             label4 = new Label();
@@ -49,10 +48,11 @@
             txtPhone = new TextBox();
             label7 = new Label();
             pnPass = new Panel();
+            ckShowPass = new CheckBox();
             txtPass = new TextBox();
             label6 = new Label();
             panel4 = new Panel();
-            txtDate = new Krypton.Toolkit.KryptonDateTimePicker();
+            txtDate = new DevExpress.XtraEditors.DateEdit();
             label3 = new Label();
             pnUser = new Panel();
             txtUser = new TextBox();
@@ -60,9 +60,6 @@
             pnName = new Panel();
             txtName = new TextBox();
             label2 = new Label();
-            pnID = new Panel();
-            txtID = new TextBox();
-            label1 = new Label();
             pnControl = new Panel();
             btnSave = new Krypton.Toolkit.KryptonButton();
             btnAction = new Krypton.Toolkit.KryptonButton();
@@ -81,9 +78,10 @@
             pnPhone.SuspendLayout();
             pnPass.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtDate.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtDate.Properties.CalendarTimeProperties).BeginInit();
             pnUser.SuspendLayout();
             pnName.SuspendLayout();
-            pnID.SuspendLayout();
             pnControl.SuspendLayout();
             SuspendLayout();
             // 
@@ -191,6 +189,8 @@
             btnProfile.CornerRoundingRadius = 50F;
             btnProfile.Cursor = Cursors.Hand;
             btnProfile.Location = new Point(198, 3);
+            btnProfile.MaximumSize = new Size(60, 60);
+            btnProfile.MinimumSize = new Size(60, 60);
             btnProfile.Name = "btnProfile";
             btnProfile.Size = new Size(60, 60);
             btnProfile.StateCommon.Back.Color1 = Color.Transparent;
@@ -220,7 +220,6 @@
             // 
             // pnGroupTxt
             // 
-            pnGroupTxt.Controls.Add(ckShowPass);
             pnGroupTxt.Controls.Add(pnStatus);
             pnGroupTxt.Controls.Add(btnProfile);
             pnGroupTxt.Controls.Add(pnPhone);
@@ -228,24 +227,11 @@
             pnGroupTxt.Controls.Add(panel4);
             pnGroupTxt.Controls.Add(pnUser);
             pnGroupTxt.Controls.Add(pnName);
-            pnGroupTxt.Controls.Add(pnID);
             pnGroupTxt.Enabled = false;
             pnGroupTxt.Location = new Point(6, 22);
             pnGroupTxt.Name = "pnGroupTxt";
             pnGroupTxt.Size = new Size(457, 268);
             pnGroupTxt.TabIndex = 11;
-            // 
-            // ckShowPass
-            // 
-            ckShowPass.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ckShowPass.AutoSize = true;
-            ckShowPass.Checked = true;
-            ckShowPass.CheckState = CheckState.Checked;
-            ckShowPass.Location = new Point(421, 186);
-            ckShowPass.Name = "ckShowPass";
-            ckShowPass.Size = new Size(15, 14);
-            ckShowPass.TabIndex = 17;
-            ckShowPass.UseVisualStyleBackColor = true;
             // 
             // pnStatus
             // 
@@ -253,16 +239,17 @@
             pnStatus.BackColor = Color.Transparent;
             pnStatus.Controls.Add(txtStatus);
             pnStatus.Controls.Add(label4);
-            pnStatus.Location = new Point(244, 218);
+            pnStatus.Location = new Point(250, 185);
             pnStatus.Name = "pnStatus";
-            pnStatus.Size = new Size(172, 34);
+            pnStatus.Size = new Size(196, 34);
             pnStatus.TabIndex = 10;
             // 
             // txtStatus
             // 
             txtStatus.Location = new Point(43, 5);
+            txtStatus.Multiline = true;
             txtStatus.Name = "txtStatus";
-            txtStatus.Size = new Size(130, 23);
+            txtStatus.Size = new Size(130, 20);
             txtStatus.TabIndex = 2;
             // 
             // label4
@@ -281,17 +268,20 @@
             pnPhone.BackColor = Color.Transparent;
             pnPhone.Controls.Add(txtPhone);
             pnPhone.Controls.Add(label7);
-            pnPhone.Location = new Point(35, 218);
+            pnPhone.Location = new Point(30, 186);
             pnPhone.Name = "pnPhone";
-            pnPhone.Size = new Size(172, 34);
+            pnPhone.Size = new Size(207, 34);
             pnPhone.TabIndex = 11;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(42, 5);
+            txtPhone.Location = new Point(64, 6);
+            txtPhone.Multiline = true;
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(128, 23);
+            txtPhone.Size = new Size(126, 20);
             txtPhone.TabIndex = 2;
+            txtPhone.TextChanged += txtPhone_TextChanged;
+           
             // 
             // label7
             // 
@@ -307,19 +297,34 @@
             // 
             pnPass.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnPass.BackColor = Color.Transparent;
+            pnPass.Controls.Add(ckShowPass);
             pnPass.Controls.Add(txtPass);
             pnPass.Controls.Add(label6);
-            pnPass.Location = new Point(245, 172);
+            pnPass.Location = new Point(251, 139);
             pnPass.Name = "pnPass";
-            pnPass.Size = new Size(172, 34);
+            pnPass.Size = new Size(196, 34);
             pnPass.TabIndex = 12;
+            // 
+            // ckShowPass
+            // 
+            ckShowPass.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ckShowPass.AutoSize = true;
+            ckShowPass.Location = new Point(176, 10);
+            ckShowPass.Name = "ckShowPass";
+            ckShowPass.Size = new Size(15, 14);
+            ckShowPass.TabIndex = 17;
+            ckShowPass.UseVisualStyleBackColor = true;
+            ckShowPass.CheckedChanged += ckShowPass_CheckedChanged;
             // 
             // txtPass
             // 
             txtPass.Location = new Point(42, 7);
+            txtPass.Multiline = true;
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(128, 23);
+            txtPass.PasswordChar = '*';
+            txtPass.Size = new Size(130, 20);
             txtPass.TabIndex = 2;
+            txtPass.TextChanged += txtPass_TextChanged;
             // 
             // label6
             // 
@@ -337,17 +342,19 @@
             panel4.BackColor = Color.Transparent;
             panel4.Controls.Add(txtDate);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(101, 77);
+            panel4.Location = new Point(30, 139);
             panel4.Name = "panel4";
-            panel4.Size = new Size(248, 34);
+            panel4.Size = new Size(207, 34);
             panel4.TabIndex = 13;
             // 
             // txtDate
             // 
-            txtDate.CornerRoundingRadius = -1F;
-            txtDate.Location = new Point(60, 7);
+            txtDate.EditValue = null;
+            txtDate.Location = new Point(64, 7);
             txtDate.Name = "txtDate";
-            txtDate.Size = new Size(185, 21);
+            txtDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            txtDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            txtDate.Size = new Size(126, 20);
             txtDate.TabIndex = 2;
             // 
             // label3
@@ -366,16 +373,17 @@
             pnUser.BackColor = Color.Transparent;
             pnUser.Controls.Add(txtUser);
             pnUser.Controls.Add(label5);
-            pnUser.Location = new Point(245, 126);
+            pnUser.Location = new Point(251, 93);
             pnUser.Name = "pnUser";
-            pnUser.Size = new Size(172, 34);
+            pnUser.Size = new Size(196, 34);
             pnUser.TabIndex = 14;
             // 
             // txtUser
             // 
             txtUser.Location = new Point(42, 6);
+            txtUser.Multiline = true;
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(128, 23);
+            txtUser.Size = new Size(130, 20);
             txtUser.TabIndex = 2;
             // 
             // label5
@@ -394,17 +402,18 @@
             pnName.BackColor = Color.Transparent;
             pnName.Controls.Add(txtName);
             pnName.Controls.Add(label2);
-            pnName.Location = new Point(35, 172);
+            pnName.Location = new Point(30, 93);
             pnName.Name = "pnName";
-            pnName.Size = new Size(172, 34);
+            pnName.Size = new Size(207, 34);
             pnName.TabIndex = 15;
             pnName.Paint += panel3_Paint;
             // 
             // txtName
             // 
-            txtName.Location = new Point(43, 7);
+            txtName.Location = new Point(64, 7);
+            txtName.Multiline = true;
             txtName.Name = "txtName";
-            txtName.Size = new Size(126, 23);
+            txtName.Size = new Size(126, 20);
             txtName.TabIndex = 2;
             // 
             // label2
@@ -416,34 +425,6 @@
             label2.Size = new Size(39, 15);
             label2.TabIndex = 1;
             label2.Text = "Name";
-            // 
-            // pnID
-            // 
-            pnID.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnID.BackColor = Color.Transparent;
-            pnID.Controls.Add(txtID);
-            pnID.Controls.Add(label1);
-            pnID.Location = new Point(35, 126);
-            pnID.Name = "pnID";
-            pnID.Size = new Size(172, 34);
-            pnID.TabIndex = 16;
-            // 
-            // txtID
-            // 
-            txtID.Location = new Point(43, 6);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(126, 23);
-            txtID.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(3, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(18, 15);
-            label1.TabIndex = 1;
-            label1.Text = "ID";
             // 
             // pnControl
             // 
@@ -509,7 +490,6 @@
             ((System.ComponentModel.ISupportInitialize)btnEdit).EndInit();
             grbInfor.ResumeLayout(false);
             pnGroupTxt.ResumeLayout(false);
-            pnGroupTxt.PerformLayout();
             pnStatus.ResumeLayout(false);
             pnStatus.PerformLayout();
             pnPhone.ResumeLayout(false);
@@ -518,12 +498,12 @@
             pnPass.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtDate.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtDate.Properties).EndInit();
             pnUser.ResumeLayout(false);
             pnUser.PerformLayout();
             pnName.ResumeLayout(false);
             pnName.PerformLayout();
-            pnID.ResumeLayout(false);
-            pnID.PerformLayout();
             pnControl.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -552,21 +532,18 @@
         private Panel pnPass;
         private Label label6;
         private Panel panel4;
-        private Krypton.Toolkit.KryptonDateTimePicker txtDate;
         private Label label3;
         private Panel pnUser;
         private Label label5;
         private Panel pnName;
         private Label label2;
-        private Panel pnID;
-        private Label label1;
         private TextBox txtStatus;
         private TextBox txtPhone;
         private TextBox txtPass;
         private TextBox txtUser;
         private TextBox txtName;
-        private TextBox txtID;
         private PictureBox btnEdit;
         private CheckBox ckShowPass;
+        private DevExpress.XtraEditors.DateEdit txtDate;
     }
 }
