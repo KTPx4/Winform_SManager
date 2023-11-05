@@ -88,6 +88,43 @@ namespace Essay.Controllers
             return false;
         }
 
+        public static bool Update(Employee Employee)
+        {
+
+
+            // Tìm bản ghi Manager cần chỉnh sửa bằng User
+            Employee existingEmployee = db.Employees.SingleOrDefault(m => m.ID == Employee.ID);
+
+            if (existingEmployee != null)
+            {
+                // Thực hiện các thay đổi cần thiết trên bản ghi Manager
+                existingEmployee.Name = Employee.Name;
+                existingEmployee.Pass = Employee.Pass;
+                existingEmployee.birthDay = Employee.birthDay;
+                existingEmployee.Phone = Employee.Phone;
+                existingEmployee.LinkAVT = Employee.LinkAVT;
+
+                // if change user -> check exists with other row
+             //    MessageBox.Show("db: " + existingEmployee.User + ", :" + Employee.User);
+                if (existingEmployee.User != Employee.User && AdminController.isExistsUser(Employee.User))
+                {
+                    MessageBox.Show("User Name is invalid", "Error Input", MessageBoxButtons.OK);
+                    return false;
+                }
+                else if (existingEmployee.User != Employee.User && !AdminController.isExistsUser(Employee.User))
+                {
+                    existingEmployee.User = Employee.User;
+                }
+
+                // Lưu các thay đổi vào cơ sở dữ liệu
+                db.SubmitChanges();
+
+                return true;
+            }
+
+            return false; // Bản ghi không tồn tại hoặc không tìm thấy
+        }
+
         public static bool Delete(String username)
         {
             if (isExistsUser(username))
@@ -118,6 +155,10 @@ namespace Essay.Controllers
             return SetStatus(username, 1);
         }
 
+        public static bool Restore(String username)
+        {
+            return SetStatus(username, 0);
+        }
 
         public static bool SetStatus(String username, int status)
         {

@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Components;
+using Essay.Controllers;
+using Essay.Model;
+
 namespace Essay
 {
     public partial class frmLogin : Form
@@ -22,11 +25,12 @@ namespace Essay
         private String Password = "";
 
 
+        private Action<String, String, int> UpdateMain;
 
-
-        public frmLogin()
+        public frmLogin(Action<String, String, int> update)
         {
             InitializeComponent();
+            this.UpdateMain = update;
         }
 
         //Form load
@@ -155,16 +159,55 @@ namespace Essay
 
 
         // Action for Login
+
         private void Login()
         {
             if (txtPass.Text == "" || txtUser.Text == "")
             {
-                MessageBox.Show("Username or Password not invalid", "Login Failed");
+                MessageBox.Show("Username or Password is invalid", "Login Failed");
             }
             else
             {
+                String user = txtUser.Text;
+                String pass = txtPass.Text;
+
+                int TypeUs = AdminController.ValidLogin(user, pass);
+
+                String name = "", path = "";
+                if (TypeUs == -1)
+                {
+                    MessageBox.Show("User name or Password not Correct!", "Login Failed", MessageBoxButtons.OK);
+                    return;
+                }
+
+                if (TypeUs == 0) // manager
+                {
+                    Manager a = ManagerController.GetFromUser(user);
+                    name = a.Name;
+                    path = a.LinkAVT;
+                }
+                else if (TypeUs == 1) // employee
+                {
+                    Employee a = EmployeeController.GetFromUser(user);
+                    name = a.Name;
+                    path = a.LinkAVT;
+
+                }
+                else if (TypeUs == 2) // Admin
+                {
+                    Admin a = AdminController.GetFromUser(user);
+                    name = a.Name;
+                    path = a.LinkAVT;
+                }
+
+                MessageBox.Show($"Welcom '{user}'!", "Login Success", MessageBoxButtons.OK);
+                //  frmMain frmMain = new frmMain(name, TypeUs, path);
+                // frmMain.Show();
+                //  this.Hide();
+                UpdateMain(user, path, TypeUs);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+
             }
         }
 
@@ -172,5 +215,8 @@ namespace Essay
         {
             Login();
         }
+
+
+
     }
 }

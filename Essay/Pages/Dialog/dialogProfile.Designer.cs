@@ -62,7 +62,6 @@
             label2 = new Label();
             pnControl = new Panel();
             btnSave = new Krypton.Toolkit.KryptonButton();
-            btnAction = new Krypton.Toolkit.KryptonButton();
             btnCancel = new Krypton.Toolkit.KryptonButton();
             panel1.SuspendLayout();
             pnRightTitle.SuspendLayout();
@@ -216,7 +215,6 @@
             grbInfor.Size = new Size(469, 381);
             grbInfor.TabIndex = 8;
             grbInfor.TabStop = false;
-            //grbInfor.Enter += groupBox1_Enter;
             // 
             // pnGroupTxt
             // 
@@ -405,7 +403,6 @@
             pnName.Name = "pnName";
             pnName.Size = new Size(207, 34);
             pnName.TabIndex = 15;
-          //  pnName.Paint += panel3_Paint;
             // 
             // txtName
             // 
@@ -428,13 +425,11 @@
             // pnControl
             // 
             pnControl.Controls.Add(btnSave);
-            pnControl.Controls.Add(btnAction);
             pnControl.Controls.Add(btnCancel);
             pnControl.Location = new Point(144, 296);
             pnControl.Name = "pnControl";
             pnControl.Size = new Size(308, 52);
             pnControl.TabIndex = 10;
-          //  pnControl.Paint += panel9_Paint;
             // 
             // btnSave
             // 
@@ -445,16 +440,6 @@
             btnSave.TabIndex = 9;
             btnSave.Values.Text = "Save";
             btnSave.Click += btnSave_Click;
-            // 
-            // btnAction
-            // 
-            btnAction.CornerRoundingRadius = -1F;
-            btnAction.Location = new Point(218, 5);
-            btnAction.Name = "btnAction";
-            btnAction.Size = new Size(74, 40);
-            btnAction.TabIndex = 10;
-            btnAction.Values.Text = "Block";
-            btnAction.Click += btnAction_Click;
             // 
             // btnCancel
             // 
@@ -523,7 +508,6 @@
         private GroupBox grbInfor;
         private Panel pnControl;
         private Krypton.Toolkit.KryptonButton btnSave;
-        private Krypton.Toolkit.KryptonButton btnAction;
         private Krypton.Toolkit.KryptonButton btnCancel;
         private Panel pnGroupTxt;
         private Panel pnStatus;

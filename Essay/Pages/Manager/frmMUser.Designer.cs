@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             splitContainer1 = new SplitContainer();
             pnListItems = new FlowLayoutPanel();
             panel1 = new Panel();
@@ -48,9 +49,10 @@
             label5 = new Label();
             cbbStatus = new ComboBox();
             groupBox1 = new GroupBox();
-            button3 = new Button();
-            button1 = new Button();
+            btnAddStaff = new Button();
+            btnAddManager = new Button();
             kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
+            searchTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -164,6 +166,7 @@
             txtFind.StateCommon.Content.Padding = new Padding(0, 5, 35, 0);
             txtFind.TabIndex = 0;
             txtFind.TextAlign = HorizontalAlignment.Center;
+            txtFind.TextChanged += txtFind_TextChanged;
             // 
             // pnSetCenter
             // 
@@ -320,8 +323,8 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnAddStaff);
+            groupBox1.Controls.Add(btnAddManager);
             groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(2, 22);
             groupBox1.Margin = new Padding(2);
@@ -332,35 +335,35 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Control";
             // 
-            // button3
+            // btnAddStaff
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button3.BackColor = Color.Turquoise;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(22, 90);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(176, 38);
-            button3.TabIndex = 1;
-            button3.Text = "Add Staff";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += addStaff_Click;
+            btnAddStaff.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnAddStaff.BackColor = Color.DarkGray;
+            btnAddStaff.FlatStyle = FlatStyle.Flat;
+            btnAddStaff.ForeColor = Color.Black;
+            btnAddStaff.Location = new Point(22, 90);
+            btnAddStaff.Margin = new Padding(2);
+            btnAddStaff.Name = "btnAddStaff";
+            btnAddStaff.Size = new Size(176, 38);
+            btnAddStaff.TabIndex = 1;
+            btnAddStaff.Text = "Add Staff";
+            btnAddStaff.UseVisualStyleBackColor = false;
+            btnAddStaff.Click += addStaff_Click;
             // 
-            // button1
+            // btnAddManager
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button1.BackColor = Color.Aquamarine;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(22, 36);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(176, 38);
-            button1.TabIndex = 1;
-            button1.Text = "Add Manager";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += addManager_Click;
+            btnAddManager.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnAddManager.BackColor = Color.Aquamarine;
+            btnAddManager.FlatStyle = FlatStyle.Flat;
+            btnAddManager.ForeColor = Color.Black;
+            btnAddManager.Location = new Point(22, 36);
+            btnAddManager.Margin = new Padding(2);
+            btnAddManager.Name = "btnAddManager";
+            btnAddManager.Size = new Size(176, 38);
+            btnAddManager.TabIndex = 1;
+            btnAddManager.Text = "Add Manager";
+            btnAddManager.UseVisualStyleBackColor = false;
+            btnAddManager.Click += addManager_Click;
             // 
             // kryptonBorderEdge1
             // 
@@ -372,6 +375,11 @@
             kryptonBorderEdge1.StateCommon.Color1 = Color.WhiteSmoke;
             kryptonBorderEdge1.StateCommon.Color2 = Color.DarkGray;
             kryptonBorderEdge1.StateCommon.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
+            // 
+            // searchTimer
+            // 
+            searchTimer.Interval = 600;
+            searchTimer.Tick += searchTimer_Tick;
             // 
             // frmMUser
             // 
@@ -407,7 +415,7 @@
         private SplitContainer splitContainer1;
         private Krypton.Toolkit.KryptonPanel pnSide;
         private Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge1;
-        private Button button1;
+        private Button btnAddManager;
         private Panel pnSetCenter;
         private FlowLayoutPanel pnListItems;
         private Panel panel1;
@@ -416,7 +424,7 @@
         private ComboBox cbbType;
         private Button btnReload;
         private GroupBox groupBox1;
-        private Button button3;
+        private Button btnAddStaff;
         private GroupBox groupBox2;
         private Label label5;
         private ComboBox cbbStatus;
@@ -427,5 +435,6 @@
         private Label lbSumEmployee;
         private Label lbSumManager;
         private Label label1;
+        private System.Windows.Forms.Timer searchTimer;
     }
 }

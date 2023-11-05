@@ -19,7 +19,7 @@ namespace Essay.Pages.Dialog
 {
     public partial class dialogProfile : Form
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string user { get; set; }
         public string password { get; set; }
@@ -28,7 +28,7 @@ namespace Essay.Pages.Dialog
         public string linkAvt { get; set; }
         public int Status { get; set; }
 
-        private Action<String, String> updateProfile ;
+        private Action<String, String> updateProfile;
         private bool changIMG = false;
         private String nameIMG;
         private String fullNameIMG = "user.png";
@@ -63,13 +63,14 @@ namespace Essay.Pages.Dialog
             LoadInfor(Username);
             // get type user by load from data 
         }
-        public dialogProfile(String Username, int typeOpen, Action<String, String> update) // for edit user
+
+        public dialogProfile(String Username, int typeOpen, int typeUser, Action<String, String> update) // for edit user
         {
             InitializeComponent();
-         
+
 
             this.typeOpen = typeOpen; // 2-> update profile
-            this.typeUser = 1; // only edit, cant block or unblock
+            this.typeUser = typeUser;
             this.user = Username;
 
             LoadInfor(Username);
@@ -82,8 +83,68 @@ namespace Essay.Pages.Dialog
 
         private void LoadInfor(String user) // load infor mation and type user to variable
         {
-            // test
-            // this.typeUser = 1; // hide button block
+
+            try
+            {
+
+                if (typeUser == 0)
+                {
+                    //public int id { get; set; }
+                    //public string name { get; set; }
+                    //public string user { get; set; }
+                    //public string password { get; set; }
+                    //public string phone { get; set; }
+                    //public DateTime birthDay { get; set; }
+                    //public string linkAvt { get; set; }
+                    //public int Status { get; set; }
+                    Manager m = ManagerController.GetFromUser(user);
+                    if (m != null)
+                    {
+                        id = m.ID;
+                        this.name = m.Name;
+                        this.user = m.User;
+                        password = m.Pass;
+                        phone = m.Phone;
+                        birthDay = (DateTime)m.birthDay;
+                        Status = (int)m.Status;
+                        linkAvt = m.LinkAVT;
+                    }
+                }
+                else if (typeUser == 1)
+                {
+                    Employee m = EmployeeController.GetFromUser(user);
+                    if (m != null)
+                    {
+                        id = m.ID;
+                        name = m.Name;
+                        this.user = m.User;
+                        password = m.Pass;
+                        phone = m.Phone;
+                        birthDay = (DateTime)m.birthDay;
+                        Status = (int)m.Status;
+                        linkAvt = m.LinkAVT;
+                    }
+                }
+                else if (typeUser == 2)
+                {
+                    Admin m = AdminController.GetFromUser(user);
+                    if (m != null)
+                    {
+                        //id = m.ID;
+                        this.name = m.Name;
+                        this.user = m.User;
+                        password = m.Password;
+                        phone = "";
+
+                        linkAvt = m.LinkAVT;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error When loading Infor: " + e.Message);
+            }
+
 
             // action load data to variable
 
@@ -105,10 +166,16 @@ namespace Essay.Pages.Dialog
                     nameIMG = "Manager_" + ManagerController.NextID().ToString();
                     this.BackColor = Color.SlateGray;
                 }
-                else
+                else if (typeUser == 1)
                 {
                     nameIMG = "Employee_" + EmployeeController.NextID().ToString();
                     this.BackColor = Color.Gray;
+                }
+                else
+                {
+                    nameIMG = "Admin_" + EmployeeController.NextID().ToString();
+                    this.BackColor = Color.SlateGray;
+
                 }
 
 
@@ -117,11 +184,11 @@ namespace Essay.Pages.Dialog
                 if (typeOpen == 0) // type add new profile
                 {
                     // pnControl 94, 296 : 3button
-                    // 134, 296 : 2button
+                    // 144, 296 : 2button
                     pnControl.Location = new Point(144, 296);
 
 
-                    btnAction.Hide();
+                    //btnAction.Hide();
                     btnEdit.Hide();
                     pnStatus.Hide();
                     pnGroupTxt.Enabled = true;
@@ -130,7 +197,7 @@ namespace Essay.Pages.Dialog
                 }
                 else if (typeOpen == 1 || typeOpen == 2) // type edit profile and show button action if manager
                 {
-
+                    fullNameIMG = linkAvt;
 
                     // pnControl 94, 296 : 3button
                     // 134, 296 : 2button
@@ -145,32 +212,41 @@ namespace Essay.Pages.Dialog
                     txtDate.DateTime = birthDay;
                     try
                     {
-                        btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
+                        String p = $"{Variables._pathAvt}/{linkAvt}";
+                        if (File.Exists(p))
+                        {
+                            // Tệp tồn tại
+                            // Thực hiện xử lý tương ứng
+                            btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile(p));
+                           // btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile(p);
+                        }
+
+                        // btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
 
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show("Error Load Avatar: " + ex.Message);
                     }
 
                     //    MessageBox.Show(typeUser.ToString());
                     if (typeUser == 0) // check type user can use button block/unblock
                     {
-                        pnControl.Location = new Point(94, 296);
+                        //pnControl.Location = new Point(94, 296);
 
 
-                        btnAction.Show();
+                        //  btnAction.Show();
                         btnEdit.Show();
                         if (Status == 0)
                         {
                             textStatus = "Active";
-                            btnAction.Text = "Block";
+                            //  btnAction.Text = "Block";
                             typeBtnAction = 1; // action block
                         }
                         else if (Status == 1)
                         {
                             textStatus = "Blocked";
-                            btnAction.Text = "Active";
+                            //   btnAction.Text = "Active";
                             typeBtnAction = 0; // action active
 
 
@@ -178,23 +254,29 @@ namespace Essay.Pages.Dialog
                         else
                         {
                             textStatus = "Deleted";
-                            btnAction.Text = "Restore";
+                            //  btnAction.Text = "Restore";
                             typeBtnAction = 0; // action active
 
                         }
                     }
-                    else if(typeUser == 1)
+                    else if (typeUser == 1)
                     {
                         pnControl.Location = new Point(144, 296);
-                        btnAction.Hide();
+                        //  btnAction.Hide();
                         btnEdit.Show();
+                    }
+                    else
+                    {
+                        txtDate.Enabled = false;
+                        txtPhone.Enabled = false;
+                        txtStatus.Enabled = false;
                     }
 
                     txtStatus.Text = textStatus;
 
 
                 }
-             
+
             }
             catch (Exception e)
             {
@@ -261,13 +343,19 @@ namespace Essay.Pages.Dialog
 
             //MessageBox.Show("", "", MessageBoxButtons.YesNoCancel);
         }
-        
+
 
 
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             pnGroupTxt.Enabled = true;
+            if (typeUser == 2)
+            {
+                txtDate.Enabled = false;
+                txtPhone.Enabled = false;
+                txtStatus.Enabled = false;
+            }
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
@@ -306,7 +394,16 @@ namespace Essay.Pages.Dialog
 
         private bool isCanAdd()
         {
-            if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" || txtPass.Text == "" || txtDate.Text == "")
+            if(typeUser == 2)
+            {
+                if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" )
+                {
+                    MessageBox.Show("Input have empty. Please input full values!", "Null Value", MessageBoxButtons.OK);
+                    return false;
+                }
+              
+            }
+            else if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" || txtPhone.Text == "" || txtDate.Text == "")
             {
                 MessageBox.Show("Input have empty. Please input full values!", "Null Value", MessageBoxButtons.OK);
                 return false;
@@ -314,6 +411,11 @@ namespace Essay.Pages.Dialog
             else if (!int.TryParse(txtPhone.Text, out int number))
             {
                 MessageBox.Show("Phone is not valid!", "Invalid Input", MessageBoxButtons.OK);
+                return false;
+            }
+            else if (txtPhone.Text.Length > 10)
+            {
+                MessageBox.Show("Phone must < 10 number!", "Invalid Input", MessageBoxButtons.OK);
                 return false;
             }
             else if (txtPass.Text.Length < 5)
@@ -373,10 +475,67 @@ namespace Essay.Pages.Dialog
                 }
             }
         }
-        
+
         private void ActionEdit()
         {
+            switch (typeUser)
+            {
+                case 0:
+                    Manager m = new Manager()
+                    {
+                        ID = id,
+                        Name = txtName.Text,
+                        User = txtUser.Text,
+                        Pass = txtPass.Text,
+                        Phone = txtPhone.Text,
+                        birthDay = txtDate.DateTime,
+                        LinkAVT = fullNameIMG
+                    };
 
+                    if (!ManagerController.Update(m))
+                    {
+                        MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
+
+                    }
+                    break;
+                case 1:
+                    Employee e = new Employee()
+                    {
+                        ID = id,
+                        Name = txtName.Text,
+                        User = txtUser.Text,
+                        Pass = txtPass.Text,
+                        Phone = txtPhone.Text,
+                        birthDay = txtDate.DateTime,
+                        LinkAVT = fullNameIMG
+                    };
+
+                    if (!EmployeeController.Update(e))
+                    {
+                        MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
+
+                    }
+                    break;
+
+                case 2:
+                    Admin a = new Admin()
+                    {
+
+                        Name = txtName.Text,
+                        User = txtUser.Text,
+                        Password = txtPass.Text,
+                        LinkAVT = fullNameIMG
+                    };
+
+                    if (!AdminController.Update(a))
+                    {
+                        MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
+
+                    }
+                    break;
+
+            }
+            frmMain.Instance.RequestReload();
         }
 
         private void ActionEditProfile()

@@ -105,6 +105,47 @@ namespace Essay.Controllers
             return false;
         }
 
+        public static bool Update(Manager Manager)
+        {
+
+
+            // Tìm bản ghi Manager cần chỉnh sửa bằng User
+            //Manager existingManager = db.Managers.SingleOrDefault(m => m.ID == Manager.ID);
+            Manager existingManager = (from m in db.Managers
+                                       where m.ID == Manager.ID
+                                       select m).FirstOrDefault();
+           // MessageBox.Show("Pre-if");
+
+            if (existingManager != null)
+            {
+                //MessageBox.Show("ok nhe");
+                // Thực hiện các thay đổi cần thiết trên bản ghi Manager
+                existingManager.Name = Manager.Name;
+                existingManager.Pass = Manager.Pass;
+                existingManager.birthDay = Manager.birthDay;
+                existingManager.Phone = Manager.Phone;
+                existingManager.LinkAVT = Manager.LinkAVT;
+
+                // if change user -> check exists with other row
+                if (existingManager.User != Manager.User && AdminController.isExistsUser(Manager.User))
+                {
+                    MessageBox.Show("User Name is invalid", "Error Input", MessageBoxButtons.OK);
+                    return false;
+                }
+                else if(existingManager.User != Manager.User && !AdminController.isExistsUser(Manager.User))
+                {
+                    existingManager.User = Manager.User;
+                }
+
+                // Lưu các thay đổi vào cơ sở dữ liệu
+                db.SubmitChanges();
+
+                return true;
+            }
+
+            return false; // Bản ghi không tồn tại hoặc không tìm thấy
+        }
+
         public static bool Delete(String username)
         {
             if (isExistsUser(username))
@@ -136,6 +177,10 @@ namespace Essay.Controllers
             return SetStatus(username, 1);
         }
 
+        public static bool Restore(String username)
+        {
+            return SetStatus(username, 0);
+        }
 
         // private method
         private static List<Manager> GetFromStatus(int status)

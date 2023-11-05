@@ -136,7 +136,7 @@
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
             txtPass.Size = new Size(174, 37);
-            txtPass.TabIndex = 4;
+            txtPass.TabIndex = 2;
             txtPass.TextAlign = HorizontalAlignment.Center;
             // 
             // ckShow
@@ -148,7 +148,7 @@
             ckShow.Location = new Point(283, 104);
             ckShow.Name = "ckShow";
             ckShow.Size = new Size(15, 14);
-            ckShow.TabIndex = 0;
+            ckShow.TabIndex = 3;
             ckShow.UseVisualStyleBackColor = false;
             ckShow.CheckedChanged += ckShow_CheckedChanged;
             // 
@@ -186,7 +186,7 @@
             txtUser.Location = new Point(34, 5);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(174, 37);
-            txtUser.TabIndex = 4;
+            txtUser.TabIndex = 1;
             txtUser.TextAlign = HorizontalAlignment.Center;
             // 
             // pictureBox4
@@ -217,7 +217,7 @@
             btnLogin.Margin = new Padding(4, 3, 4, 3);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(115, 47);
-            btnLogin.TabIndex = 3;
+            btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.TextColor = Color.Fuchsia;
             btnLogin.UseVisualStyleBackColor = false;
@@ -232,7 +232,7 @@
             panel2.Location = new Point(300, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(66, 39);
-            panel2.TabIndex = 1;
+            panel2.TabIndex = 5;
             // 
             // panelClose
             // 
@@ -240,7 +240,7 @@
             panelClose.Location = new Point(34, 0);
             panelClose.Name = "panelClose";
             panelClose.Size = new Size(32, 39);
-            panelClose.TabIndex = 1;
+            panelClose.TabIndex = 5;
             // 
             // pictureBox2
             // 
@@ -263,7 +263,7 @@
             panelMini.Location = new Point(0, 0);
             panelMini.Name = "panelMini";
             panelMini.Size = new Size(32, 39);
-            panelMini.TabIndex = 0;
+            panelMini.TabIndex = 5;
             // 
             // pictureBox1
             // 

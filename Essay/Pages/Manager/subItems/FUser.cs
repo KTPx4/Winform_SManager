@@ -32,6 +32,7 @@ namespace Essay.Pages.Items
         public String _Phone { get; set; }
         public bool _isOnline { get; set; }
         public string _LinkAvt { get; set; }
+        public int _Status { get; set; }
 
         private bool isTile = false;
 
@@ -113,6 +114,28 @@ namespace Essay.Pages.Items
                 ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
 
             }
+
+            switch (_Status)
+            {
+                case -1:
+                    btnDel.Hide();
+                    btnBlock.Hide();
+                    btnRestore.Show();
+                    break;
+
+                case 0:
+                    btnRestore.Hide();
+                    btnDel.Show();
+                    btnBlock.Show();
+                    break;
+
+                case 1:
+                    btnDel.Show();
+                    btnBlock.Hide();
+                    btnRestore.Show();
+                    break;
+            }
+
         }
 
 
@@ -164,19 +187,20 @@ namespace Essay.Pages.Items
                 return;
             }
 
-            dynamic m= null;
+            dynamic m = null;
 
-            if(_isManager)
+            if (_isManager)
             {
-                 m = ManagerController.GetFromUser(userName);
+                m = ManagerController.GetFromUser(userName);
             }
             else
             {
                 m = EmployeeController.GetFromUser(userName);
             }
-            dialogProfile pf = new dialogProfile(1, 0)
+
+            dialogProfile pf = new dialogProfile(1, _isManager? 0 : 1)
             {
-                id = m.ID.ToString(),
+                id = (int)m.ID,
                 name = m.Name,
                 user = m.User,
                 password = m.Pass,
@@ -216,6 +240,22 @@ namespace Essay.Pages.Items
         private void btnViews_Click(object sender, EventArgs e)
         {
             showUser();
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"Do you wan to RESTORE User '{_UserName}' ?", "Confirm Lock Account", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (!AdminController.RestoreUser(_UserName))
+                {
+
+                    MessageBox.Show("Error when restore, try again", "Error Restore Account", MessageBoxButtons.OK);
+                    return;
+                }
+
+                frmMain.Instance.RequestReload();
+            }
+           
         }
     }
 }

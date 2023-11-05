@@ -97,7 +97,6 @@
             pnNavbar.Size = new Size(164, 626);
             pnNavbar.StateCommon.Color1 = Color.Transparent;
             pnNavbar.TabIndex = 0;
-        //    pnNavbar.Paint += pnNavbar_Paint;
             // 
             // pnMenuNav
             // 
@@ -360,7 +359,7 @@
             btnProfile.Size = new Size(44, 44);
             btnProfile.StateCommon.Back.Color1 = Color.Transparent;
             btnProfile.StateCommon.Back.Color2 = Color.Transparent;
-            btnProfile.StateCommon.Back.Image = (Image)resources.GetObject("btnProfile.StateCommon.Back.Image");
+            btnProfile.StateCommon.Back.Image = Properties.Resources.user1;
             btnProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
             btnProfile.StateCommon.Border.Color1 = Color.White;
             btnProfile.StateCommon.Border.Color2 = Color.White;
