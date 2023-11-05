@@ -11,11 +11,11 @@ namespace Essay.Controllers
     {
 
       
-        private EssayDBDataContext db;
+        private static EssayDBDataContext db = new EssayDBDataContext();
 
         public EmployeeController() 
         { 
-            db = new EssayDBDataContext();
+            
         }
 
         public List<Employee> GetAll()
@@ -23,10 +23,31 @@ namespace Essay.Controllers
             return db.Employees.ToList();
         }
 
-        public bool CheckE(String user)
+        public static bool Add(Employee employee)
         {
+            if(!AdminController.isExistsUser(employee.User))
+            {
+                db.Employees.InsertOnSubmit(employee);
+                db.SubmitChanges();
+                return true;
+            }
             return false;
         }
+
+        public static int NextID()
+        {
+           
+
+            var currentID = (from em in db.Employees
+                             orderby em.ID descending
+                             select em.ID).FirstOrDefault();
+
+            //int id = int.Parse(currentID.ToString());
+           // MessageBox.Show("" + currentID);
+
+            return int.Parse(currentID.ToString()) + 1;
+        }
+        
 
     }
 }

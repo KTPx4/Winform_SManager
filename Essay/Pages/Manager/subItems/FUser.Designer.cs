@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FUser));
             pnID = new Panel();
             pnButton = new Panel();
             btnViews = new PictureBox();
@@ -214,11 +213,11 @@
             // ptbAvt
             // 
             ptbAvt.Dock = DockStyle.Fill;
-            ptbAvt.Image = (Image)resources.GetObject("ptbAvt.Image");
+            ptbAvt.Image = Properties.Resources.user1;
             ptbAvt.Location = new Point(0, 0);
             ptbAvt.Name = "ptbAvt";
             ptbAvt.Size = new Size(48, 62);
-            ptbAvt.SizeMode = PictureBoxSizeMode.StretchImage;
+            ptbAvt.SizeMode = PictureBoxSizeMode.CenterImage;
             ptbAvt.TabIndex = 0;
             ptbAvt.TabStop = false;
             // 

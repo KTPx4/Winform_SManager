@@ -195,8 +195,8 @@
             btnProfile.Size = new Size(60, 60);
             btnProfile.StateCommon.Back.Color1 = Color.Transparent;
             btnProfile.StateCommon.Back.Color2 = Color.Transparent;
-            btnProfile.StateCommon.Back.Image = Properties.Resources.husky2;
-            btnProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
+            btnProfile.StateCommon.Back.Image = Properties.Resources.user1;
+            btnProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
             btnProfile.StateCommon.Border.Color1 = Color.White;
             btnProfile.StateCommon.Border.Color2 = Color.White;
             btnProfile.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
@@ -281,7 +281,6 @@
             txtPhone.Size = new Size(126, 20);
             txtPhone.TabIndex = 2;
             txtPhone.TextChanged += txtPhone_TextChanged;
-           
             // 
             // label7
             // 
@@ -445,6 +444,7 @@
             btnSave.Size = new Size(74, 40);
             btnSave.TabIndex = 9;
             btnSave.Values.Text = "Save";
+            btnSave.Click += btnSave_Click;
             // 
             // btnAction
             // 
@@ -454,6 +454,7 @@
             btnAction.Size = new Size(74, 40);
             btnAction.TabIndex = 10;
             btnAction.Values.Text = "Block";
+            btnAction.Click += btnAction_Click;
             // 
             // btnCancel
             // 

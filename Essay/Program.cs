@@ -19,6 +19,7 @@ namespace Essay
                 TypeUser = "Employee",
                 linkAvt = "husky2.png"
             });
+            //Application.Run(new Test());
         }
     }
 }

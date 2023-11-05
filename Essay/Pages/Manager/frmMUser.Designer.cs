@@ -105,7 +105,7 @@
             // 
             btnReload.BackgroundImage = Properties.Resources.icons8_reload_16;
             btnReload.BackgroundImageLayout = ImageLayout.Center;
-            btnReload.Location = new Point(554, 38);
+            btnReload.Location = new Point(547, 36);
             btnReload.Margin = new Padding(2);
             btnReload.Name = "btnReload";
             btnReload.Size = new Size(34, 26);
@@ -117,7 +117,7 @@
             // 
             cbbType.FormattingEnabled = true;
             cbbType.Items.AddRange(new object[] { "All", "Managers", "Employees" });
-            cbbType.Location = new Point(454, 38);
+            cbbType.Location = new Point(458, 38);
             cbbType.Margin = new Padding(2);
             cbbType.Name = "cbbType";
             cbbType.Size = new Size(82, 23);
@@ -127,17 +127,17 @@
             // 
             pictureBox1.BackColor = Color.White;
             pictureBox1.Image = Properties.Resources.icons8_find_ios_16_16;
-            pictureBox1.Location = new Point(398, 38);
+            pictureBox1.Location = new Point(422, 38);
             pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(30, 22);
+            pictureBox1.Size = new Size(14, 22);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // txtFind
             // 
-            txtFind.Location = new Point(18, 32);
+            txtFind.Location = new Point(26, 32);
             txtFind.Margin = new Padding(2);
             txtFind.MaximumSize = new Size(418, 36);
             txtFind.MinimumSize = new Size(418, 36);

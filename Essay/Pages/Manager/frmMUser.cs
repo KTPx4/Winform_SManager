@@ -83,21 +83,22 @@ namespace Essay.Pages
         private void addManager_Click(object sender, EventArgs e)
         {
 
-            dialogProfile dialogProfile = new dialogProfile(1, 0)
-            {
-                id = "1243",
-                name = "px4",
-                user = "px4k3",
-                password = "kkkk",
-                phone = "1111111",
-                Status = 0,
-                birthDay = new DateTime(2023, 10, 20),
-                linkAvt = "husky2.png"
+            //dialogProfile dialogProfile = new dialogProfile(1, 0)
+            //{
+            //    id = "1243",
+            //    name = "px4",
+            //    user = "px4k3",
+            //    password = "kkkk",
+            //    phone = "1111111",
+            //    Status = 0,
+            //    birthDay = new DateTime(2023, 10, 20),
+            //    linkAvt = "husky2.png"
 
-            };
+            //};
+            //dialogProfile.Show();
+
+            dialogProfile dialogProfile = new dialogProfile(0, 0);  // open = 0 -> add , user =0 -> manager 
             dialogProfile.Show();
-
-
             //FUser us = new FUser(deleteUser, true, "000", "fsf smith", "00001111", true, "");
 
             ////    us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
@@ -120,8 +121,11 @@ namespace Essay.Pages
 
             //us.Dock = DockStyle.Top;
 
-            dialogProfile dialogProfile = new dialogProfile();
+            dialogProfile dialogProfile = new dialogProfile(0, 1); // add - employee
             dialogProfile.Show();
+            // AdminController adminController = new AdminController();
+            // adminController.isExistsUser("px4d");
+
         }
 
         private void setLocation()
@@ -166,9 +170,9 @@ namespace Essay.Pages
         {
             try
             {
+                pnListItems.Controls.Clear();
                 FUser title = new FUser();
                 title.Dock = DockStyle.Top;
-                pnListItems.Controls.Clear();
                 pnListItems.Controls.Add(title);
 
                 List<Employee> listEmployee = new EmployeeController().GetAll();

@@ -25,6 +25,9 @@
     <Compile Update="Pages\Manager\subItems\FUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Update="Model\EssayDB.dbml">

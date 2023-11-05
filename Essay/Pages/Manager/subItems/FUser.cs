@@ -72,7 +72,7 @@ namespace Essay.Pages.Items
         {
             pnID.Location = new Point(Variables._X_Item_User, pnID.Location.Y);
             pnID.BackColor = Color.Transparent;
-            lbID.Text = "ID";
+            lbID.Text = "User";
             lbID.Font = new Font("Segoe UI", 12, FontStyle.Bold); // Segoe UI, 11.25pt, style=Bold
             lbID.ForeColor = Color.White;
 

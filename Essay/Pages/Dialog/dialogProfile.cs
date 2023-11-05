@@ -1,5 +1,7 @@
 ﻿using Components;
 using Essay.Components;
+using Essay.Controllers;
+using Essay.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +29,10 @@ namespace Essay.Pages.Dialog
         public int Status { get; set; }
 
 
-
+        private bool changIMG = false;
+        private String nameIMG;
+        private String fullNameIMG = "user.png";
+        private String pathIMG;
         private int typeUser = 0; // 0 -> manager, 1-> employee
         private int typeOpen = 0; // 0 -> add new, 1-> edit
         private string textStatus = "";
@@ -48,6 +53,7 @@ namespace Essay.Pages.Dialog
             this.typeOpen = typeOpen;
             this.typeUser = typeUser;
         }
+
         public dialogProfile(String Username, int typeUser) // for edit user
         {
             InitializeComponent();
@@ -62,7 +68,7 @@ namespace Essay.Pages.Dialog
         private void LoadInfor(String user) // load infor mation and type user to variable
         {
             // test
-           // this.typeUser = 1; // hide button block
+            // this.typeUser = 1; // hide button block
 
             // action load data to variable
 
@@ -74,8 +80,24 @@ namespace Essay.Pages.Dialog
         {
             try
             {
-                pnTitle = new DraggablePanel(pnTitle, this);
-                txtStatus.Enabled = false;
+
+                pnTitle = new DraggablePanel(pnTitle, this); // move form
+                txtStatus.Enabled = false; // hide textbox status
+
+                //get next ID
+                if (typeUser == 0)
+                {
+                    nameIMG = "Manager_" + ManagerController.NextID().ToString();
+
+                }
+                else
+                {
+                    nameIMG = "Employee_" + EmployeeController.NextID().ToString();
+
+                }
+
+
+
                 if (typeOpen == 0) // type add new profile
                 {
                     // pnControl 94, 296 : 3button
@@ -88,14 +110,7 @@ namespace Essay.Pages.Dialog
                     pnStatus.Hide();
                     pnGroupTxt.Enabled = true;
 
-                    if (typeUser == 0)
-                    {
-                        // action add manager
-                    }
-                    else if (typeUser == 1)
-                    {
-                        // action add employee
-                    }
+
                 }
                 else if (typeOpen == 1) // type edit profile and show button action if manager
                 {
@@ -116,12 +131,13 @@ namespace Essay.Pages.Dialog
                     {
                         btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
 
-                    }catch (Exception ex) 
+                    }
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Error: " + ex.Message);
                     }
 
-                    MessageBox.Show(typeUser.ToString());
+                    //    MessageBox.Show(typeUser.ToString());
                     if (typeUser == 0) // check type user can use button block/unblock
                     {
                         pnControl.Location = new Point(94, 296);
@@ -167,20 +183,20 @@ namespace Essay.Pages.Dialog
             {
                 MessageBox.Show("Error: " + e.Message);
             }
-           
-         
+
+
         }
 
         private void dialogProfile_Load(object sender, EventArgs e)
         {
-          
+
             loadForm();
         }
 
         //change avt
         private void btnProfile_Click(object sender, EventArgs e)
         {
-
+            changIMG = true;
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp";
@@ -200,9 +216,11 @@ namespace Essay.Pages.Dialog
 
                         string fileName = Path.GetFileNameWithoutExtension(selectedFilePath);
                         string fileExtension = Path.GetExtension(selectedFilePath);
-                        string newFileName = fileName + "_id0101" + fileExtension;
+                        fullNameIMG = nameIMG + fileExtension;
 
-                        string destinationFilePath = Path.Combine(destinationFolder, newFileName);
+                        pathIMG = $"{Variables._pathAvt}/" + fullNameIMG;
+
+                        string destinationFilePath = Path.Combine(destinationFolder, fullNameIMG);
 
                         File.Copy(selectedFilePath, destinationFilePath, true);
 
@@ -256,10 +274,7 @@ namespace Essay.Pages.Dialog
         {
         }
 
-        private void kryptonButton2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -299,9 +314,103 @@ namespace Essay.Pages.Dialog
 
 
         }
-      
+
+        private bool isCanAdd()
+        {
+            if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" || txtPass.Text == "" || txtDate.Text == "")
+            {
+                MessageBox.Show("Input have empty. Please input full values!", "Null Value", MessageBoxButtons.OK);
+                return false;
+            }
+            else if (!int.TryParse(txtPhone.Text, out int number))
+            {
+                MessageBox.Show("Phone is not valid!", "Invalid Input", MessageBoxButtons.OK);
+                return false;
+            }
+            else if (txtPass.Text.Length < 5)
+            {
+                MessageBox.Show("Password must at least 5 character!", "Invalid Input", MessageBoxButtons.OK);
+                return false;
+            }
 
 
-       
+
+            return true;
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!isCanAdd())
+            {
+                return;
+            }
+            if (typeUser == 0)
+            {
+                // action add manager
+                // action add employee
+                Manager em = new Manager()
+                {
+                    Name = txtName.Text,
+                    User = txtUser.Text,
+                    Pass = txtPass.Text,
+                    Phone = txtPhone.Text,
+                    birthDay = txtDate.DateTime,
+                    Status = 0, // active,
+                    isOnline = false,
+                    LinkAVT = fullNameIMG
+
+                };
+                if (!ManagerController.Add(em))
+                {
+                    MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            else if (typeUser == 1)
+            {
+
+                // action add employee
+                Employee em = new Employee()
+                {
+                    Name = txtName.Text,
+                    User = txtUser.Text,
+                    Pass = txtPass.Text,
+                    Phone = txtPhone.Text,
+                    birthDay = txtDate.DateTime,
+                    Status = 0, // active,
+                    isOnline = false,
+                    LinkAVT = fullNameIMG
+
+                };
+                if (!EmployeeController.Add(em))
+                {
+                    MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            this.Close();
+        }
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+            if (changIMG) // if have change picture -> remove if exists
+            {
+
+                if (File.Exists(pathIMG))
+                {
+                    File.Delete(pathIMG);
+                }
+            }
+            this.Close();
+        }
+        private void btnAction_Click(object sender, EventArgs e)
+        {
+            if (typeUser == 0)
+            {
+                // action add manager
+            }
+            else if (typeUser == 1)
+            {
+                // action add employee
+            }
+        }
     }
 }
