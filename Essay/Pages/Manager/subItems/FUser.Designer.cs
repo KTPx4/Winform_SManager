@@ -90,6 +90,7 @@
             btnViews.SizeMode = PictureBoxSizeMode.StretchImage;
             btnViews.TabIndex = 2;
             btnViews.TabStop = false;
+            btnViews.Click += btnViews_Click;
             // 
             // btnBlock
             // 
@@ -100,6 +101,7 @@
             btnBlock.SizeMode = PictureBoxSizeMode.StretchImage;
             btnBlock.TabIndex = 2;
             btnBlock.TabStop = false;
+            btnBlock.Click += btnBlock_Click;
             // 
             // btnDel
             // 

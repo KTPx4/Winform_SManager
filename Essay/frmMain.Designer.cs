@@ -97,7 +97,7 @@
             pnNavbar.Size = new Size(164, 626);
             pnNavbar.StateCommon.Color1 = Color.Transparent;
             pnNavbar.TabIndex = 0;
-            pnNavbar.Paint += pnNavbar_Paint;
+        //    pnNavbar.Paint += pnNavbar_Paint;
             // 
             // pnMenuNav
             // 

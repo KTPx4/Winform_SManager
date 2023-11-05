@@ -28,13 +28,13 @@ namespace Essay.Pages.Dialog
         public string linkAvt { get; set; }
         public int Status { get; set; }
 
-
+        private Action<String, String> updateProfile ;
         private bool changIMG = false;
         private String nameIMG;
         private String fullNameIMG = "user.png";
         private String pathIMG;
         private int typeUser = 0; // 0 -> manager, 1-> employee
-        private int typeOpen = 0; // 0 -> add new, 1-> edit
+        private int typeOpen = 0; // 0 -> add new, 1-> edit , 2-> update profile
         private string textStatus = "";
         private int typeBtnAction = 0; // 0 -> active, 1-> block, -1-> delete
         private static String textPhone = "";
@@ -62,8 +62,23 @@ namespace Essay.Pages.Dialog
             this.user = Username;
             LoadInfor(Username);
             // get type user by load from data 
-
         }
+        public dialogProfile(String Username, int typeOpen, Action<String, String> update) // for edit user
+        {
+            InitializeComponent();
+         
+
+            this.typeOpen = typeOpen; // 2-> update profile
+            this.typeUser = 1; // only edit, cant block or unblock
+            this.user = Username;
+
+            LoadInfor(Username);
+
+            updateProfile = update;
+
+            // get type user by load from data 
+        }
+
 
         private void LoadInfor(String user) // load infor mation and type user to variable
         {
@@ -88,15 +103,16 @@ namespace Essay.Pages.Dialog
                 if (typeUser == 0)
                 {
                     nameIMG = "Manager_" + ManagerController.NextID().ToString();
-
+                    this.BackColor = Color.SlateGray;
                 }
                 else
                 {
                     nameIMG = "Employee_" + EmployeeController.NextID().ToString();
-
+                    this.BackColor = Color.Gray;
                 }
 
 
+                // action for type open
 
                 if (typeOpen == 0) // type add new profile
                 {
@@ -112,7 +128,7 @@ namespace Essay.Pages.Dialog
 
 
                 }
-                else if (typeOpen == 1) // type edit profile and show button action if manager
+                else if (typeOpen == 1 || typeOpen == 2) // type edit profile and show button action if manager
                 {
 
 
@@ -167,7 +183,7 @@ namespace Essay.Pages.Dialog
 
                         }
                     }
-                    else
+                    else if(typeUser == 1)
                     {
                         pnControl.Location = new Point(144, 296);
                         btnAction.Hide();
@@ -178,6 +194,7 @@ namespace Essay.Pages.Dialog
 
 
                 }
+             
             }
             catch (Exception e)
             {
@@ -244,35 +261,7 @@ namespace Essay.Pages.Dialog
 
             //MessageBox.Show("", "", MessageBoxButtons.YesNoCancel);
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-        }
+        
 
 
 
@@ -337,12 +326,8 @@ namespace Essay.Pages.Dialog
 
             return true;
         }
-        private void btnSave_Click(object sender, EventArgs e)
+        private void ActionAdd()
         {
-            if (!isCanAdd())
-            {
-                return;
-            }
             if (typeUser == 0)
             {
                 // action add manager
@@ -387,9 +372,47 @@ namespace Essay.Pages.Dialog
                     return;
                 }
             }
+        }
+        
+        private void ActionEdit()
+        {
+
+        }
+
+        private void ActionEditProfile()
+        {
+            ActionEdit();
+            updateProfile(txtName.Text, pathIMG); // update profile at main
+        }
+
+        // Button save Click
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!isCanAdd())
+            {
+                return;
+            }
+            switch (typeOpen)
+            {
+                case 0: // add new
+                    ActionAdd();
+                    break;
+
+                case 1: // edit
+                    ActionEdit();
+                    break;
+
+                case 2: // edit - update profile
+                    ActionEditProfile();
+                    break;
+            }
+
+            frmMain.Instance.RequestReload();
             this.Close();
         }
-        private void kryptonButton2_Click(object sender, EventArgs e)
+
+        // exist form
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
             if (changIMG) // if have change picture -> remove if exists
             {
@@ -401,6 +424,8 @@ namespace Essay.Pages.Dialog
             }
             this.Close();
         }
+
+        // button lock / unlock
         private void btnAction_Click(object sender, EventArgs e)
         {
             if (typeUser == 0)

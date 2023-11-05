@@ -1,7 +1,11 @@
 ﻿using Essay.Components;
+using Essay.Controllers;
+using Essay.Model;
+using Essay.Pages.Dialog;
 using Krypton.Toolkit;
 using System;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Essay.Pages.Items
 {
@@ -61,6 +65,7 @@ namespace Essay.Pages.Items
             _isManager = false;
 
         }
+
         public FUser(Action<FUser> deleteU)
         {
             InitializeComponent();
@@ -110,9 +115,10 @@ namespace Essay.Pages.Items
             }
         }
 
+
         private void User_Load(object sender, EventArgs e)
         {
-            // pnID.BackColor = GenerateRandomColor();
+
             if (!isTile)
             {
                 loadForm();
@@ -130,20 +136,86 @@ namespace Essay.Pages.Items
 
         // Action
 
+        private void deleteUser()
+        {
+            String userName = _UserName;
+            if (!AdminController.DeleteUser(userName))
+            {
+                MessageBox.Show("Error when Delete\nCheck code again!", "Error Delete", MessageBoxButtons.OK);
+            }
 
+        }
 
+        private void lockUser()
+        {
+            String userName = _UserName;
+            if (!AdminController.LockUser(userName))
+            {
+                MessageBox.Show("Error when Lock\nCheck code again!", "Error Lock Account", MessageBoxButtons.OK);
+            }
+        }
+
+        private void showUser()
+        {
+            String userName = _UserName;
+            if (!AdminController.isExistsUser(userName))
+            {
+                MessageBox.Show("User is NOT EXISTS in Database", "Error View Account", MessageBoxButtons.OK);
+                return;
+            }
+
+            dynamic m= null;
+
+            if(_isManager)
+            {
+                 m = ManagerController.GetFromUser(userName);
+            }
+            else
+            {
+                m = EmployeeController.GetFromUser(userName);
+            }
+            dialogProfile pf = new dialogProfile(1, 0)
+            {
+                id = m.ID.ToString(),
+                name = m.Name,
+                user = m.User,
+                password = m.Pass,
+                phone = m.Phone,
+                birthDay = (DateTime)m.birthDay,
+                linkAvt = m.LinkAVT,
+                Status = (int)m.Status
+            };
+
+            pf.ShowDialog();
+
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DeleteUser(this);
+            if (MessageBox.Show($"Do you wan to DELETE User '{_UserName}' ?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // MessageBox.Show("Delete");
+                deleteUser();
+                DeleteUser(this);
+            }
+            return;
+
         }
 
-        private Color GenerateRandomColor()
+        private void btnBlock_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
-            return randomColor;
+            if (MessageBox.Show($"Do you wan to LOCK User '{_UserName}' ?", "Confirm Lock Account", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // MessageBox.Show("Delete");
+                lockUser();
+                DeleteUser(this);
+            }
+            return;
         }
 
+        private void btnViews_Click(object sender, EventArgs e)
+        {
+            showUser();
+        }
     }
 }

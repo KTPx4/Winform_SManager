@@ -37,6 +37,13 @@
             txtFind = new Krypton.Toolkit.KryptonTextBox();
             pnSetCenter = new Panel();
             pnSide = new Krypton.Toolkit.KryptonPanel();
+            groupBox3 = new GroupBox();
+            label7 = new Label();
+            label2 = new Label();
+            lbSumAll = new Label();
+            lbSumEmployee = new Label();
+            lbSumManager = new Label();
+            label1 = new Label();
             groupBox2 = new GroupBox();
             label5 = new Label();
             cbbStatus = new ComboBox();
@@ -52,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnSide).BeginInit();
             pnSide.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -122,6 +130,7 @@
             cbbType.Name = "cbbType";
             cbbType.Size = new Size(82, 23);
             cbbType.TabIndex = 2;
+            cbbType.SelectedIndexChanged += cbbType_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
@@ -170,6 +179,7 @@
             // 
             // pnSide
             // 
+            pnSide.Controls.Add(groupBox3);
             pnSide.Controls.Add(groupBox2);
             pnSide.Controls.Add(groupBox1);
             pnSide.Controls.Add(kryptonBorderEdge1);
@@ -181,6 +191,94 @@
             pnSide.Size = new Size(222, 492);
             pnSide.StateCommon.Color1 = Color.Transparent;
             pnSide.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox3.Controls.Add(label7);
+            groupBox3.Controls.Add(label2);
+            groupBox3.Controls.Add(lbSumAll);
+            groupBox3.Controls.Add(lbSumEmployee);
+            groupBox3.Controls.Add(lbSumManager);
+            groupBox3.Controls.Add(label1);
+            groupBox3.ForeColor = Color.White;
+            groupBox3.Location = new Point(4, 353);
+            groupBox3.Margin = new Padding(2);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Padding = new Padding(2);
+            groupBox3.Size = new Size(218, 134);
+            groupBox3.TabIndex = 3;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Statistics";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(21, 99);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(27, 15);
+            label7.TabIndex = 2;
+            label7.Text = "All :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(21, 68);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Employee :";
+            // 
+            // lbSumAll
+            // 
+            lbSumAll.AutoSize = true;
+            lbSumAll.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lbSumAll.ForeColor = Color.White;
+            lbSumAll.Location = new Point(97, 99);
+            lbSumAll.Margin = new Padding(2, 0, 2, 0);
+            lbSumAll.Name = "lbSumAll";
+            lbSumAll.Size = new Size(62, 15);
+            lbSumAll.TabIndex = 4;
+            lbSumAll.Text = "20 People";
+            // 
+            // lbSumEmployee
+            // 
+            lbSumEmployee.AutoSize = true;
+            lbSumEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lbSumEmployee.ForeColor = Color.White;
+            lbSumEmployee.Location = new Point(97, 68);
+            lbSumEmployee.Margin = new Padding(2, 0, 2, 0);
+            lbSumEmployee.Name = "lbSumEmployee";
+            lbSumEmployee.Size = new Size(62, 15);
+            lbSumEmployee.TabIndex = 5;
+            lbSumEmployee.Text = "10 People";
+            // 
+            // lbSumManager
+            // 
+            lbSumManager.AutoSize = true;
+            lbSumManager.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lbSumManager.ForeColor = Color.White;
+            lbSumManager.Location = new Point(97, 35);
+            lbSumManager.Margin = new Padding(2, 0, 2, 0);
+            lbSumManager.Name = "lbSumManager";
+            lbSumManager.Size = new Size(62, 15);
+            lbSumManager.TabIndex = 6;
+            lbSumManager.Text = "10 People";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(21, 35);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Manger :";
             // 
             // groupBox2
             // 
@@ -217,6 +315,7 @@
             cbbStatus.Name = "cbbStatus";
             cbbStatus.Size = new Size(192, 23);
             cbbStatus.TabIndex = 0;
+            cbbStatus.SelectedIndexChanged += cbbStatus_SelectedIndexChanged;
             // 
             // groupBox1
             // 
@@ -295,6 +394,8 @@
             ((System.ComponentModel.ISupportInitialize)pnSide).EndInit();
             pnSide.ResumeLayout(false);
             pnSide.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -319,5 +420,12 @@
         private GroupBox groupBox2;
         private Label label5;
         private ComboBox cbbStatus;
+        private GroupBox groupBox3;
+        private Label label7;
+        private Label label2;
+        private Label lbSumAll;
+        private Label lbSumEmployee;
+        private Label lbSumManager;
+        private Label label1;
     }
 }

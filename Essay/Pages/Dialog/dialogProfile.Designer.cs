@@ -216,7 +216,7 @@
             grbInfor.Size = new Size(469, 381);
             grbInfor.TabIndex = 8;
             grbInfor.TabStop = false;
-            grbInfor.Enter += groupBox1_Enter;
+            //grbInfor.Enter += groupBox1_Enter;
             // 
             // pnGroupTxt
             // 
@@ -405,7 +405,7 @@
             pnName.Name = "pnName";
             pnName.Size = new Size(207, 34);
             pnName.TabIndex = 15;
-            pnName.Paint += panel3_Paint;
+          //  pnName.Paint += panel3_Paint;
             // 
             // txtName
             // 
@@ -434,7 +434,7 @@
             pnControl.Name = "pnControl";
             pnControl.Size = new Size(308, 52);
             pnControl.TabIndex = 10;
-            pnControl.Paint += panel9_Paint;
+          //  pnControl.Paint += panel9_Paint;
             // 
             // btnSave
             // 
@@ -464,13 +464,13 @@
             btnCancel.Size = new Size(74, 40);
             btnCancel.TabIndex = 11;
             btnCancel.Values.Text = "Cancel";
-            btnCancel.Click += kryptonButton2_Click;
+            btnCancel.Click += buttonCancel_Click;
             // 
             // dialogProfile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDarkDark;
+            BackColor = Color.Gray;
             ClientSize = new Size(496, 461);
             Controls.Add(grbInfor);
             Controls.Add(panel1);

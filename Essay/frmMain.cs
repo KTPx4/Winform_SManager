@@ -18,19 +18,31 @@ namespace Essay
 {
     public partial class frmMain : KryptonForm
     {
+        public static frmMain Instance; // Call instance at child form and add Action reload
+        
+        public event Action ReloadRequested; // action reload
+        public Action<String, String> UpdateProfile;
+        public Action<int> ULocationP;
+
         public String NameUser { get; set; }
         public String TypeUser { get; set; }
-        public String linkAvt {  get; set; }
-
+        public String linkAvt { get; set; }
 
 
         private bool once = false;
-        private frmLogin frmLogin = null;
-        public Action<int> ULocationP;
         private static bool isTabUsers = false;
-
         private String User;
 
+        public void RequestReload() // call all Action Reload
+        {
+            ReloadRequested?.Invoke();
+        }
+        public void ClearReloadEvent()
+        {
+            ReloadRequested = () => { };
+        }
+
+      
         public frmMain()
         {
 
@@ -42,10 +54,20 @@ namespace Essay
             }*/
 
             InitializeComponent();
-           
-            
+            Instance = this;
+            UpdateProfile = UpdateProf;
+
+
 
         }
+
+        public void UpdateProf(String Name, String pathAvt)
+        {
+            lbName.Text = Name;
+            if(pathAvt != null) 
+                btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{pathAvt}");
+        }
+
         private void setupProfile()
         {
             lbName.Text = NameUser;
@@ -53,6 +75,7 @@ namespace Essay
             btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
         //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
         }
+
         private void Style()
         {
             bdLine2.Hide();
@@ -92,7 +115,7 @@ namespace Essay
 
 
         }
-
+ 
         private void frmMain_Load(object sender, EventArgs e)
         {
             pnTitle = new DraggablePanel(pnTitle, this);
@@ -103,10 +126,6 @@ namespace Essay
 
         }
 
-        private void pnNavbar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
 
         //Title custom
@@ -194,6 +213,7 @@ namespace Essay
 
             }
         }
+       
         // click navbar
         private void timerNavBar_Tick(object sender, EventArgs e)
         {
@@ -271,6 +291,7 @@ namespace Essay
 
         }
 
+        
         //hover and leave button in nav
         private void HoverBtn(object sender, EventArgs e)
         {
@@ -288,6 +309,8 @@ namespace Essay
         //Event button
         private void btnUsers_Click(object sender, EventArgs e)
         {
+           
+
             pnContent.Controls.Clear();
             isTabUsers = true;
             frmMUser user = new frmMUser();
@@ -309,8 +332,8 @@ namespace Essay
         // open profile
         private void OpenProfile()
         {
-            dialogProfile pf = new dialogProfile("Pxk3", 1);
-            pf.Show();
+            dialogProfile pf = new dialogProfile("Pxk3", 2, UpdateProfile);
+            pf.ShowDialog();
 
         }
         private void btnProfile_Click(object sender, EventArgs e)
