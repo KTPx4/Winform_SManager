@@ -1,7 +1,11 @@
 ﻿using Essay.Components;
+using Essay.Controllers;
+using Essay.Model;
+using Essay.Pages.Dialog;
 using Krypton.Toolkit;
 using System;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Essay.Pages.Items
 {
@@ -28,6 +32,7 @@ namespace Essay.Pages.Items
         public String _Phone { get; set; }
         public bool _isOnline { get; set; }
         public string _LinkAvt { get; set; }
+        public int _Status { get; set; }
 
         private bool isTile = false;
 
@@ -61,6 +66,7 @@ namespace Essay.Pages.Items
             _isManager = false;
 
         }
+
         public FUser(Action<FUser> deleteU)
         {
             InitializeComponent();
@@ -72,7 +78,7 @@ namespace Essay.Pages.Items
         {
             pnID.Location = new Point(Variables._X_Item_User, pnID.Location.Y);
             pnID.BackColor = Color.Transparent;
-            lbID.Text = "ID";
+            lbID.Text = "User";
             lbID.Font = new Font("Segoe UI", 12, FontStyle.Bold); // Segoe UI, 11.25pt, style=Bold
             lbID.ForeColor = Color.White;
 
@@ -105,14 +111,38 @@ namespace Essay.Pages.Items
             // change img 
             if (_LinkAvt != "")
             {
+
                 ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
 
             }
+
+            switch (_Status)
+            {
+                case -1:
+                    btnDel.Hide();
+                    btnBlock.Hide();
+                    btnRestore.Show();
+                    break;
+
+                case 0:
+                    btnRestore.Hide();
+                    btnDel.Show();
+                    btnBlock.Show();
+                    break;
+
+                case 1:
+                    btnDel.Show();
+                    btnBlock.Hide();
+                    btnRestore.Show();
+                    break;
+            }
+
         }
+
 
         private void User_Load(object sender, EventArgs e)
         {
-            // pnID.BackColor = GenerateRandomColor();
+
             if (!isTile)
             {
                 loadForm();
@@ -130,20 +160,103 @@ namespace Essay.Pages.Items
 
         // Action
 
+        private void deleteUser()
+        {
+            String userName = _UserName;
+            if (!AdminController.DeleteUser(userName))
+            {
+                MessageBox.Show("Error when Delete\nCheck code again!", "Error Delete", MessageBoxButtons.OK);
+            }
 
+        }
 
+        private void lockUser()
+        {
+            String userName = _UserName;
+            if (!AdminController.LockUser(userName))
+            {
+                MessageBox.Show("Error when Lock\nCheck code again!", "Error Lock Account", MessageBoxButtons.OK);
+            }
+        }
+
+        private void showUser()
+        {
+            String userName = _UserName;
+            if (!AdminController.isExistsUser(userName))
+            {
+                MessageBox.Show("User is NOT EXISTS in Database", "Error View Account", MessageBoxButtons.OK);
+                return;
+            }
+
+            dynamic m = null;
+
+            if (_isManager)
+            {
+                m = ManagerController.GetFromUser(userName);
+            }
+            else
+            {
+                m = EmployeeController.GetFromUser(userName);
+            }
+
+            dialogProfile pf = new dialogProfile(1, _isManager? 0 : 1)
+            {
+                id = (int)m.ID,
+                name = m.Name,
+                user = m.User,
+                password = m.Pass,
+                phone = m.Phone,
+                birthDay = (DateTime)m.birthDay,
+                linkAvt = m.LinkAVT,
+                Status = (int)m.Status
+            };
+
+            pf.ShowDialog();
+
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DeleteUser(this);
+            if (MessageBox.Show($"Do you wan to DELETE User '{_UserName}' ?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // MessageBox.Show("Delete");
+                deleteUser();
+                DeleteUser(this);
+            }
+            return;
+
         }
 
-        private Color GenerateRandomColor()
+        private void btnBlock_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
-            return randomColor;
+            if (MessageBox.Show($"Do you wan to LOCK User '{_UserName}' ?", "Confirm Lock Account", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // MessageBox.Show("Delete");
+                lockUser();
+                DeleteUser(this);
+            }
+            return;
         }
 
+        private void btnViews_Click(object sender, EventArgs e)
+        {
+            showUser();
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"Do you wan to RESTORE User '{_UserName}' ?", "Confirm Lock Account", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (!AdminController.RestoreUser(_UserName))
+                {
+
+                    MessageBox.Show("Error when restore, try again", "Error Restore Account", MessageBoxButtons.OK);
+                    return;
+                }
+
+                frmMain.Instance.RequestReload();
+            }
+           
+        }
     }
 }

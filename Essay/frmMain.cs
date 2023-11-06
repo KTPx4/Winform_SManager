@@ -13,46 +13,112 @@ using System.Windows.Forms;
 using Essay.Pages;
 using Essay.Pages.Dialog;
 using Components;
+using System.IO;
+using DevExpress.Office.Drawing;
 
 namespace Essay
 {
     public partial class frmMain : KryptonForm
     {
-        public String NameUser { get; set; }
-        public String TypeUser { get; set; }
-        public String linkAvt {  get; set; }
+        public static frmMain Instance; // Call instance at child form and add Action reload
 
-
-
-        private bool once = false;
-        private frmLogin frmLogin = null;
+        public event Action ReloadRequested; // action reload
+        public Action<String, String> UpdateProfile;
         public Action<int> ULocationP;
-        private static bool isTabUsers = false;
+        public Action<String, String, int> UpdateProgram;
 
+        public String NameUser = "";
+        public String TypeUser = "";
+        public String linkAvt = "";
+
+        public int typeUs = 2; // 0: Manager
+                               // 1:Employee
+                               // 2:Admin
+
+
+        private frmLogin frmLogin;
+        private bool once = false;
+        private static bool isTabUsers = false;
         private String User;
+
+        public void RequestReload() // call all Action Reload
+        {
+            ReloadRequested?.Invoke();
+        }
+        public void ClearReloadEvent()
+        {
+            ReloadRequested = () => { };
+        }
+
+        public void updateProgram(String user, String path, int type)
+        {
+            this.NameUser = user;
+            this.linkAvt = path;
+            this.typeUs = type;
+            if (type == 0) TypeUser = "Manager";
+            if (type == 1) TypeUser = "Employee";
+            if (type == 2) TypeUser = "Admin";
+        }
+
 
         public frmMain()
         {
 
-            /*
-            frmLogin = new frmLogin();
+            UpdateProgram = updateProgram;
+            frmLogin = new frmLogin(UpdateProgram);
             if (frmLogin.ShowDialog() != DialogResult.OK)
             {
                 Environment.Exit(0);
-            }*/
+            }
 
             InitializeComponent();
+            Instance = this;
+            UpdateProfile = UpdateProf;
            
-            
+
+
 
         }
+
+        public void UpdateProf(String User, String pathAvt)
+        {
+            lbName.Text = User;
+            this.NameUser = User;
+            if (pathAvt != null)
+            {
+                using (FileStream fs = new FileStream(pathAvt, FileMode.Open, FileAccess.Read))
+                {
+                    btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                }
+            }
+                //btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile($"{Variables._pathAvt}/{pathAvt}"));
+                //btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{pathAvt}");
+        }
+
         private void setupProfile()
         {
             lbName.Text = NameUser;
             lbTypeUser.Text = TypeUser;
-            btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
-        //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
+            String path = $"{Variables._pathAvt}/{linkAvt}";
+            if (File.Exists(path))
+            {
+                // Tệp tồn tại
+                // Thực hiện xử lý tương ứng
+                using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                }
+                //btnProfile.StateCommon.Back.Image = Image.FromFile(path);
+            }
+            else
+            {
+                // Tệp không tồn tại
+                // Thực hiện xử lý khác (nếu cần)
+            }
+
+            //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
         }
+
         private void Style()
         {
             bdLine2.Hide();
@@ -90,6 +156,19 @@ namespace Essay
             pnContent.BackColor = Variables._BackGround;
 
 
+            switch (typeUs)
+            {
+                case 0: // manager
+                    break;
+
+                case 1: // employee
+                    btnUsers.Enabled = false;
+                    break;
+
+                case 2: // admin
+                    break;
+            }
+
 
         }
 
@@ -97,16 +176,12 @@ namespace Essay
         {
             pnTitle = new DraggablePanel(pnTitle, this);
 
-            Style(); 
+            Style();
             setupProfile();
 
 
         }
 
-        private void pnNavbar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
 
         //Title custom
@@ -194,6 +269,7 @@ namespace Essay
 
             }
         }
+
         // click navbar
         private void timerNavBar_Tick(object sender, EventArgs e)
         {
@@ -271,6 +347,7 @@ namespace Essay
 
         }
 
+
         //hover and leave button in nav
         private void HoverBtn(object sender, EventArgs e)
         {
@@ -288,9 +365,11 @@ namespace Essay
         //Event button
         private void btnUsers_Click(object sender, EventArgs e)
         {
+
+
             pnContent.Controls.Clear();
             isTabUsers = true;
-            frmMUser user = new frmMUser();
+            frmMUser user = new frmMUser(typeUs);
             ULocationP = user.ULocationP;
             // user.Anchor = AnchorStyles.Right;
             pnContent.Controls.Add(user);
@@ -309,8 +388,8 @@ namespace Essay
         // open profile
         private void OpenProfile()
         {
-            dialogProfile pf = new dialogProfile("Pxk3", 1);
-            pf.Show();
+            dialogProfile pf = new dialogProfile(NameUser, 2, typeUs, UpdateProfile);
+            pf.ShowDialog();
 
         }
         private void btnProfile_Click(object sender, EventArgs e)

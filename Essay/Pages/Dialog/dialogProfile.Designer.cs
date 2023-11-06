@@ -62,7 +62,6 @@
             label2 = new Label();
             pnControl = new Panel();
             btnSave = new Krypton.Toolkit.KryptonButton();
-            btnAction = new Krypton.Toolkit.KryptonButton();
             btnCancel = new Krypton.Toolkit.KryptonButton();
             panel1.SuspendLayout();
             pnRightTitle.SuspendLayout();
@@ -195,7 +194,7 @@
             btnProfile.Size = new Size(60, 60);
             btnProfile.StateCommon.Back.Color1 = Color.Transparent;
             btnProfile.StateCommon.Back.Color2 = Color.Transparent;
-            btnProfile.StateCommon.Back.Image = Properties.Resources.husky2;
+            btnProfile.StateCommon.Back.Image = Properties.Resources.user1;
             btnProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
             btnProfile.StateCommon.Border.Color1 = Color.White;
             btnProfile.StateCommon.Border.Color2 = Color.White;
@@ -216,7 +215,6 @@
             grbInfor.Size = new Size(469, 381);
             grbInfor.TabIndex = 8;
             grbInfor.TabStop = false;
-            grbInfor.Enter += groupBox1_Enter;
             // 
             // pnGroupTxt
             // 
@@ -281,7 +279,6 @@
             txtPhone.Size = new Size(126, 20);
             txtPhone.TabIndex = 2;
             txtPhone.TextChanged += txtPhone_TextChanged;
-           
             // 
             // label7
             // 
@@ -406,7 +403,6 @@
             pnName.Name = "pnName";
             pnName.Size = new Size(207, 34);
             pnName.TabIndex = 15;
-            pnName.Paint += panel3_Paint;
             // 
             // txtName
             // 
@@ -429,13 +425,11 @@
             // pnControl
             // 
             pnControl.Controls.Add(btnSave);
-            pnControl.Controls.Add(btnAction);
             pnControl.Controls.Add(btnCancel);
             pnControl.Location = new Point(144, 296);
             pnControl.Name = "pnControl";
             pnControl.Size = new Size(308, 52);
             pnControl.TabIndex = 10;
-            pnControl.Paint += panel9_Paint;
             // 
             // btnSave
             // 
@@ -445,15 +439,7 @@
             btnSave.Size = new Size(74, 40);
             btnSave.TabIndex = 9;
             btnSave.Values.Text = "Save";
-            // 
-            // btnAction
-            // 
-            btnAction.CornerRoundingRadius = -1F;
-            btnAction.Location = new Point(218, 5);
-            btnAction.Name = "btnAction";
-            btnAction.Size = new Size(74, 40);
-            btnAction.TabIndex = 10;
-            btnAction.Values.Text = "Block";
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -463,13 +449,13 @@
             btnCancel.Size = new Size(74, 40);
             btnCancel.TabIndex = 11;
             btnCancel.Values.Text = "Cancel";
-            btnCancel.Click += kryptonButton2_Click;
+            btnCancel.Click += buttonCancel_Click;
             // 
             // dialogProfile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDarkDark;
+            BackColor = Color.Gray;
             ClientSize = new Size(496, 461);
             Controls.Add(grbInfor);
             Controls.Add(panel1);
@@ -522,7 +508,6 @@
         private GroupBox grbInfor;
         private Panel pnControl;
         private Krypton.Toolkit.KryptonButton btnSave;
-        private Krypton.Toolkit.KryptonButton btnAction;
         private Krypton.Toolkit.KryptonButton btnCancel;
         private Panel pnGroupTxt;
         private Panel pnStatus;

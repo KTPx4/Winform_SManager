@@ -2,7 +2,8 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=PX4\SQLEXPRESS;Initial Catalog=Essay;Integrated Security=True" SettingsObjectName="Essay.Properties.Settings" SettingsPropertyName="EssayConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
-      <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="LinkAVT" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />

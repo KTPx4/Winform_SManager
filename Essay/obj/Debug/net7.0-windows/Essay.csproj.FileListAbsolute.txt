@@ -162,3 +162,4 @@ F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\run
 F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\runtimes\win\lib\netstandard2.0\System.Data.OleDb.dll
 F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\runtimes\win\lib\netstandard2.0\System.IO.Ports.dll
 F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\runtimes\win\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll
+F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Test.resources

@@ -1,5 +1,8 @@
 ﻿using Components;
+using DevExpress.Office.Drawing;
 using Essay.Components;
+using Essay.Controllers;
+using Essay.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +20,7 @@ namespace Essay.Pages.Dialog
 {
     public partial class dialogProfile : Form
     {
-        public string id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string user { get; set; }
         public string password { get; set; }
@@ -26,10 +29,13 @@ namespace Essay.Pages.Dialog
         public string linkAvt { get; set; }
         public int Status { get; set; }
 
-
-
+        private Action<String, String> updateProfile;
+        private bool changIMG = false;
+        private String nextnameIMG;
+        private String fullNameIMG = "user.png";
+        private String pathIMG;
         private int typeUser = 0; // 0 -> manager, 1-> employee
-        private int typeOpen = 0; // 0 -> add new, 1-> edit
+        private int typeOpen = 0; // 0 -> add new, 1-> edit , 2-> update profile
         private string textStatus = "";
         private int typeBtnAction = 0; // 0 -> active, 1-> block, -1-> delete
         private static String textPhone = "";
@@ -48,6 +54,7 @@ namespace Essay.Pages.Dialog
             this.typeOpen = typeOpen;
             this.typeUser = typeUser;
         }
+
         public dialogProfile(String Username, int typeUser) // for edit user
         {
             InitializeComponent();
@@ -56,13 +63,89 @@ namespace Essay.Pages.Dialog
             this.user = Username;
             LoadInfor(Username);
             // get type user by load from data 
-
         }
+
+        public dialogProfile(String Username, int typeOpen, int typeUser, Action<String, String> update) // for edit user
+        {
+            InitializeComponent();
+
+
+            this.typeOpen = typeOpen; // 2-> update profile
+            this.typeUser = typeUser;
+            this.user = Username;
+
+            LoadInfor(Username);
+
+            updateProfile = update;
+
+            // get type user by load from data 
+        }
+
 
         private void LoadInfor(String user) // load infor mation and type user to variable
         {
-            // test
-           // this.typeUser = 1; // hide button block
+
+            try
+            {
+
+                if (typeUser == 0)
+                {
+                    //public int id { get; set; }
+                    //public string name { get; set; }
+                    //public string user { get; set; }
+                    //public string password { get; set; }
+                    //public string phone { get; set; }
+                    //public DateTime birthDay { get; set; }
+                    //public string linkAvt { get; set; }
+                    //public int Status { get; set; }
+                    Manager m = ManagerController.GetFromUser(user);
+                    if (m != null)
+                    {
+                        id = m.ID;
+                        this.name = m.Name;
+                        this.user = m.User;
+                        password = m.Pass;
+                        phone = m.Phone;
+                        birthDay = (DateTime)m.birthDay;
+                        Status = (int)m.Status;
+                        linkAvt = m.LinkAVT;
+                    }
+                }
+                else if (typeUser == 1)
+                {
+                    Employee m = EmployeeController.GetFromUser(user);
+                    if (m != null)
+                    {
+                        id = m.ID;
+                        name = m.Name;
+                        this.user = m.User;
+                        password = m.Pass;
+                        phone = m.Phone;
+                        birthDay = (DateTime)m.birthDay;
+                        Status = (int)m.Status;
+                        linkAvt = m.LinkAVT;
+                    }
+                }
+                else if (typeUser == 2)
+                {
+                    Admin m = AdminController.GetFromUser(user);
+                    if (m != null)
+                    {
+                        id = m.ID;
+                        this.name = m.Name;
+                        this.user = m.User;
+                        password = m.Password;
+                        phone = "";
+
+                        linkAvt = m.LinkAVT;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error When loading Infor: " + e.Message);
+            }
+
 
             // action load data to variable
 
@@ -74,32 +157,48 @@ namespace Essay.Pages.Dialog
         {
             try
             {
-                pnTitle = new DraggablePanel(pnTitle, this);
-                txtStatus.Enabled = false;
+
+                pnTitle = new DraggablePanel(pnTitle, this); // move form
+                txtStatus.Enabled = false; // hide textbox status
+
+                //get next ID
+                if (typeUser == 0)
+                {
+                    nextnameIMG = "Manager_" + ManagerController.NextID().ToString() ;
+                    this.BackColor = Color.SlateGray;
+                }
+                else if (typeUser == 1)
+                {
+                    nextnameIMG = "Employee_" + EmployeeController.NextID().ToString() ;
+                    this.BackColor = Color.Gray;
+                }
+                else
+                {
+                    nextnameIMG = "Admin_" + AdminController.NextID().ToString();
+                    this.BackColor = Color.SlateGray;
+
+                }
+
+
+                // action for type open
+
                 if (typeOpen == 0) // type add new profile
                 {
                     // pnControl 94, 296 : 3button
-                    // 134, 296 : 2button
+                    // 144, 296 : 2button
                     pnControl.Location = new Point(144, 296);
 
 
-                    btnAction.Hide();
+                    //btnAction.Hide();
                     btnEdit.Hide();
                     pnStatus.Hide();
                     pnGroupTxt.Enabled = true;
 
-                    if (typeUser == 0)
-                    {
-                        // action add manager
-                    }
-                    else if (typeUser == 1)
-                    {
-                        // action add employee
-                    }
-                }
-                else if (typeOpen == 1) // type edit profile and show button action if manager
-                {
 
+                }
+                else if (typeOpen == 1 || typeOpen == 2) // type edit profile and show button action if manager
+                {
+                    fullNameIMG = linkAvt;
 
                     // pnControl 94, 296 : 3button
                     // 134, 296 : 2button
@@ -114,31 +213,45 @@ namespace Essay.Pages.Dialog
                     txtDate.DateTime = birthDay;
                     try
                     {
-                        btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
+                        String p = $"{Variables._pathAvt}/{linkAvt}";
+                        if (File.Exists(p))
+                        {
+                            // Tệp tồn tại
+                            // Thực hiện xử lý tương ứng\
+                            using (FileStream fs = new FileStream(p, FileMode.Open, FileAccess.Read))
+                            {
+                                btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                            }
+                            //btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile(p));
+                            // btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile(p);
+                        }
 
-                    }catch (Exception ex) 
+                        // btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
+
+                    }
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show("Error Load Avatar: " + ex.Message);
                     }
 
-                    MessageBox.Show(typeUser.ToString());
+                    //    MessageBox.Show(typeUser.ToString());
                     if (typeUser == 0) // check type user can use button block/unblock
                     {
-                        pnControl.Location = new Point(94, 296);
+                        //pnControl.Location = new Point(94, 296);
 
 
-                        btnAction.Show();
+                        //  btnAction.Show();
                         btnEdit.Show();
                         if (Status == 0)
                         {
                             textStatus = "Active";
-                            btnAction.Text = "Block";
+                            //  btnAction.Text = "Block";
                             typeBtnAction = 1; // action block
                         }
                         else if (Status == 1)
                         {
                             textStatus = "Blocked";
-                            btnAction.Text = "Active";
+                            //   btnAction.Text = "Active";
                             typeBtnAction = 0; // action active
 
 
@@ -146,41 +259,50 @@ namespace Essay.Pages.Dialog
                         else
                         {
                             textStatus = "Deleted";
-                            btnAction.Text = "Restore";
+                            //  btnAction.Text = "Restore";
                             typeBtnAction = 0; // action active
 
                         }
                     }
-                    else
+                    else if (typeUser == 1)
                     {
                         pnControl.Location = new Point(144, 296);
-                        btnAction.Hide();
+                        //  btnAction.Hide();
                         btnEdit.Show();
+                    }
+                    else
+                    {
+                        txtDate.Enabled = false;
+                        txtPhone.Enabled = false;
+                        txtStatus.Enabled = false;
                     }
 
                     txtStatus.Text = textStatus;
 
 
                 }
+
             }
             catch (Exception e)
             {
                 MessageBox.Show("Error: " + e.Message);
             }
-           
-         
+
+
         }
 
         private void dialogProfile_Load(object sender, EventArgs e)
         {
-          
+
             loadForm();
         }
 
         //change avt
         private void btnProfile_Click(object sender, EventArgs e)
         {
-
+            changIMG = true;
+           
+           
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp";
@@ -200,9 +322,27 @@ namespace Essay.Pages.Dialog
 
                         string fileName = Path.GetFileNameWithoutExtension(selectedFilePath);
                         string fileExtension = Path.GetExtension(selectedFilePath);
-                        string newFileName = fileName + "_id0101" + fileExtension;
+                        
+                        if(typeOpen == 0) // ở dạng thêm mới, khi thay đổi avatar, nó sẽ tự tạo một tên ảnh mới là tên tiếp theo của ID, 
+                        {
+                            fullNameIMG = nextnameIMG + fileExtension; // EX: Employee_3.png
 
-                        string destinationFilePath = Path.Combine(destinationFolder, newFileName);
+                            pathIMG = $"{Variables._pathAvt}/" + fullNameIMG; // EX: Img/Avt/Employee_3.png
+                        }
+                        else 
+                        {    
+                            // Khi ở dạng mở chỉnh sửa, và thay đổi ảnh, nó sẽ tạo ra 1 ảnh tạm, ví dụ 1_Employee_3.png
+                            // Khi người dùng nhấn Cancel thì nó sẽ xóa ảnh 1_Employee_3.png mà không ảnh hưởng gì ảnh cũ
+                            // Còn nếu nhấn Save, thì dưới Method ActionEdit sẽ xử lý Xóa ảnh cũ 'Employee_3.png', sau đó đổi tên 1_Employee_3.png thành Employee_3.png
+                       
+                            fullNameIMG = "1_" + linkAvt;
+
+                            pathIMG = $"{Variables._pathAvt}/" + fullNameIMG;
+                        }
+                        
+
+                        string destinationFilePath = Path.Combine(destinationFolder, fullNameIMG);
+
 
                         File.Copy(selectedFilePath, destinationFilePath, true);
 
@@ -220,6 +360,7 @@ namespace Essay.Pages.Dialog
                     }
                 }
             }
+          
 
 
 
@@ -227,43 +368,18 @@ namespace Essay.Pages.Dialog
             //MessageBox.Show("", "", MessageBoxButtons.YesNoCancel);
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void kryptonButton2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             pnGroupTxt.Enabled = true;
+            if (typeUser == 2)
+            {
+                txtDate.Enabled = false;
+                txtPhone.Enabled = false;
+                txtStatus.Enabled = false;
+            }
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
@@ -299,9 +415,242 @@ namespace Essay.Pages.Dialog
 
 
         }
-      
+
+        private bool isCanAdd()
+        {
+            if (typeUser == 2)
+            {
+                if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "")
+                {
+                    MessageBox.Show("Input have empty. Please input full values!", "Null Value", MessageBoxButtons.OK);
+                    return false;
+                }
+
+            }
+            else if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" || txtPhone.Text == "" || txtDate.Text == "")
+            {
+                MessageBox.Show("Input have empty. Please input full values!", "Null Value", MessageBoxButtons.OK);
+                return false;
+            }
+            else if (!int.TryParse(txtPhone.Text, out int number))
+            {
+                MessageBox.Show("Phone is not valid!", "Invalid Input", MessageBoxButtons.OK);
+                return false;
+            }
+            else if (txtPhone.Text.Length > 10)
+            {
+                MessageBox.Show("Phone must < 10 number!", "Invalid Input", MessageBoxButtons.OK);
+                return false;
+            }
+            else if (txtPass.Text.Length < 5)
+            {
+                MessageBox.Show("Password must at least 5 character!", "Invalid Input", MessageBoxButtons.OK);
+                return false;
+            }
 
 
-       
+
+            return true;
+        }
+        private void ActionAdd()
+        {
+            if (typeUser == 0)
+            {
+                // action add manager
+                // action add employee
+                Manager em = new Manager()
+                {
+                    Name = txtName.Text,
+                    User = txtUser.Text,
+                    Pass = txtPass.Text,
+                    Phone = txtPhone.Text,
+                    birthDay = txtDate.DateTime,
+                    Status = 0, // active,
+                    isOnline = false,
+                    LinkAVT = fullNameIMG
+
+                };
+                if (!ManagerController.Add(em))
+                {
+                    MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            else if (typeUser == 1)
+            {
+
+                // action add employee
+                Employee em = new Employee()
+                {
+                    Name = txtName.Text,
+                    User = txtUser.Text,
+                    Pass = txtPass.Text,
+                    Phone = txtPhone.Text,
+                    birthDay = txtDate.DateTime,
+                    Status = 0, // active,
+                    isOnline = false,
+                    LinkAVT = fullNameIMG
+
+                };
+                if (!EmployeeController.Add(em))
+                {
+                    MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+        }
+
+
+        // Khi người dùng nhấn Cancel thì nó sẽ xóa ảnh 1_Employee_3.png mà không ảnh hưởng gì ảnh cũ
+        // Còn nếu nhấn Save, thì dưới Method ActionEdit sẽ xử lý Xóa ảnh cũ 'Employee_3.png', sau đó đổi tên 1_Employee_3.png thành Employee_3.png
+        private void ActionEdit()
+        {
+            if(changIMG)
+            {
+                try
+                {
+                    if(File.Exists(pathIMG))
+                    {
+                        if (File.Exists($"{Variables._pathAvt}/{linkAvt}"))
+                        {
+                            File.Delete($"{Variables._pathAvt}/{linkAvt}");
+                        }
+                        File.Move(pathIMG, $"{Variables._pathAvt}/{linkAvt}");
+                        pathIMG = $"{Variables._pathAvt}/{linkAvt}";
+
+                    }    
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Delete File: " + ex.Message);
+                }
+            }    
+           
+            switch (typeUser)
+            {
+                case 0:
+                    Manager m = new Manager()
+                    {
+                        ID = id,
+                        Name = txtName.Text,
+                        User = txtUser.Text,
+                        Pass = txtPass.Text,
+                        Phone = txtPhone.Text,
+                        birthDay = txtDate.DateTime,
+                        LinkAVT = linkAvt
+                    };
+
+                    if (!ManagerController.Update(m))
+                    {
+                        MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
+
+                    }
+                    break;
+                case 1:
+                    Employee e = new Employee()
+                    {
+                        ID = id,
+                        Name = txtName.Text,
+                        User = txtUser.Text,
+                        Pass = txtPass.Text,
+                        Phone = txtPhone.Text,
+                        birthDay = txtDate.DateTime,
+                        LinkAVT = linkAvt
+                    };
+
+                    if (!EmployeeController.Update(e))
+                    {
+                        MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
+
+                    }
+                    break;
+
+                case 2:
+                    Admin a = new Admin()
+                    {
+                        ID=id,
+                        Name = txtName.Text,
+                        User = txtUser.Text,
+                        Password = txtPass.Text,
+                        LinkAVT = linkAvt
+                    };
+
+                    if (!AdminController.Update(a))
+                    {
+                        MessageBox.Show("Error when Update Admin. Try it Again!", "Error Add", MessageBoxButtons.OK);
+
+                    }
+                    break;
+
+            }
+            
+        }
+
+        private void ActionEditProfile()
+        {
+            ActionEdit(); 
+            updateProfile(txtUser.Text, pathIMG); // update profile at main
+        }
+
+        // Button save Click
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!isCanAdd())
+            {
+                return;
+            }
+            switch (typeOpen)
+            {
+                case 0: // add new
+                    ActionAdd();
+                    break;
+
+                case 1: // edit
+                    ActionEdit();
+                    break;
+
+                case 2: // edit - update profile , Tương tự như edit, nhưng thêm cái là sẽ sửa thông tin ở Main nửa, nên dùng Action để update trong frmMain
+                    ActionEditProfile();
+                    break;
+            }
+
+            frmMain.Instance.RequestReload();
+            this.Close();
+        }
+
+        // exist form
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            if (changIMG) // if have change picture -> remove if exists
+            {
+                try
+                {
+                    if (File.Exists(pathIMG))
+                    {
+                        File.Delete(pathIMG);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error Delete File: " + ex.Message);
+                }
+               
+            }
+            this.Close();
+        }
+
+        // button lock / unlock
+        private void btnAction_Click(object sender, EventArgs e)
+        {
+            if (typeUser == 0)
+            {
+                // action add manager
+            }
+            else if (typeUser == 1)
+            {
+                // action add employee
+            }
+        }
     }
 }
