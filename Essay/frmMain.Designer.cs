@@ -557,6 +557,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
             Text = "SManager";
+            FormClosing += frmMain_FormClosing;
             Load += frmMain_Load;
             ((System.ComponentModel.ISupportInitialize)pnNavbar).EndInit();
             pnNavbar.ResumeLayout(false);

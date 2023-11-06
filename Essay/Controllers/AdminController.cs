@@ -15,6 +15,11 @@ namespace Essay.Controllers
 
         private static EssayDBDataContext db = new EssayDBDataContext();
         
+        public AdminController() 
+        {
+            db = new EssayDBDataContext();
+        }
+
         public static Admin GetFromUser(string username)
         {
             return db.Admins.SingleOrDefault(e => e.User == username);
@@ -23,19 +28,31 @@ namespace Essay.Controllers
         public static int ValidLogin(string username, string password)
         {
             int CountAdmin = (from Ad in db.Admins
-                              where Ad.User == username && Ad.Password == password
+                              where Ad.User == username && Ad.Password == password 
                               select Ad.User).ToList().Count();
             if (CountAdmin > 0) return 2; // admin
 
             int CountManager = (from Ad in db.Managers
-                              where Ad.User == username && Ad.Pass == password
+                              where Ad.User == username && Ad.Pass == password && Ad.Status == 0
                               select Ad.User).ToList().Count();
             if (CountManager > 0) return 0; // manager
 
             int CountEmp = (from Ad in db.Employees
-                                where Ad.User == username && Ad.Pass == password
-                                select Ad.User).ToList().Count();
+                                where Ad.User == username && Ad.Pass == password && Ad.Status == 0
+                            select Ad.User).ToList().Count();
             if (CountEmp > 0) return 1; // employee
+
+
+            // Account block or deleted
+            int CountManagers = (from Ad in db.Managers
+                                where Ad.User == username && Ad.Pass == password && Ad.Status != 0
+                                select Ad.User).ToList().Count();
+            if (CountManagers > 0) return -10; // manager block or deleted
+
+            int CountEmps = (from Ad in db.Employees
+                            where Ad.User == username && Ad.Pass == password && Ad.Status != 0
+                            select Ad.User).ToList().Count();
+            if (CountEmps > 0) return -11; // employee block or deleted
 
             return -1; // not found
 
@@ -156,6 +173,14 @@ namespace Essay.Controllers
             return false;
         }
 
+        public static bool SetisOnline(String username, bool Status)
+        {
+            if (EmployeeController.SetisOnline(username, Status)) return true;
+            else if (ManagerController.SetisOnline(username, Status)) return true;
+
+            return false;
+        }
+        
         // Find from search
         public static Tuple<List<Manager>, List<Employee>> Search(String search)
         {           

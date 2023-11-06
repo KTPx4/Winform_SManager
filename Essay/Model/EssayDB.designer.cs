@@ -45,6 +45,12 @@ namespace Essay.Model
     partial void InsertStudent(Student instance);
     partial void UpdateStudent(Student instance);
     partial void DeleteStudent(Student instance);
+    partial void InsertHistoryEmployee(HistoryEmployee instance);
+    partial void UpdateHistoryEmployee(HistoryEmployee instance);
+    partial void DeleteHistoryEmployee(HistoryEmployee instance);
+    partial void InsertHistoryManager(HistoryManager instance);
+    partial void UpdateHistoryManager(HistoryManager instance);
+    partial void DeleteHistoryManager(HistoryManager instance);
     #endregion
 		
 		public EssayDBDataContext() : 
@@ -101,22 +107,6 @@ namespace Essay.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<HistoryEmployee> HistoryEmployees
-		{
-			get
-			{
-				return this.GetTable<HistoryEmployee>();
-			}
-		}
-		
-		public System.Data.Linq.Table<HistoryManager> HistoryManagers
-		{
-			get
-			{
-				return this.GetTable<HistoryManager>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Manager> Managers
 		{
 			get
@@ -130,6 +120,22 @@ namespace Essay.Model
 			get
 			{
 				return this.GetTable<Student>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HistoryEmployee> HistoryEmployees
+		{
+			get
+			{
+				return this.GetTable<HistoryEmployee>();
+			}
+		}
+		
+		public System.Data.Linq.Table<HistoryManager> HistoryManagers
+		{
+			get
+			{
+				return this.GetTable<HistoryManager>();
 			}
 		}
 	}
@@ -539,6 +545,8 @@ namespace Essay.Model
 		
 		private string _LinkAVT;
 		
+		private EntitySet<HistoryEmployee> _HistoryEmployees;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -565,6 +573,7 @@ namespace Essay.Model
 		
 		public Employee()
 		{
+			this._HistoryEmployees = new EntitySet<HistoryEmployee>(new Action<HistoryEmployee>(this.attach_HistoryEmployees), new Action<HistoryEmployee>(this.detach_HistoryEmployees));
 			OnCreated();
 		}
 		
@@ -748,6 +757,19 @@ namespace Essay.Model
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_HistoryEmployee", Storage="_HistoryEmployees", ThisKey="ID", OtherKey="ID")]
+		public EntitySet<HistoryEmployee> HistoryEmployees
+		{
+			get
+			{
+				return this._HistoryEmployees;
+			}
+			set
+			{
+				this._HistoryEmployees.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -767,95 +789,17 @@ namespace Essay.Model
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HistoryEmployee")]
-	public partial class HistoryEmployee
-	{
 		
-		private System.Nullable<int> _ID;
-		
-		private System.Nullable<System.DateTime> _TimeLogin;
-		
-		public HistoryEmployee()
+		private void attach_HistoryEmployees(HistoryEmployee entity)
 		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
-		public System.Nullable<int> ID
+		private void detach_HistoryEmployees(HistoryEmployee entity)
 		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLogin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeLogin
-		{
-			get
-			{
-				return this._TimeLogin;
-			}
-			set
-			{
-				if ((this._TimeLogin != value))
-				{
-					this._TimeLogin = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HistoryManager")]
-	public partial class HistoryManager
-	{
-		
-		private System.Nullable<int> _ID;
-		
-		private System.Nullable<System.DateTime> _TimeLogin;
-		
-		public HistoryManager()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
-		public System.Nullable<int> ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLogin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TimeLogin
-		{
-			get
-			{
-				return this._TimeLogin;
-			}
-			set
-			{
-				if ((this._TimeLogin != value))
-				{
-					this._TimeLogin = value;
-				}
-			}
+			this.SendPropertyChanging();
+			entity.Employee = null;
 		}
 	}
 	
@@ -883,6 +827,8 @@ namespace Essay.Model
 		
 		private string _LinkAVT;
 		
+		private EntitySet<HistoryManager> _HistoryManagers;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -909,6 +855,7 @@ namespace Essay.Model
 		
 		public Manager()
 		{
+			this._HistoryManagers = new EntitySet<HistoryManager>(new Action<HistoryManager>(this.attach_HistoryManagers), new Action<HistoryManager>(this.detach_HistoryManagers));
 			OnCreated();
 		}
 		
@@ -1092,6 +1039,19 @@ namespace Essay.Model
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Manager_HistoryManager", Storage="_HistoryManagers", ThisKey="ID", OtherKey="ID")]
+		public EntitySet<HistoryManager> HistoryManagers
+		{
+			get
+			{
+				return this._HistoryManagers;
+			}
+			set
+			{
+				this._HistoryManagers.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1110,6 +1070,18 @@ namespace Essay.Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_HistoryManagers(HistoryManager entity)
+		{
+			this.SendPropertyChanging();
+			entity.Manager = this;
+		}
+		
+		private void detach_HistoryManagers(HistoryManager entity)
+		{
+			this.SendPropertyChanging();
+			entity.Manager = null;
 		}
 	}
 	
@@ -1344,6 +1316,308 @@ namespace Essay.Model
 		{
 			this.SendPropertyChanging();
 			entity.Student = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HistoryEmployee")]
+	public partial class HistoryEmployee : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDLogin;
+		
+		private System.Nullable<int> _ID;
+		
+		private System.Nullable<System.DateTime> _TimeLogin;
+		
+		private EntityRef<Employee> _Employee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDLoginChanging(int value);
+    partial void OnIDLoginChanged();
+    partial void OnIDChanging(System.Nullable<int> value);
+    partial void OnIDChanged();
+    partial void OnTimeLoginChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeLoginChanged();
+    #endregion
+		
+		public HistoryEmployee()
+		{
+			this._Employee = default(EntityRef<Employee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDLogin", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDLogin
+		{
+			get
+			{
+				return this._IDLogin;
+			}
+			set
+			{
+				if ((this._IDLogin != value))
+				{
+					this.OnIDLoginChanging(value);
+					this.SendPropertyChanging();
+					this._IDLogin = value;
+					this.SendPropertyChanged("IDLogin");
+					this.OnIDLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
+		public System.Nullable<int> ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLogin
+		{
+			get
+			{
+				return this._TimeLogin;
+			}
+			set
+			{
+				if ((this._TimeLogin != value))
+				{
+					this.OnTimeLoginChanging(value);
+					this.SendPropertyChanging();
+					this._TimeLogin = value;
+					this.SendPropertyChanged("TimeLogin");
+					this.OnTimeLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_HistoryEmployee", Storage="_Employee", ThisKey="ID", OtherKey="ID", IsForeignKey=true)]
+		public Employee Employee
+		{
+			get
+			{
+				return this._Employee.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.HistoryEmployees.Remove(this);
+					}
+					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.HistoryEmployees.Add(this);
+						this._ID = value.ID;
+					}
+					else
+					{
+						this._ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HistoryManager")]
+	public partial class HistoryManager : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDLogin;
+		
+		private System.Nullable<int> _ID;
+		
+		private System.Nullable<System.DateTime> _TimeLogin;
+		
+		private EntityRef<Manager> _Manager;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDLoginChanging(int value);
+    partial void OnIDLoginChanged();
+    partial void OnIDChanging(System.Nullable<int> value);
+    partial void OnIDChanged();
+    partial void OnTimeLoginChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeLoginChanged();
+    #endregion
+		
+		public HistoryManager()
+		{
+			this._Manager = default(EntityRef<Manager>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDLogin", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDLogin
+		{
+			get
+			{
+				return this._IDLogin;
+			}
+			set
+			{
+				if ((this._IDLogin != value))
+				{
+					this.OnIDLoginChanging(value);
+					this.SendPropertyChanging();
+					this._IDLogin = value;
+					this.SendPropertyChanged("IDLogin");
+					this.OnIDLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
+		public System.Nullable<int> ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					if (this._Manager.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TimeLogin
+		{
+			get
+			{
+				return this._TimeLogin;
+			}
+			set
+			{
+				if ((this._TimeLogin != value))
+				{
+					this.OnTimeLoginChanging(value);
+					this.SendPropertyChanging();
+					this._TimeLogin = value;
+					this.SendPropertyChanged("TimeLogin");
+					this.OnTimeLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Manager_HistoryManager", Storage="_Manager", ThisKey="ID", OtherKey="ID", IsForeignKey=true)]
+		public Manager Manager
+		{
+			get
+			{
+				return this._Manager.Entity;
+			}
+			set
+			{
+				Manager previousValue = this._Manager.Entity;
+				if (((previousValue != value) 
+							|| (this._Manager.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Manager.Entity = null;
+						previousValue.HistoryManagers.Remove(this);
+					}
+					this._Manager.Entity = value;
+					if ((value != null))
+					{
+						value.HistoryManagers.Add(this);
+						this._ID = value.ID;
+					}
+					else
+					{
+						this._ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Manager");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

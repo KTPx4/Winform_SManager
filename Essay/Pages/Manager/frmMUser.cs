@@ -9,6 +9,7 @@ using System;
 using System.Data;
 using System.Data.Linq;
 using System.Linq;
+using System.Windows.Documents;
 
 namespace Essay.Pages
 {
@@ -52,6 +53,7 @@ namespace Essay.Pages
             frmMain.Instance.ReloadRequested += ReloadForm;
             this.typeU = typeU;
         }
+
         private void Reload()
         {
             LoadForm();
@@ -60,10 +62,15 @@ namespace Essay.Pages
 
         private void loadAdmin()
         {
+            ListItems = new CustomList<FUser>();
             pnListItems.Controls.Clear();
             FUser title = new FUser();
             title.Dock = DockStyle.Top;
             pnListItems.Controls.Add(title);
+
+            ManagerController mn = new ManagerController(); 
+            EmployeeController emp = new EmployeeController();
+
             List<Manager> listManager = ManagerController.GetListActive();
             List<Employee> listEmployee = EmployeeController.GetListActive();
 
@@ -119,6 +126,7 @@ namespace Essay.Pages
                     _LinkAvt = m.LinkAVT,
                     _Status = (int)m.Status
                 };
+                MessageBox.Show($"{m.User},{m.isOnline}");
 
                 ListItems.Add(f); // add to list item
                 pnListItems.Controls.Add(f); // add to content panel
@@ -138,13 +146,14 @@ namespace Essay.Pages
                     _LinkAvt = em.LinkAVT,
                     _Status = (int)em.Status
                 };
-
+                MessageBox.Show($"{em.User},{em.isOnline}");
                 ListItems.Add(f); // add to list item
                 pnListItems.Controls.Add(f); // add to content panel
                 f.Dock = DockStyle.Top;
 
             }
         }
+
         private void loadManager()
         {
             pnListItems.Controls.Clear();
@@ -231,6 +240,7 @@ namespace Essay.Pages
 
             }
         }
+
         private void LoadDB() // for load list user from db
         {
             try
@@ -286,6 +296,8 @@ namespace Essay.Pages
 
         private void frmMUser_Load(object sender, EventArgs e)
         {
+
+
             LoadForm();
 
 
@@ -451,46 +463,11 @@ namespace Essay.Pages
 
         private void cbbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFind.Text = "";
-            if (cbbStatus.SelectedIndex == 1)
-            {
-                status = 1;
 
-            }
-            else if (cbbStatus.SelectedIndex == 2)
-            {
-                status = -1;
-
-            }
-            else if (cbbStatus.SelectedIndex == 0)
-            {
-                status = 0;
-
-            }
-
-            LoadDB();
 
         }
 
-        private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtFind.Text = "";
-            switch (cbbType.SelectedIndex)
-            {
-                case 0:
-                    typeUser = -1;
-                    break;
 
-                case 1:
-                    typeUser = 0;
-                    break;
-
-                case 2:
-                    typeUser = 1;
-                    break;
-            }
-            LoadDB();
-        }
 
         private void ShowResultFind(String search)
         {
@@ -616,6 +593,49 @@ namespace Essay.Pages
 
             string search = txtFind.Text;
             ShowResultFind(search);
+        }
+
+        private void cbbType_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtFind.Text = "";
+            switch (cbbType.SelectedIndex)
+            {
+                case 0:
+                    typeUser = -1;
+                    break;
+
+                case 1:
+                    typeUser = 0;
+                    break;
+
+                case 2:
+                    typeUser = 1;
+                    break;
+            }
+            LoadDB();
+            MessageBox.Show("ok");
+        }
+
+        private void cbbStatus_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtFind.Text = "";
+            if (cbbStatus.SelectedIndex == 1)
+            {
+                status = 1;
+
+            }
+            else if (cbbStatus.SelectedIndex == 2)
+            {
+                status = -1;
+
+            }
+            else if (cbbStatus.SelectedIndex == 0)
+            {
+                status = 0;
+
+            }
+
+            LoadDB();
         }
     }
 }

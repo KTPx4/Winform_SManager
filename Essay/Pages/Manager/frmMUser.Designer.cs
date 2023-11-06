@@ -132,7 +132,7 @@
             cbbType.Name = "cbbType";
             cbbType.Size = new Size(82, 23);
             cbbType.TabIndex = 2;
-            cbbType.SelectedIndexChanged += cbbType_SelectedIndexChanged;
+            cbbType.SelectionChangeCommitted += cbbType_SelectionChangeCommitted;
             // 
             // pictureBox1
             // 
@@ -318,7 +318,7 @@
             cbbStatus.Name = "cbbStatus";
             cbbStatus.Size = new Size(192, 23);
             cbbStatus.TabIndex = 0;
-            cbbStatus.SelectedIndexChanged += cbbStatus_SelectedIndexChanged;
+            cbbStatus.SelectionChangeCommitted += cbbStatus_SelectionChangeCommitted;
             // 
             // groupBox1
             // 

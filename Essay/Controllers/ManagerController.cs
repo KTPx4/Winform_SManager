@@ -14,7 +14,7 @@ namespace Essay.Controllers
 
         public ManagerController()
         {
-           
+            db = new EssayDBDataContext();
         }
 
         // method Get
@@ -105,6 +105,22 @@ namespace Essay.Controllers
             return false;
         }
 
+        public static bool SetisOnline(String username, bool Status)
+        {
+            if (isExistsUser(username))
+            {
+                Manager m = db.Managers.SingleOrDefault(e => e.User == username);
+
+                if (m != null)
+                {
+                    m.isOnline = Status;
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static bool Update(Manager Manager)
         {
 
@@ -182,6 +198,29 @@ namespace Essay.Controllers
             return SetStatus(username, 0);
         }
 
+        public static bool WriteHistory(Manager e, DateTime date)
+        {
+            try
+            {
+                HistoryManager h = new HistoryManager()
+                {
+                    ID = e.ID,
+                    TimeLogin = date
+                };
+                db.HistoryManagers.InsertOnSubmit(h);
+                db.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error store history Manager: " + ex.Message);
+            }
+            return false;
+
+        }
+
+
         // private method
         private static List<Manager> GetFromStatus(int status)
         {
@@ -193,4 +232,6 @@ namespace Essay.Controllers
         }
 
     }
+
+
 }

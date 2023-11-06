@@ -15,8 +15,8 @@ namespace Essay.Controllers
         private static EssayDBDataContext db = new EssayDBDataContext();
 
         public EmployeeController() 
-        { 
-            
+        {
+            db = new EssayDBDataContext();
         }
         // method get
         public static List<Employee> GetAll()
@@ -177,6 +177,44 @@ namespace Essay.Controllers
             return false;
         }
 
+        public static bool SetisOnline(String username, bool Status)
+        {
+            if (isExistsUser(username))
+            {
+                Employee m = db.Employees.SingleOrDefault(e => e.User == username);
+
+
+                if (m != null)
+                {
+                    m.isOnline = Status;
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool WriteHistory(Employee e, DateTime date)
+        {
+            try
+            {
+                HistoryEmployee h = new HistoryEmployee()
+                {
+                    ID = e.ID,
+                    TimeLogin = date
+                };
+                db.HistoryEmployees.InsertOnSubmit(h);
+                db.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error store history Employee: " + ex.Message);
+            }
+            return false;
+
+        }
 
 
         //private method

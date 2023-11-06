@@ -179,19 +179,29 @@ namespace Essay
                     MessageBox.Show("User name or Password not Correct!", "Login Failed", MessageBoxButtons.OK);
                     return;
                 }
+                else if (TypeUs == -10 || TypeUs == -11) // Have Account, but have been blocked
+                {
+                    MessageBox.Show("Your Account is BLOCKED\nPlease call Admin to unlocked!", "Login Failed", MessageBoxButtons.OK);
+                    return;
+                }
+
+                DateTime timeLogin = DateTime.Now;
 
                 if (TypeUs == 0) // manager
                 {
                     Manager a = ManagerController.GetFromUser(user);
                     name = a.Name;
                     path = a.LinkAVT;
+                    ManagerController.WriteHistory(a, timeLogin); // write history login
                 }
                 else if (TypeUs == 1) // employee
                 {
                     Employee a = EmployeeController.GetFromUser(user);
+
                     name = a.Name;
                     path = a.LinkAVT;
 
+                    EmployeeController.WriteHistory(a, timeLogin);// write history login
                 }
                 else if (TypeUs == 2) // Admin
                 {
@@ -199,6 +209,8 @@ namespace Essay
                     name = a.Name;
                     path = a.LinkAVT;
                 }
+
+                AdminController.SetisOnline(user, true); // set online
 
                 MessageBox.Show($"Welcom '{user}'!", "Login Success", MessageBoxButtons.OK);
                 //  frmMain frmMain = new frmMain(name, TypeUs, path);

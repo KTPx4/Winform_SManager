@@ -15,6 +15,7 @@ using Essay.Pages.Dialog;
 using Components;
 using System.IO;
 using DevExpress.Office.Drawing;
+using Essay.Controllers;
 
 namespace Essay
 {
@@ -39,7 +40,7 @@ namespace Essay
         private frmLogin frmLogin;
         private bool once = false;
         private static bool isTabUsers = false;
-        private String User;
+        //private String User;
 
         public void RequestReload() // call all Action Reload
         {
@@ -74,7 +75,7 @@ namespace Essay
             InitializeComponent();
             Instance = this;
             UpdateProfile = UpdateProf;
-           
+
 
 
 
@@ -91,8 +92,8 @@ namespace Essay
                     btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
                 }
             }
-                //btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile($"{Variables._pathAvt}/{pathAvt}"));
-                //btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{pathAvt}");
+            //btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile($"{Variables._pathAvt}/{pathAvt}"));
+            //btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{pathAvt}");
         }
 
         private void setupProfile()
@@ -211,14 +212,7 @@ namespace Essay
 
         }
 
-        private void ptbClose_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Do you want to close?", "Close?", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-
-                this.Close();
-            }
-        }
+       
 
         private void ptbMini_Click(object sender, EventArgs e)
         {
@@ -396,5 +390,26 @@ namespace Essay
         {
             OpenProfile();
         }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to close?", "Close?", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                AdminController.SetisOnline(NameUser, false);
+            }
+           
+            //MessageBox.Show("close");
+        }
+        private void ptbClose_Click(object sender, EventArgs e)
+        {
+           
+            this.Close();         
+       
+        }
+      
     }
 }
