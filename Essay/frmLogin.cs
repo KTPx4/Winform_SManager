@@ -171,7 +171,7 @@ namespace Essay
                 String user = txtUser.Text;
                 String pass = txtPass.Text;
 
-                int TypeUs = AdminController.ValidLogin(user, pass);
+                int TypeUs =new AdminController().ValidLogin(user, pass);
 
                 String name = "", path = "";
                 if (TypeUs == -1)
@@ -189,28 +189,28 @@ namespace Essay
 
                 if (TypeUs == 0) // manager
                 {
-                    Manager a = ManagerController.GetFromUser(user);
+                    Manager a = new ManagerController().GetFromUser(user);
                     name = a.Name;
                     path = a.LinkAVT;
-                    ManagerController.WriteHistory(a, timeLogin); // write history login
+                    new ManagerController().WriteHistory(a, timeLogin); // write history login
                 }
                 else if (TypeUs == 1) // employee
                 {
-                    Employee a = EmployeeController.GetFromUser(user);
+                    Employee a = new EmployeeController().GetFromUser(user);
 
                     name = a.Name;
                     path = a.LinkAVT;
 
-                    EmployeeController.WriteHistory(a, timeLogin);// write history login
+                    new EmployeeController().WriteHistory(a, timeLogin);// write history login
                 }
                 else if (TypeUs == 2) // Admin
                 {
-                    Admin a = AdminController.GetFromUser(user);
+                    Admin a = new AdminController().GetFromUser(user);
                     name = a.Name;
                     path = a.LinkAVT;
                 }
 
-                AdminController.SetisOnline(user, true); // set online
+                new AdminController().SetisOnline(user, true); // set online
 
                 MessageBox.Show($"Welcom '{user}'!", "Login Success", MessageBoxButtons.OK);
                 //  frmMain frmMain = new frmMain(name, TypeUs, path);

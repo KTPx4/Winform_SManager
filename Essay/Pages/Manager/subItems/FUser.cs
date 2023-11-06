@@ -4,6 +4,7 @@ using Essay.Model;
 using Essay.Pages.Dialog;
 using Krypton.Toolkit;
 using System;
+using System.IO;
 using System.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -74,7 +75,7 @@ namespace Essay.Pages.Items
 
         }
 
-        private void CreateTitle()
+        private void CreateTitle()  
         {
             pnID.Location = new Point(Variables._X_Item_User, pnID.Location.Y);
             pnID.BackColor = Color.Transparent;
@@ -111,8 +112,10 @@ namespace Essay.Pages.Items
             // change img 
             if (_LinkAvt != "")
             {
-
-                ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
+                if(File.Exists(_LinkAvt))
+                {
+                    ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
+                }
 
             }
 
@@ -163,7 +166,7 @@ namespace Essay.Pages.Items
         private void deleteUser()
         {
             String userName = _UserName;
-            if (!AdminController.DeleteUser(userName))
+            if (!new AdminController().DeleteUser(userName))
             {
                 MessageBox.Show("Error when Delete\nCheck code again!", "Error Delete", MessageBoxButtons.OK);
             }
@@ -173,7 +176,7 @@ namespace Essay.Pages.Items
         private void lockUser()
         {
             String userName = _UserName;
-            if (!AdminController.LockUser(userName))
+            if (!new AdminController().LockUser(userName))
             {
                 MessageBox.Show("Error when Lock\nCheck code again!", "Error Lock Account", MessageBoxButtons.OK);
             }
@@ -182,7 +185,7 @@ namespace Essay.Pages.Items
         private void showUser()
         {
             String userName = _UserName;
-            if (!AdminController.isExistsUser(userName))
+            if (!new AdminController().isExistsUser(userName))
             {
                 MessageBox.Show("User is NOT EXISTS in Database", "Error View Account", MessageBoxButtons.OK);
                 return;
@@ -192,11 +195,11 @@ namespace Essay.Pages.Items
 
             if (_isManager)
             {
-                m = ManagerController.GetFromUser(userName);
+                m = new ManagerController().GetFromUser(userName);
             }
             else
             {
-                m = EmployeeController.GetFromUser(userName);
+                m = new EmployeeController().GetFromUser(userName);
             }
 
             dialogProfile pf = new dialogProfile(1, _isManager? 0 : 1)
@@ -247,7 +250,7 @@ namespace Essay.Pages.Items
         {
             if (MessageBox.Show($"Do you wan to RESTORE User '{_UserName}' ?", "Confirm Lock Account", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (!AdminController.RestoreUser(_UserName))
+                if (!new AdminController().RestoreUser(_UserName))
                 {
 
                     MessageBox.Show("Error when restore, try again", "Error Restore Account", MessageBoxButtons.OK);

@@ -399,7 +399,7 @@ namespace Essay
             }
             else
             {
-                AdminController.SetisOnline(NameUser, false);
+                new AdminController().SetisOnline(NameUser, false);
             }
            
             //MessageBox.Show("close");

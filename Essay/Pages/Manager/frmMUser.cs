@@ -68,24 +68,23 @@ namespace Essay.Pages
             title.Dock = DockStyle.Top;
             pnListItems.Controls.Add(title);
 
-            ManagerController mn = new ManagerController(); 
-            EmployeeController emp = new EmployeeController();
 
-            List<Manager> listManager = ManagerController.GetListActive();
-            List<Employee> listEmployee = EmployeeController.GetListActive();
+
+            List<Manager> listManager = new ManagerController().GetListActive();
+            List<Employee> listEmployee = new EmployeeController().GetListActive();
 
 
 
             switch (status) // status of user
             {
                 case -1: // deleted
-                    listEmployee = EmployeeController.GetListDeleted();
-                    listManager = ManagerController.GetListDeleted();
+                    listEmployee = new EmployeeController().GetListDeleted();
+                    listManager = new ManagerController().GetListDeleted();
                     break;
 
                 case 1: // blocked
-                    listEmployee = EmployeeController.GetListBlocked();
-                    listManager = ManagerController.GetListBlocked();
+                    listEmployee = new EmployeeController().GetListBlocked();
+                    listManager = new ManagerController().GetListBlocked();
                     break;
 
                 default: // 0 or other - Active
@@ -126,7 +125,7 @@ namespace Essay.Pages
                     _LinkAvt = m.LinkAVT,
                     _Status = (int)m.Status
                 };
-                MessageBox.Show($"{m.User},{m.isOnline}");
+                // MessageBox.Show($"{m.User},{m.isOnline}");
 
                 ListItems.Add(f); // add to list item
                 pnListItems.Controls.Add(f); // add to content panel
@@ -146,7 +145,7 @@ namespace Essay.Pages
                     _LinkAvt = em.LinkAVT,
                     _Status = (int)em.Status
                 };
-                MessageBox.Show($"{em.User},{em.isOnline}");
+                //  MessageBox.Show($"{em.User},{em.isOnline}");
                 ListItems.Add(f); // add to list item
                 pnListItems.Controls.Add(f); // add to content panel
                 f.Dock = DockStyle.Top;
@@ -161,19 +160,19 @@ namespace Essay.Pages
             title.Dock = DockStyle.Top;
             pnListItems.Controls.Add(title);
             // List<Manager> listManager = ManagerController.GetListActive();
-            List<Employee> listEmployee = EmployeeController.GetListActive();
+            List<Employee> listEmployee = new EmployeeController().GetListActive();
 
 
 
             switch (status) // status of user
             {
                 case -1: // deleted
-                    listEmployee = EmployeeController.GetListDeleted();
+                    listEmployee = new EmployeeController().GetListDeleted();
                     //listManager = ManagerController.GetListDeleted();
                     break;
 
                 case 1: // blocked
-                    listEmployee = EmployeeController.GetListBlocked();
+                    listEmployee = new EmployeeController().GetListBlocked();
                     // listManager = ManagerController.GetListBlocked();
                     break;
 
@@ -243,6 +242,7 @@ namespace Essay.Pages
 
         private void LoadDB() // for load list user from db
         {
+
             try
             {
                 switch (typeU)
@@ -270,6 +270,7 @@ namespace Essay.Pages
 
         private void LoadForm()
         {
+
             switch (typeU)
             {
                 case 0:  // manager
@@ -360,49 +361,15 @@ namespace Essay.Pages
         private void addManager_Click(object sender, EventArgs e)
         {
 
-            //dialogProfile dialogProfile = new dialogProfile(1, 0)
-            //{
-            //    id = "1243",
-            //    name = "px4",
-            //    user = "px4k3",
-            //    password = "kkkk",
-            //    phone = "1111111",
-            //    Status = 0,
-            //    birthDay = new DateTime(2023, 10, 20),
-            //    linkAvt = "husky2.png"
-
-            //};
-            //dialogProfile.Show();
-
             dialogProfile dialogProfile = new dialogProfile(0, 0);  // open = 0 -> add , user =0 -> manager 
             dialogProfile.Show();
-            //FUser us = new FUser(deleteUser, true, "000", "fsf smith", "00001111", true, "");
-
-            ////    us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
-
-            //ListItems.Add(us);
-            //pnListItems.Controls.Add(us);
-
-            //us.Dock = DockStyle.Top;
 
         }
         private void addStaff_Click(object sender, EventArgs e)
         {
 
-
-            //   FUser us = new FUser(deleteUser, false, "11", "Joinh smith", "00001111", false, "husky2.png");
-            //   us.Controls["pnID"].Location = new Point(Variables._X_Item_User, us.Controls["pnID"].Location.Y);
-
-            //ListItems.Add(us);
-            // pnListItems.Controls.Add(us);
-
-            //us.Dock = DockStyle.Top;
-
             dialogProfile dialogProfile = new dialogProfile(0, 1); // add - employee
             dialogProfile.Show();
-            // AdminController adminController = new AdminController();
-            // adminController.isExistsUser("px4d");
-
         }
 
         private void setLocation()
@@ -417,20 +384,6 @@ namespace Essay.Pages
             {
 
                 this.Width = this.Width + x;
-
-                //pnSetCenter.Width = Variables._Width_SetCent;
-
-                //    pnTitleItems.Location = new Point(VariableMain._X_Label_User, pnTitleItems.Location.Y);
-                /*foreach (FUser item in ListItems)
-                {
-                    if (item.Controls["pnID"] != null)
-                    {
-                        item.Controls["pnID"].Location = new Point(x, item.Controls["pnID"].Location.Y + y);
-
-                      
-                    }
-
-                }*/
             }
             catch (Exception ex)
             {
@@ -440,9 +393,6 @@ namespace Essay.Pages
 
 
         }
-
-
-
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -461,19 +411,11 @@ namespace Essay.Pages
             LoadForm();
         }
 
-        private void cbbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-
-
         private void ShowResultFind(String search)
         {
             try
             {
-                Tuple<List<Manager>, List<Employee>> result = AdminController.Search(search);
+                Tuple<List<Manager>, List<Employee>> result = new AdminController().Search(search);
                 List<Manager> listManger = result.Item1;
                 List<Employee> listEmployee = result.Item2;
 

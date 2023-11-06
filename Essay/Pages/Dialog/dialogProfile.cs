@@ -98,7 +98,7 @@ namespace Essay.Pages.Dialog
                     //public DateTime birthDay { get; set; }
                     //public string linkAvt { get; set; }
                     //public int Status { get; set; }
-                    Manager m = ManagerController.GetFromUser(user);
+                    Manager m = new ManagerController().GetFromUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -113,7 +113,7 @@ namespace Essay.Pages.Dialog
                 }
                 else if (typeUser == 1)
                 {
-                    Employee m = EmployeeController.GetFromUser(user);
+                    Employee m = new EmployeeController().GetFromUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -128,7 +128,7 @@ namespace Essay.Pages.Dialog
                 }
                 else if (typeUser == 2)
                 {
-                    Admin m = AdminController.GetFromUser(user);
+                    Admin m = new AdminController().GetFromUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -164,17 +164,17 @@ namespace Essay.Pages.Dialog
                 //get next ID
                 if (typeUser == 0)
                 {
-                    nextnameIMG = "Manager_" + ManagerController.NextID().ToString();
+                    nextnameIMG = "Manager_" + new ManagerController().NextID().ToString();
                     this.BackColor = Color.SlateGray;
                 }
                 else if (typeUser == 1)
                 {
-                    nextnameIMG = "Employee_" + EmployeeController.NextID().ToString();
+                    nextnameIMG = "Employee_" + new EmployeeController().NextID().ToString();
                     this.BackColor = Color.Gray;
                 }
                 else
                 {
-                    nextnameIMG = "Admin_" + AdminController.NextID().ToString();
+                    nextnameIMG = "Admin_" + new AdminController().NextID().ToString();
                     this.BackColor = Color.SlateGray;
 
                 }
@@ -470,7 +470,7 @@ namespace Essay.Pages.Dialog
                     LinkAVT = fullNameIMG
 
                 };
-                if (!ManagerController.Add(em))
+                if (!new ManagerController().Add(em))
                 {
                     MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
                     return;
@@ -492,7 +492,7 @@ namespace Essay.Pages.Dialog
                     LinkAVT = fullNameIMG
 
                 };
-                if (!EmployeeController.Add(em))
+                if (!new EmployeeController().Add(em))
                 {
                     MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
                     return;
@@ -541,7 +541,7 @@ namespace Essay.Pages.Dialog
                         LinkAVT = linkAvt
                     };
 
-                    if (!ManagerController.Update(m))
+                    if (!new ManagerController().Update(m))
                     {
                         MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
 
@@ -559,7 +559,7 @@ namespace Essay.Pages.Dialog
                         LinkAVT = linkAvt
                     };
 
-                    if (!EmployeeController.Update(e))
+                    if (!new EmployeeController().Update(e))
                     {
                         MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
 
@@ -576,7 +576,7 @@ namespace Essay.Pages.Dialog
                         LinkAVT = linkAvt
                     };
 
-                    if (!AdminController.Update(a))
+                    if (!new AdminController().Update(a))
                     {
                         MessageBox.Show("Error when Update Admin. Try it Again!", "Error Add", MessageBoxButtons.OK);
 

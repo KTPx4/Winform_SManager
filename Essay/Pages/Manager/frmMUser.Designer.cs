@@ -53,6 +53,7 @@
             btnAddManager = new Button();
             kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
             searchTimer = new System.Windows.Forms.Timer(components);
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -287,13 +288,14 @@
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(button1);
             groupBox2.Controls.Add(cbbStatus);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(2, 206);
             groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(2);
-            groupBox2.Size = new Size(218, 134);
+            groupBox2.Size = new Size(218, 143);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filter";
@@ -301,7 +303,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(52, 42);
+            label5.Location = new Point(52, 22);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(39, 15);
@@ -313,7 +315,7 @@
             cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Normal", "Locked", "Deleted" });
-            cbbStatus.Location = new Point(14, 62);
+            cbbStatus.Location = new Point(14, 42);
             cbbStatus.Margin = new Padding(2);
             cbbStatus.Name = "cbbStatus";
             cbbStatus.Size = new Size(192, 23);
@@ -381,6 +383,20 @@
             searchTimer.Interval = 600;
             searchTimer.Tick += searchTimer_Tick;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            button1.BackColor = Color.MintCream;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(14, 84);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 38);
+            button1.TabIndex = 1;
+            button1.Text = "View History ";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // frmMUser
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -436,5 +452,6 @@
         private Label lbSumManager;
         private Label label1;
         private System.Windows.Forms.Timer searchTimer;
+        private Button button1;
     }
 }

@@ -53,6 +53,10 @@
               "target": "Package",
               "version": "[70.22.11.312, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
             "netstandard-System.Data.Linq": {
               "target": "Package",
               "version": "[1.0.1, )"
