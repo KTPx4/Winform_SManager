@@ -1,4 +1,5 @@
 ﻿using Components;
+using DevExpress.Office.Drawing;
 using Essay.Components;
 using Essay.Controllers;
 using Essay.Model;
@@ -30,7 +31,7 @@ namespace Essay.Pages.Dialog
 
         private Action<String, String> updateProfile;
         private bool changIMG = false;
-        private String nameIMG;
+        private String nextnameIMG;
         private String fullNameIMG = "user.png";
         private String pathIMG;
         private int typeUser = 0; // 0 -> manager, 1-> employee
@@ -130,7 +131,7 @@ namespace Essay.Pages.Dialog
                     Admin m = AdminController.GetFromUser(user);
                     if (m != null)
                     {
-                        //id = m.ID;
+                        id = m.ID;
                         this.name = m.Name;
                         this.user = m.User;
                         password = m.Password;
@@ -163,17 +164,17 @@ namespace Essay.Pages.Dialog
                 //get next ID
                 if (typeUser == 0)
                 {
-                    nameIMG = "Manager_" + ManagerController.NextID().ToString();
+                    nextnameIMG = "Manager_" + ManagerController.NextID().ToString() ;
                     this.BackColor = Color.SlateGray;
                 }
                 else if (typeUser == 1)
                 {
-                    nameIMG = "Employee_" + EmployeeController.NextID().ToString();
+                    nextnameIMG = "Employee_" + EmployeeController.NextID().ToString() ;
                     this.BackColor = Color.Gray;
                 }
                 else
                 {
-                    nameIMG = "Admin_" + EmployeeController.NextID().ToString();
+                    nextnameIMG = "Admin_" + AdminController.NextID().ToString();
                     this.BackColor = Color.SlateGray;
 
                 }
@@ -216,9 +217,13 @@ namespace Essay.Pages.Dialog
                         if (File.Exists(p))
                         {
                             // Tệp tồn tại
-                            // Thực hiện xử lý tương ứng
-                            btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile(p));
-                           // btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile(p);
+                            // Thực hiện xử lý tương ứng\
+                            using (FileStream fs = new FileStream(p, FileMode.Open, FileAccess.Read))
+                            {
+                                btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                            }
+                            //btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile(p));
+                            // btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile(p);
                         }
 
                         // btnProfile.StateCommon.Back.Image = System.Drawing.Image.FromFile($"{Variables._pathAvt}/{linkAvt}");
@@ -296,6 +301,8 @@ namespace Essay.Pages.Dialog
         private void btnProfile_Click(object sender, EventArgs e)
         {
             changIMG = true;
+           
+           
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp";
@@ -315,11 +322,27 @@ namespace Essay.Pages.Dialog
 
                         string fileName = Path.GetFileNameWithoutExtension(selectedFilePath);
                         string fileExtension = Path.GetExtension(selectedFilePath);
-                        fullNameIMG = nameIMG + fileExtension;
+                        
+                        if(typeOpen == 0) // ở dạng thêm mới, khi thay đổi avatar, nó sẽ tự tạo một tên ảnh mới là tên tiếp theo của ID, 
+                        {
+                            fullNameIMG = nextnameIMG + fileExtension; // EX: Employee_3.png
 
-                        pathIMG = $"{Variables._pathAvt}/" + fullNameIMG;
+                            pathIMG = $"{Variables._pathAvt}/" + fullNameIMG; // EX: Img/Avt/Employee_3.png
+                        }
+                        else 
+                        {    
+                            // Khi ở dạng mở chỉnh sửa, và thay đổi ảnh, nó sẽ tạo ra 1 ảnh tạm, ví dụ 1_Employee_3.png
+                            // Khi người dùng nhấn Cancel thì nó sẽ xóa ảnh 1_Employee_3.png mà không ảnh hưởng gì ảnh cũ
+                            // Còn nếu nhấn Save, thì dưới Method ActionEdit sẽ xử lý Xóa ảnh cũ 'Employee_3.png', sau đó đổi tên 1_Employee_3.png thành Employee_3.png
+                       
+                            fullNameIMG = "1_" + linkAvt;
+
+                            pathIMG = $"{Variables._pathAvt}/" + fullNameIMG;
+                        }
+                        
 
                         string destinationFilePath = Path.Combine(destinationFolder, fullNameIMG);
+
 
                         File.Copy(selectedFilePath, destinationFilePath, true);
 
@@ -337,6 +360,7 @@ namespace Essay.Pages.Dialog
                     }
                 }
             }
+          
 
 
 
@@ -394,14 +418,14 @@ namespace Essay.Pages.Dialog
 
         private bool isCanAdd()
         {
-            if(typeUser == 2)
+            if (typeUser == 2)
             {
-                if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" )
+                if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "")
                 {
                     MessageBox.Show("Input have empty. Please input full values!", "Null Value", MessageBoxButtons.OK);
                     return false;
                 }
-              
+
             }
             else if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" || txtPhone.Text == "" || txtDate.Text == "")
             {
@@ -476,8 +500,33 @@ namespace Essay.Pages.Dialog
             }
         }
 
+
+        // Khi người dùng nhấn Cancel thì nó sẽ xóa ảnh 1_Employee_3.png mà không ảnh hưởng gì ảnh cũ
+        // Còn nếu nhấn Save, thì dưới Method ActionEdit sẽ xử lý Xóa ảnh cũ 'Employee_3.png', sau đó đổi tên 1_Employee_3.png thành Employee_3.png
         private void ActionEdit()
         {
+            if(changIMG)
+            {
+                try
+                {
+                    if(File.Exists(pathIMG))
+                    {
+                        if (File.Exists($"{Variables._pathAvt}/{linkAvt}"))
+                        {
+                            File.Delete($"{Variables._pathAvt}/{linkAvt}");
+                        }
+                        File.Move(pathIMG, $"{Variables._pathAvt}/{linkAvt}");
+                        pathIMG = $"{Variables._pathAvt}/{linkAvt}";
+
+                    }    
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error Delete File: " + ex.Message);
+                }
+            }    
+           
             switch (typeUser)
             {
                 case 0:
@@ -489,7 +538,7 @@ namespace Essay.Pages.Dialog
                         Pass = txtPass.Text,
                         Phone = txtPhone.Text,
                         birthDay = txtDate.DateTime,
-                        LinkAVT = fullNameIMG
+                        LinkAVT = linkAvt
                     };
 
                     if (!ManagerController.Update(m))
@@ -507,7 +556,7 @@ namespace Essay.Pages.Dialog
                         Pass = txtPass.Text,
                         Phone = txtPhone.Text,
                         birthDay = txtDate.DateTime,
-                        LinkAVT = fullNameIMG
+                        LinkAVT = linkAvt
                     };
 
                     if (!EmployeeController.Update(e))
@@ -520,28 +569,28 @@ namespace Essay.Pages.Dialog
                 case 2:
                     Admin a = new Admin()
                     {
-
+                        ID=id,
                         Name = txtName.Text,
                         User = txtUser.Text,
                         Password = txtPass.Text,
-                        LinkAVT = fullNameIMG
+                        LinkAVT = linkAvt
                     };
 
                     if (!AdminController.Update(a))
                     {
-                        MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
+                        MessageBox.Show("Error when Update Admin. Try it Again!", "Error Add", MessageBoxButtons.OK);
 
                     }
                     break;
 
             }
-            frmMain.Instance.RequestReload();
+            
         }
 
         private void ActionEditProfile()
         {
-            ActionEdit();
-            updateProfile(txtName.Text, pathIMG); // update profile at main
+            ActionEdit(); 
+            updateProfile(txtUser.Text, pathIMG); // update profile at main
         }
 
         // Button save Click
@@ -561,7 +610,7 @@ namespace Essay.Pages.Dialog
                     ActionEdit();
                     break;
 
-                case 2: // edit - update profile
+                case 2: // edit - update profile , Tương tự như edit, nhưng thêm cái là sẽ sửa thông tin ở Main nửa, nên dùng Action để update trong frmMain
                     ActionEditProfile();
                     break;
             }
@@ -575,11 +624,18 @@ namespace Essay.Pages.Dialog
         {
             if (changIMG) // if have change picture -> remove if exists
             {
-
-                if (File.Exists(pathIMG))
+                try
                 {
-                    File.Delete(pathIMG);
+                    if (File.Exists(pathIMG))
+                    {
+                        File.Delete(pathIMG);
+                    }
                 }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error Delete File: " + ex.Message);
+                }
+               
             }
             this.Close();
         }

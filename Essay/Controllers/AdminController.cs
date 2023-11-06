@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Essay.Controllers
 {
@@ -39,7 +40,21 @@ namespace Essay.Controllers
             return -1; // not found
 
         }
-        
+
+        public static int NextID()
+        {
+
+
+            var currentID = (from em in db.Admins
+                             orderby em.ID descending
+                             select em.ID).FirstOrDefault();
+
+            //int id = int.Parse(currentID.ToString());
+            // MessageBox.Show("" + currentID);
+
+            return int.Parse(currentID.ToString()) + 1;
+        }
+
         // check is Exists From 3 table
 
         public static bool isExistsUser(string username)
@@ -94,14 +109,15 @@ namespace Essay.Controllers
 
 
             // Tìm bản ghi Manager cần chỉnh sửa bằng User
-            Admin existingAdmin = db.Admins.SingleOrDefault(m => m.User == Admin.User);
+            Admin existingAdmin = db.Admins.SingleOrDefault(m => m.ID == Admin.ID);
 
             if (existingAdmin != null)
             {
                 // Thực hiện các thay đổi cần thiết trên bản ghi Manager
                 existingAdmin.Name = Admin.Name;
                 existingAdmin.Password = Admin.Password;                
-                existingAdmin.LinkAVT = Admin.LinkAVT;
+               // existingAdmin.LinkAVT = Admin.LinkAVT;
+                existingAdmin.User = Admin.User;
 
                 // if change user -> check exists with other row
                 //    MessageBox.Show("db: " + existingEmployee.User + ", :" + Employee.User);

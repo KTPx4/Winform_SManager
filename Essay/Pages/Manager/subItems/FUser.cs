@@ -111,6 +111,7 @@ namespace Essay.Pages.Items
             // change img 
             if (_LinkAvt != "")
             {
+
                 ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
 
             }

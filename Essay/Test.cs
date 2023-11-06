@@ -1,9 +1,11 @@
-﻿using Essay.Controllers;
+﻿using Essay.Components;
+using Essay.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,7 @@ namespace Essay
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show( EmployeeController.NextID().ToString());
+            
         }
     }
 }

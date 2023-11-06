@@ -137,6 +137,7 @@
             txtPass.PasswordChar = '*';
             txtPass.Size = new Size(174, 37);
             txtPass.TabIndex = 2;
+            txtPass.Text = "123456";
             txtPass.TextAlign = HorizontalAlignment.Center;
             // 
             // ckShow
@@ -187,6 +188,7 @@
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(174, 37);
             txtUser.TabIndex = 1;
+            txtUser.Text = "admin";
             txtUser.TextAlign = HorizontalAlignment.Center;
             // 
             // pictureBox4

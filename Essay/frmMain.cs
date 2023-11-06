@@ -14,6 +14,7 @@ using Essay.Pages;
 using Essay.Pages.Dialog;
 using Components;
 using System.IO;
+using DevExpress.Office.Drawing;
 
 namespace Essay
 {
@@ -79,11 +80,18 @@ namespace Essay
 
         }
 
-        public void UpdateProf(String Name, String pathAvt)
+        public void UpdateProf(String User, String pathAvt)
         {
-            lbName.Text = Name;
+            lbName.Text = User;
+            this.NameUser = User;
             if (pathAvt != null)
-                btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile($"{Variables._pathAvt}/{pathAvt}"));
+            {
+                using (FileStream fs = new FileStream(pathAvt, FileMode.Open, FileAccess.Read))
+                {
+                    btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                }
+            }
+                //btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromFile($"{Variables._pathAvt}/{pathAvt}"));
                 //btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/{pathAvt}");
         }
 
@@ -96,7 +104,11 @@ namespace Essay
             {
                 // Tệp tồn tại
                 // Thực hiện xử lý tương ứng
-                btnProfile.StateCommon.Back.Image = Image.FromFile(path);
+                using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                }
+                //btnProfile.StateCommon.Back.Image = Image.FromFile(path);
             }
             else
             {

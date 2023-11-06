@@ -195,7 +195,7 @@
             btnProfile.StateCommon.Back.Color1 = Color.Transparent;
             btnProfile.StateCommon.Back.Color2 = Color.Transparent;
             btnProfile.StateCommon.Back.Image = Properties.Resources.user1;
-            btnProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.CenterMiddle;
+            btnProfile.StateCommon.Back.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
             btnProfile.StateCommon.Border.Color1 = Color.White;
             btnProfile.StateCommon.Border.Color2 = Color.White;
             btnProfile.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
