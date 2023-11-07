@@ -30,10 +30,10 @@
         {
             pnID = new Panel();
             pnButton = new Panel();
-            btnRestore = new PictureBox();
             btnViews = new PictureBox();
-            btnBlock = new PictureBox();
             btnDel = new PictureBox();
+            btnBlock = new PictureBox();
+            btnRestore = new PictureBox();
             pnStatus = new Panel();
             lbStatus = new Label();
             pnSdt = new Panel();
@@ -46,10 +46,10 @@
             ptbAvt = new PictureBox();
             pnID.SuspendLayout();
             pnButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)btnRestore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnViews).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnBlock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnDel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnBlock).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnRestore).BeginInit();
             pnStatus.SuspendLayout();
             pnSdt.SuspendLayout();
             pnName.SuspendLayout();
@@ -76,24 +76,13 @@
             // 
             pnButton.Controls.Add(btnViews);
             pnButton.Controls.Add(btnDel);
-            pnButton.Controls.Add(btnRestore);
             pnButton.Controls.Add(btnBlock);
+            pnButton.Controls.Add(btnRestore);
             pnButton.Dock = DockStyle.Fill;
             pnButton.Location = new Point(464, 0);
             pnButton.Name = "pnButton";
             pnButton.Size = new Size(124, 62);
             pnButton.TabIndex = 18;
-            // 
-            // btnRestore
-            // 
-            btnRestore.Image = Properties.Resources.icons8_restore_32;
-            btnRestore.Location = new Point(41, 19);
-            btnRestore.Name = "btnRestore";
-            btnRestore.Size = new Size(30, 28);
-            btnRestore.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnRestore.TabIndex = 3;
-            btnRestore.TabStop = false;
-            btnRestore.Click += btnRestore_Click;
             // 
             // btnViews
             // 
@@ -105,6 +94,22 @@
             btnViews.TabIndex = 2;
             btnViews.TabStop = false;
             btnViews.Click += btnViews_Click;
+            btnViews.MouseLeave += Picture_leave;
+            btnViews.MouseHover += Picture_hover;
+            // 
+            // btnDel
+            // 
+            btnDel.BackColor = Color.Transparent;
+            btnDel.Image = Properties.Resources.icons8_delete_32;
+            btnDel.Location = new Point(8, 20);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(26, 26);
+            btnDel.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnDel.TabIndex = 2;
+            btnDel.TabStop = false;
+            btnDel.Click += btnDelete_Click;
+            btnDel.MouseLeave += Picture_leave;
+            btnDel.MouseHover += Picture_hover;
             // 
             // btnBlock
             // 
@@ -116,17 +121,21 @@
             btnBlock.TabIndex = 2;
             btnBlock.TabStop = false;
             btnBlock.Click += btnBlock_Click;
+            btnBlock.MouseLeave += Picture_leave;
+            btnBlock.MouseHover += Picture_hover;
             // 
-            // btnDel
+            // btnRestore
             // 
-            btnDel.Image = Properties.Resources.icons8_delete_32;
-            btnDel.Location = new Point(8, 20);
-            btnDel.Name = "btnDel";
-            btnDel.Size = new Size(26, 26);
-            btnDel.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnDel.TabIndex = 2;
-            btnDel.TabStop = false;
-            btnDel.Click += btnDelete_Click;
+            btnRestore.Image = Properties.Resources.icons8_restore_32;
+            btnRestore.Location = new Point(41, 19);
+            btnRestore.Name = "btnRestore";
+            btnRestore.Size = new Size(30, 28);
+            btnRestore.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnRestore.TabIndex = 3;
+            btnRestore.TabStop = false;
+            btnRestore.Click += btnRestore_Click;
+            btnRestore.MouseLeave += Picture_leave;
+            btnRestore.MouseHover += Picture_hover;
             // 
             // pnStatus
             // 
@@ -219,6 +228,7 @@
             // 
             // pnAvt
             // 
+            pnAvt.BackColor = Color.Transparent;
             pnAvt.Controls.Add(ptbAvt);
             pnAvt.Dock = DockStyle.Left;
             pnAvt.Location = new Point(0, 0);
@@ -228,6 +238,7 @@
             // 
             // ptbAvt
             // 
+            ptbAvt.BackColor = Color.Transparent;
             ptbAvt.Dock = DockStyle.Fill;
             ptbAvt.Image = Properties.Resources.user1;
             ptbAvt.Location = new Point(0, 0);
@@ -236,6 +247,9 @@
             ptbAvt.SizeMode = PictureBoxSizeMode.CenterImage;
             ptbAvt.TabIndex = 0;
             ptbAvt.TabStop = false;
+            ptbAvt.Click += ptbAvt_Click;
+            ptbAvt.MouseLeave += ptbAvt_MouseLeave;
+            ptbAvt.MouseHover += ptbAvt_MouseHover;
             // 
             // FUser
             // 
@@ -248,10 +262,10 @@
             Load += User_Load;
             pnID.ResumeLayout(false);
             pnButton.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)btnRestore).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnViews).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnBlock).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnDel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnBlock).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnRestore).EndInit();
             pnStatus.ResumeLayout(false);
             pnSdt.ResumeLayout(false);
             pnName.ResumeLayout(false);

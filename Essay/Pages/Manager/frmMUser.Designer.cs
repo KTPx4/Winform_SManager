@@ -47,13 +47,13 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             label5 = new Label();
+            button1 = new Button();
             cbbStatus = new ComboBox();
             groupBox1 = new GroupBox();
             btnAddStaff = new Button();
             btnAddManager = new Button();
             kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
             searchTimer = new System.Windows.Forms.Timer(components);
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -310,6 +310,20 @@
             label5.TabIndex = 1;
             label5.Text = "Status";
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            button1.BackColor = Color.MintCream;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(14, 84);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 38);
+            button1.TabIndex = 1;
+            button1.Text = "View History ";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // cbbStatus
             // 
             cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -382,20 +396,6 @@
             // 
             searchTimer.Interval = 600;
             searchTimer.Tick += searchTimer_Tick;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button1.BackColor = Color.MintCream;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(14, 84);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 38);
-            button1.TabIndex = 1;
-            button1.Text = "View History ";
-            button1.UseVisualStyleBackColor = false;
             // 
             // frmMUser
             // 

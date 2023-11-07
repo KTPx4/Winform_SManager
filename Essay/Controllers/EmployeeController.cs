@@ -64,7 +64,7 @@ namespace Essay.Controllers
         // method Check
         public  bool isExistsUser(String username)
         {
-            EssayDBDataContext db = new EssayDBDataContext();
+           
 
 
             int CountEmployee = (from Ad in db.Employees

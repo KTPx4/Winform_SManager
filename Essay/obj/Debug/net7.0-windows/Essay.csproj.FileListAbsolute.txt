@@ -171,3 +171,4 @@ F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\ref
 F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.pdb
 F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.genruntimeconfig.cache
 F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\ref\Essay.dll
+F:\TDTU  - University\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Dialog.dialogHistory.resources

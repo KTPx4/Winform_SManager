@@ -75,7 +75,7 @@ namespace Essay.Pages.Items
 
         }
 
-        private void CreateTitle()  
+        private void CreateTitle()
         {
             pnID.Location = new Point(Variables._X_Item_User, pnID.Location.Y);
             pnID.BackColor = Color.Transparent;
@@ -112,7 +112,7 @@ namespace Essay.Pages.Items
             // change img 
             if (_LinkAvt != "")
             {
-                if(File.Exists(_LinkAvt))
+                if (File.Exists(_LinkAvt))
                 {
                     ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
                 }
@@ -202,7 +202,7 @@ namespace Essay.Pages.Items
                 m = new EmployeeController().GetFromUser(userName);
             }
 
-            dialogProfile pf = new dialogProfile(1, _isManager? 0 : 1)
+            dialogProfile pf = new dialogProfile(1, _isManager ? 0 : 1)
             {
                 id = (int)m.ID,
                 name = m.Name,
@@ -259,7 +259,44 @@ namespace Essay.Pages.Items
 
                 frmMain.Instance.RequestReload();
             }
-           
+
+        }
+
+
+        private void ptbAvt_MouseHover(object sender, EventArgs e)
+        {
+            ptbAvt.BackColor = Color.Pink;
+        }
+
+        private void ptbAvt_MouseLeave(object sender, EventArgs e)
+        {
+            ptbAvt.BackColor = Color.Transparent;
+
+        }
+
+        private void Picture_hover(object sender, EventArgs e)
+        {
+            PictureBox button = (PictureBox)sender;
+
+            button.BackColor = Color.Ivory;
+
+        }
+
+        private void Picture_leave(object sender, EventArgs e)
+        {
+            PictureBox button = (PictureBox)sender;
+
+            button.BackColor = Color.Transparent;
+
+        }
+        private void ViewHistory()
+        {
+            dialogHistory dialogHistory = new dialogHistory(_UserName, _isManager);
+            dialogHistory.Show();
+        }
+        private void ptbAvt_Click(object sender, EventArgs e)
+        {
+            ViewHistory();
         }
     }
 }
