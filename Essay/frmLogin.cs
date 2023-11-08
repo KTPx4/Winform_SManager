@@ -171,7 +171,7 @@ namespace Essay
                 String user = txtUser.Text;
                 String pass = txtPass.Text;
 
-                int TypeUs = AdminController.ValidLogin(user, pass);
+                int TypeUs =new AdminController().ValidLogin(user, pass);
 
                 String name = "", path = "";
                 if (TypeUs == -1)
@@ -179,26 +179,38 @@ namespace Essay
                     MessageBox.Show("User name or Password not Correct!", "Login Failed", MessageBoxButtons.OK);
                     return;
                 }
+                else if (TypeUs == -10 || TypeUs == -11) // Have Account, but have been blocked
+                {
+                    MessageBox.Show("Your Account is BLOCKED\nPlease call Admin to unlocked!", "Login Failed", MessageBoxButtons.OK);
+                    return;
+                }
+
+                DateTime timeLogin = DateTime.Now;
 
                 if (TypeUs == 0) // manager
                 {
-                    Manager a = ManagerController.GetFromUser(user);
+                    Manager a = new ManagerController().GetByUser(user);
                     name = a.Name;
                     path = a.LinkAVT;
+                    new ManagerController().WriteHistory(a, timeLogin); // write history login
                 }
                 else if (TypeUs == 1) // employee
                 {
-                    Employee a = EmployeeController.GetFromUser(user);
+                    Employee a = new EmployeeController().GetByUser(user);
+
                     name = a.Name;
                     path = a.LinkAVT;
 
+                    new EmployeeController().WriteHistory(a, timeLogin);// write history login
                 }
                 else if (TypeUs == 2) // Admin
                 {
-                    Admin a = AdminController.GetFromUser(user);
+                    Admin a = new AdminController().GetFromUser(user);
                     name = a.Name;
                     path = a.LinkAVT;
                 }
+
+                new AdminController().SetisOnline(user, true); // set online
 
                 MessageBox.Show($"Welcom '{user}'!", "Login Success", MessageBoxButtons.OK);
                 //  frmMain frmMain = new frmMain(name, TypeUs, path);

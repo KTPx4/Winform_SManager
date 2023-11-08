@@ -4,6 +4,7 @@ using Essay.Model;
 using Essay.Pages.Dialog;
 using Krypton.Toolkit;
 using System;
+using System.IO;
 using System.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -107,12 +108,15 @@ namespace Essay.Pages.Items
             lbSdt.Text = _Phone;
             lbStatus.Text = _isOnline ? "Online" : "Offline";
             lbStatus.ForeColor = _isOnline ? Color.Blue : Color.Red;
-
+      
+            String fullPath = $"{Variables._pathAvt}/{_LinkAvt}";
             // change img 
             if (_LinkAvt != "")
             {
-
-                ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
+                if (File.Exists(fullPath))
+                {
+                    ptbAvt.ImageLocation = fullPath; // img/avt/husky1.png
+                }
 
             }
 
@@ -163,7 +167,7 @@ namespace Essay.Pages.Items
         private void deleteUser()
         {
             String userName = _UserName;
-            if (!AdminController.DeleteUser(userName))
+            if (!new AdminController().DeleteUser(userName))
             {
                 MessageBox.Show("Error when Delete\nCheck code again!", "Error Delete", MessageBoxButtons.OK);
             }
@@ -173,7 +177,7 @@ namespace Essay.Pages.Items
         private void lockUser()
         {
             String userName = _UserName;
-            if (!AdminController.LockUser(userName))
+            if (!new AdminController().LockUser(userName))
             {
                 MessageBox.Show("Error when Lock\nCheck code again!", "Error Lock Account", MessageBoxButtons.OK);
             }
@@ -182,7 +186,7 @@ namespace Essay.Pages.Items
         private void showUser()
         {
             String userName = _UserName;
-            if (!AdminController.isExistsUser(userName))
+            if (!new AdminController().isExistsUser(userName))
             {
                 MessageBox.Show("User is NOT EXISTS in Database", "Error View Account", MessageBoxButtons.OK);
                 return;
@@ -192,14 +196,14 @@ namespace Essay.Pages.Items
 
             if (_isManager)
             {
-                m = ManagerController.GetFromUser(userName);
+                m = new ManagerController().GetByUser(userName);
             }
             else
             {
-                m = EmployeeController.GetFromUser(userName);
+                m = new EmployeeController().GetByUser(userName);
             }
 
-            dialogProfile pf = new dialogProfile(1, _isManager? 0 : 1)
+            dialogProfile pf = new dialogProfile(1, _isManager ? 0 : 1)
             {
                 id = (int)m.ID,
                 name = m.Name,
@@ -247,7 +251,7 @@ namespace Essay.Pages.Items
         {
             if (MessageBox.Show($"Do you wan to RESTORE User '{_UserName}' ?", "Confirm Lock Account", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (!AdminController.RestoreUser(_UserName))
+                if (!new AdminController().RestoreUser(_UserName))
                 {
 
                     MessageBox.Show("Error when restore, try again", "Error Restore Account", MessageBoxButtons.OK);
@@ -256,7 +260,44 @@ namespace Essay.Pages.Items
 
                 frmMain.Instance.RequestReload();
             }
-           
+
+        }
+
+
+        private void ptbAvt_MouseHover(object sender, EventArgs e)
+        {
+            ptbAvt.BackColor = Color.Pink;
+        }
+
+        private void ptbAvt_MouseLeave(object sender, EventArgs e)
+        {
+            ptbAvt.BackColor = Color.Transparent;
+
+        }
+
+        private void Picture_hover(object sender, EventArgs e)
+        {
+            PictureBox button = (PictureBox)sender;
+
+            button.BackColor = Color.Ivory;
+
+        }
+
+        private void Picture_leave(object sender, EventArgs e)
+        {
+            PictureBox button = (PictureBox)sender;
+
+            button.BackColor = Color.Transparent;
+
+        }
+        private void ViewHistory()
+        {
+            dialogHistory dialogHistory = new dialogHistory(_UserName, _isManager);
+            dialogHistory.Show();
+        }
+        private void ptbAvt_Click(object sender, EventArgs e)
+        {
+            ViewHistory();
         }
     }
 }

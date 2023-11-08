@@ -36,6 +36,7 @@
   </Table>
   <Table Name="dbo.HistoryEmployee" Member="HistoryEmployees">
     <Type Name="HistoryEmployee">
+      <Column Name="IDLogin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TimeLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Employee_HistoryEmployee" Member="Employee" ThisKey="ID" OtherKey="ID" Type="Employee" IsForeignKey="true" />
@@ -43,6 +44,7 @@
   </Table>
   <Table Name="dbo.HistoryManager" Member="HistoryManagers">
     <Type Name="HistoryManager">
+      <Column Name="IDLogin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TimeLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Manager_HistoryManager" Member="Manager" ThisKey="ID" OtherKey="ID" Type="Manager" IsForeignKey="true" />

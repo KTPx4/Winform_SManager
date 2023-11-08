@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Essay.Controllers
 {
@@ -12,41 +13,46 @@ namespace Essay.Controllers
     {
 
       
-        private static EssayDBDataContext db = new EssayDBDataContext();
+        private static EssayDBDataContext db ;
 
         public EmployeeController() 
-        { 
-            
+        {
+            db = new EssayDBDataContext();
         }
         // method get
-        public static List<Employee> GetAll()
+        public  List<Employee> GetAll()
         {
             return db.Employees.ToList();
         }
 
-        public static List<Employee> GetListActive()
+        public  List<Employee> GetListActive()
         {
             
             return GetFromStatus(0);
         }
 
-        public static List<Employee> GetListBlocked()
+        public  List<Employee> GetListBlocked()
         {
           
             return GetFromStatus(1);
         }
 
-        public static List<Employee> GetListDeleted()
+        public  List<Employee> GetListDeleted()
         {
             return GetFromStatus(-1);
         }
 
-        public static Employee GetFromUser(string username)
+        public  Employee GetByUser(string username)
         {
-            return db.Employees.SingleOrDefault(e => e.User == username);
+            return db.Employees.SingleOrDefault(e => e.User == username) ?? new Employee();
         }
 
-        public static int NextID()
+        public Employee GetByID(int id)
+        {
+            return db.Employees.SingleOrDefault(e => e.ID == id) ?? new Employee();
+        }
+
+        public  int NextID()
         {
 
 
@@ -62,9 +68,9 @@ namespace Essay.Controllers
 
         
         // method Check
-        public static bool isExistsUser(String username)
+        public  bool isExistsUser(String username)
         {
-            EssayDBDataContext db = new EssayDBDataContext();
+           
 
 
             int CountEmployee = (from Ad in db.Employees
@@ -77,9 +83,9 @@ namespace Essay.Controllers
        
 
         // C-U-D 
-        public static bool Add(Employee employee)
+        public  bool Add(Employee employee)
         {
-            if (!AdminController.isExistsUser(employee.User))
+            if (!new AdminController().isExistsUser(employee.User))
             {
                 db.Employees.InsertOnSubmit(employee);
                 db.SubmitChanges();
@@ -88,7 +94,7 @@ namespace Essay.Controllers
             return false;
         }
 
-        public static bool Update(Employee Employee)
+        public  bool Update(Employee Employee)
         {
 
 
@@ -106,12 +112,12 @@ namespace Essay.Controllers
 
                 // if change user -> check exists with other row
              //    MessageBox.Show("db: " + existingEmployee.User + ", :" + Employee.User);
-                if (existingEmployee.User != Employee.User && AdminController.isExistsUser(Employee.User))
+                if (existingEmployee.User != Employee.User && new AdminController().isExistsUser(Employee.User))
                 {
                     MessageBox.Show("User Name is invalid", "Error Input", MessageBoxButtons.OK);
                     return false;
                 }
-                else if (existingEmployee.User != Employee.User && !AdminController.isExistsUser(Employee.User))
+                else if (existingEmployee.User != Employee.User && !new AdminController().isExistsUser(Employee.User))
                 {
                     existingEmployee.User = Employee.User;
                 }
@@ -125,7 +131,7 @@ namespace Essay.Controllers
             return false; // Bản ghi không tồn tại hoặc không tìm thấy
         }
 
-        public static bool Delete(String username)
+        public  bool Delete(String username)
         {
             if (isExistsUser(username))
             {
@@ -150,17 +156,17 @@ namespace Essay.Controllers
             return false;
         }
 
-        public static bool Lock(String username)
+        public  bool Lock(String username)
         {           
             return SetStatus(username, 1);
         }
 
-        public static bool Restore(String username)
+        public  bool Restore(String username)
         {
             return SetStatus(username, 0);
         }
 
-        public static bool SetStatus(String username, int status)
+        public  bool SetStatus(String username, int status)
         {
             if (isExistsUser(username))
             {
@@ -177,10 +183,48 @@ namespace Essay.Controllers
             return false;
         }
 
+        public  bool SetisOnline(String username, bool Status)
+        {
+            if (isExistsUser(username))
+            {
+                Employee m = db.Employees.SingleOrDefault(e => e.User == username);
+
+
+                if (m != null)
+                {
+                    m.isOnline = Status;
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public  bool WriteHistory(Employee e, DateTime date)
+        {
+            try
+            {
+                HistoryEmployee h = new HistoryEmployee()
+                {
+                    ID = e.ID,
+                    TimeLogin = date
+                };
+                db.HistoryEmployees.InsertOnSubmit(h);
+                db.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error store history Employee: " + ex.Message);
+            }
+            return false;
+
+        }
 
 
         //private method
-        private static List<Employee> GetFromStatus(int status)
+        private  List<Employee> GetFromStatus(int status)
         {
             List<Employee> list = (from m in db.Employees
                                   where m.Status == status

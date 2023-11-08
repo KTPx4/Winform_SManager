@@ -10,40 +10,47 @@ namespace Essay.Controllers
 {
     public class ManagerController
     {
-        private static EssayDBDataContext db = new EssayDBDataContext();
+        private static EssayDBDataContext db;
 
         public ManagerController()
         {
-           
+            db = new EssayDBDataContext();
         }
 
         // method Get
-        public static List<Manager> GetAll()
+        public  List<Manager> GetAll()
         {
             return db.Managers.ToList();
         }
 
-        public static List<Manager> GetListActive()
+        public  List<Manager> GetListActive()
         {
             return GetFromStatus(0);
         }
 
-        public static List<Manager> GetListBlocked()
+        public  List<Manager> GetListBlocked()
         {
             return GetFromStatus(1);
         }
 
-        public static List<Manager> GetListDeleted()
+        public  List<Manager> GetListDeleted()
         {
            
             return GetFromStatus(-1);
         }
 
-        public static Manager GetFromUser(string username)
+        public  Manager GetByUser(string username)
         {
-            return db.Managers.SingleOrDefault(e => e.User == username);
+            return db.Managers.SingleOrDefault(e => e.User == username) ?? new Manager();
         }
-        public static int NextID()
+
+        public Manager GetByID(int id)
+        {
+            return db.Managers.SingleOrDefault(e => e.ID == id) ?? new Manager();
+        }
+
+
+        public  int NextID()
         {
 
 
@@ -60,7 +67,7 @@ namespace Essay.Controllers
 
 
         // method check
-        public static bool isExistsUser(String username)
+        public  bool isExistsUser(String username)
         {
             //EssayDBDataContext db = new EssayDBDataContext();
 
@@ -77,9 +84,9 @@ namespace Essay.Controllers
 
         // C-U-D
 
-        public static bool Add(Manager m)
+        public  bool Add(Manager m)
         {
-            if (!AdminController.isExistsUser(m.User))
+            if (!new AdminController().isExistsUser(m.User))
             {
                 db.Managers.InsertOnSubmit(m);
                 db.SubmitChanges();
@@ -88,7 +95,7 @@ namespace Essay.Controllers
             return false;
         }
 
-        public static bool SetStatus(String username, int status)
+        public  bool SetStatus(String username, int status)
         {
             if (isExistsUser(username))
             {
@@ -105,7 +112,23 @@ namespace Essay.Controllers
             return false;
         }
 
-        public static bool Update(Manager Manager)
+        public  bool SetisOnline(String username, bool Status)
+        {
+            if (isExistsUser(username))
+            {
+                Manager m = db.Managers.SingleOrDefault(e => e.User == username);
+
+                if (m != null)
+                {
+                    m.isOnline = Status;
+                    db.SubmitChanges();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public  bool Update(Manager Manager)
         {
 
 
@@ -127,12 +150,12 @@ namespace Essay.Controllers
                 existingManager.LinkAVT = Manager.LinkAVT;
 
                 // if change user -> check exists with other row
-                if (existingManager.User != Manager.User && AdminController.isExistsUser(Manager.User))
+                if (existingManager.User != Manager.User && new AdminController().isExistsUser(Manager.User))
                 {
                     MessageBox.Show("User Name is invalid", "Error Input", MessageBoxButtons.OK);
                     return false;
                 }
-                else if(existingManager.User != Manager.User && !AdminController.isExistsUser(Manager.User))
+                else if(existingManager.User != Manager.User && !new AdminController().isExistsUser(Manager.User))
                 {
                     existingManager.User = Manager.User;
                 }
@@ -146,7 +169,7 @@ namespace Essay.Controllers
             return false; // Bản ghi không tồn tại hoặc không tìm thấy
         }
 
-        public static bool Delete(String username)
+        public  bool Delete(String username)
         {
             if (isExistsUser(username))
             {
@@ -172,18 +195,41 @@ namespace Essay.Controllers
             return false;
         }
 
-        public static bool Lock(String username)
+        public  bool Lock(String username)
         {
             return SetStatus(username, 1);
         }
 
-        public static bool Restore(String username)
+        public  bool Restore(String username)
         {
             return SetStatus(username, 0);
         }
 
+        public  bool WriteHistory(Manager e, DateTime date)
+        {
+            try
+            {
+                HistoryManager h = new HistoryManager()
+                {
+                    ID = e.ID,
+                    TimeLogin = date
+                };
+                db.HistoryManagers.InsertOnSubmit(h);
+                db.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error store history Manager: " + ex.Message);
+            }
+            return false;
+
+        }
+
+
         // private method
-        private static List<Manager> GetFromStatus(int status)
+        private  List<Manager> GetFromStatus(int status)
         {
             List<Manager> list = (from m in db.Managers
                                   where m.Status == status
@@ -193,4 +239,6 @@ namespace Essay.Controllers
         }
 
     }
+
+
 }

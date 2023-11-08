@@ -158,7 +158,7 @@
             pnTitle.Location = new Point(0, 0);
             pnTitle.Name = "pnTitle";
             pnTitle.Size = new Size(496, 59);
-            pnTitle.TabIndex = 3;
+            pnTitle.TabIndex = 22;
             // 
             // btnEdit
             // 
@@ -213,7 +213,7 @@
             grbInfor.Location = new Point(12, 65);
             grbInfor.Name = "grbInfor";
             grbInfor.Size = new Size(469, 381);
-            grbInfor.TabIndex = 8;
+            grbInfor.TabIndex = 22;
             grbInfor.TabStop = false;
             // 
             // pnGroupTxt
@@ -229,7 +229,7 @@
             pnGroupTxt.Location = new Point(6, 22);
             pnGroupTxt.Name = "pnGroupTxt";
             pnGroupTxt.Size = new Size(457, 268);
-            pnGroupTxt.TabIndex = 11;
+            pnGroupTxt.TabIndex = 22;
             // 
             // pnStatus
             // 
@@ -240,7 +240,7 @@
             pnStatus.Location = new Point(250, 185);
             pnStatus.Name = "pnStatus";
             pnStatus.Size = new Size(196, 34);
-            pnStatus.TabIndex = 10;
+            pnStatus.TabIndex = 22;
             // 
             // txtStatus
             // 
@@ -248,7 +248,7 @@
             txtStatus.Multiline = true;
             txtStatus.Name = "txtStatus";
             txtStatus.Size = new Size(130, 20);
-            txtStatus.TabIndex = 2;
+            txtStatus.TabIndex = 6;
             // 
             // label4
             // 
@@ -269,7 +269,7 @@
             pnPhone.Location = new Point(30, 186);
             pnPhone.Name = "pnPhone";
             pnPhone.Size = new Size(207, 34);
-            pnPhone.TabIndex = 11;
+            pnPhone.TabIndex = 22;
             // 
             // txtPhone
             // 
@@ -277,7 +277,7 @@
             txtPhone.Multiline = true;
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(126, 20);
-            txtPhone.TabIndex = 2;
+            txtPhone.TabIndex = 5;
             txtPhone.TextChanged += txtPhone_TextChanged;
             // 
             // label7
@@ -300,7 +300,7 @@
             pnPass.Location = new Point(251, 139);
             pnPass.Name = "pnPass";
             pnPass.Size = new Size(196, 34);
-            pnPass.TabIndex = 12;
+            pnPass.TabIndex = 22;
             // 
             // ckShowPass
             // 
@@ -309,7 +309,7 @@
             ckShowPass.Location = new Point(176, 10);
             ckShowPass.Name = "ckShowPass";
             ckShowPass.Size = new Size(15, 14);
-            ckShowPass.TabIndex = 17;
+            ckShowPass.TabIndex = 5;
             ckShowPass.UseVisualStyleBackColor = true;
             ckShowPass.CheckedChanged += ckShowPass_CheckedChanged;
             // 
@@ -320,7 +320,7 @@
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
             txtPass.Size = new Size(130, 20);
-            txtPass.TabIndex = 2;
+            txtPass.TabIndex = 4;
             txtPass.TextChanged += txtPass_TextChanged;
             // 
             // label6
@@ -342,7 +342,7 @@
             panel4.Location = new Point(30, 139);
             panel4.Name = "panel4";
             panel4.Size = new Size(207, 34);
-            panel4.TabIndex = 13;
+            panel4.TabIndex = 22;
             // 
             // txtDate
             // 
@@ -352,7 +352,7 @@
             txtDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             txtDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             txtDate.Size = new Size(126, 20);
-            txtDate.TabIndex = 2;
+            txtDate.TabIndex = 3;
             // 
             // label3
             // 
@@ -373,7 +373,7 @@
             pnUser.Location = new Point(251, 93);
             pnUser.Name = "pnUser";
             pnUser.Size = new Size(196, 34);
-            pnUser.TabIndex = 14;
+            pnUser.TabIndex = 22;
             // 
             // txtUser
             // 
@@ -402,7 +402,7 @@
             pnName.Location = new Point(30, 93);
             pnName.Name = "pnName";
             pnName.Size = new Size(207, 34);
-            pnName.TabIndex = 15;
+            pnName.TabIndex = 22;
             // 
             // txtName
             // 
@@ -410,7 +410,7 @@
             txtName.Multiline = true;
             txtName.Name = "txtName";
             txtName.Size = new Size(126, 20);
-            txtName.TabIndex = 2;
+            txtName.TabIndex = 1;
             // 
             // label2
             // 
@@ -429,7 +429,7 @@
             pnControl.Location = new Point(144, 296);
             pnControl.Name = "pnControl";
             pnControl.Size = new Size(308, 52);
-            pnControl.TabIndex = 10;
+            pnControl.TabIndex = 22;
             // 
             // btnSave
             // 
@@ -437,7 +437,7 @@
             btnSave.Location = new Point(8, 5);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(74, 40);
-            btnSave.TabIndex = 9;
+            btnSave.TabIndex = 8;
             btnSave.Values.Text = "Save";
             btnSave.Click += btnSave_Click;
             // 
@@ -447,7 +447,7 @@
             btnCancel.Location = new Point(112, 5);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(74, 40);
-            btnCancel.TabIndex = 11;
+            btnCancel.TabIndex = 9;
             btnCancel.Values.Text = "Cancel";
             btnCancel.Click += buttonCancel_Click;
             // 

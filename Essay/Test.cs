@@ -22,7 +22,8 @@ namespace Essay
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show( EmployeeController.NextID().ToString());
+            DateTime dateTime = DateTime.Now;
+            MessageBox.Show(dateTime.ToString());
             
         }
     }

@@ -47,6 +47,7 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             label5 = new Label();
+            btnViewHis = new Button();
             cbbStatus = new ComboBox();
             groupBox1 = new GroupBox();
             btnAddStaff = new Button();
@@ -132,7 +133,7 @@
             cbbType.Name = "cbbType";
             cbbType.Size = new Size(82, 23);
             cbbType.TabIndex = 2;
-            cbbType.SelectedIndexChanged += cbbType_SelectedIndexChanged;
+            cbbType.SelectionChangeCommitted += cbbType_SelectionChangeCommitted;
             // 
             // pictureBox1
             // 
@@ -287,13 +288,14 @@
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label5);
+            groupBox2.Controls.Add(btnViewHis);
             groupBox2.Controls.Add(cbbStatus);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(2, 206);
             groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(2);
-            groupBox2.Size = new Size(218, 134);
+            groupBox2.Size = new Size(218, 143);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filter";
@@ -301,24 +303,39 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(52, 42);
+            label5.Location = new Point(52, 22);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(39, 15);
             label5.TabIndex = 1;
             label5.Text = "Status";
             // 
+            // btnViewHis
+            // 
+            btnViewHis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnViewHis.BackColor = Color.MintCream;
+            btnViewHis.FlatStyle = FlatStyle.Flat;
+            btnViewHis.ForeColor = Color.Black;
+            btnViewHis.Location = new Point(14, 84);
+            btnViewHis.Margin = new Padding(2);
+            btnViewHis.Name = "btnViewHis";
+            btnViewHis.Size = new Size(94, 38);
+            btnViewHis.TabIndex = 1;
+            btnViewHis.Text = "View History ";
+            btnViewHis.UseVisualStyleBackColor = false;
+            btnViewHis.Click += ViewHistory_Click;
+            // 
             // cbbStatus
             // 
             cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Normal", "Locked", "Deleted" });
-            cbbStatus.Location = new Point(14, 62);
+            cbbStatus.Location = new Point(14, 42);
             cbbStatus.Margin = new Padding(2);
             cbbStatus.Name = "cbbStatus";
             cbbStatus.Size = new Size(192, 23);
             cbbStatus.TabIndex = 0;
-            cbbStatus.SelectedIndexChanged += cbbStatus_SelectedIndexChanged;
+            cbbStatus.SelectionChangeCommitted += cbbStatus_SelectionChangeCommitted;
             // 
             // groupBox1
             // 
@@ -436,5 +453,6 @@
         private Label lbSumManager;
         private Label label1;
         private System.Windows.Forms.Timer searchTimer;
+        private Button btnViewHis;
     }
 }

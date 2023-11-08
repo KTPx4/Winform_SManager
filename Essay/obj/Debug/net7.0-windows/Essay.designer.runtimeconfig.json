@@ -17,6 +17,7 @@
       "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
     ],
     "configProperties": {
+      "System.Reflection.NullabilityInfoContext.IsSupported": true,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }
   }

@@ -98,7 +98,7 @@ namespace Essay.Pages.Dialog
                     //public DateTime birthDay { get; set; }
                     //public string linkAvt { get; set; }
                     //public int Status { get; set; }
-                    Manager m = ManagerController.GetFromUser(user);
+                    Manager m = new ManagerController().GetByUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -113,7 +113,7 @@ namespace Essay.Pages.Dialog
                 }
                 else if (typeUser == 1)
                 {
-                    Employee m = EmployeeController.GetFromUser(user);
+                    Employee m = new EmployeeController().GetByUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -128,7 +128,7 @@ namespace Essay.Pages.Dialog
                 }
                 else if (typeUser == 2)
                 {
-                    Admin m = AdminController.GetFromUser(user);
+                    Admin m = new AdminController().GetFromUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -164,17 +164,17 @@ namespace Essay.Pages.Dialog
                 //get next ID
                 if (typeUser == 0)
                 {
-                    nextnameIMG = "Manager_" + ManagerController.NextID().ToString() ;
+                    nextnameIMG = "Manager_" + new ManagerController().NextID().ToString();
                     this.BackColor = Color.SlateGray;
                 }
                 else if (typeUser == 1)
                 {
-                    nextnameIMG = "Employee_" + EmployeeController.NextID().ToString() ;
+                    nextnameIMG = "Employee_" + new EmployeeController().NextID().ToString();
                     this.BackColor = Color.Gray;
                 }
                 else
                 {
-                    nextnameIMG = "Admin_" + AdminController.NextID().ToString();
+                    nextnameIMG = "Admin_" + new AdminController().NextID().ToString();
                     this.BackColor = Color.SlateGray;
 
                 }
@@ -188,6 +188,7 @@ namespace Essay.Pages.Dialog
                     // 144, 296 : 2button
                     pnControl.Location = new Point(144, 296);
 
+                    fullNameIMG = nextnameIMG + ".png";
 
                     //btnAction.Hide();
                     btnEdit.Hide();
@@ -301,8 +302,8 @@ namespace Essay.Pages.Dialog
         private void btnProfile_Click(object sender, EventArgs e)
         {
             changIMG = true;
-           
-           
+
+
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp";
@@ -322,24 +323,24 @@ namespace Essay.Pages.Dialog
 
                         string fileName = Path.GetFileNameWithoutExtension(selectedFilePath);
                         string fileExtension = Path.GetExtension(selectedFilePath);
-                        
-                        if(typeOpen == 0) // ở dạng thêm mới, khi thay đổi avatar, nó sẽ tự tạo một tên ảnh mới là tên tiếp theo của ID, 
+
+                        if (typeOpen == 0) // ở dạng thêm mới, khi thay đổi avatar, nó sẽ tự tạo một tên ảnh mới là tên tiếp theo của ID, 
                         {
                             fullNameIMG = nextnameIMG + fileExtension; // EX: Employee_3.png
 
                             pathIMG = $"{Variables._pathAvt}/" + fullNameIMG; // EX: Img/Avt/Employee_3.png
                         }
-                        else 
-                        {    
+                        else
+                        {
                             // Khi ở dạng mở chỉnh sửa, và thay đổi ảnh, nó sẽ tạo ra 1 ảnh tạm, ví dụ 1_Employee_3.png
                             // Khi người dùng nhấn Cancel thì nó sẽ xóa ảnh 1_Employee_3.png mà không ảnh hưởng gì ảnh cũ
                             // Còn nếu nhấn Save, thì dưới Method ActionEdit sẽ xử lý Xóa ảnh cũ 'Employee_3.png', sau đó đổi tên 1_Employee_3.png thành Employee_3.png
-                       
+
                             fullNameIMG = "1_" + linkAvt;
 
                             pathIMG = $"{Variables._pathAvt}/" + fullNameIMG;
                         }
-                        
+
 
                         string destinationFilePath = Path.Combine(destinationFolder, fullNameIMG);
 
@@ -360,7 +361,7 @@ namespace Essay.Pages.Dialog
                     }
                 }
             }
-          
+
 
 
 
@@ -470,7 +471,7 @@ namespace Essay.Pages.Dialog
                     LinkAVT = fullNameIMG
 
                 };
-                if (!ManagerController.Add(em))
+                if (!new ManagerController().Add(em))
                 {
                     MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
                     return;
@@ -492,7 +493,7 @@ namespace Essay.Pages.Dialog
                     LinkAVT = fullNameIMG
 
                 };
-                if (!EmployeeController.Add(em))
+                if (!new EmployeeController().Add(em))
                 {
                     MessageBox.Show("User is exists or Error when Add. Try it Again!", "Error Add", MessageBoxButtons.OK);
                     return;
@@ -505,11 +506,11 @@ namespace Essay.Pages.Dialog
         // Còn nếu nhấn Save, thì dưới Method ActionEdit sẽ xử lý Xóa ảnh cũ 'Employee_3.png', sau đó đổi tên 1_Employee_3.png thành Employee_3.png
         private void ActionEdit()
         {
-            if(changIMG)
+            if (changIMG)
             {
                 try
                 {
-                    if(File.Exists(pathIMG))
+                    if (File.Exists(pathIMG))
                     {
                         if (File.Exists($"{Variables._pathAvt}/{linkAvt}"))
                         {
@@ -518,15 +519,15 @@ namespace Essay.Pages.Dialog
                         File.Move(pathIMG, $"{Variables._pathAvt}/{linkAvt}");
                         pathIMG = $"{Variables._pathAvt}/{linkAvt}";
 
-                    }    
+                    }
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error Delete File: " + ex.Message);
                 }
-            }    
-           
+            }
+
             switch (typeUser)
             {
                 case 0:
@@ -541,7 +542,7 @@ namespace Essay.Pages.Dialog
                         LinkAVT = linkAvt
                     };
 
-                    if (!ManagerController.Update(m))
+                    if (!new ManagerController().Update(m))
                     {
                         MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
 
@@ -559,7 +560,7 @@ namespace Essay.Pages.Dialog
                         LinkAVT = linkAvt
                     };
 
-                    if (!EmployeeController.Update(e))
+                    if (!new EmployeeController().Update(e))
                     {
                         MessageBox.Show("Error when Update. Try it Again!", "Error Add", MessageBoxButtons.OK);
 
@@ -569,14 +570,14 @@ namespace Essay.Pages.Dialog
                 case 2:
                     Admin a = new Admin()
                     {
-                        ID=id,
+                        ID = id,
                         Name = txtName.Text,
                         User = txtUser.Text,
                         Password = txtPass.Text,
                         LinkAVT = linkAvt
                     };
 
-                    if (!AdminController.Update(a))
+                    if (!new AdminController().Update(a))
                     {
                         MessageBox.Show("Error when Update Admin. Try it Again!", "Error Add", MessageBoxButtons.OK);
 
@@ -584,12 +585,12 @@ namespace Essay.Pages.Dialog
                     break;
 
             }
-            
+
         }
 
         private void ActionEditProfile()
         {
-            ActionEdit(); 
+            ActionEdit();
             updateProfile(txtUser.Text, pathIMG); // update profile at main
         }
 
@@ -631,11 +632,11 @@ namespace Essay.Pages.Dialog
                         File.Delete(pathIMG);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error Delete File: " + ex.Message);
                 }
-               
+
             }
             this.Close();
         }
