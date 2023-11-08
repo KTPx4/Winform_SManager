@@ -31,10 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dialogHistory));
             grbFilter = new DevExpress.XtraEditors.GroupControl();
-            cbbUser = new ComboBox();
-            label3 = new Label();
-            cbbType = new ComboBox();
-            label2 = new Label();
             label1 = new Label();
             txtFind = new TextBox();
             dgvData = new DataGridView();
@@ -52,10 +48,6 @@
             // 
             // grbFilter
             // 
-            grbFilter.Controls.Add(cbbUser);
-            grbFilter.Controls.Add(label3);
-            grbFilter.Controls.Add(cbbType);
-            grbFilter.Controls.Add(label2);
             grbFilter.Controls.Add(label1);
             grbFilter.Controls.Add(txtFind);
             grbFilter.Location = new Point(2, 52);
@@ -64,53 +56,11 @@
             grbFilter.TabIndex = 3;
             grbFilter.Text = "Filter";
             // 
-            // cbbUser
-            // 
-            cbbUser.FlatStyle = FlatStyle.Flat;
-            cbbUser.FormattingEnabled = true;
-            cbbUser.Items.AddRange(new object[] { "All", "Manager", "Employee" });
-            cbbUser.Location = new Point(443, 84);
-            cbbUser.Name = "cbbUser";
-            cbbUser.Size = new Size(136, 21);
-            cbbUser.TabIndex = 2;
-            cbbUser.SelectionChangeCommitted += cbbUser_SelectionChangeCommitted;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(345, 86);
-            label3.Name = "label3";
-            label3.Size = new Size(82, 18);
-            label3.TabIndex = 1;
-            label3.Text = "User Name";
-            // 
-            // cbbType
-            // 
-            cbbType.FlatStyle = FlatStyle.Flat;
-            cbbType.FormattingEnabled = true;
-            cbbType.Items.AddRange(new object[] { "All", "Manager", "Employee" });
-            cbbType.Location = new Point(127, 84);
-            cbbType.Name = "cbbType";
-            cbbType.Size = new Size(136, 21);
-            cbbType.TabIndex = 2;
-            cbbType.SelectionChangeCommitted += cbbType_SelectionChangeCommitted;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(22, 86);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 18);
-            label2.TabIndex = 1;
-            label2.Text = "Type User";
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(4, 36);
+            label1.Location = new Point(10, 57);
             label1.Name = "label1";
             label1.Size = new Size(117, 18);
             label1.TabIndex = 1;
@@ -119,7 +69,7 @@
             // txtFind
             // 
             txtFind.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFind.Location = new Point(127, 32);
+            txtFind.Location = new Point(133, 53);
             txtFind.Multiline = true;
             txtFind.Name = "txtFind";
             txtFind.Size = new Size(452, 28);
@@ -139,6 +89,7 @@
             dgvData.ReadOnly = true;
             dgvData.RowHeadersVisible = false;
             dgvData.RowTemplate.Height = 25;
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvData.Size = new Size(625, 369);
             dgvData.TabIndex = 2;
             // 
@@ -206,13 +157,9 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl grbFilter;
-        private ComboBox cbbType;
-        private Label label2;
         private Label label1;
         private TextBox txtFind;
         private DataGridView dgvData;
-        private ComboBox cbbUser;
-        private Label label3;
         private PictureBox btnReload;
         private DataGridViewTextBoxColumn User;
         private DataGridViewTextBoxColumn TypeUser;

@@ -98,24 +98,33 @@ namespace Essay
 
         private void setupProfile()
         {
-            lbName.Text = NameUser;
-            lbTypeUser.Text = TypeUser;
-            String path = $"{Variables._pathAvt}/{linkAvt}";
-            if (File.Exists(path))
+            try
             {
-                // Tệp tồn tại
-                // Thực hiện xử lý tương ứng
-                using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                lbName.Text = NameUser;
+                lbTypeUser.Text = TypeUser;
+                String path = $"{Variables._pathAvt}/{linkAvt}";
+              
+                if (File.Exists(path))
                 {
-                    btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                    // Tệp tồn tại
+                    // Thực hiện xử lý tương ứng
+                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                    {
+                        btnProfile.StateCommon.Back.Image = new Bitmap(System.Drawing.Image.FromStream(fs));
+                    }
+                    //btnProfile.StateCommon.Back.Image = Image.FromFile(path);
                 }
-                //btnProfile.StateCommon.Back.Image = Image.FromFile(path);
+                else
+                {
+                    // Tệp không tồn tại
+                    // Thực hiện xử lý khác (nếu cần)
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Tệp không tồn tại
-                // Thực hiện xử lý khác (nếu cần)
+                MessageBox.Show("Error  when setup Profile: " + ex.Message, "Error Form Main", MessageBoxButtons.OK);
             }
+           
 
             //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
         }
@@ -160,10 +169,12 @@ namespace Essay
             switch (typeUs)
             {
                 case 0: // manager
+                    pnListsNavs.Controls.Remove(pnUser);
                     break;
 
                 case 1: // employee
-                    btnUsers.Enabled = false;
+                    pnListsNavs.Controls.Remove(pnUser);
+                    //btnUsers.Enabled = false;
                     break;
 
                 case 2: // admin
@@ -176,9 +187,22 @@ namespace Essay
         private void frmMain_Load(object sender, EventArgs e)
         {
             pnTitle = new DraggablePanel(pnTitle, this);
+            try
+            {
+                // If the directory doesn't exist, create it.
+                if (!Directory.Exists(Variables._pathAvt))
+                {
+                    Directory.CreateDirectory(Variables._pathAvt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error  when Create Folder Img/Avt: " + ex.Message, "Error Form Main", MessageBoxButtons.OK);
 
+            }
             Style();
             setupProfile();
+
 
 
         }

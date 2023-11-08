@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraSpreadsheet.Model;
+﻿using DevExpress.Map.OpenGL;
+using DevExpress.XtraSpreadsheet.Model;
 using Essay.Components;
 using Essay.Controllers;
 using System;
@@ -53,19 +54,37 @@ namespace Essay.Pages.Dialog
         // Show to DataGridView
         private void ShowDGV(List<List<String>> ListData)
         {
+            String user = "";
+            int i = 0;
+            Color color = Color.Gray;
             foreach (List<String> hitem in ListData)
             {
                 DataGridViewRow row = (DataGridViewRow)dgvData.RowTemplate.Clone();
                 row.CreateCells(dgvData, hitem[0], hitem[1], hitem[2], hitem[3]);
                 dgvData.Rows.Add(row);
-                if (hitem[1].Contains("Manager"))
+
+                if (i == 0 || user != hitem[0])
                 {
-                    row.DefaultCellStyle.BackColor = Variables._Back_Items_Manager;
+                    color = GenerateRandomColor();
+                    row.DefaultCellStyle.BackColor = color;
+                    user = hitem[0];
+                    i++;
                 }
+                else
+                {
+
+                    row.DefaultCellStyle.BackColor = color;
+
+
+                }
+                //if (hitem[1].Contains("Manager"))
+                //{
+                //    row.DefaultCellStyle.BackColor = Variables._Back_Items_Manager;
+                //}
             }
         }
-        
-        
+
+
         private void LoadHis()
         {
             try
@@ -77,12 +96,13 @@ namespace Essay.Pages.Dialog
                 if (isAll)
                 {
                     DataHis = history.getAllHis();
+
                 }
                 else
                 {
                     grbFilter.Enabled = false;
-                    cbbType.Text = isManager ? "Manager" : "Employee";
-                    cbbUser.Text = UserName;
+                    //  cbbType.Text = isManager ? "Manager" : "Employee";
+                    // cbbUser.Text = UserName;
                     DataHis = history.getHisUser(UserName);
                 }
 
@@ -94,7 +114,7 @@ namespace Essay.Pages.Dialog
                 MessageBox.Show("Error When Show Data: " + ex.Message);
             }
         }
-        
+
 
         //Search From Text Box
         private void ShowSearch(String search)
@@ -113,23 +133,57 @@ namespace Essay.Pages.Dialog
         }
 
 
-    
+
+        private Color GenerateRandomColor()
+        {
+            var rgbColors = new List<Color>
+            {
+                Color.FromArgb(224,255,255),
+                Color.FromArgb(230,230,250),
+                Color.FromArgb(255,255,224),
+                Color.FromArgb(240,230,140),
+                Color.FromArgb(255,239,213),
+                Color.FromArgb(250,250,210),
+                Color.FromArgb(216,191,216),
+                Color.FromArgb(255,182,193),
+                Color.FromArgb(255,250,250),
+                Color.FromArgb(211,211,211),
+                Color.FromArgb(245,255,250),
+                Color.FromArgb(240,255,240),
+                Color.FromArgb(240,255,255),
+                Color.FromArgb(248,248,255),
+                Color.FromArgb(255,245,238),
+                Color.FromArgb(255,250,240),
+                Color.FromArgb(255,250,240),
+                Color.FromArgb(250,235,215),
+
+
+                // Thêm các màu khác vào danh sách tại đây
+            };
+
+            Random random = new Random();
+            int index = random.Next(rgbColors.Count);
+            return rgbColors[index];
+            //Random random = new Random();
+            //Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            //return randomColor;
+        }
 
 
         private void cbbType_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            cbbUser.Text = "";
+            //  cbbUser.Text = "";
         }
 
         private void cbbUser_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            cbbType.Text = "";
+            // cbbType.Text = "";
         }
 
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
-            cbbType.Text = "";
-            cbbUser.Text = "";
+            //  cbbType.Text = "";
+            //  cbbUser.Text = "";
             TimeTyping.Stop();
             TimeTyping.Start();
         }
@@ -139,7 +193,7 @@ namespace Essay.Pages.Dialog
             frmMain.Instance.RequestReload();
 
         }
-     
+
         private void TimeTyping_Tick(object sender, EventArgs e)
         {
             TimeTyping.Stop();

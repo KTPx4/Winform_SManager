@@ -288,7 +288,6 @@
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(btnViewHis);
             groupBox2.Controls.Add(cbbStatus);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(2, 206);
@@ -303,7 +302,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(52, 22);
+            label5.Location = new Point(50, 42);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(39, 15);
@@ -316,10 +315,10 @@
             btnViewHis.BackColor = Color.MintCream;
             btnViewHis.FlatStyle = FlatStyle.Flat;
             btnViewHis.ForeColor = Color.Black;
-            btnViewHis.Location = new Point(14, 84);
+            btnViewHis.Location = new Point(23, 129);
             btnViewHis.Margin = new Padding(2);
             btnViewHis.Name = "btnViewHis";
-            btnViewHis.Size = new Size(94, 38);
+            btnViewHis.Size = new Size(176, 38);
             btnViewHis.TabIndex = 1;
             btnViewHis.Text = "View History ";
             btnViewHis.UseVisualStyleBackColor = false;
@@ -330,7 +329,7 @@
             cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Normal", "Locked", "Deleted" });
-            cbbStatus.Location = new Point(14, 42);
+            cbbStatus.Location = new Point(12, 62);
             cbbStatus.Margin = new Padding(2);
             cbbStatus.Name = "cbbStatus";
             cbbStatus.Size = new Size(192, 23);
@@ -341,6 +340,7 @@
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(btnAddStaff);
+            groupBox1.Controls.Add(btnViewHis);
             groupBox1.Controls.Add(btnAddManager);
             groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(2, 22);
@@ -358,7 +358,7 @@
             btnAddStaff.BackColor = Color.DarkGray;
             btnAddStaff.FlatStyle = FlatStyle.Flat;
             btnAddStaff.ForeColor = Color.Black;
-            btnAddStaff.Location = new Point(22, 90);
+            btnAddStaff.Location = new Point(23, 76);
             btnAddStaff.Margin = new Padding(2);
             btnAddStaff.Name = "btnAddStaff";
             btnAddStaff.Size = new Size(176, 38);
@@ -373,7 +373,7 @@
             btnAddManager.BackColor = Color.Aquamarine;
             btnAddManager.FlatStyle = FlatStyle.Flat;
             btnAddManager.ForeColor = Color.Black;
-            btnAddManager.Location = new Point(22, 36);
+            btnAddManager.Location = new Point(23, 22);
             btnAddManager.Margin = new Padding(2);
             btnAddManager.Name = "btnAddManager";
             btnAddManager.Size = new Size(176, 38);
