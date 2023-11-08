@@ -188,6 +188,7 @@ namespace Essay.Pages.Dialog
                     // 144, 296 : 2button
                     pnControl.Location = new Point(144, 296);
 
+                    fullNameIMG = nextnameIMG + ".png";
 
                     //btnAction.Hide();
                     btnEdit.Hide();

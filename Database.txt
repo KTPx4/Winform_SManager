@@ -17,7 +17,7 @@
 
 Create table [Admin]
 (
-	[ID] int IDENTITY(1,1) Primary key 
+	[ID] int IDENTITY(1,1) Primary key ,
 	[User] varchar(250),
 	[Password] varchar(250),
 	[Name] varchar(250),

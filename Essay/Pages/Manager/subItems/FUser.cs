@@ -108,13 +108,14 @@ namespace Essay.Pages.Items
             lbSdt.Text = _Phone;
             lbStatus.Text = _isOnline ? "Online" : "Offline";
             lbStatus.ForeColor = _isOnline ? Color.Blue : Color.Red;
-
+      
+            String fullPath = $"{Variables._pathAvt}/{_LinkAvt}";
             // change img 
             if (_LinkAvt != "")
             {
-                if (File.Exists(_LinkAvt))
+                if (File.Exists(fullPath))
                 {
-                    ptbAvt.ImageLocation = $"{Variables._pathAvt}/{_LinkAvt}"; // img/avt/husky1.png
+                    ptbAvt.ImageLocation = fullPath; // img/avt/husky1.png
                 }
 
             }
