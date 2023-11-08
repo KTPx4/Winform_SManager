@@ -579,5 +579,11 @@ namespace Essay.Pages
 
             LoadDB();
         }
+
+        private void ViewHistory_Click(object sender, EventArgs e)
+        {
+            dialogHistory dialogHistory = new dialogHistory();
+            dialogHistory.ShowDialog();
+        }
     }
 }

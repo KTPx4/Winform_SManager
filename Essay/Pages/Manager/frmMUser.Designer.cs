@@ -47,7 +47,7 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             label5 = new Label();
-            button1 = new Button();
+            btnViewHis = new Button();
             cbbStatus = new ComboBox();
             groupBox1 = new GroupBox();
             btnAddStaff = new Button();
@@ -288,7 +288,7 @@
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(button1);
+            groupBox2.Controls.Add(btnViewHis);
             groupBox2.Controls.Add(cbbStatus);
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(2, 206);
@@ -310,19 +310,20 @@
             label5.TabIndex = 1;
             label5.Text = "Status";
             // 
-            // button1
+            // btnViewHis
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button1.BackColor = Color.MintCream;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(14, 84);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 38);
-            button1.TabIndex = 1;
-            button1.Text = "View History ";
-            button1.UseVisualStyleBackColor = false;
+            btnViewHis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnViewHis.BackColor = Color.MintCream;
+            btnViewHis.FlatStyle = FlatStyle.Flat;
+            btnViewHis.ForeColor = Color.Black;
+            btnViewHis.Location = new Point(14, 84);
+            btnViewHis.Margin = new Padding(2);
+            btnViewHis.Name = "btnViewHis";
+            btnViewHis.Size = new Size(94, 38);
+            btnViewHis.TabIndex = 1;
+            btnViewHis.Text = "View History ";
+            btnViewHis.UseVisualStyleBackColor = false;
+            btnViewHis.Click += ViewHistory_Click;
             // 
             // cbbStatus
             // 
@@ -452,6 +453,6 @@
         private Label lbSumManager;
         private Label label1;
         private System.Windows.Forms.Timer searchTimer;
-        private Button button1;
+        private Button btnViewHis;
     }
 }

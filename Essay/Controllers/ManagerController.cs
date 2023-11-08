@@ -39,10 +39,17 @@ namespace Essay.Controllers
             return GetFromStatus(-1);
         }
 
-        public  Manager GetFromUser(string username)
+        public  Manager GetByUser(string username)
         {
-            return db.Managers.SingleOrDefault(e => e.User == username);
+            return db.Managers.SingleOrDefault(e => e.User == username) ?? new Manager();
         }
+
+        public Manager GetByID(int id)
+        {
+            return db.Managers.SingleOrDefault(e => e.ID == id) ?? new Manager();
+        }
+
+
         public  int NextID()
         {
 

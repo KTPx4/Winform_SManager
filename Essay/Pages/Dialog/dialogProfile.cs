@@ -98,7 +98,7 @@ namespace Essay.Pages.Dialog
                     //public DateTime birthDay { get; set; }
                     //public string linkAvt { get; set; }
                     //public int Status { get; set; }
-                    Manager m = new ManagerController().GetFromUser(user);
+                    Manager m = new ManagerController().GetByUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -113,7 +113,7 @@ namespace Essay.Pages.Dialog
                 }
                 else if (typeUser == 1)
                 {
-                    Employee m = new EmployeeController().GetFromUser(user);
+                    Employee m = new EmployeeController().GetByUser(user);
                     if (m != null)
                     {
                         id = m.ID;

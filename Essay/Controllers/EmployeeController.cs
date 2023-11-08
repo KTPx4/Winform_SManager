@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Essay.Controllers
 {
@@ -41,9 +42,14 @@ namespace Essay.Controllers
             return GetFromStatus(-1);
         }
 
-        public  Employee GetFromUser(string username)
+        public  Employee GetByUser(string username)
         {
-            return db.Employees.SingleOrDefault(e => e.User == username);
+            return db.Employees.SingleOrDefault(e => e.User == username) ?? new Employee();
+        }
+
+        public Employee GetByID(int id)
+        {
+            return db.Employees.SingleOrDefault(e => e.ID == id) ?? new Employee();
         }
 
         public  int NextID()

@@ -189,14 +189,14 @@ namespace Essay
 
                 if (TypeUs == 0) // manager
                 {
-                    Manager a = new ManagerController().GetFromUser(user);
+                    Manager a = new ManagerController().GetByUser(user);
                     name = a.Name;
                     path = a.LinkAVT;
                     new ManagerController().WriteHistory(a, timeLogin); // write history login
                 }
                 else if (TypeUs == 1) // employee
                 {
-                    Employee a = new EmployeeController().GetFromUser(user);
+                    Employee a = new EmployeeController().GetByUser(user);
 
                     name = a.Name;
                     path = a.LinkAVT;

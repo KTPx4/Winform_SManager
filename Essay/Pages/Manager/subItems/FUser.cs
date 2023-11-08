@@ -195,11 +195,11 @@ namespace Essay.Pages.Items
 
             if (_isManager)
             {
-                m = new ManagerController().GetFromUser(userName);
+                m = new ManagerController().GetByUser(userName);
             }
             else
             {
-                m = new EmployeeController().GetFromUser(userName);
+                m = new EmployeeController().GetByUser(userName);
             }
 
             dialogProfile pf = new dialogProfile(1, _isManager ? 0 : 1)

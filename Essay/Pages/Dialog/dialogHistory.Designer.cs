@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dialogHistory));
             grbFilter = new DevExpress.XtraEditors.GroupControl();
             cbbUser = new ComboBox();
@@ -38,11 +39,15 @@
             txtFind = new TextBox();
             dgvData = new DataGridView();
             User = new DataGridViewTextBoxColumn();
+            TypeUser = new DataGridViewTextBoxColumn();
             NameUser = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
+            btnReload = new PictureBox();
+            TimeTyping = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)grbFilter).BeginInit();
             grbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnReload).BeginInit();
             SuspendLayout();
             // 
             // grbFilter
@@ -53,9 +58,9 @@
             grbFilter.Controls.Add(label2);
             grbFilter.Controls.Add(label1);
             grbFilter.Controls.Add(txtFind);
-            grbFilter.Location = new Point(2, 2);
+            grbFilter.Location = new Point(2, 52);
             grbFilter.Name = "grbFilter";
-            grbFilter.Size = new Size(624, 128);
+            grbFilter.Size = new Size(624, 119);
             grbFilter.TabIndex = 3;
             grbFilter.Text = "Filter";
             // 
@@ -128,13 +133,13 @@
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.Columns.AddRange(new DataGridViewColumn[] { User, NameUser, Date });
-            dgvData.Location = new Point(1, 151);
+            dgvData.Columns.AddRange(new DataGridViewColumn[] { User, TypeUser, NameUser, Date });
+            dgvData.Location = new Point(1, 181);
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersVisible = false;
             dgvData.RowTemplate.Height = 25;
-            dgvData.Size = new Size(625, 399);
+            dgvData.Size = new Size(625, 369);
             dgvData.TabIndex = 2;
             // 
             // User
@@ -142,6 +147,12 @@
             User.HeaderText = "User";
             User.Name = "User";
             User.ReadOnly = true;
+            // 
+            // TypeUser
+            // 
+            TypeUser.HeaderText = "Type User";
+            TypeUser.Name = "TypeUser";
+            TypeUser.ReadOnly = true;
             // 
             // NameUser
             // 
@@ -155,11 +166,27 @@
             Date.Name = "Date";
             Date.ReadOnly = true;
             // 
+            // btnReload
+            // 
+            btnReload.Image = Properties.Resources.icons8_restore_32;
+            btnReload.Location = new Point(7, 9);
+            btnReload.Name = "btnReload";
+            btnReload.Size = new Size(40, 35);
+            btnReload.TabIndex = 4;
+            btnReload.TabStop = false;
+            btnReload.Click += btnReload_Click;
+            // 
+            // TimeTyping
+            // 
+            TimeTyping.Interval = 400;
+            TimeTyping.Tick += TimeTyping_Tick;
+            // 
             // dialogHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(627, 550);
+            Controls.Add(btnReload);
             Controls.Add(grbFilter);
             Controls.Add(dgvData);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -172,6 +199,7 @@
             grbFilter.ResumeLayout(false);
             grbFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnReload).EndInit();
             ResumeLayout(false);
         }
 
@@ -185,8 +213,11 @@
         private DataGridView dgvData;
         private ComboBox cbbUser;
         private Label label3;
+        private PictureBox btnReload;
         private DataGridViewTextBoxColumn User;
+        private DataGridViewTextBoxColumn TypeUser;
         private DataGridViewTextBoxColumn NameUser;
         private DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.Timer TimeTyping;
     }
 }

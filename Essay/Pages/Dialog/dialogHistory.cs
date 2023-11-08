@@ -1,4 +1,6 @@
-﻿using Essay.Controllers;
+﻿using DevExpress.XtraSpreadsheet.Model;
+using Essay.Components;
+using Essay.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +19,15 @@ namespace Essay.Pages.Dialog
 
         private bool isAll = false;
         private bool isManager = false;
+        public Action Reload;
 
         public dialogHistory()
         {
             InitializeComponent();
             this.UserName = "";
             isAll = true;
+            Reload = ReloadForm;
+            frmMain.Instance.ReloadRequested += Reload;
 
         }
         public dialogHistory(String username, bool isManager)
@@ -31,32 +36,85 @@ namespace Essay.Pages.Dialog
             this.UserName = username;
             isAll = false;
             this.isManager = isManager;
+            Reload = ReloadForm;
+            frmMain.Instance.ReloadRequested += Reload;
         }
 
         private void dialogHistory_Load(object sender, EventArgs e)
         {
-            if (isAll)
+
+            LoadHis();
+        }
+
+        private void ReloadForm()
+        {
+            LoadHis();
+        }
+        // Show to DataGridView
+        private void ShowDGV(List<List<String>> ListData)
+        {
+            foreach (List<String> hitem in ListData)
             {
-               
-            }
-            else
-            {
-                grbFilter.Enabled = false;
-                cbbType.Text = isManager ? "Manager" : "Employee";
-                cbbUser.Text = UserName;
-
-
-
-                History history = new History();
-                List<List<String>> h = history.getHisEmp(UserName);
-                foreach(List<String> hitem in h)
+                DataGridViewRow row = (DataGridViewRow)dgvData.RowTemplate.Clone();
+                row.CreateCells(dgvData, hitem[0], hitem[1], hitem[2], hitem[3]);
+                dgvData.Rows.Add(row);
+                if (hitem[1].Contains("Manager"))
                 {
-                    DataGridViewRow row = (DataGridViewRow)dgvData.RowTemplate.Clone();
-                    row.CreateCells(dgvData, hitem[0], hitem[1], hitem[2]);
-                    dgvData.Rows.Add(row);
+                    row.DefaultCellStyle.BackColor = Variables._Back_Items_Manager;
                 }
             }
         }
+        
+        
+        private void LoadHis()
+        {
+            try
+            {
+                HistoryController history = new HistoryController();
+                List<List<String>> DataHis;
+                dgvData.Rows.Clear();
+
+                if (isAll)
+                {
+                    DataHis = history.getAllHis();
+                }
+                else
+                {
+                    grbFilter.Enabled = false;
+                    cbbType.Text = isManager ? "Manager" : "Employee";
+                    cbbUser.Text = UserName;
+                    DataHis = history.getHisUser(UserName);
+                }
+
+                ShowDGV(DataHis);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error When Show Data: " + ex.Message);
+            }
+        }
+        
+
+        //Search From Text Box
+        private void ShowSearch(String search)
+        {
+            if (search == "")
+            {
+                LoadHis();
+            }
+            else
+            {
+                dgvData.Rows.Clear();
+                HistoryController historyController = new HistoryController();
+                List<List<String>> DataHis = historyController.SearchHistory(search);
+                ShowDGV(DataHis);
+            }
+        }
+
+
+    
+
 
         private void cbbType_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -72,6 +130,21 @@ namespace Essay.Pages.Dialog
         {
             cbbType.Text = "";
             cbbUser.Text = "";
+            TimeTyping.Stop();
+            TimeTyping.Start();
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            frmMain.Instance.RequestReload();
+
+        }
+     
+        private void TimeTyping_Tick(object sender, EventArgs e)
+        {
+            TimeTyping.Stop();
+            string search = txtFind.Text;
+            ShowSearch(search);
         }
     }
 }
