@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[7.0.13, )"
             },
+            "ilmerge": {
+              "target": "Package",
+              "version": "[3.0.41, )"
+            },
             "netstandard-System.Data.Linq": {
               "target": "Package",
               "version": "[1.0.1, )"

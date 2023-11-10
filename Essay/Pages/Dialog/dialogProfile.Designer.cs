@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dialogProfile));
-            panel1 = new Panel();
-            pnRightTitle = new Panel();
-            pnMini = new Panel();
-            ptbMini = new PictureBox();
-            pnClose = new Panel();
-            ptbClose = new PictureBox();
-            pnTitle = new Panel();
-            btnEdit = new PictureBox();
-            lbTitleForm = new Krypton.Toolkit.KryptonLabel();
             btnProfile = new Krypton.Toolkit.KryptonButton();
             grbInfor = new GroupBox();
             pnGroupTxt = new Panel();
@@ -61,16 +52,16 @@
             txtName = new TextBox();
             label2 = new Label();
             pnControl = new Panel();
-            btnSave = new Krypton.Toolkit.KryptonButton();
-            btnCancel = new Krypton.Toolkit.KryptonButton();
-            panel1.SuspendLayout();
-            pnRightTitle.SuspendLayout();
-            pnMini.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
-            pnClose.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ptbClose).BeginInit();
-            pnTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)btnEdit).BeginInit();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            pnTitle = new Panel();
+            btnEdit = new PictureBox();
+            lbTitleForm = new Krypton.Toolkit.KryptonLabel();
+            pnRightTitle = new Panel();
+            pnMini = new Panel();
+            ptbMini = new PictureBox();
+            pnClose = new Panel();
+            ptbClose = new PictureBox();
+            panel1 = new Panel();
             grbInfor.SuspendLayout();
             pnGroupTxt.SuspendLayout();
             pnStatus.SuspendLayout();
@@ -82,106 +73,15 @@
             pnUser.SuspendLayout();
             pnName.SuspendLayout();
             pnControl.SuspendLayout();
+            pnTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnEdit).BeginInit();
+            pnRightTitle.SuspendLayout();
+            pnMini.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
+            pnClose.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ptbClose).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(45, 46, 45);
-            panel1.Controls.Add(pnRightTitle);
-            panel1.Controls.Add(pnTitle);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(496, 59);
-            panel1.TabIndex = 4;
-            // 
-            // pnRightTitle
-            // 
-            pnRightTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pnRightTitle.BackColor = Color.Transparent;
-            pnRightTitle.Controls.Add(pnMini);
-            pnRightTitle.Controls.Add(pnClose);
-            pnRightTitle.Location = new Point(954, 1);
-            pnRightTitle.Name = "pnRightTitle";
-            pnRightTitle.Size = new Size(153, 56);
-            pnRightTitle.TabIndex = 0;
-            // 
-            // pnMini
-            // 
-            pnMini.BackColor = Color.Transparent;
-            pnMini.Controls.Add(ptbMini);
-            pnMini.Location = new Point(77, 0);
-            pnMini.Name = "pnMini";
-            pnMini.Size = new Size(36, 53);
-            pnMini.TabIndex = 5;
-            // 
-            // ptbMini
-            // 
-            ptbMini.BackColor = Color.Transparent;
-            ptbMini.BackgroundImage = Properties.Resources.icons8_minus_material_filled_32;
-            ptbMini.BackgroundImageLayout = ImageLayout.Stretch;
-            ptbMini.Cursor = Cursors.Hand;
-            ptbMini.Location = new Point(8, 17);
-            ptbMini.Name = "ptbMini";
-            ptbMini.Size = new Size(20, 24);
-            ptbMini.TabIndex = 1;
-            ptbMini.TabStop = false;
-            // 
-            // pnClose
-            // 
-            pnClose.BackColor = Color.Transparent;
-            pnClose.Controls.Add(ptbClose);
-            pnClose.Location = new Point(113, 0);
-            pnClose.Name = "pnClose";
-            pnClose.Size = new Size(36, 53);
-            pnClose.TabIndex = 4;
-            // 
-            // ptbClose
-            // 
-            ptbClose.BackColor = Color.Transparent;
-            ptbClose.BackgroundImage = Properties.Resources.icons8_close_ios_16_filled_321;
-            ptbClose.BackgroundImageLayout = ImageLayout.Zoom;
-            ptbClose.Cursor = Cursors.Hand;
-            ptbClose.InitialImage = null;
-            ptbClose.Location = new Point(10, 17);
-            ptbClose.Name = "ptbClose";
-            ptbClose.Size = new Size(15, 24);
-            ptbClose.TabIndex = 1;
-            ptbClose.TabStop = false;
-            // 
-            // pnTitle
-            // 
-            pnTitle.BackColor = Color.Transparent;
-            pnTitle.Controls.Add(btnEdit);
-            pnTitle.Controls.Add(lbTitleForm);
-            pnTitle.Dock = DockStyle.Fill;
-            pnTitle.Location = new Point(0, 0);
-            pnTitle.Name = "pnTitle";
-            pnTitle.Size = new Size(496, 59);
-            pnTitle.TabIndex = 22;
-            // 
-            // btnEdit
-            // 
-            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
-            btnEdit.Location = new Point(439, 8);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(42, 43);
-            btnEdit.SizeMode = PictureBoxSizeMode.CenterImage;
-            btnEdit.TabIndex = 12;
-            btnEdit.TabStop = false;
-            btnEdit.Click += btnEdit_Click;
-            // 
-            // lbTitleForm
-            // 
-            lbTitleForm.Location = new Point(202, 11);
-            lbTitleForm.Name = "lbTitleForm";
-            lbTitleForm.Size = new Size(94, 42);
-            lbTitleForm.StateCommon.ShortText.Color1 = Color.Linen;
-            lbTitleForm.StateCommon.ShortText.Color2 = Color.LightSkyBlue;
-            lbTitleForm.StateCommon.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
-            lbTitleForm.StateCommon.ShortText.Font = new Font("Lucida Sans Unicode", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lbTitleForm.TabIndex = 3;
-            lbTitleForm.Values.Text = "Profile";
             // 
             // btnProfile
             // 
@@ -212,7 +112,7 @@
             grbInfor.Controls.Add(pnControl);
             grbInfor.Location = new Point(12, 65);
             grbInfor.Name = "grbInfor";
-            grbInfor.Size = new Size(469, 381);
+            grbInfor.Size = new Size(469, 356);
             grbInfor.TabIndex = 22;
             grbInfor.TabStop = false;
             // 
@@ -403,6 +303,7 @@
             pnName.Name = "pnName";
             pnName.Size = new Size(207, 34);
             pnName.TabIndex = 22;
+            pnName.Paint += pnName_Paint;
             // 
             // txtName
             // 
@@ -424,39 +325,134 @@
             // 
             // pnControl
             // 
-            pnControl.Controls.Add(btnSave);
-            pnControl.Controls.Add(btnCancel);
+            pnControl.BackColor = Color.Transparent;
+            pnControl.Controls.Add(simpleButton1);
             pnControl.Location = new Point(144, 296);
             pnControl.Name = "pnControl";
             pnControl.Size = new Size(308, 52);
-            pnControl.TabIndex = 22;
+            pnControl.TabIndex = 15;
             // 
-            // btnSave
+            // simpleButton1
             // 
-            btnSave.CornerRoundingRadius = -1F;
-            btnSave.Location = new Point(8, 5);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(74, 40);
-            btnSave.TabIndex = 8;
-            btnSave.Values.Text = "Save";
-            btnSave.Click += btnSave_Click;
+            simpleButton1.Appearance.BackColor = Color.LightCyan;
+            simpleButton1.Appearance.ForeColor = Color.Black;
+            simpleButton1.Appearance.Options.UseBackColor = true;
+            simpleButton1.Appearance.Options.UseForeColor = true;
+            simpleButton1.AppearanceHovered.BackColor = Color.DeepSkyBlue;
+            simpleButton1.AppearanceHovered.Options.UseBackColor = true;
+            simpleButton1.AppearancePressed.BackColor = Color.SteelBlue;
+            simpleButton1.AppearancePressed.Options.UseBackColor = true;
+            simpleButton1.Location = new Point(19, 7);
+            simpleButton1.Name = "simpleButton1";
+            simpleButton1.Size = new Size(80, 42);
+            simpleButton1.TabIndex = 0;
+            simpleButton1.Text = "simpleButton1";
             // 
-            // btnCancel
+            // pnTitle
             // 
-            btnCancel.CornerRoundingRadius = -1F;
-            btnCancel.Location = new Point(112, 5);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(74, 40);
-            btnCancel.TabIndex = 9;
-            btnCancel.Values.Text = "Cancel";
-            btnCancel.Click += buttonCancel_Click;
+            pnTitle.BackColor = Color.Transparent;
+            pnTitle.Controls.Add(btnEdit);
+            pnTitle.Controls.Add(lbTitleForm);
+            pnTitle.Dock = DockStyle.Fill;
+            pnTitle.Location = new Point(0, 0);
+            pnTitle.Name = "pnTitle";
+            pnTitle.Size = new Size(496, 59);
+            pnTitle.TabIndex = 22;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
+            btnEdit.Location = new Point(439, 8);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(42, 43);
+            btnEdit.SizeMode = PictureBoxSizeMode.CenterImage;
+            btnEdit.TabIndex = 12;
+            btnEdit.TabStop = false;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // lbTitleForm
+            // 
+            lbTitleForm.Location = new Point(202, 11);
+            lbTitleForm.Name = "lbTitleForm";
+            lbTitleForm.Size = new Size(94, 42);
+            lbTitleForm.StateCommon.ShortText.Color1 = Color.Linen;
+            lbTitleForm.StateCommon.ShortText.Color2 = Color.LightSkyBlue;
+            lbTitleForm.StateCommon.ShortText.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
+            lbTitleForm.StateCommon.ShortText.Font = new Font("Lucida Sans Unicode", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbTitleForm.TabIndex = 3;
+            lbTitleForm.Values.Text = "Profile";
+            // 
+            // pnRightTitle
+            // 
+            pnRightTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnRightTitle.BackColor = Color.Transparent;
+            pnRightTitle.Controls.Add(pnMini);
+            pnRightTitle.Controls.Add(pnClose);
+            pnRightTitle.Location = new Point(954, 1);
+            pnRightTitle.Name = "pnRightTitle";
+            pnRightTitle.Size = new Size(153, 56);
+            pnRightTitle.TabIndex = 0;
+            // 
+            // pnMini
+            // 
+            pnMini.BackColor = Color.Transparent;
+            pnMini.Controls.Add(ptbMini);
+            pnMini.Location = new Point(77, 0);
+            pnMini.Name = "pnMini";
+            pnMini.Size = new Size(36, 53);
+            pnMini.TabIndex = 5;
+            // 
+            // ptbMini
+            // 
+            ptbMini.BackColor = Color.Transparent;
+            ptbMini.BackgroundImage = Properties.Resources.icons8_minus_material_filled_32;
+            ptbMini.BackgroundImageLayout = ImageLayout.Stretch;
+            ptbMini.Cursor = Cursors.Hand;
+            ptbMini.Location = new Point(8, 17);
+            ptbMini.Name = "ptbMini";
+            ptbMini.Size = new Size(20, 24);
+            ptbMini.TabIndex = 1;
+            ptbMini.TabStop = false;
+            // 
+            // pnClose
+            // 
+            pnClose.BackColor = Color.Transparent;
+            pnClose.Controls.Add(ptbClose);
+            pnClose.Location = new Point(113, 0);
+            pnClose.Name = "pnClose";
+            pnClose.Size = new Size(36, 53);
+            pnClose.TabIndex = 4;
+            // 
+            // ptbClose
+            // 
+            ptbClose.BackColor = Color.Transparent;
+            ptbClose.BackgroundImage = Properties.Resources.icons8_close_ios_16_filled_321;
+            ptbClose.BackgroundImageLayout = ImageLayout.Zoom;
+            ptbClose.Cursor = Cursors.Hand;
+            ptbClose.InitialImage = null;
+            ptbClose.Location = new Point(10, 17);
+            ptbClose.Name = "ptbClose";
+            ptbClose.Size = new Size(15, 24);
+            ptbClose.TabIndex = 1;
+            ptbClose.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(45, 46, 45);
+            panel1.Controls.Add(pnRightTitle);
+            panel1.Controls.Add(pnTitle);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(496, 59);
+            panel1.TabIndex = 4;
             // 
             // dialogProfile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gray;
-            ClientSize = new Size(496, 461);
+            ClientSize = new Size(496, 444);
             Controls.Add(grbInfor);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -465,15 +461,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "dialogProfile";
             Load += dialogProfile_Load;
-            panel1.ResumeLayout(false);
-            pnRightTitle.ResumeLayout(false);
-            pnMini.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
-            pnClose.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ptbClose).EndInit();
-            pnTitle.ResumeLayout(false);
-            pnTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)btnEdit).EndInit();
             grbInfor.ResumeLayout(false);
             pnGroupTxt.ResumeLayout(false);
             pnStatus.ResumeLayout(false);
@@ -491,24 +478,22 @@
             pnName.ResumeLayout(false);
             pnName.PerformLayout();
             pnControl.ResumeLayout(false);
+            pnTitle.ResumeLayout(false);
+            pnTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnEdit).EndInit();
+            pnRightTitle.ResumeLayout(false);
+            pnMini.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
+            pnClose.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ptbClose).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel1;
-        private Panel pnRightTitle;
-        private Panel pnMini;
-        private PictureBox ptbMini;
-        private Panel pnClose;
-        private PictureBox ptbClose;
-        private Panel pnTitle;
-        private Krypton.Toolkit.KryptonLabel lbTitleForm;
         private Krypton.Toolkit.KryptonButton btnProfile;
         private GroupBox grbInfor;
         private Panel pnControl;
-        private Krypton.Toolkit.KryptonButton btnSave;
-        private Krypton.Toolkit.KryptonButton btnCancel;
         private Panel pnGroupTxt;
         private Panel pnStatus;
         private Label label4;
@@ -527,8 +512,17 @@
         private TextBox txtPass;
         private TextBox txtUser;
         private TextBox txtName;
-        private PictureBox btnEdit;
         private CheckBox ckShowPass;
         private DevExpress.XtraEditors.DateEdit txtDate;
+        private Panel pnTitle;
+        private PictureBox btnEdit;
+        private Krypton.Toolkit.KryptonLabel lbTitleForm;
+        private Panel pnRightTitle;
+        private Panel pnMini;
+        private PictureBox ptbMini;
+        private Panel pnClose;
+        private PictureBox ptbClose;
+        private Panel panel1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

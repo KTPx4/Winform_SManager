@@ -1336,6 +1336,12 @@
           }
         }
       },
+      "ILMerge/3.0.41": {
+        "type": "package",
+        "build": {
+          "build/ILMerge.props": {}
+        }
+      },
       "Krypton.Toolkit/70.22.11.312": {
         "type": "package",
         "compile": {
@@ -3444,6 +3450,22 @@
         "lib/netstandard2.0/DevExpress.Xpo.v23.1.xml",
         "readme.txt",
         "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "ILMerge/3.0.41": {
+      "sha512": "u9n45xs40bSGoNFcmMYJkh3zkGYKR4BqzQaX2uHc2Ay4drdiQOTeo/1ECps3ttDXOu4Q6qbTnsIbQWb/06ShqA==",
+      "type": "package",
+      "path": "ilmerge/3.0.41",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/ILMerge.props",
+        "docs/ilmerge-manual.md",
+        "ilmerge.3.0.41.nupkg.sha512",
+        "ilmerge.nuspec",
+        "tools/net452/ILMerge.exe",
+        "tools/net452/System.Compiler.dll"
       ]
     },
     "Krypton.Toolkit/70.22.11.312": {
@@ -6009,6 +6031,7 @@
       "DevExpress.Win.Design >= 23.1.6",
       "Krypton.Toolkit >= 70.22.11.312",
       "Microsoft.EntityFrameworkCore >= 7.0.13",
+      "ilmerge >= 3.0.41",
       "netstandard-System.Data.Linq >= 1.0.1"
     ]
   },
@@ -6068,6 +6091,10 @@
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.13, )"
+          },
+          "ilmerge": {
+            "target": "Package",
+            "version": "[3.0.41, )"
           },
           "netstandard-System.Data.Linq": {
             "target": "Package",

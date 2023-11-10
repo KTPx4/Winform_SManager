@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xmVG4bQM+NBEesYIHq7uEdt4B0+THR64+CkLLSqvBRn86B+5c85JExmGHO1O0XjIjjt/+QxBqNcuY5mWaHILUA==",
+  "dgSpecHash": "4tKLp4whrGLsxtkY1jrFYELtzWIohhfb1uhQBG4blm00WaMRlEB8p2wV2HB5MMq8mBcCFXfNY415I03Nc9XnEg==",
   "success": true,
   "projectFilePath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages\\devexpress.win.treemap\\23.1.6\\devexpress.win.treemap.23.1.6.nupkg.sha512",
     "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages\\devexpress.win.verticalgrid\\23.1.6\\devexpress.win.verticalgrid.23.1.6.nupkg.sha512",
     "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages\\devexpress.xpo\\23.1.6\\devexpress.xpo.23.1.6.nupkg.sha512",
+    "C:\\Users\\px4vn\\.nuget\\packages\\ilmerge\\3.0.41\\ilmerge.3.0.41.nupkg.sha512",
     "C:\\Users\\px4vn\\.nuget\\packages\\krypton.toolkit\\70.22.11.312\\krypton.toolkit.70.22.11.312.nupkg.sha512",
     "C:\\Users\\px4vn\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\px4vn\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",

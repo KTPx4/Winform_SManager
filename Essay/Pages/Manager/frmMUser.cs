@@ -555,7 +555,7 @@ namespace Essay.Pages
                     break;
             }
             LoadDB();
-            MessageBox.Show("ok");
+            //  MessageBox.Show("ok");
         }
 
         private void cbbStatus_SelectionChangeCommitted(object sender, EventArgs e)

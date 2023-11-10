@@ -47,10 +47,10 @@
             label1 = new Label();
             groupBox2 = new GroupBox();
             label5 = new Label();
-            btnViewHis = new Button();
             cbbStatus = new ComboBox();
             groupBox1 = new GroupBox();
             btnAddStaff = new Button();
+            btnViewHis = new Button();
             btnAddManager = new Button();
             kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
             searchTimer = new System.Windows.Forms.Timer(components);
@@ -309,21 +309,6 @@
             label5.TabIndex = 1;
             label5.Text = "Status";
             // 
-            // btnViewHis
-            // 
-            btnViewHis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnViewHis.BackColor = Color.MintCream;
-            btnViewHis.FlatStyle = FlatStyle.Flat;
-            btnViewHis.ForeColor = Color.Black;
-            btnViewHis.Location = new Point(23, 129);
-            btnViewHis.Margin = new Padding(2);
-            btnViewHis.Name = "btnViewHis";
-            btnViewHis.Size = new Size(176, 38);
-            btnViewHis.TabIndex = 1;
-            btnViewHis.Text = "View History ";
-            btnViewHis.UseVisualStyleBackColor = false;
-            btnViewHis.Click += ViewHistory_Click;
-            // 
             // cbbStatus
             // 
             cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -366,6 +351,21 @@
             btnAddStaff.Text = "Add Staff";
             btnAddStaff.UseVisualStyleBackColor = false;
             btnAddStaff.Click += addStaff_Click;
+            // 
+            // btnViewHis
+            // 
+            btnViewHis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnViewHis.BackColor = Color.MintCream;
+            btnViewHis.FlatStyle = FlatStyle.Flat;
+            btnViewHis.ForeColor = Color.Black;
+            btnViewHis.Location = new Point(23, 129);
+            btnViewHis.Margin = new Padding(2);
+            btnViewHis.Name = "btnViewHis";
+            btnViewHis.Size = new Size(176, 38);
+            btnViewHis.TabIndex = 1;
+            btnViewHis.Text = "View History ";
+            btnViewHis.UseVisualStyleBackColor = false;
+            btnViewHis.Click += ViewHistory_Click;
             // 
             // btnAddManager
             // 

@@ -186,7 +186,7 @@ namespace Essay.Pages.Dialog
                 {
                     // pnControl 94, 296 : 3button
                     // 144, 296 : 2button
-                    pnControl.Location = new Point(144, 296);
+                    //  pnControl.Location = new Point(144, 296);
 
                     fullNameIMG = nextnameIMG + ".png";
 
@@ -652,6 +652,11 @@ namespace Essay.Pages.Dialog
             {
                 // action add employee
             }
+        }
+
+        private void pnName_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
