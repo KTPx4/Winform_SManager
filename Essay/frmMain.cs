@@ -103,7 +103,7 @@ namespace Essay
                 lbName.Text = NameUser;
                 lbTypeUser.Text = TypeUser;
                 String path = $"{Variables._pathAvt}/{linkAvt}";
-              
+
                 if (File.Exists(path))
                 {
                     // Tệp tồn tại
@@ -124,7 +124,7 @@ namespace Essay
             {
                 MessageBox.Show("Error  when setup Profile: " + ex.Message, "Error Form Main", MessageBoxButtons.OK);
             }
-           
+
 
             //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
         }
@@ -236,7 +236,7 @@ namespace Essay
 
         }
 
-       
+
 
         private void ptbMini_Click(object sender, EventArgs e)
         {
@@ -425,15 +425,27 @@ namespace Essay
             {
                 new AdminController().SetisOnline(NameUser, false);
             }
-           
+
             //MessageBox.Show("close");
         }
         private void ptbClose_Click(object sender, EventArgs e)
         {
-           
-            this.Close();         
-       
+
+            this.Close();
+
         }
-      
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            testForm test2 = new testForm();
+
+            pnContent.Controls.Clear();
+            isTabUsers = false;
+         
+        
+            pnContent.Controls.Add(test2);
+            test2.Dock = DockStyle.Fill;
+            this.lbTitleForm.Text = "Manager Student";
+        }
     }
 }

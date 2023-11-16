@@ -60,8 +60,9 @@ Create table Employee
 go
 
 Create table Student(	 
+	[ID] int IDENTITY(1,1) Primary key,
 
-	[ID] varchar(250) Primary key,
+	[SID] varchar(250) unique,
 	[Name] varchar(250),
 	Class varchar(250),
 	birthDay date,
@@ -84,7 +85,7 @@ Create table Certification
 	
 		
 	CONSTRAINT FK_StudentCertificate FOREIGN KEY ([SID])
-    REFERENCES Student([ID])
+    REFERENCES Student([SID])
 
 )
 go

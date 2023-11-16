@@ -31,6 +31,9 @@
     <Compile Update="Test.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="testForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Update="Model\EssayDB.dbml">

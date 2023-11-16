@@ -6042,11 +6042,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+      "projectUniqueName": "F:\\TDTU  - University\\HK5\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
       "projectName": "Essay",
-      "projectPath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+      "projectPath": "F:\\TDTU  - University\\HK5\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
       "packagesPath": "C:\\Users\\px4vn\\.nuget\\packages\\",
-      "outputPath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
+      "outputPath": "F:\\TDTU  - University\\HK5\\net\\.net\\LT\\Essay\\Essay\\Essay\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"

@@ -25,8 +25,13 @@ namespace Essay.Components
         public static String _rootIMG = "Img";
         public static String _pathAvt = $"{_rootIMG}/Avt";
 
+        public static String _rootFile = "File";
+        public static String _pathFileImport = $"{_rootFile}/Import";
+        public static String _pathFileExport = $"{_rootFile}/Export";
+
+
 
     }
 
-    
+
 }

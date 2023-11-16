@@ -11,6 +11,7 @@
           "DevExpress.Win.Design": "23.1.6",
           "Krypton.Toolkit": "70.22.11.312",
           "Microsoft.EntityFrameworkCore": "7.0.13",
+          "ILMerge": "3.0.41",
           "netstandard-System.Data.Linq": "1.0.1"
         },
         "runtime": {
@@ -1066,6 +1067,7 @@
           }
         }
       },
+      "ILMerge/3.0.41": {},
       "Krypton.Toolkit/70.22.11.312": {
         "runtime": {
           "lib/net7.0-windows7.0/Krypton.Toolkit.dll": {
@@ -2042,6 +2044,13 @@
       "sha512": "sha512-c098xNWpc1NWSGCG8/SAaeAT6U9fnQR/rcas/oLte4owWplsv1l9yPMERY8CPCQY9ERsFC35fuk/jSFlo4eiNg==",
       "path": "devexpress.xpo/23.1.6",
       "hashPath": "devexpress.xpo.23.1.6.nupkg.sha512"
+    },
+    "ILMerge/3.0.41": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u9n45xs40bSGoNFcmMYJkh3zkGYKR4BqzQaX2uHc2Ay4drdiQOTeo/1ECps3ttDXOu4Q6qbTnsIbQWb/06ShqA==",
+      "path": "ilmerge/3.0.41",
+      "hashPath": "ilmerge.3.0.41.nupkg.sha512"
     },
     "Krypton.Toolkit/70.22.11.312": {
       "type": "package",

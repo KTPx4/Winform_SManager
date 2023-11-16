@@ -273,6 +273,7 @@
             btnStudents.TabIndex = 3;
             btnStudents.Text = "Students";
             btnStudents.UseVisualStyleBackColor = false;
+            btnStudents.Click += btnStudents_Click;
             btnStudents.MouseLeave += LeaveHoverBtn;
             btnStudents.MouseHover += HoverBtn;
             // 

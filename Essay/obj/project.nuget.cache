@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4tKLp4whrGLsxtkY1jrFYELtzWIohhfb1uhQBG4blm00WaMRlEB8p2wV2HB5MMq8mBcCFXfNY415I03Nc9XnEg==",
+  "dgSpecHash": "rhhMHxpO8VPlDqjGYJ5IFPpQTEAOzanWly9eMoi3lXT3c0QX7OvJtGJfuvNtS3qVWXQ5Sd3r4C/f03TEsNO3AQ==",
   "success": true,
-  "projectFilePath": "F:\\TDTU  - University\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
+  "projectFilePath": "F:\\TDTU  - University\\HK5\\net\\.net\\LT\\Essay\\Essay\\Essay\\Essay.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages\\devexpress.charts\\23.1.6\\devexpress.charts.23.1.6.nupkg.sha512",
     "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages\\devexpress.charts.core\\23.1.6\\devexpress.charts.core.23.1.6.nupkg.sha512",
