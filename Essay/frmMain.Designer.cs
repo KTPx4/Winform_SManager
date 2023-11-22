@@ -55,6 +55,7 @@
             pnTitle = new Panel();
             lbTitleForm = new Krypton.Toolkit.KryptonLabel();
             pnRightTitle = new Panel();
+            btnLogout = new PictureBox();
             pnMini = new Panel();
             ptbMini = new PictureBox();
             pnClose = new Panel();
@@ -62,6 +63,7 @@
             timerNavBar = new System.Windows.Forms.Timer(components);
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
+            tollTipMessage = new DevExpress.Utils.DefaultToolTipController(components);
             ((System.ComponentModel.ISupportInitialize)pnNavbar).BeginInit();
             pnNavbar.SuspendLayout();
             pn1.SuspendLayout();
@@ -74,6 +76,7 @@
             pnAvt.SuspendLayout();
             pnTitle.SuspendLayout();
             pnRightTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnLogout).BeginInit();
             pnMini.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ptbMini).BeginInit();
             pnClose.SuspendLayout();
@@ -84,6 +87,7 @@
             // 
             // pnNavbar
             // 
+            tollTipMessage.SetAllowHtmlText(pnNavbar, DevExpress.Utils.DefaultBoolean.Default);
             pnNavbar.Controls.Add(pnMenuNav);
             pnNavbar.Controls.Add(pn2);
             pnNavbar.Controls.Add(pn1);
@@ -100,6 +104,7 @@
             // 
             // pnMenuNav
             // 
+            tollTipMessage.SetAllowHtmlText(pnMenuNav, DevExpress.Utils.DefaultBoolean.Default);
             pnMenuNav.BackColor = Color.Transparent;
             pnMenuNav.BackgroundImage = Properties.Resources.icons8_double_left_16;
             pnMenuNav.BackgroundImageLayout = ImageLayout.Zoom;
@@ -116,6 +121,7 @@
             // 
             // pn2
             // 
+            tollTipMessage.SetAllowHtmlText(pn2, DevExpress.Utils.DefaultBoolean.Default);
             pn2.Dock = DockStyle.Bottom;
             pn2.Location = new Point(156, 580);
             pn2.Margin = new Padding(2, 3, 2, 3);
@@ -125,6 +131,7 @@
             // 
             // pn1
             // 
+            tollTipMessage.SetAllowHtmlText(pn1, DevExpress.Utils.DefaultBoolean.Default);
             pn1.Controls.Add(panel2);
             pn1.Dock = DockStyle.Top;
             pn1.Location = new Point(156, 0);
@@ -135,6 +142,7 @@
             // 
             // panel2
             // 
+            tollTipMessage.SetAllowHtmlText(panel2, DevExpress.Utils.DefaultBoolean.Default);
             panel2.Location = new Point(7, 178);
             panel2.Margin = new Padding(2, 3, 2, 3);
             panel2.Name = "panel2";
@@ -143,6 +151,7 @@
             // 
             // pnAllNavbar
             // 
+            tollTipMessage.SetAllowHtmlText(pnAllNavbar, DevExpress.Utils.DefaultBoolean.Default);
             pnAllNavbar.BackColor = Color.FromArgb(45, 46, 45);
             pnAllNavbar.BorderStyle = BorderStyle.FixedSingle;
             pnAllNavbar.Controls.Add(pnListsNavs);
@@ -158,6 +167,7 @@
             // 
             // pnListsNavs
             // 
+            tollTipMessage.SetAllowHtmlText(pnListsNavs, DevExpress.Utils.DefaultBoolean.Default);
             pnListsNavs.BackColor = Color.Transparent;
             pnListsNavs.Controls.Add(pnReport);
             pnListsNavs.Controls.Add(pnUser);
@@ -172,6 +182,7 @@
             // 
             // pnReport
             // 
+            tollTipMessage.SetAllowHtmlText(pnReport, DevExpress.Utils.DefaultBoolean.Default);
             pnReport.Controls.Add(btnReport);
             pnReport.Dock = DockStyle.Top;
             pnReport.Location = new Point(0, 166);
@@ -183,6 +194,7 @@
             // 
             // btnReport
             // 
+            tollTipMessage.SetAllowHtmlText(btnReport, DevExpress.Utils.DefaultBoolean.Default);
             btnReport.BackColor = Color.Transparent;
             btnReport.Cursor = Cursors.Hand;
             btnReport.Dock = DockStyle.Left;
@@ -201,12 +213,14 @@
             btnReport.Size = new Size(181, 51);
             btnReport.TabIndex = 4;
             btnReport.Text = "Report";
+            tollTipMessage.SetTitle(btnReport, "View Report");
             btnReport.UseVisualStyleBackColor = false;
             btnReport.MouseLeave += LeaveHoverBtn;
             btnReport.MouseHover += HoverBtn;
             // 
             // pnUser
             // 
+            tollTipMessage.SetAllowHtmlText(pnUser, DevExpress.Utils.DefaultBoolean.Default);
             pnUser.Controls.Add(btnUsers);
             pnUser.Dock = DockStyle.Top;
             pnUser.Location = new Point(0, 112);
@@ -215,9 +229,11 @@
             pnUser.Padding = new Padding(0, 11, 0, 0);
             pnUser.Size = new Size(154, 54);
             pnUser.TabIndex = 2;
+            tollTipMessage.SetTitle(pnUser, "Manager Users");
             // 
             // btnUsers
             // 
+            tollTipMessage.SetAllowHtmlText(btnUsers, DevExpress.Utils.DefaultBoolean.Default);
             btnUsers.BackColor = Color.Transparent;
             btnUsers.Cursor = Cursors.Hand;
             btnUsers.Dock = DockStyle.Left;
@@ -243,6 +259,7 @@
             // 
             // pnStudent
             // 
+            tollTipMessage.SetAllowHtmlText(pnStudent, DevExpress.Utils.DefaultBoolean.Default);
             pnStudent.Controls.Add(btnStudents);
             pnStudent.Dock = DockStyle.Top;
             pnStudent.Location = new Point(0, 58);
@@ -254,6 +271,7 @@
             // 
             // btnStudents
             // 
+            tollTipMessage.SetAllowHtmlText(btnStudents, DevExpress.Utils.DefaultBoolean.Default);
             btnStudents.BackColor = Color.Transparent;
             btnStudents.Cursor = Cursors.Hand;
             btnStudents.Dock = DockStyle.Left;
@@ -272,6 +290,7 @@
             btnStudents.Size = new Size(181, 43);
             btnStudents.TabIndex = 3;
             btnStudents.Text = "Students";
+            tollTipMessage.SetTitle(btnStudents, "Manager Students");
             btnStudents.UseVisualStyleBackColor = false;
             btnStudents.Click += btnStudents_Click;
             btnStudents.MouseLeave += LeaveHoverBtn;
@@ -279,6 +298,7 @@
             // 
             // pnHome
             // 
+            tollTipMessage.SetAllowHtmlText(pnHome, DevExpress.Utils.DefaultBoolean.Default);
             pnHome.BackColor = Color.Transparent;
             pnHome.Controls.Add(btnHome);
             pnHome.Dock = DockStyle.Top;
@@ -291,6 +311,7 @@
             // 
             // btnHome
             // 
+            tollTipMessage.SetAllowHtmlText(btnHome, DevExpress.Utils.DefaultBoolean.Default);
             btnHome.BackColor = Color.Transparent;
             btnHome.Cursor = Cursors.Hand;
             btnHome.Dock = DockStyle.Left;
@@ -309,6 +330,7 @@
             btnHome.Size = new Size(181, 47);
             btnHome.TabIndex = 1;
             btnHome.Text = "Home";
+            tollTipMessage.SetTitle(btnHome, "Home Page");
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
             btnHome.MouseLeave += LeaveHoverBtn;
@@ -316,6 +338,7 @@
             // 
             // bdLine1
             // 
+            tollTipMessage.SetAllowHtmlText(bdLine1, DevExpress.Utils.DefaultBoolean.Default);
             bdLine1.Location = new Point(33, 80);
             bdLine1.Margin = new Padding(2, 3, 2, 3);
             bdLine1.Name = "bdLine1";
@@ -327,6 +350,7 @@
             // 
             // bdLine2
             // 
+            tollTipMessage.SetAllowHtmlText(bdLine2, DevExpress.Utils.DefaultBoolean.Default);
             bdLine2.Dock = DockStyle.Top;
             bdLine2.Location = new Point(0, 80);
             bdLine2.Margin = new Padding(2, 3, 2, 3);
@@ -339,6 +363,7 @@
             // 
             // pnAvt
             // 
+            tollTipMessage.SetAllowHtmlText(pnAvt, DevExpress.Utils.DefaultBoolean.Default);
             pnAvt.Controls.Add(btnProfile);
             pnAvt.Controls.Add(lbTypeUser);
             pnAvt.Controls.Add(lbName);
@@ -348,10 +373,12 @@
             pnAvt.Name = "pnAvt";
             pnAvt.Size = new Size(154, 80);
             pnAvt.TabIndex = 4;
+            tollTipMessage.SetTitle(pnAvt, "View Profile");
             pnAvt.Click += btnProfile_Click;
             // 
             // btnProfile
             // 
+            tollTipMessage.SetAllowHtmlText(btnProfile, DevExpress.Utils.DefaultBoolean.Default);
             btnProfile.CornerRoundingRadius = 50F;
             btnProfile.Cursor = Cursors.Hand;
             btnProfile.Location = new Point(13, 9);
@@ -369,6 +396,7 @@
             btnProfile.StateCommon.Border.Width = 2;
             btnProfile.StateTracking.Back.Color1 = Color.FromArgb(192, 0, 192);
             btnProfile.TabIndex = 2;
+            tollTipMessage.SetTitle(btnProfile, "View Profile");
             btnProfile.Values.Text = "";
             btnProfile.Click += btnProfile_Click;
             btnProfile.MouseLeave += LeaveAvt;
@@ -376,6 +404,7 @@
             // 
             // lbTypeUser
             // 
+            tollTipMessage.SetAllowHtmlText(lbTypeUser, DevExpress.Utils.DefaultBoolean.Default);
             lbTypeUser.AutoSize = true;
             lbTypeUser.BackColor = Color.Transparent;
             lbTypeUser.Cursor = Cursors.Hand;
@@ -387,12 +416,14 @@
             lbTypeUser.Size = new Size(43, 15);
             lbTypeUser.TabIndex = 3;
             lbTypeUser.Text = "Admin";
+            tollTipMessage.SetTitle(lbTypeUser, "View Profile");
             lbTypeUser.Click += btnProfile_Click;
             lbTypeUser.MouseLeave += LeaveAvt;
             lbTypeUser.MouseHover += HoverAvt;
             // 
             // lbName
             // 
+            tollTipMessage.SetAllowHtmlText(lbName, DevExpress.Utils.DefaultBoolean.Default);
             lbName.AutoSize = true;
             lbName.BackColor = Color.Transparent;
             lbName.Cursor = Cursors.Hand;
@@ -404,23 +435,26 @@
             lbName.Size = new Size(38, 21);
             lbName.TabIndex = 3;
             lbName.Text = "Px4";
+            tollTipMessage.SetTitle(lbName, "View Profile");
             lbName.Click += btnProfile_Click;
             lbName.MouseLeave += LeaveAvt;
             lbName.MouseHover += HoverAvt;
             // 
             // pnContent
             // 
+            tollTipMessage.SetAllowHtmlText(pnContent, DevExpress.Utils.DefaultBoolean.Default);
             pnContent.BackColor = Color.FromArgb(40, 40, 40);
             pnContent.Dock = DockStyle.Fill;
             pnContent.Location = new Point(2, 75);
             pnContent.Margin = new Padding(2, 3, 2, 3);
             pnContent.MinimumSize = new Size(775, 546);
             pnContent.Name = "pnContent";
-            pnContent.Size = new Size(777, 548);
+            pnContent.Size = new Size(817, 548);
             pnContent.TabIndex = 2;
             // 
             // pnTitle
             // 
+            tollTipMessage.SetAllowHtmlText(pnTitle, DevExpress.Utils.DefaultBoolean.Default);
             pnTitle.BackColor = Color.Transparent;
             pnTitle.Controls.Add(lbTitleForm);
             pnTitle.Dock = DockStyle.Left;
@@ -432,6 +466,7 @@
             // 
             // lbTitleForm
             // 
+            tollTipMessage.SetAllowHtmlText(lbTitleForm, DevExpress.Utils.DefaultBoolean.Default);
             lbTitleForm.Location = new Point(16, 12);
             lbTitleForm.Margin = new Padding(2, 3, 2, 3);
             lbTitleForm.Name = "lbTitleForm";
@@ -445,18 +480,33 @@
             // 
             // pnRightTitle
             // 
+            tollTipMessage.SetAllowHtmlText(pnRightTitle, DevExpress.Utils.DefaultBoolean.Default);
             pnRightTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pnRightTitle.BackColor = Color.Transparent;
+            pnRightTitle.Controls.Add(btnLogout);
             pnRightTitle.Controls.Add(pnMini);
             pnRightTitle.Controls.Add(pnClose);
-            pnRightTitle.Location = new Point(628, 2);
+            pnRightTitle.Location = new Point(668, 2);
             pnRightTitle.Margin = new Padding(2, 3, 2, 3);
             pnRightTitle.Name = "pnRightTitle";
             pnRightTitle.Size = new Size(146, 62);
             pnRightTitle.TabIndex = 0;
             // 
+            // btnLogout
+            // 
+            tollTipMessage.SetAllowHtmlText(btnLogout, DevExpress.Utils.DefaultBoolean.Default);
+            btnLogout.Image = Properties.Resources.log_out;
+            btnLogout.Location = new Point(13, 6);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(46, 52);
+            btnLogout.TabIndex = 6;
+            btnLogout.TabStop = false;
+            tollTipMessage.SetTitle(btnLogout, "Log out Account");
+            btnLogout.Click += btnLogout_Click;
+            // 
             // pnMini
             // 
+            tollTipMessage.SetAllowHtmlText(pnMini, DevExpress.Utils.DefaultBoolean.Default);
             pnMini.BackColor = Color.Transparent;
             pnMini.Controls.Add(ptbMini);
             pnMini.Location = new Point(74, 0);
@@ -467,6 +517,7 @@
             // 
             // ptbMini
             // 
+            tollTipMessage.SetAllowHtmlText(ptbMini, DevExpress.Utils.DefaultBoolean.Default);
             ptbMini.BackColor = Color.Transparent;
             ptbMini.BackgroundImage = Properties.Resources.icons8_minus_material_filled_32;
             ptbMini.BackgroundImageLayout = ImageLayout.Stretch;
@@ -483,6 +534,7 @@
             // 
             // pnClose
             // 
+            tollTipMessage.SetAllowHtmlText(pnClose, DevExpress.Utils.DefaultBoolean.Default);
             pnClose.BackColor = Color.Transparent;
             pnClose.Controls.Add(ptbClose);
             pnClose.Location = new Point(107, 0);
@@ -493,6 +545,7 @@
             // 
             // ptbClose
             // 
+            tollTipMessage.SetAllowHtmlText(ptbClose, DevExpress.Utils.DefaultBoolean.Default);
             ptbClose.BackColor = Color.Transparent;
             ptbClose.BackgroundImage = Properties.Resources.icons8_close_ios_16_filled_321;
             ptbClose.BackgroundImageLayout = ImageLayout.Zoom;
@@ -515,6 +568,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tollTipMessage.SetAllowHtmlText(tableLayoutPanel1, DevExpress.Utils.DefaultBoolean.Default);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 99.99999F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 19F));
@@ -527,32 +581,42 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.5452929F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.4547043F));
-            tableLayoutPanel1.Size = new Size(781, 626);
+            tableLayoutPanel1.Size = new Size(821, 626);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
+            tollTipMessage.SetAllowHtmlText(panel1, DevExpress.Utils.DefaultBoolean.Default);
             panel1.Controls.Add(pnRightTitle);
             panel1.Controls.Add(pnTitle);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(2, 3);
             panel1.Margin = new Padding(2, 3, 2, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(777, 66);
+            panel1.Size = new Size(817, 66);
             panel1.TabIndex = 3;
+            // 
+            // tollTipMessage
+            // 
+            // 
+            // 
+            // 
+            tollTipMessage.DefaultController.KeepWhileHovered = true;
             // 
             // frmMain
             // 
+            tollTipMessage.SetAllowHtmlText(this, DevExpress.Utils.DefaultBoolean.Default);
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(40, 40, 40);
-            ClientSize = new Size(945, 626);
+            ClientSize = new Size(985, 626);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(pnNavbar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2, 3, 2, 3);
+            MaximumSize = new Size(985, 626);
             MinimumSize = new Size(666, 506);
             Name = "frmMain";
             StartPosition = FormStartPosition.CenterScreen;
@@ -575,6 +639,7 @@
             pnTitle.ResumeLayout(false);
             pnTitle.PerformLayout();
             pnRightTitle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnLogout).EndInit();
             pnMini.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)ptbMini).EndInit();
             pnClose.ResumeLayout(false);
@@ -623,5 +688,7 @@
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
+        private DevExpress.Utils.DefaultToolTipController tollTipMessage;
+        private PictureBox btnLogout;
     }
 }

@@ -417,14 +417,33 @@ namespace Essay
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Do you want to close?", "Close?", MessageBoxButtons.YesNo) == DialogResult.No)
+            //if (MessageBox.Show("Do you want to close?", "Close?", MessageBoxButtons.YesNo) == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
+            //else
+            //{
+            //    new AdminController().SetisOnline(NameUser, false);
+            //}
+
+            // If the user clicks the close button or presses Alt+F4
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;
+                // Show a confirmation dialog
+                DialogResult result = MessageBox.Show("Do you want to Close the application?", "Close", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // If the user chooses No, cancel the closing event
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                    return;
+                }
             }
-            else
+            // If the application is exiting by calling Application.Exit()
+            else if (e.CloseReason == CloseReason.ApplicationExitCall)
             {
-                new AdminController().SetisOnline(NameUser, false);
+
             }
+            new AdminController().SetisOnline(NameUser, false);
 
             //MessageBox.Show("close");
         }
@@ -435,17 +454,29 @@ namespace Essay
 
         }
 
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to Log Out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // If the user chooses No, cancel the closing event
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            Application.Restart();
+        }
+
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            testForm test2 = new testForm();
-
+            testForm testForm = new testForm();
             pnContent.Controls.Clear();
             isTabUsers = false;
-         
-        
-            pnContent.Controls.Add(test2);
-            test2.Dock = DockStyle.Fill;
-            this.lbTitleForm.Text = "Manager Student";
+
+            // user.Anchor = AnchorStyles.Right;
+            pnContent.Controls.Add(testForm);
+            testForm.Dock = DockStyle.Fill;
+            this.lbTitleForm.Text = "Manager Students";
         }
     }
 }

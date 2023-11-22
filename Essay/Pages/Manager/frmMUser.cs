@@ -408,6 +408,8 @@ namespace Essay.Pages
 
         private void Reload_Click(object sender, EventArgs e)
         {
+            typeUser = 2;
+            status = 2;
             LoadForm();
         }
 
@@ -419,6 +421,12 @@ namespace Essay.Pages
                 List<Manager> listManger = result.Item1;
                 List<Employee> listEmployee = result.Item2;
 
+                pnListItems.Controls.Clear();
+
+                FUser title = new FUser();
+                title.Dock = DockStyle.Top;
+                pnListItems.Controls.Add(title);
+
                 switch (typeU)
                 {
                     case 0: // manager
@@ -429,7 +437,6 @@ namespace Essay.Pages
                         lbSumAll.Text = $"{countE} People";
 
                         ListItems = new CustomList<FUser>(); // add to list item
-                        pnListItems.Controls.Clear();
 
 
                         foreach (var em in listEmployee)
@@ -465,7 +472,7 @@ namespace Essay.Pages
                         lbSumAll.Text = $"{cM + cE} People";
 
                         ListItems = new CustomList<FUser>(); // add to list item
-                        pnListItems.Controls.Clear();
+                        //pnListItems.Controls.Clear();
 
                         foreach (var m in listManger)
                         {

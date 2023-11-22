@@ -38,6 +38,7 @@
             txtFind = new Krypton.Toolkit.KryptonTextBox();
             pnSetCenter = new Panel();
             pnSide = new Krypton.Toolkit.KryptonPanel();
+            groupControl1 = new DevExpress.XtraEditors.GroupControl();
             groupBox3 = new GroupBox();
             label7 = new Label();
             label2 = new Label();
@@ -62,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnSide).BeginInit();
             pnSide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
+            groupControl1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -93,10 +96,10 @@
             // 
             pnListItems.AutoScroll = true;
             pnListItems.Dock = DockStyle.Fill;
-            pnListItems.Location = new Point(0, 98);
+            pnListItems.Location = new Point(0, 57);
             pnListItems.Margin = new Padding(0);
             pnListItems.Name = "pnListItems";
-            pnListItems.Size = new Size(588, 394);
+            pnListItems.Size = new Size(588, 435);
             pnListItems.TabIndex = 8;
             // 
             // panel1
@@ -109,14 +112,14 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(588, 98);
+            panel1.Size = new Size(588, 57);
             panel1.TabIndex = 6;
             // 
             // btnReload
             // 
             btnReload.BackgroundImage = Properties.Resources.icons8_reload_16;
             btnReload.BackgroundImageLayout = ImageLayout.Center;
-            btnReload.Location = new Point(547, 36);
+            btnReload.Location = new Point(539, 4);
             btnReload.Margin = new Padding(2);
             btnReload.Name = "btnReload";
             btnReload.Size = new Size(34, 26);
@@ -128,7 +131,7 @@
             // 
             cbbType.FormattingEnabled = true;
             cbbType.Items.AddRange(new object[] { "All", "Managers", "Employees" });
-            cbbType.Location = new Point(458, 38);
+            cbbType.Location = new Point(447, 6);
             cbbType.Margin = new Padding(2);
             cbbType.Name = "cbbType";
             cbbType.Size = new Size(82, 23);
@@ -139,7 +142,7 @@
             // 
             pictureBox1.BackColor = Color.White;
             pictureBox1.Image = Properties.Resources.icons8_find_ios_16_16;
-            pictureBox1.Location = new Point(422, 38);
+            pictureBox1.Location = new Point(415, 6);
             pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(14, 22);
@@ -149,7 +152,7 @@
             // 
             // txtFind
             // 
-            txtFind.Location = new Point(26, 32);
+            txtFind.Location = new Point(18, 0);
             txtFind.Margin = new Padding(2);
             txtFind.MaximumSize = new Size(418, 36);
             txtFind.MinimumSize = new Size(418, 36);
@@ -183,9 +186,7 @@
             // 
             // pnSide
             // 
-            pnSide.Controls.Add(groupBox3);
-            pnSide.Controls.Add(groupBox2);
-            pnSide.Controls.Add(groupBox1);
+            pnSide.Controls.Add(groupControl1);
             pnSide.Controls.Add(kryptonBorderEdge1);
             pnSide.Dock = DockStyle.Fill;
             pnSide.Location = new Point(0, 0);
@@ -196,21 +197,33 @@
             pnSide.StateCommon.Color1 = Color.Transparent;
             pnSide.TabIndex = 0;
             // 
+            // groupControl1
+            // 
+            groupControl1.Controls.Add(groupBox3);
+            groupControl1.Controls.Add(groupBox2);
+            groupControl1.Controls.Add(groupBox1);
+            groupControl1.Dock = DockStyle.Fill;
+            groupControl1.Location = new Point(0, 0);
+            groupControl1.Name = "groupControl1";
+            groupControl1.Size = new Size(222, 492);
+            groupControl1.TabIndex = 5;
+            // 
             // groupBox3
             // 
-            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox3.BackColor = Color.FromArgb(51, 52, 51);
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(lbSumAll);
             groupBox3.Controls.Add(lbSumEmployee);
             groupBox3.Controls.Add(lbSumManager);
             groupBox3.Controls.Add(label1);
+            groupBox3.Dock = DockStyle.Fill;
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(4, 353);
+            groupBox3.Location = new Point(2, 311);
             groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(2);
-            groupBox3.Size = new Size(218, 134);
+            groupBox3.Size = new Size(218, 179);
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "Statistics";
@@ -219,10 +232,10 @@
             // 
             label7.AutoSize = true;
             label7.ForeColor = Color.White;
-            label7.Location = new Point(21, 99);
+            label7.Location = new Point(25, 118);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(27, 15);
+            label7.Size = new Size(25, 13);
             label7.TabIndex = 2;
             label7.Text = "All :";
             // 
@@ -230,10 +243,10 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(21, 68);
+            label2.Location = new Point(25, 87);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(65, 15);
+            label2.Size = new Size(60, 13);
             label2.TabIndex = 3;
             label2.Text = "Employee :";
             // 
@@ -242,7 +255,7 @@
             lbSumAll.AutoSize = true;
             lbSumAll.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbSumAll.ForeColor = Color.White;
-            lbSumAll.Location = new Point(97, 99);
+            lbSumAll.Location = new Point(101, 118);
             lbSumAll.Margin = new Padding(2, 0, 2, 0);
             lbSumAll.Name = "lbSumAll";
             lbSumAll.Size = new Size(62, 15);
@@ -254,7 +267,7 @@
             lbSumEmployee.AutoSize = true;
             lbSumEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbSumEmployee.ForeColor = Color.White;
-            lbSumEmployee.Location = new Point(97, 68);
+            lbSumEmployee.Location = new Point(101, 87);
             lbSumEmployee.Margin = new Padding(2, 0, 2, 0);
             lbSumEmployee.Name = "lbSumEmployee";
             lbSumEmployee.Size = new Size(62, 15);
@@ -266,7 +279,7 @@
             lbSumManager.AutoSize = true;
             lbSumManager.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbSumManager.ForeColor = Color.White;
-            lbSumManager.Location = new Point(97, 35);
+            lbSumManager.Location = new Point(101, 54);
             lbSumManager.Margin = new Padding(2, 0, 2, 0);
             lbSumManager.Name = "lbSumManager";
             lbSumManager.Size = new Size(62, 15);
@@ -277,24 +290,25 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(21, 35);
+            label1.Location = new Point(25, 54);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(54, 15);
+            label1.Size = new Size(50, 13);
             label1.TabIndex = 7;
             label1.Text = "Manger :";
             // 
             // groupBox2
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.BackColor = Color.FromArgb(51, 52, 51);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(cbbStatus);
+            groupBox2.Dock = DockStyle.Top;
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(2, 206);
+            groupBox2.Location = new Point(2, 201);
             groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(2);
-            groupBox2.Size = new Size(218, 143);
+            groupBox2.Size = new Size(218, 110);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filter";
@@ -302,10 +316,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(50, 42);
+            label5.Location = new Point(80, 38);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(39, 15);
+            label5.Size = new Size(38, 13);
             label5.TabIndex = 1;
             label5.Text = "Status";
             // 
@@ -314,21 +328,22 @@
             cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Normal", "Locked", "Deleted" });
-            cbbStatus.Location = new Point(12, 62);
+            cbbStatus.Location = new Point(12, 53);
             cbbStatus.Margin = new Padding(2);
             cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(192, 23);
+            cbbStatus.Size = new Size(192, 21);
             cbbStatus.TabIndex = 0;
             cbbStatus.SelectionChangeCommitted += cbbStatus_SelectionChangeCommitted;
             // 
             // groupBox1
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.BackColor = Color.FromArgb(51, 52, 51);
             groupBox1.Controls.Add(btnAddStaff);
             groupBox1.Controls.Add(btnViewHis);
             groupBox1.Controls.Add(btnAddManager);
+            groupBox1.Dock = DockStyle.Top;
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(2, 22);
+            groupBox1.Location = new Point(2, 23);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
@@ -355,7 +370,7 @@
             // btnViewHis
             // 
             btnViewHis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnViewHis.BackColor = Color.MintCream;
+            btnViewHis.BackColor = Color.Honeydew;
             btnViewHis.FlatStyle = FlatStyle.Flat;
             btnViewHis.ForeColor = Color.Black;
             btnViewHis.Location = new Point(23, 129);
@@ -419,6 +434,8 @@
             ((System.ComponentModel.ISupportInitialize)pnSide).EndInit();
             pnSide.ResumeLayout(false);
             pnSide.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
+            groupControl1.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -454,5 +471,6 @@
         private Label label1;
         private System.Windows.Forms.Timer searchTimer;
         private Button btnViewHis;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

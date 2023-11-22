@@ -36,8 +36,9 @@
             button1 = new Button();
             groupControl3 = new DevExpress.XtraEditors.GroupControl();
             button2 = new Button();
-            dataGridView2 = new DataGridView();
+            pnRight = new Panel();
             groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            dataGridView2 = new DataGridView();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
             dataGridView1 = new DataGridView();
             SID = new DataGridViewTextBoxColumn();
@@ -48,9 +49,10 @@
             Phone = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
             groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            pnRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)groupControl2).BeginInit();
             groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -121,9 +123,10 @@
             groupControl3.Controls.Add(button3);
             groupControl3.Controls.Add(button2);
             groupControl3.Controls.Add(button1);
-            groupControl3.Location = new Point(8, 0);
+            groupControl3.Dock = DockStyle.Left;
+            groupControl3.Location = new Point(0, 0);
             groupControl3.Name = "groupControl3";
-            groupControl3.Size = new Size(151, 506);
+            groupControl3.Size = new Size(151, 509);
             groupControl3.TabIndex = 4;
             groupControl3.Text = "Controls";
             // 
@@ -136,50 +139,66 @@
             button2.Text = "Edit";
             button2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // pnRight
             // 
-            dataGridView2.BackgroundColor = Color.FromArgb(45, 45, 45);
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.GridColor = Color.White;
-            dataGridView2.Location = new Point(14, 26);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(568, 131);
-            dataGridView2.TabIndex = 0;
+            pnRight.Controls.Add(groupControl2);
+            pnRight.Controls.Add(groupControl1);
+            pnRight.Dock = DockStyle.Fill;
+            pnRight.Location = new Point(151, 0);
+            pnRight.Name = "pnRight";
+            pnRight.Size = new Size(610, 509);
+            pnRight.TabIndex = 5;
             // 
             // groupControl2
             // 
             groupControl2.Appearance.BackColor = Color.Transparent;
             groupControl2.Appearance.Options.UseBackColor = true;
             groupControl2.Controls.Add(dataGridView2);
-            groupControl2.Location = new Point(165, 338);
+            groupControl2.Dock = DockStyle.Fill;
+            groupControl2.Location = new Point(0, 331);
             groupControl2.Name = "groupControl2";
-            groupControl2.Size = new Size(587, 168);
-            groupControl2.TabIndex = 2;
+            groupControl2.Size = new Size(610, 178);
+            groupControl2.TabIndex = 4;
             groupControl2.Text = "List Certificate";
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.BackgroundColor = Color.FromArgb(45, 45, 45);
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Dock = DockStyle.Fill;
+            dataGridView2.GridColor = Color.White;
+            dataGridView2.Location = new Point(2, 23);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new Size(606, 153);
+            dataGridView2.TabIndex = 0;
             // 
             // groupControl1
             // 
             groupControl1.Appearance.BackColor = Color.Transparent;
             groupControl1.Appearance.Options.UseBackColor = true;
             groupControl1.Controls.Add(dataGridView1);
-            groupControl1.Location = new Point(165, 0);
+            groupControl1.Dock = DockStyle.Top;
+            groupControl1.Location = new Point(0, 0);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new Size(587, 337);
-            groupControl1.TabIndex = 3;
+            groupControl1.Size = new Size(610, 331);
+            groupControl1.TabIndex = 5;
             groupControl1.Text = "List Students";
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(45, 45, 45);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { SID, SName, Class, BirthDay, Address, Phone });
+            dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.GridColor = Color.Black;
-            dataGridView1.Location = new Point(14, 26);
+            dataGridView1.Location = new Point(2, 23);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(568, 306);
+            dataGridView1.Size = new Size(606, 306);
             dataGridView1.TabIndex = 0;
             // 
             // SID
@@ -217,16 +236,16 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
+            Controls.Add(pnRight);
             Controls.Add(groupControl3);
-            Controls.Add(groupControl2);
-            Controls.Add(groupControl1);
             Name = "testForm";
             Size = new Size(761, 509);
             ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
             groupControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            pnRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)groupControl2).EndInit();
             groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -243,8 +262,9 @@
         private Button button1;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private Button button2;
-        private DataGridView dataGridView2;
+        private Panel pnRight;
         private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DataGridView dataGridView2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn SID;

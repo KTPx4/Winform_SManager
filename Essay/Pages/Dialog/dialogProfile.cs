@@ -306,7 +306,7 @@ namespace Essay.Pages.Dialog
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Document, Csv|*.txt;*.csv;*.xlsx";
+                openFileDialog.Filter = "Images|*.png;*.jpg;*.jpeg;*.gif;*.bmp";
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -361,7 +361,6 @@ namespace Essay.Pages.Dialog
                     }
                 }
             }
-
 
 
 
