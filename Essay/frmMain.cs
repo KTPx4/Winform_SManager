@@ -16,6 +16,7 @@ using Components;
 using System.IO;
 using DevExpress.Office.Drawing;
 using Essay.Controllers;
+using Essay.Pages.Manager;
 
 namespace Essay
 {
@@ -469,14 +470,19 @@ namespace Essay
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            testForm testForm = new testForm();
+            frmMStudent frmstudent = new frmMStudent();
             pnContent.Controls.Clear();
             isTabUsers = false;
 
             // user.Anchor = AnchorStyles.Right;
-            pnContent.Controls.Add(testForm);
-            testForm.Dock = DockStyle.Fill;
+            pnContent.Controls.Add(frmstudent);
+            frmstudent.Dock = DockStyle.Fill;
             this.lbTitleForm.Text = "Manager Students";
+        }
+
+        private void pnAllNavbar_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

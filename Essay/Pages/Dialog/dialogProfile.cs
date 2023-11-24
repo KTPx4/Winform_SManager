@@ -98,7 +98,7 @@ namespace Essay.Pages.Dialog
                     //public DateTime birthDay { get; set; }
                     //public string linkAvt { get; set; }
                     //public int Status { get; set; }
-                    Manager m = new ManagerController().GetByUser(user);
+                    Model.Manager m = new ManagerController().GetByUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -459,7 +459,7 @@ namespace Essay.Pages.Dialog
             {
                 // action add manager
                 // action add employee
-                Manager em = new Manager()
+                Model.Manager em = new Model.Manager()
                 {
                     Name = txtName.Text,
                     User = txtUser.Text,
@@ -531,7 +531,8 @@ namespace Essay.Pages.Dialog
             switch (typeUser)
             {
                 case 0:
-                    Manager m = new Manager()
+           
+                    var m = new Model.Manager()
                     {
                         ID = id,
                         Name = txtName.Text,

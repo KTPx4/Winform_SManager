@@ -314,3 +314,4 @@ F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.genruntimeconfig.cache
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\ref\Essay.dll
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.testForm.resources
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Manager.frmMStudent.resources

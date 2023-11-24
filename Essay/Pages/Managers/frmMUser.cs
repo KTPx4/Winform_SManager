@@ -2,6 +2,8 @@
 using Essay.Components;
 using Essay.Controllers;
 using Essay.Model;
+
+
 using Essay.Pages.Dialog;
 using Essay.Pages.Items;
 
@@ -70,7 +72,7 @@ namespace Essay.Pages
 
 
 
-            List<Manager> listManager = new ManagerController().GetListActive();
+            List<Model.Manager> listManager = new ManagerController().GetListActive();
             List<Employee> listEmployee = new EmployeeController().GetListActive();
 
 
@@ -99,7 +101,7 @@ namespace Essay.Pages
                     break;
 
                 case 1: // only employee
-                    listManager = new List<Manager>();
+                    listManager = new List<Model.Manager>();
                     break;
 
                 default: // all of 2
@@ -417,8 +419,8 @@ namespace Essay.Pages
         {
             try
             {
-                Tuple<List<Manager>, List<Employee>> result = new AdminController().Search(search);
-                List<Manager> listManger = result.Item1;
+                Tuple<List<Model.Manager>, List<Employee>> result = new AdminController().Search(search);
+                List<Model.Manager> listManger = result.Item1;
                 List<Employee> listEmployee = result.Item2;
 
                 pnListItems.Controls.Clear();

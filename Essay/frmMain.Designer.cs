@@ -164,6 +164,7 @@
             pnAllNavbar.Name = "pnAllNavbar";
             pnAllNavbar.Size = new Size(156, 626);
             pnAllNavbar.TabIndex = 0;
+        //    pnAllNavbar.Paint += pnAllNavbar_Paint;
             // 
             // pnListsNavs
             // 
