@@ -19,13 +19,13 @@
     <Compile Update="Pages\Dialog\dialogHistory.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Pages\Dialog\dialogImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Pages\Dialog\dialogProfile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Pages\Dialog\dialogStudents.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Pages\Dialog\PopupMessage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Pages\Managers\frmMStudent.cs">

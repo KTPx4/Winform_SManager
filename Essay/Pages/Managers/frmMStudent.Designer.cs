@@ -37,28 +37,28 @@
             Phone = new DataGridViewTextBoxColumn();
             grbListStudents = new DevExpress.XtraEditors.GroupControl();
             dgvCertificate = new DataGridView();
-            pnRight = new Panel();
-            grbListCertificate = new DevExpress.XtraEditors.GroupControl();
-            grbControls = new DevExpress.XtraEditors.GroupControl();
-            kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
-            label2 = new Label();
-            label1 = new Label();
-            button2 = new Button();
-            btnImportS = new Button();
-            button1 = new Button();
-            btnExportS = new Button();
-            btnEditCert = new Button();
-            btnDelCer = new Button();
-            btnAddCert = new Button();
-            btnDelete = new Button();
-            btnEdit = new Button();
-            btnAdd = new Button();
             ID = new DataGridViewTextBoxColumn();
             NameCer = new DataGridViewTextBoxColumn();
             SIDCer = new DataGridViewTextBoxColumn();
             IssueDate = new Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             ExpiryDate = new Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
             Grade = new DataGridViewTextBoxColumn();
+            pnRight = new Panel();
+            grbListCertificate = new DevExpress.XtraEditors.GroupControl();
+            grbControls = new DevExpress.XtraEditors.GroupControl();
+            kryptonBorderEdge1 = new Krypton.Toolkit.KryptonBorderEdge();
+            label2 = new Label();
+            label1 = new Label();
+            btnImportS = new Button();
+            btnImportC = new Button();
+            btnExportS = new Button();
+            btnExportC = new Button();
+            btnEditCert = new Button();
+            btnDelCer = new Button();
+            btnAddCert = new Button();
+            btnDelete = new Button();
+            btnEdit = new Button();
+            btnAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grbListStudents).BeginInit();
             grbListStudents.SuspendLayout();
@@ -89,7 +89,6 @@
             dgvStudents.TabIndex = 0;
             dgvStudents.CellEnter += dgvStudents_CellEnter;
             dgvStudents.CellMouseClick += dgvStudents_CellMouseClick;
-          //  dgvStudents.RowEnter += dgvStudents_RowEnter;
             // 
             // SID
             // 
@@ -158,6 +157,49 @@
             dgvCertificate.Size = new Size(606, 206);
             dgvCertificate.TabIndex = 0;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID Certificate";
+            ID.Name = "ID";
+            // 
+            // NameCer
+            // 
+            NameCer.HeaderText = "Name Certificate";
+            NameCer.Name = "NameCer";
+            // 
+            // SIDCer
+            // 
+            SIDCer.HeaderText = "Student ID";
+            SIDCer.Name = "SIDCer";
+            SIDCer.Visible = false;
+            // 
+            // IssueDate
+            // 
+            IssueDate.Checked = false;
+            IssueDate.Format = DateTimePickerFormat.Short;
+            IssueDate.HeaderText = "Issue Date";
+            IssueDate.Name = "IssueDate";
+            IssueDate.ReadOnly = true;
+            IssueDate.Resizable = DataGridViewTriState.True;
+            IssueDate.SortMode = DataGridViewColumnSortMode.Automatic;
+            IssueDate.Width = 121;
+            // 
+            // ExpiryDate
+            // 
+            ExpiryDate.Checked = false;
+            ExpiryDate.Format = DateTimePickerFormat.Short;
+            ExpiryDate.HeaderText = "Expiry Date";
+            ExpiryDate.Name = "ExpiryDate";
+            ExpiryDate.ReadOnly = true;
+            ExpiryDate.Resizable = DataGridViewTriState.True;
+            ExpiryDate.SortMode = DataGridViewColumnSortMode.Automatic;
+            ExpiryDate.Width = 120;
+            // 
+            // Grade
+            // 
+            Grade.HeaderText = "Grade / OverAll";
+            Grade.Name = "Grade";
+            // 
             // pnRight
             // 
             pnRight.Controls.Add(grbListCertificate);
@@ -187,10 +229,10 @@
             grbControls.Controls.Add(kryptonBorderEdge1);
             grbControls.Controls.Add(label2);
             grbControls.Controls.Add(label1);
-            grbControls.Controls.Add(button2);
             grbControls.Controls.Add(btnImportS);
-            grbControls.Controls.Add(button1);
+            grbControls.Controls.Add(btnImportC);
             grbControls.Controls.Add(btnExportS);
+            grbControls.Controls.Add(btnExportC);
             grbControls.Controls.Add(btnEditCert);
             grbControls.Controls.Add(btnDelCer);
             grbControls.Controls.Add(btnAddCert);
@@ -231,41 +273,42 @@
             label1.TabIndex = 1;
             label1.Text = "Certificate";
             // 
-            // button2
-            // 
-            button2.Location = new Point(19, 181);
-            button2.Name = "button2";
-            button2.Size = new Size(102, 36);
-            button2.TabIndex = 0;
-            button2.Text = "Import";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // btnImportS
             // 
-            btnImportS.Location = new Point(19, 432);
+            btnImportS.Location = new Point(19, 181);
             btnImportS.Name = "btnImportS";
             btnImportS.Size = new Size(102, 36);
             btnImportS.TabIndex = 0;
             btnImportS.Text = "Import";
             btnImportS.UseVisualStyleBackColor = true;
+            btnImportS.Click += btnImportS_Click;
             // 
-            // button1
+            // btnImportC
             // 
-            button1.Location = new Point(19, 223);
-            button1.Name = "button1";
-            button1.Size = new Size(102, 36);
-            button1.TabIndex = 0;
-            button1.Text = "Export";
-            button1.UseVisualStyleBackColor = true;
+            btnImportC.Location = new Point(19, 432);
+            btnImportC.Name = "btnImportC";
+            btnImportC.Size = new Size(102, 36);
+            btnImportC.TabIndex = 0;
+            btnImportC.Text = "Import";
+            btnImportC.UseVisualStyleBackColor = true;
             // 
             // btnExportS
             // 
-            btnExportS.Location = new Point(19, 472);
+            btnExportS.Location = new Point(19, 223);
             btnExportS.Name = "btnExportS";
             btnExportS.Size = new Size(102, 36);
             btnExportS.TabIndex = 0;
             btnExportS.Text = "Export";
             btnExportS.UseVisualStyleBackColor = true;
+            // 
+            // btnExportC
+            // 
+            btnExportC.Location = new Point(19, 472);
+            btnExportC.Name = "btnExportC";
+            btnExportC.Size = new Size(102, 36);
+            btnExportC.TabIndex = 0;
+            btnExportC.Text = "Export";
+            btnExportC.UseVisualStyleBackColor = true;
             // 
             // btnEditCert
             // 
@@ -327,49 +370,6 @@
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
-            // ID
-            // 
-            ID.HeaderText = "ID Certificate";
-            ID.Name = "ID";
-            // 
-            // NameCer
-            // 
-            NameCer.HeaderText = "Name Certificate";
-            NameCer.Name = "NameCer";
-            // 
-            // SIDCer
-            // 
-            SIDCer.HeaderText = "Student ID";
-            SIDCer.Name = "SIDCer";
-            SIDCer.Visible = false;
-            // 
-            // IssueDate
-            // 
-            IssueDate.Checked = false;
-            IssueDate.Format = DateTimePickerFormat.Short;
-            IssueDate.HeaderText = "Issue Date";
-            IssueDate.Name = "IssueDate";
-            IssueDate.ReadOnly = true;
-            IssueDate.Resizable = DataGridViewTriState.True;
-            IssueDate.SortMode = DataGridViewColumnSortMode.Automatic;
-            IssueDate.Width = 121;
-            // 
-            // ExpiryDate
-            // 
-            ExpiryDate.Checked = false;
-            ExpiryDate.Format = DateTimePickerFormat.Short;
-            ExpiryDate.HeaderText = "Expiry Date";
-            ExpiryDate.Name = "ExpiryDate";
-            ExpiryDate.ReadOnly = true;
-            ExpiryDate.Resizable = DataGridViewTriState.True;
-            ExpiryDate.SortMode = DataGridViewColumnSortMode.Automatic;
-            ExpiryDate.Width = 120;
-            // 
-            // Grade
-            // 
-            Grade.HeaderText = "Grade / OverAll";
-            Grade.Name = "Grade";
-            // 
             // frmMStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -399,10 +399,10 @@
         private Panel pnRight;
         private DevExpress.XtraEditors.GroupControl grbListCertificate;
         private DevExpress.XtraEditors.GroupControl grbControls;
-        private Button button2;
         private Button btnImportS;
-        private Button button1;
+        private Button btnImportC;
         private Button btnExportS;
+        private Button btnExportC;
         private Button btnEditCert;
         private Button btnAddCert;
         private Button btnDelete;

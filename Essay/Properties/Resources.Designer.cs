@@ -393,6 +393,16 @@ namespace Essay.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_open_file_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-open-file-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_rectangle_pulsar_line_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-rectangle-pulsar-line-32", resourceCulture);

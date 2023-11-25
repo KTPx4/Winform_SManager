@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="DevExpress.Win.Design" Version="23.1.6" />
+    <PackageReference Include="EPPlus" Version="7.0.2" />
     <PackageReference Include="ilmerge" Version="3.0.41" />
     <PackageReference Include="Krypton.Toolkit" Version="70.22.11.312" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />

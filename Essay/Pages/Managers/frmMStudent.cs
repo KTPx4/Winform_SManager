@@ -44,11 +44,11 @@ namespace Essay.Pages.Manager
 
         public void LoadForm()
         {
-            if(typeU == 1)
+            if (typeU == 1)
             {
                 grbControls.Enabled = false;
                 grbControls.Visible = false;
-            }    
+            }
             var studentController = new StudentController();
             List<Student> students = studentController.GetALL();
             DataTable dataTable = new DataTable();
@@ -102,7 +102,7 @@ namespace Essay.Pages.Manager
         }
         private void dgvStudents_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-           // showCer();
+            // showCer();
         }
 
         private void dgvStudents_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -244,6 +244,10 @@ namespace Essay.Pages.Manager
             }
         }
 
-
+        private void btnImportS_Click(object sender, EventArgs e)
+        {
+            dialogImport dialogImport = new dialogImport();
+            dialogImport.ShowDialog();
+        }
     }
 }

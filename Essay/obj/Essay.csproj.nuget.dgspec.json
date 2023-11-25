@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[23.1.6, )"
             },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
             "Krypton.Toolkit": {
               "target": "Package",
               "version": "[70.22.11.312, )"

@@ -177,7 +177,6 @@ F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.frmMain.resources
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Dialog.dialogHistory.resources
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Dialog.dialogProfile.resources
-F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Dialog.PopupMessage.resources
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.frmMUser.resources
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Items.FUser.resources
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Properties.Resources.resources
@@ -317,3 +316,17 @@ F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Manager.frmMStudent.resources
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Dialog.dialogStudents.resources
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Dialog.dialogCertificate.resources
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Dialog.dialogImport.resources
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\EPPlus.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\EPPlus.Interfaces.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\EPPlus.System.Drawing.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.Json.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\System.Security.Cryptography.Pkcs.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
