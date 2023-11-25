@@ -111,7 +111,6 @@
             grbInfor.Size = new Size(469, 343);
             grbInfor.TabIndex = 22;
             grbInfor.TabStop = false;
-           // grbInfor.Enter += grbInfor_Enter;
             // 
             // pnGroupTxt
             // 
@@ -128,7 +127,6 @@
             pnGroupTxt.Name = "pnGroupTxt";
             pnGroupTxt.Size = new Size(457, 237);
             pnGroupTxt.TabIndex = 22;
-            //pnGroupTxt.Paint += pnGroupTxt_Paint;
             // 
             // pnStatus
             // 
@@ -140,7 +138,6 @@
             pnStatus.Name = "pnStatus";
             pnStatus.Size = new Size(196, 34);
             pnStatus.TabIndex = 22;
-            //pnStatus.Paint += pnStatus_Paint;
             // 
             // txtStatus
             // 
@@ -150,7 +147,6 @@
             txtStatus.Name = "txtStatus";
             txtStatus.Size = new Size(130, 20);
             txtStatus.TabIndex = 6;
-            //txtStatus.TextChanged += txtStatus_TextChanged;
             // 
             // label4
             // 
@@ -162,7 +158,6 @@
             label4.Size = new Size(39, 15);
             label4.TabIndex = 1;
             label4.Text = "Status";
-           // label4.Click += label4_Click;
             // 
             // pnPhone
             // 
@@ -174,7 +169,6 @@
             pnPhone.Name = "pnPhone";
             pnPhone.Size = new Size(207, 34);
             pnPhone.TabIndex = 22;
-            //pnPhone.Paint += pnPhone_Paint;
             // 
             // txtPhone
             // 
@@ -196,7 +190,6 @@
             label7.Size = new Size(41, 15);
             label7.TabIndex = 1;
             label7.Text = "Phone";
-            //label7.Click += label7_Click;
             // 
             // pnPass
             // 
@@ -209,7 +202,6 @@
             pnPass.Name = "pnPass";
             pnPass.Size = new Size(196, 34);
             pnPass.TabIndex = 22;
-           // pnPass.Paint += pnPass_Paint;
             // 
             // ckShowPass
             // 
@@ -244,7 +236,6 @@
             label6.Size = new Size(30, 15);
             label6.TabIndex = 1;
             label6.Text = "Pass";
-           // label6.Click += label6_Click;
             // 
             // panel4
             // 
@@ -256,7 +247,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(207, 34);
             panel4.TabIndex = 22;
-         //   panel4.Paint += panel4_Paint;
             // 
             // txtDate
             // 
@@ -267,7 +257,6 @@
             txtDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             txtDate.Size = new Size(126, 20);
             txtDate.TabIndex = 3;
-            //txtDate.EditValueChanged += txtDate_EditValueChanged;
             // 
             // label3
             // 
@@ -279,7 +268,6 @@
             label3.Size = new Size(51, 15);
             label3.TabIndex = 1;
             label3.Text = "Birthday";
-            //label3.Click += label3_Click;
             // 
             // pnUser
             // 
@@ -291,7 +279,6 @@
             pnUser.Name = "pnUser";
             pnUser.Size = new Size(196, 34);
             pnUser.TabIndex = 22;
-            //pnUser.Paint += pnUser_Paint;
             // 
             // txtUser
             // 
@@ -301,7 +288,6 @@
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(130, 20);
             txtUser.TabIndex = 2;
-         //   txtUser.TextChanged += txtUser_TextChanged;
             // 
             // label5
             // 
@@ -313,7 +299,6 @@
             label5.Size = new Size(30, 15);
             label5.TabIndex = 1;
             label5.Text = "User";
-            //label5.Click += label5_Click;
             // 
             // pnName
             // 
@@ -335,7 +320,6 @@
             txtName.Name = "txtName";
             txtName.Size = new Size(126, 20);
             txtName.TabIndex = 1;
-           // txtName.TextChanged += txtName_TextChanged;
             // 
             // label2
             // 
@@ -347,7 +331,6 @@
             label2.Size = new Size(39, 15);
             label2.TabIndex = 1;
             label2.Text = "Name";
-            //label2.Click += label2_Click;
             // 
             // pnControl
             // 
@@ -357,9 +340,8 @@
             pnControl.Controls.Add(btnSave);
             pnControl.Location = new Point(144, 271);
             pnControl.Name = "pnControl";
-            pnControl.Size = new Size(308, 52);
+            pnControl.Size = new Size(207, 52);
             pnControl.TabIndex = 15;
-            //pnControl.Paint += pnControl_Paint;
             // 
             // btnCancel
             // 
@@ -394,7 +376,6 @@
             pnTitle.Name = "pnTitle";
             pnTitle.Size = new Size(496, 59);
             pnTitle.TabIndex = 22;
-           // pnTitle.Paint += pnTitle_Paint;
             // 
             // btnEdit
             // 
@@ -421,7 +402,6 @@
             lbTitleForm.StateCommon.ShortText.Font = new Font("Lucida Sans Unicode", 18F, FontStyle.Bold, GraphicsUnit.Point);
             lbTitleForm.TabIndex = 3;
             lbTitleForm.Values.Text = "Profile";
-            //lbTitleForm.Click += lbTitleForm_Click;
             // 
             // panel1
             // 
@@ -433,7 +413,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(496, 59);
             panel1.TabIndex = 4;
-          //  panel1.Paint += panel1_Paint;
             // 
             // toolTipMessage
             // 
@@ -447,7 +426,7 @@
             toolTipMessage.SetAllowHtmlText(this, DevExpress.Utils.DefaultBoolean.Default);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gray;
+            BackColor = Color.SlateGray;
             ClientSize = new Size(496, 435);
             Controls.Add(grbInfor);
             Controls.Add(panel1);

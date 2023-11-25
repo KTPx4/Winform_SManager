@@ -275,7 +275,7 @@ namespace Essay
             {
                 btnStudents.Text = "Students";
                 btnHome.Text = "Home";
-                btnReport.Text = "Report";
+            
                 btnUsers.Text = "Users";
 
             }
@@ -283,7 +283,7 @@ namespace Essay
             {
                 btnStudents.Text = "";
                 btnHome.Text = "";
-                btnReport.Text = "";
+          
                 btnUsers.Text = "";
 
             }
@@ -401,6 +401,8 @@ namespace Essay
         private void btnHome_Click(object sender, EventArgs e)
         {
             pnContent.Controls.Clear();
+            this.lbTitleForm.Text = "Home";
+
         }
 
 
@@ -418,14 +420,6 @@ namespace Essay
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (MessageBox.Show("Do you want to close?", "Close?", MessageBoxButtons.YesNo) == DialogResult.No)
-            //{
-            //    e.Cancel = true;
-            //}
-            //else
-            //{
-            //    new AdminController().SetisOnline(NameUser, false);
-            //}
 
             // If the user clicks the close button or presses Alt+F4
             if (e.CloseReason == CloseReason.UserClosing)
@@ -470,7 +464,7 @@ namespace Essay
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
-            frmMStudent frmstudent = new frmMStudent();
+            frmMStudent frmstudent = new frmMStudent(typeUs);
             pnContent.Controls.Clear();
             isTabUsers = false;
 

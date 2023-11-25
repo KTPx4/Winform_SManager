@@ -37,8 +37,6 @@
             panel2 = new Panel();
             pnAllNavbar = new Panel();
             pnListsNavs = new Panel();
-            pnReport = new Panel();
-            btnReport = new Button();
             pnUser = new Panel();
             btnUsers = new Button();
             pnStudent = new Panel();
@@ -69,7 +67,6 @@
             pn1.SuspendLayout();
             pnAllNavbar.SuspendLayout();
             pnListsNavs.SuspendLayout();
-            pnReport.SuspendLayout();
             pnUser.SuspendLayout();
             pnStudent.SuspendLayout();
             pnHome.SuspendLayout();
@@ -164,13 +161,11 @@
             pnAllNavbar.Name = "pnAllNavbar";
             pnAllNavbar.Size = new Size(156, 626);
             pnAllNavbar.TabIndex = 0;
-        //    pnAllNavbar.Paint += pnAllNavbar_Paint;
             // 
             // pnListsNavs
             // 
             tollTipMessage.SetAllowHtmlText(pnListsNavs, DevExpress.Utils.DefaultBoolean.Default);
             pnListsNavs.BackColor = Color.Transparent;
-            pnListsNavs.Controls.Add(pnReport);
             pnListsNavs.Controls.Add(pnUser);
             pnListsNavs.Controls.Add(pnStudent);
             pnListsNavs.Controls.Add(pnHome);
@@ -180,44 +175,6 @@
             pnListsNavs.Name = "pnListsNavs";
             pnListsNavs.Size = new Size(154, 520);
             pnListsNavs.TabIndex = 9;
-            // 
-            // pnReport
-            // 
-            tollTipMessage.SetAllowHtmlText(pnReport, DevExpress.Utils.DefaultBoolean.Default);
-            pnReport.Controls.Add(btnReport);
-            pnReport.Dock = DockStyle.Top;
-            pnReport.Location = new Point(0, 166);
-            pnReport.Margin = new Padding(2, 3, 2, 3);
-            pnReport.Name = "pnReport";
-            pnReport.Padding = new Padding(0, 11, 0, 0);
-            pnReport.Size = new Size(154, 62);
-            pnReport.TabIndex = 4;
-            // 
-            // btnReport
-            // 
-            tollTipMessage.SetAllowHtmlText(btnReport, DevExpress.Utils.DefaultBoolean.Default);
-            btnReport.BackColor = Color.Transparent;
-            btnReport.Cursor = Cursors.Hand;
-            btnReport.Dock = DockStyle.Left;
-            btnReport.FlatAppearance.BorderSize = 0;
-            btnReport.FlatAppearance.MouseDownBackColor = Color.LightSlateGray;
-            btnReport.FlatAppearance.MouseOverBackColor = Color.FromArgb(76, 86, 97);
-            btnReport.FlatStyle = FlatStyle.Flat;
-            btnReport.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnReport.ForeColor = Color.White;
-            btnReport.Image = Properties.Resources.icons8_report_32;
-            btnReport.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReport.Location = new Point(0, 11);
-            btnReport.Margin = new Padding(2, 3, 2, 3);
-            btnReport.Name = "btnReport";
-            btnReport.Padding = new Padding(13, 0, 5, 0);
-            btnReport.Size = new Size(181, 51);
-            btnReport.TabIndex = 4;
-            btnReport.Text = "Report";
-            tollTipMessage.SetTitle(btnReport, "View Report");
-            btnReport.UseVisualStyleBackColor = false;
-            btnReport.MouseLeave += LeaveHoverBtn;
-            btnReport.MouseHover += HoverBtn;
             // 
             // pnUser
             // 
@@ -631,7 +588,6 @@
             pnAllNavbar.ResumeLayout(false);
             pnAllNavbar.PerformLayout();
             pnListsNavs.ResumeLayout(false);
-            pnReport.ResumeLayout(false);
             pnUser.ResumeLayout(false);
             pnStudent.ResumeLayout(false);
             pnHome.ResumeLayout(false);
@@ -672,8 +628,6 @@
         private Panel pn1;
         private Panel pnAllNavbar;
         private Panel pnListsNavs;
-        private Panel pnReport;
-        private Button btnReport;
         private Panel pnUser;
         private Button btnUsers;
         private Panel pnStudent;
