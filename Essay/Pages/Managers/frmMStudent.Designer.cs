@@ -37,12 +37,6 @@
             Phone = new DataGridViewTextBoxColumn();
             grbListStudents = new DevExpress.XtraEditors.GroupControl();
             dgvCertificate = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            NameCer = new DataGridViewTextBoxColumn();
-            SIDCer = new DataGridViewTextBoxColumn();
-            IssueDate = new Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
-            ExpiryDate = new Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
-            Grade = new DataGridViewTextBoxColumn();
             pnRight = new Panel();
             grbListCertificate = new DevExpress.XtraEditors.GroupControl();
             grbControls = new DevExpress.XtraEditors.GroupControl();
@@ -59,6 +53,12 @@
             btnDelete = new Button();
             btnEdit = new Button();
             btnAdd = new Button();
+            ID = new DataGridViewTextBoxColumn();
+            NameCer = new DataGridViewTextBoxColumn();
+            SIDCer = new DataGridViewTextBoxColumn();
+            IssueDate = new Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
+            ExpiryDate = new Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
+            Grade = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             ((System.ComponentModel.ISupportInitialize)grbListStudents).BeginInit();
             grbListStudents.SuspendLayout();
@@ -88,7 +88,7 @@
             dgvStudents.Size = new Size(606, 253);
             dgvStudents.TabIndex = 0;
             dgvStudents.CellEnter += dgvStudents_CellEnter;
-            dgvStudents.CellMouseClick += dgvStudents_CellMouseClick;
+            dgvStudents.KeyDown += dgvStudents_KeyDown;
             // 
             // SID
             // 
@@ -145,8 +145,11 @@
             // 
             // dgvCertificate
             // 
+            dgvCertificate.AllowUserToAddRows = false;
+            dgvCertificate.AllowUserToDeleteRows = false;
             dgvCertificate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCertificate.BackgroundColor = Color.FromArgb(45, 45, 45);
+            dgvCertificate.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCertificate.Columns.AddRange(new DataGridViewColumn[] { ID, NameCer, SIDCer, IssueDate, ExpiryDate, Grade });
             dgvCertificate.Dock = DockStyle.Fill;
             dgvCertificate.GridColor = Color.Black;
@@ -154,51 +157,10 @@
             dgvCertificate.Name = "dgvCertificate";
             dgvCertificate.RowHeadersVisible = false;
             dgvCertificate.RowTemplate.Height = 25;
+            dgvCertificate.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCertificate.Size = new Size(606, 206);
             dgvCertificate.TabIndex = 0;
-            // 
-            // ID
-            // 
-            ID.HeaderText = "ID Certificate";
-            ID.Name = "ID";
-            // 
-            // NameCer
-            // 
-            NameCer.HeaderText = "Name Certificate";
-            NameCer.Name = "NameCer";
-            // 
-            // SIDCer
-            // 
-            SIDCer.HeaderText = "Student ID";
-            SIDCer.Name = "SIDCer";
-            SIDCer.Visible = false;
-            // 
-            // IssueDate
-            // 
-            IssueDate.Checked = false;
-            IssueDate.Format = DateTimePickerFormat.Short;
-            IssueDate.HeaderText = "Issue Date";
-            IssueDate.Name = "IssueDate";
-            IssueDate.ReadOnly = true;
-            IssueDate.Resizable = DataGridViewTriState.True;
-            IssueDate.SortMode = DataGridViewColumnSortMode.Automatic;
-            IssueDate.Width = 121;
-            // 
-            // ExpiryDate
-            // 
-            ExpiryDate.Checked = false;
-            ExpiryDate.Format = DateTimePickerFormat.Short;
-            ExpiryDate.HeaderText = "Expiry Date";
-            ExpiryDate.Name = "ExpiryDate";
-            ExpiryDate.ReadOnly = true;
-            ExpiryDate.Resizable = DataGridViewTriState.True;
-            ExpiryDate.SortMode = DataGridViewColumnSortMode.Automatic;
-            ExpiryDate.Width = 120;
-            // 
-            // Grade
-            // 
-            Grade.HeaderText = "Grade / OverAll";
-            Grade.Name = "Grade";
+            dgvCertificate.KeyDown += dgvCertificate_KeyDown;
             // 
             // pnRight
             // 
@@ -291,6 +253,7 @@
             btnImportC.TabIndex = 0;
             btnImportC.Text = "Import";
             btnImportC.UseVisualStyleBackColor = true;
+            btnImportC.Click += btnImportC_Click;
             // 
             // btnExportS
             // 
@@ -300,6 +263,7 @@
             btnExportS.TabIndex = 0;
             btnExportS.Text = "Export";
             btnExportS.UseVisualStyleBackColor = true;
+            btnExportS.Click += btnExportS_Click;
             // 
             // btnExportC
             // 
@@ -309,6 +273,7 @@
             btnExportC.TabIndex = 0;
             btnExportC.Text = "Export";
             btnExportC.UseVisualStyleBackColor = true;
+            btnExportC.Click += btnExportC_Click;
             // 
             // btnEditCert
             // 
@@ -369,6 +334,53 @@
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID Certificate";
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            // 
+            // NameCer
+            // 
+            NameCer.HeaderText = "Name Certificate";
+            NameCer.Name = "NameCer";
+            NameCer.ReadOnly = true;
+            // 
+            // SIDCer
+            // 
+            SIDCer.HeaderText = "Student ID";
+            SIDCer.Name = "SIDCer";
+            SIDCer.ReadOnly = true;
+            SIDCer.Visible = false;
+            // 
+            // IssueDate
+            // 
+            IssueDate.Checked = false;
+            IssueDate.Format = DateTimePickerFormat.Short;
+            IssueDate.HeaderText = "Issue Date";
+            IssueDate.Name = "IssueDate";
+            IssueDate.ReadOnly = true;
+            IssueDate.Resizable = DataGridViewTriState.True;
+            IssueDate.SortMode = DataGridViewColumnSortMode.Automatic;
+            IssueDate.Width = 121;
+            // 
+            // ExpiryDate
+            // 
+            ExpiryDate.Checked = false;
+            ExpiryDate.Format = DateTimePickerFormat.Short;
+            ExpiryDate.HeaderText = "Expiry Date";
+            ExpiryDate.Name = "ExpiryDate";
+            ExpiryDate.ReadOnly = true;
+            ExpiryDate.Resizable = DataGridViewTriState.True;
+            ExpiryDate.SortMode = DataGridViewColumnSortMode.Automatic;
+            ExpiryDate.Width = 120;
+            // 
+            // Grade
+            // 
+            Grade.HeaderText = "Grade / OverAll";
+            Grade.Name = "Grade";
+            Grade.ReadOnly = true;
             // 
             // frmMStudent
             // 

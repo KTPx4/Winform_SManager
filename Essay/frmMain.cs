@@ -275,7 +275,7 @@ namespace Essay
             {
                 btnStudents.Text = "Students";
                 btnHome.Text = "Home";
-            
+
                 btnUsers.Text = "Users";
 
             }
@@ -283,7 +283,7 @@ namespace Essay
             {
                 btnStudents.Text = "";
                 btnHome.Text = "";
-          
+
                 btnUsers.Text = "";
 
             }

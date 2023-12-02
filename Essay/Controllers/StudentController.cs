@@ -47,6 +47,12 @@ namespace Essay.Controllers
                                                   select certification).ToList();
             return certifications;
         }
+        public List<Certification> GetCertifications()
+        {
+            List<Certification> certifications = (from certification in db.Certifications                                                 
+                                                  select certification).ToList();
+            return certifications;
+        }
 
         public bool Add(Student student)
         {

@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using OfficeOpenXml;
+using System.IO;
+using Essay.Pages.Popup;
 
 namespace Essay.Pages.Manager
 {
@@ -23,6 +26,11 @@ namespace Essay.Pages.Manager
                            // 2:Admin
         public frmMStudent()
         {
+            // Đăng ký Provider cho Encoding (nếu chưa có)
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            // Thiết lập giá trị cho LicenseContext
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             InitializeComponent();
             Reload = LoadForm;
             typeU = 2;
@@ -30,6 +38,11 @@ namespace Essay.Pages.Manager
         }
         public frmMStudent(int TypeUser)
         {
+            // Đăng ký Provider cho Encoding (nếu chưa có)
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            // Thiết lập giá trị cho LicenseContext
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             InitializeComponent();
             Reload = LoadForm;
             typeU = TypeUser;
@@ -100,10 +113,7 @@ namespace Essay.Pages.Manager
 
             }
         }
-        private void dgvStudents_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            // showCer();
-        }
+
 
         private void dgvStudents_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -149,6 +159,11 @@ namespace Essay.Pages.Manager
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            deleStudent();
+        }
+
+        private void deleStudent()
+        {
             var SID = dgvStudents.CurrentRow.Cells[0].Value;
             if (SID == null)
             {
@@ -163,8 +178,6 @@ namespace Essay.Pages.Manager
                 frmMain.Instance.RequestReload();
             }
         }
-
-
 
 
 
@@ -227,10 +240,8 @@ namespace Essay.Pages.Manager
             dialog.ShowDialog();
 
         }
-
-        private void btnDelCer_Click(object sender, EventArgs e)
+        private void deleteCer()
         {
-
             if (!isChoseStudent()) return;
             if (!isChoseCer()) return;
 
@@ -243,11 +254,231 @@ namespace Essay.Pages.Manager
                 frmMain.Instance.RequestReload();
             }
         }
+        private void btnDelCer_Click(object sender, EventArgs e)
+        {
+
+            deleteCer();
+        }
 
         private void btnImportS_Click(object sender, EventArgs e)
         {
             dialogImport dialogImport = new dialogImport();
             dialogImport.ShowDialog();
+        }
+
+
+
+        private void dgvStudents_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                // MessageBox.Show("ok");
+                // Kiểm tra xem có dòng nào được chọn không
+                if (dgvStudents.CurrentRow?.Index >= 0)
+                {
+                    deleStudent();
+                }
+            }
+        }
+
+        private void dgvCertificate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                // MessageBox.Show("ok");
+                // Kiểm tra xem có dòng nào được chọn không
+                if (dgvCertificate.CurrentRow?.Index >= 0)
+                {
+                    deleteCer();
+                }
+            }
+        }
+
+        private void btnImportC_Click(object sender, EventArgs e)
+        {
+            dialogImport dialogImport = new dialogImport(false);
+            dialogImport.ShowDialog();
+        }
+
+        private void btnExportS_Click(object sender, EventArgs e)
+        {
+            ExportToExcel(dgvStudents);
+        }
+        public static void ExportToExcel(DataGridView dataGridView)
+        {
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", ValidateNames = true })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        using (ExcelPackage package = new ExcelPackage())
+                        {
+                            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                            // Đổ dữ liệu từ DataGridView vào Excel
+                            for (int i = 1; i <= dataGridView.Columns.Count; i++)
+                            {
+                                worksheet.Cells[1, i].Value = dataGridView.Columns[i - 1].HeaderText;
+                                worksheet.Cells[1, i].Style.Font.Bold = true;
+                            }
+
+                            for (int i = 0; i < dataGridView.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < dataGridView.Columns.Count; j++)
+                                {
+                                    if (dataGridView.Columns[j].Name == "Birthday")
+                                    {
+                                        // Kiểm tra cột birthday và định dạng lại ngày
+                                        DateTime dateValue;
+                                        if (DateTime.TryParse(dataGridView.Rows[i].Cells[j].Value.ToString(), out dateValue))
+                                        {
+                                            worksheet.Cells[i + 2, j + 1].Value = dateValue.ToString("yyyy-MM-dd");
+                                        }
+                                        else
+                                        {
+                                            worksheet.Cells[i + 2, j + 1].Value = dataGridView.Rows[i].Cells[j].Value.ToString();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        worksheet.Cells[i + 2, j + 1].Value = dataGridView.Rows[i].Cells[j].Value.ToString();
+                                    }
+                                }
+                            }
+
+
+                            package.SaveAs(new System.IO.FileInfo(sfd.FileName));
+                        }
+
+                        MessageBox.Show("Exported successfully!", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting to Excel: {ex.Message}", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnExportC_Click(object sender, EventArgs e)
+        {
+            ExportMessage exportMessage = new ExportMessage();
+            DialogResult TypeExport = exportMessage.ShowDialog();
+            try
+            {
+                if (TypeExport == DialogResult.Yes) // export all certificate
+                {
+                    List<Certification> listCer = new StudentController().GetCertifications();
+                    using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", ValidateNames = true })
+                    {
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (ExcelPackage package = new ExcelPackage())
+                            {
+                                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                                // Đổ dữ liệu từ DataGridView vào Excel
+                                for (int i = 1; i <= dgvCertificate.Columns.Count; i++)
+                                {
+                                    worksheet.Cells[1, i].Value = dgvCertificate.Columns[i - 1].HeaderText;
+                                    worksheet.Cells[1, i].Style.Font.Bold = true;
+                                }
+                                int y = 2, x = 1;
+
+                                foreach (var certification in listCer)
+                                {
+                                    worksheet.Cells[y, 1].Value = certification.IDCertificate;
+                                    worksheet.Cells[y, 2].Value = certification.Name;
+                                    worksheet.Cells[y, 3].Value = certification.SID;
+                                    DateTime dateIss;
+                                    if (DateTime.TryParse(certification.IssueDate.ToString(), out dateIss))
+                                    {
+                                        worksheet.Cells[y, 4].Value = dateIss.ToString("yyyy-MM-dd");
+                                    }
+                                    if (DateTime.TryParse(certification.ExpiryDate.ToString(), out dateIss))
+                                    {
+                                        worksheet.Cells[y, 5].Value = dateIss.ToString("yyyy-MM-dd");
+                                    }
+
+                                    worksheet.Cells[y++, 6].Value = certification.Grade;
+
+                                }
+
+                                package.SaveAs(new System.IO.FileInfo(sfd.FileName));
+                            }
+
+                            MessageBox.Show("Exported successfully!", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+
+                }
+                else if (TypeExport == DialogResult.No)// export Current Student
+                {
+                    if(dgvCertificate.Rows.Count < 1)
+                    {
+                        MessageBox.Show("Not Have Certificate to Export!", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+
+                    }
+                    using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx", ValidateNames = true })
+                    {
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (ExcelPackage package = new ExcelPackage())
+                            {
+                                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                                // Đổ dữ liệu từ DataGridView vào Excel
+                                for (int i = 1; i <= dgvCertificate.Columns.Count; i++)
+                                {
+                                    worksheet.Cells[1, i].Value = dgvCertificate.Columns[i - 1].HeaderText;
+                                    worksheet.Cells[1, i].Style.Font.Bold = true;
+                                }
+
+                                for (int i = 0; i < dgvCertificate.Rows.Count; i++)
+                                {
+                                    for (int j = 0; j < dgvCertificate.Columns.Count; j++)
+                                    {
+                                        if (dgvCertificate.Columns[j].Name == "Issue Date" || dgvCertificate.Columns[j].Name == "Expiry Date")
+                                        {
+                                            // Kiểm tra cột birthday và định dạng lại ngày
+                                            DateTime dateValue;
+                                            if (DateTime.TryParse(dgvCertificate.Rows[i].Cells[j].Value.ToString(), out dateValue))
+                                            {
+                                                worksheet.Cells[i + 2, j + 1].Value = dateValue.ToString("yyyy-MM-dd");
+                                            }
+                                            else
+                                            {
+                                                worksheet.Cells[i + 2, j + 1].Value = dgvCertificate.Rows[i].Cells[j].Value.ToString();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            worksheet.Cells[i + 2, j + 1].Value = dgvCertificate.Rows[i].Cells[j].Value.ToString();
+                                        }
+                                    }
+                                }
+
+
+                                package.SaveAs(new System.IO.FileInfo(sfd.FileName));
+                            }
+
+                            MessageBox.Show("Exported successfully!", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting to Excel: {ex.Message}", "Export to Excel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

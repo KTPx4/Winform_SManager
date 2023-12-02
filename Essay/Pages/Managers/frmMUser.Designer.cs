@@ -38,7 +38,6 @@
             txtFind = new Krypton.Toolkit.KryptonTextBox();
             pnSetCenter = new Panel();
             pnSide = new Krypton.Toolkit.KryptonPanel();
-            groupControl1 = new DevExpress.XtraEditors.GroupControl();
             groupBox3 = new GroupBox();
             label7 = new Label();
             label2 = new Label();
@@ -63,8 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnSide).BeginInit();
             pnSide.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
-            groupControl1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -88,8 +85,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(pnSide);
-            splitContainer1.Size = new Size(814, 492);
-            splitContainer1.SplitterDistance = 588;
+            splitContainer1.Size = new Size(848, 492);
+            splitContainer1.SplitterDistance = 592;
             splitContainer1.TabIndex = 0;
             // 
             // pnListItems
@@ -99,7 +96,7 @@
             pnListItems.Location = new Point(0, 57);
             pnListItems.Margin = new Padding(0);
             pnListItems.Name = "pnListItems";
-            pnListItems.Size = new Size(588, 435);
+            pnListItems.Size = new Size(592, 435);
             pnListItems.TabIndex = 8;
             // 
             // panel1
@@ -112,7 +109,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(588, 57);
+            panel1.Size = new Size(592, 57);
             panel1.TabIndex = 6;
             // 
             // btnReload
@@ -186,27 +183,18 @@
             // 
             // pnSide
             // 
-            pnSide.Controls.Add(groupControl1);
+            pnSide.Controls.Add(groupBox3);
+            pnSide.Controls.Add(groupBox2);
+            pnSide.Controls.Add(groupBox1);
             pnSide.Controls.Add(kryptonBorderEdge1);
             pnSide.Dock = DockStyle.Fill;
             pnSide.Location = new Point(0, 0);
             pnSide.Margin = new Padding(2);
             pnSide.Name = "pnSide";
             pnSide.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlCustom1;
-            pnSide.Size = new Size(222, 492);
+            pnSide.Size = new Size(252, 492);
             pnSide.StateCommon.Color1 = Color.Transparent;
             pnSide.TabIndex = 0;
-            // 
-            // groupControl1
-            // 
-            groupControl1.Controls.Add(groupBox3);
-            groupControl1.Controls.Add(groupBox2);
-            groupControl1.Controls.Add(groupBox1);
-            groupControl1.Dock = DockStyle.Fill;
-            groupControl1.Location = new Point(0, 0);
-            groupControl1.Name = "groupControl1";
-            groupControl1.Size = new Size(222, 492);
-            groupControl1.TabIndex = 5;
             // 
             // groupBox3
             // 
@@ -219,12 +207,12 @@
             groupBox3.Controls.Add(label1);
             groupBox3.Dock = DockStyle.Fill;
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(2, 311);
+            groupBox3.Location = new Point(0, 288);
             groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(2);
-            groupBox3.Size = new Size(218, 179);
-            groupBox3.TabIndex = 3;
+            groupBox3.Size = new Size(252, 204);
+            groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "Statistics";
             // 
@@ -232,10 +220,10 @@
             // 
             label7.AutoSize = true;
             label7.ForeColor = Color.White;
-            label7.Location = new Point(25, 118);
+            label7.Location = new Point(24, 117);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(25, 13);
+            label7.Size = new Size(27, 15);
             label7.TabIndex = 2;
             label7.Text = "All :";
             // 
@@ -243,10 +231,10 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(25, 87);
+            label2.Location = new Point(24, 86);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(60, 13);
+            label2.Size = new Size(65, 15);
             label2.TabIndex = 3;
             label2.Text = "Employee :";
             // 
@@ -255,7 +243,7 @@
             lbSumAll.AutoSize = true;
             lbSumAll.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbSumAll.ForeColor = Color.White;
-            lbSumAll.Location = new Point(101, 118);
+            lbSumAll.Location = new Point(100, 117);
             lbSumAll.Margin = new Padding(2, 0, 2, 0);
             lbSumAll.Name = "lbSumAll";
             lbSumAll.Size = new Size(62, 15);
@@ -267,7 +255,7 @@
             lbSumEmployee.AutoSize = true;
             lbSumEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbSumEmployee.ForeColor = Color.White;
-            lbSumEmployee.Location = new Point(101, 87);
+            lbSumEmployee.Location = new Point(100, 86);
             lbSumEmployee.Margin = new Padding(2, 0, 2, 0);
             lbSumEmployee.Name = "lbSumEmployee";
             lbSumEmployee.Size = new Size(62, 15);
@@ -279,7 +267,7 @@
             lbSumManager.AutoSize = true;
             lbSumManager.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lbSumManager.ForeColor = Color.White;
-            lbSumManager.Location = new Point(101, 54);
+            lbSumManager.Location = new Point(100, 53);
             lbSumManager.Margin = new Padding(2, 0, 2, 0);
             lbSumManager.Name = "lbSumManager";
             lbSumManager.Size = new Size(62, 15);
@@ -290,10 +278,10 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(25, 54);
+            label1.Location = new Point(24, 53);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(50, 13);
+            label1.Size = new Size(54, 15);
             label1.TabIndex = 7;
             label1.Text = "Manger :";
             // 
@@ -304,22 +292,22 @@
             groupBox2.Controls.Add(cbbStatus);
             groupBox2.Dock = DockStyle.Top;
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(2, 201);
+            groupBox2.Location = new Point(0, 178);
             groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(2);
-            groupBox2.Size = new Size(218, 110);
-            groupBox2.TabIndex = 3;
+            groupBox2.Size = new Size(252, 110);
+            groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Filter";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(80, 38);
+            label5.Location = new Point(100, 35);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(38, 13);
+            label5.Size = new Size(39, 15);
             label5.TabIndex = 1;
             label5.Text = "Status";
             // 
@@ -328,10 +316,10 @@
             cbbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cbbStatus.FormattingEnabled = true;
             cbbStatus.Items.AddRange(new object[] { "Normal", "Locked", "Deleted" });
-            cbbStatus.Location = new Point(12, 53);
+            cbbStatus.Location = new Point(24, 52);
             cbbStatus.Margin = new Padding(2);
             cbbStatus.Name = "cbbStatus";
-            cbbStatus.Size = new Size(192, 21);
+            cbbStatus.Size = new Size(214, 23);
             cbbStatus.TabIndex = 0;
             cbbStatus.SelectionChangeCommitted += cbbStatus_SelectionChangeCommitted;
             // 
@@ -343,12 +331,12 @@
             groupBox1.Controls.Add(btnAddManager);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(2, 23);
+            groupBox1.Location = new Point(0, 0);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(218, 178);
-            groupBox1.TabIndex = 3;
+            groupBox1.Size = new Size(252, 178);
+            groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Control";
             // 
@@ -358,10 +346,10 @@
             btnAddStaff.BackColor = Color.DarkGray;
             btnAddStaff.FlatStyle = FlatStyle.Flat;
             btnAddStaff.ForeColor = Color.Black;
-            btnAddStaff.Location = new Point(23, 76);
+            btnAddStaff.Location = new Point(51, 75);
             btnAddStaff.Margin = new Padding(2);
             btnAddStaff.Name = "btnAddStaff";
-            btnAddStaff.Size = new Size(176, 38);
+            btnAddStaff.Size = new Size(157, 38);
             btnAddStaff.TabIndex = 1;
             btnAddStaff.Text = "Add Staff";
             btnAddStaff.UseVisualStyleBackColor = false;
@@ -373,10 +361,10 @@
             btnViewHis.BackColor = Color.Honeydew;
             btnViewHis.FlatStyle = FlatStyle.Flat;
             btnViewHis.ForeColor = Color.Black;
-            btnViewHis.Location = new Point(23, 129);
+            btnViewHis.Location = new Point(51, 128);
             btnViewHis.Margin = new Padding(2);
             btnViewHis.Name = "btnViewHis";
-            btnViewHis.Size = new Size(176, 38);
+            btnViewHis.Size = new Size(157, 38);
             btnViewHis.TabIndex = 1;
             btnViewHis.Text = "View History ";
             btnViewHis.UseVisualStyleBackColor = false;
@@ -388,10 +376,10 @@
             btnAddManager.BackColor = Color.Aquamarine;
             btnAddManager.FlatStyle = FlatStyle.Flat;
             btnAddManager.ForeColor = Color.Black;
-            btnAddManager.Location = new Point(23, 22);
+            btnAddManager.Location = new Point(51, 21);
             btnAddManager.Margin = new Padding(2);
             btnAddManager.Name = "btnAddManager";
-            btnAddManager.Size = new Size(176, 38);
+            btnAddManager.Size = new Size(157, 38);
             btnAddManager.TabIndex = 1;
             btnAddManager.Text = "Add Manager";
             btnAddManager.UseVisualStyleBackColor = false;
@@ -422,7 +410,7 @@
             Controls.Add(splitContainer1);
             Margin = new Padding(2);
             Name = "frmMUser";
-            Size = new Size(814, 492);
+            Size = new Size(848, 492);
             Load += frmMUser_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
@@ -434,8 +422,6 @@
             ((System.ComponentModel.ISupportInitialize)pnSide).EndInit();
             pnSide.ResumeLayout(false);
             pnSide.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
-            groupControl1.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -449,7 +435,6 @@
         private SplitContainer splitContainer1;
         private Krypton.Toolkit.KryptonPanel pnSide;
         private Krypton.Toolkit.KryptonBorderEdge kryptonBorderEdge1;
-        private Button btnAddManager;
         private Panel pnSetCenter;
         private FlowLayoutPanel pnListItems;
         private Panel panel1;
@@ -457,11 +442,7 @@
         private Krypton.Toolkit.KryptonTextBox txtFind;
         private ComboBox cbbType;
         private Button btnReload;
-        private GroupBox groupBox1;
-        private Button btnAddStaff;
-        private GroupBox groupBox2;
-        private Label label5;
-        private ComboBox cbbStatus;
+        private System.Windows.Forms.Timer searchTimer;
         private GroupBox groupBox3;
         private Label label7;
         private Label label2;
@@ -469,8 +450,12 @@
         private Label lbSumEmployee;
         private Label lbSumManager;
         private Label label1;
-        private System.Windows.Forms.Timer searchTimer;
+        private GroupBox groupBox2;
+        private Label label5;
+        private ComboBox cbbStatus;
+        private GroupBox groupBox1;
+        private Button btnAddStaff;
         private Button btnViewHis;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private Button btnAddManager;
     }
 }

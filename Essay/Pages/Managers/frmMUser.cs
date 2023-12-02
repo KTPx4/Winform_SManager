@@ -300,25 +300,8 @@ namespace Essay.Pages
         private void frmMUser_Load(object sender, EventArgs e)
         {
 
-
             LoadForm();
 
-
-            //load list
-
-            //DataContextDataContext testdb = new DataContextDataContext();
-
-            //Admin ad = new Admin()
-            //{
-            //    User = "px4",
-            //    Password = "12345",
-            //    Name = "px4k3",
-            //    LinkAVT = "/img"
-            //};
-            //testdb.Admins.InsertOnSubmit(ad);
-            //testdb.SubmitChanges();
-
-            //dgvT.DataSource = testdb.Admins.ToList();
         }
 
 
@@ -594,5 +577,8 @@ namespace Essay.Pages
             dialogHistory dialogHistory = new dialogHistory();
             dialogHistory.ShowDialog();
         }
+
+
+
     }
 }

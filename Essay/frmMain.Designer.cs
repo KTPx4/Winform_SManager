@@ -297,7 +297,7 @@
             // bdLine1
             // 
             tollTipMessage.SetAllowHtmlText(bdLine1, DevExpress.Utils.DefaultBoolean.Default);
-            bdLine1.Location = new Point(33, 80);
+            bdLine1.Location = new Point(33, 74);
             bdLine1.Margin = new Padding(2, 3, 2, 3);
             bdLine1.Name = "bdLine1";
             bdLine1.Size = new Size(94, 1);
@@ -310,7 +310,7 @@
             // 
             tollTipMessage.SetAllowHtmlText(bdLine2, DevExpress.Utils.DefaultBoolean.Default);
             bdLine2.Dock = DockStyle.Top;
-            bdLine2.Location = new Point(0, 80);
+            bdLine2.Location = new Point(0, 74);
             bdLine2.Margin = new Padding(2, 3, 2, 3);
             bdLine2.Name = "bdLine2";
             bdLine2.Size = new Size(154, 1);
@@ -329,7 +329,7 @@
             pnAvt.Location = new Point(0, 0);
             pnAvt.Margin = new Padding(2, 3, 2, 3);
             pnAvt.Name = "pnAvt";
-            pnAvt.Size = new Size(154, 80);
+            pnAvt.Size = new Size(154, 74);
             pnAvt.TabIndex = 4;
             tollTipMessage.SetTitle(pnAvt, "View Profile");
             pnAvt.Click += btnProfile_Click;

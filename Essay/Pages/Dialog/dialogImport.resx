@@ -117,14 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAhVJREFUWEdjGAUDDqbWuGjOrnO9M7fe7QEuPLvO7dTESg9RqBbqgmkVbsZru/1f
+        DAAACwwBP0AiyAAAAhVJREFUWEdjGAUDDqbWuGjOrnO9M7fe7QEuPLvO7dTESg9RqBbqgmkVbsZru/1f
         396Q+h8XPrE49i/QEfemlNhLQLVRDxDjABA+vij675x6tzvTqpzTKMFTK12CoFZDALEOAOGzS+P+758d
         QREGRSnUagggxQHUwMPHATfWJv8/gCWICeFZta5vEOnBKZksB5xcFPN/abvv/xPLUv+fX5tNFj63Jvv/
         nAaPlygOuA701dJ2n//LOnxx4qVtPv83TQr7/+ZY/f+v51rJxi8O1/5f0OR9FMUBpxfH/t87Jw6rBmrj
@@ -136,10 +133,13 @@
         j4LBABgYADT2tHvqcgIsAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="alertControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>272, 17</value>
+  </metadata>
   <data name="dialogImport.IconOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAADGVJREFUeF7tXVdsHMcZloMgxQGCIEEQBHlKkLzkJQjynASBSwJYxVHsOHEMJg8R
+        DAAACwwBP0AiyAAADGVJREFUeF7tXVdsHMcZloMgxQGCIEEQBHlKkLzkJQjynASBSwJYxVHsOHEMJg8R
         LcNwLFo8iUXKibaKeUeKoiiJXbw79k6KvZzYey8SxSLZooolKqJVLUMRMplvuEMu94a8I7m7d8u7H/jA
         5e7s7Oz37cw/O//M3paABSxgvmhHwtO/H/OB/ZcxJtt2S6jtLfo32BJq32M12fbnJDkz2mone1uqJkYA
         bBdFWG6XBL3zuCRo9+PSv+9+VBL09qPSoLcflgYF36eYLwsKvqsHCv/4xoQ7ON74R6J0m961o2H278Xs

@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dialogImport));
-            openFileDialog1 = new OpenFileDialog();
             txtUri = new TextBox();
             btnOpen = new PictureBox();
             dgvImport = new DataGridView();
             btnSave = new DevExpress.XtraEditors.SimpleButton();
             btnDel = new DevExpress.XtraEditors.SimpleButton();
+            alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(components);
             ((System.ComponentModel.ISupportInitialize)btnOpen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvImport).BeginInit();
             SuspendLayout();
-            // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
             // 
             // txtUri
             // 
@@ -68,13 +65,14 @@
             dgvImport.AllowUserToAddRows = false;
             dgvImport.AllowUserToDeleteRows = false;
             dgvImport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvImport.BackgroundColor = Color.Snow;
+            dgvImport.BackgroundColor = Color.FromArgb(230, 240, 250);
             dgvImport.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvImport.Dock = DockStyle.Bottom;
             dgvImport.Location = new Point(0, 130);
             dgvImport.Name = "dgvImport";
             dgvImport.RowHeadersVisible = false;
             dgvImport.RowTemplate.Height = 25;
+            dgvImport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvImport.Size = new Size(646, 388);
             dgvImport.TabIndex = 2;
             // 
@@ -87,6 +85,7 @@
             btnSave.Size = new Size(95, 35);
             btnSave.TabIndex = 3;
             btnSave.Text = "Save";
+            btnSave.Click += btnSave_Click;
             // 
             // btnDel
             // 
@@ -101,6 +100,7 @@
             btnDel.Size = new Size(89, 35);
             btnDel.TabIndex = 3;
             btnDel.Text = "Delete Row";
+            btnDel.Click += btnDel_Click;
             // 
             // dialogImport
             // 
@@ -125,12 +125,11 @@
         }
 
         #endregion
-
-        private OpenFileDialog openFileDialog1;
         private TextBox txtUri;
         private PictureBox btnOpen;
         private DataGridView dgvImport;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnDel;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
     }
 }

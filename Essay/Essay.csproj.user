@@ -37,6 +37,12 @@
     <Compile Update="Pages\Managers\subItems\FUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Pages\Popup\BoxMessageImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pages\Popup\ExportMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Test.cs">
       <SubType>Form</SubType>
     </Compile>

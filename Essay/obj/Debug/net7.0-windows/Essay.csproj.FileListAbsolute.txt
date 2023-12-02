@@ -330,3 +330,5 @@ F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\System.Security.Cryptography.Pkcs.dll
 F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Popup.BoxMessageImport.resources
+F:\TDTU  - University\HK5\net\.net\LT\Essay\Essay\Essay\obj\Debug\net7.0-windows\Essay.Pages.Popup.ExportMessage.resources
