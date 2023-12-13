@@ -1,0 +1,31 @@
+SID,Name ,Class,Birth Day,Address,Phone
+S001, John Doe,10A1,10/26/2015,1. 123 Main St,(171) 555-2222
+S002, Jane Smith,10A1,12/25/2007,2. 456 Maple Dr,(100) 555-4822
+S003,Joe Johnson,10A1,4/20/2014,3. 789 Oak Ln,(313) 555-5735
+S004,Jill Jackson,10A1,7/6/2004,4. 321 Elm St,(03) 3555-5011
+S005,Jim James,10A2,4/23/2010,5. 654 Pine Dr,1. 123-456-7890
+S006,Jenny Jenkins,10A2,6/20/2004,6. 987 Spruce Ln,2. 234-567-8901
+S007,Jack Jackson,10A2,12/10/2016,7. 123 Cedar St,3. 345-678-9012
+S008,Jessica Johnson,11A1,12/16/2013,8. 456 Birch Dr,4. 456-789-0123
+S009,Jeff James,11A1,5/10/2003,9. 789 Willow Ln,5. 567-890-1234
+S010,Julia Jenkins,11A1,4/19/2007,10. 321 Poplar St,6. 678-901-2345
+S011,Jacob Jackson,11A1,4/15/2012,11. 654 Dogwood Dr,7. 789-012-3456
+S012,Jasmine Johnson,11A1,6/21/2016,12. 987 Fir Ln,8. 890-123-4567
+S013, Jerry James,12A1,3/29/2003,13. 123 Pine St,9. 901-234-5678
+S014, Jenna Jenkins,12A1,8/29/2004,14. 456 Oak Dr,10. 012-345-6789
+S015,Jordan Jackson,12A1,5/7/2014,15. 789 Maple Ln,11. 123-456-7890
+S016,Joseph Johnson,12A1,11/29/2007,16. 321 Birch St,12. 234-567-8901
+S017,Jennifer James,12A1,8/6/2004,17. 654 Willow Dr,13. 345-678-9012
+S018,Jared Jenkins,12A1,7/30/2012,18. 987 Poplar Ln,14. 456-789-0123
+S019,Jessie Jackson,12A1,1/29/2009,19. 123 Dogwood St,15. 567-890-1234
+S020,Joshua Johnson,12A1,2/21/2006,20. 456 Fir Dri,16. 678-901-2345
+S021,ulie James,12A1,10/16/2008,20. 456 Fir Dri,17. 789-012-3456
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,

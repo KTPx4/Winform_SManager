@@ -88,17 +88,9 @@ namespace Essay.Pages.Dialog
             try
             {
 
-                if (typeUser == 0)
+                if (typeUser == 0) // manager
                 {
-                    //public int id { get; set; }
-                    //public string name { get; set; }
-                    //public string user { get; set; }
-                    //public string password { get; set; }
-                    //public string phone { get; set; }
-                    //public DateTime birthDay { get; set; }
-                    //public string linkAvt { get; set; }
-                    //public int Status { get; set; }
-                    Manager m = new ManagerController().GetByUser(user);
+                    Model.Manager m = new ManagerController().GetByUser(user);
                     if (m != null)
                     {
                         id = m.ID;
@@ -111,7 +103,7 @@ namespace Essay.Pages.Dialog
                         linkAvt = m.LinkAVT;
                     }
                 }
-                else if (typeUser == 1)
+                else if (typeUser == 1) // employee
                 {
                     Employee m = new EmployeeController().GetByUser(user);
                     if (m != null)
@@ -126,7 +118,7 @@ namespace Essay.Pages.Dialog
                         linkAvt = m.LinkAVT;
                     }
                 }
-                else if (typeUser == 2)
+                else if (typeUser == 2) /// admin
                 {
                     Admin m = new AdminController().GetFromUser(user);
                     if (m != null)
@@ -186,7 +178,7 @@ namespace Essay.Pages.Dialog
                 {
                     // pnControl 94, 296 : 3button
                     // 144, 296 : 2button
-                    pnControl.Location = new Point(144, 296);
+                    //  pnControl.Location = new Point(144, 296);
 
                     fullNameIMG = nextnameIMG + ".png";
 
@@ -236,13 +228,13 @@ namespace Essay.Pages.Dialog
                     }
 
                     //    MessageBox.Show(typeUser.ToString());
+                    btnEdit.Show();
                     if (typeUser == 0) // check type user can use button block/unblock
                     {
                         //pnControl.Location = new Point(94, 296);
 
 
                         //  btnAction.Show();
-                        btnEdit.Show();
                         if (Status == 0)
                         {
                             textStatus = "Active";
@@ -267,9 +259,9 @@ namespace Essay.Pages.Dialog
                     }
                     else if (typeUser == 1)
                     {
-                        pnControl.Location = new Point(144, 296);
+                        // pnControl.Location = new Point(144, 296);
                         //  btnAction.Hide();
-                        btnEdit.Show();
+                        //btnEdit.Show();
                     }
                     else
                     {
@@ -459,7 +451,7 @@ namespace Essay.Pages.Dialog
             {
                 // action add manager
                 // action add employee
-                Manager em = new Manager()
+                Model.Manager em = new Model.Manager()
                 {
                     Name = txtName.Text,
                     User = txtUser.Text,
@@ -531,7 +523,8 @@ namespace Essay.Pages.Dialog
             switch (typeUser)
             {
                 case 0:
-                    Manager m = new Manager()
+
+                    var m = new Model.Manager()
                     {
                         ID = id,
                         Name = txtName.Text,
@@ -652,6 +645,11 @@ namespace Essay.Pages.Dialog
             {
                 // action add employee
             }
+        }
+
+        private void pnName_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

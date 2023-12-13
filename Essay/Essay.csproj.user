@@ -13,23 +13,41 @@
     <Compile Update="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Pages\Dialog\dialogCertificate.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Pages\Dialog\dialogHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pages\Dialog\dialogImport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Pages\Dialog\dialogProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Pages\Dialog\PopupMessage.cs">
+    <Compile Update="Pages\Dialog\dialogStudents.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Pages\Manager\frmMUser.cs">
+    <Compile Update="Pages\Managers\frmMStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Pages\Manager\subItems\FUser.cs">
+    <Compile Update="Pages\Managers\frmMUser.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Pages\Managers\subItems\FUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Pages\Popup\BoxMessageImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pages\Popup\ExportMessage.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="Test.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="testForm.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

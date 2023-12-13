@@ -48,9 +48,10 @@
             // 
             // grbFilter
             // 
+            grbFilter.Controls.Add(btnReload);
             grbFilter.Controls.Add(label1);
             grbFilter.Controls.Add(txtFind);
-            grbFilter.Location = new Point(2, 52);
+            grbFilter.Location = new Point(2, 3);
             grbFilter.Name = "grbFilter";
             grbFilter.Size = new Size(624, 119);
             grbFilter.TabIndex = 3;
@@ -72,7 +73,7 @@
             txtFind.Location = new Point(133, 53);
             txtFind.Multiline = true;
             txtFind.Name = "txtFind";
-            txtFind.Size = new Size(452, 28);
+            txtFind.Size = new Size(426, 28);
             txtFind.TabIndex = 0;
             txtFind.TextChanged += txtFind_TextChanged;
             // 
@@ -82,15 +83,16 @@
             dgvData.AllowUserToDeleteRows = false;
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvData.BackgroundColor = Color.WhiteSmoke;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvData.Columns.AddRange(new DataGridViewColumn[] { User, TypeUser, NameUser, Date });
-            dgvData.Location = new Point(1, 181);
+            dgvData.Location = new Point(1, 116);
             dgvData.Name = "dgvData";
             dgvData.ReadOnly = true;
             dgvData.RowHeadersVisible = false;
             dgvData.RowTemplate.Height = 25;
             dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvData.Size = new Size(625, 369);
+            dgvData.Size = new Size(625, 434);
             dgvData.TabIndex = 2;
             // 
             // User
@@ -120,9 +122,9 @@
             // btnReload
             // 
             btnReload.Image = Properties.Resources.icons8_restore_32;
-            btnReload.Location = new Point(7, 9);
+            btnReload.Location = new Point(576, 48);
             btnReload.Name = "btnReload";
-            btnReload.Size = new Size(40, 35);
+            btnReload.Size = new Size(39, 36);
             btnReload.TabIndex = 4;
             btnReload.TabStop = false;
             btnReload.Click += btnReload_Click;
@@ -137,7 +139,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(627, 550);
-            Controls.Add(btnReload);
             Controls.Add(grbFilter);
             Controls.Add(dgvData);
             Icon = (Icon)resources.GetObject("$this.Icon");

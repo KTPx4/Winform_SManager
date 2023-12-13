@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace Essay
@@ -22,9 +23,36 @@ namespace Essay
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime dateTime = DateTime.Now;
-            MessageBox.Show(dateTime.ToString());
-            
+
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Document, Csv|*.txt;*.csv;*.xlsx";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Get the path of specified file
+                    string filePath = openFileDialog.FileName;
+
+                    // Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+
+
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            string[] parts = line.Split(',');
+                            dataGridView1.Rows.Add(parts);
+                        }
+                    }
+                }
+            }
+
+
         }
     }
 }

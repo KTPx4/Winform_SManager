@@ -16,6 +16,7 @@ using Components;
 using System.IO;
 using DevExpress.Office.Drawing;
 using Essay.Controllers;
+using Essay.Pages.Manager;
 
 namespace Essay
 {
@@ -103,7 +104,7 @@ namespace Essay
                 lbName.Text = NameUser;
                 lbTypeUser.Text = TypeUser;
                 String path = $"{Variables._pathAvt}/{linkAvt}";
-              
+
                 if (File.Exists(path))
                 {
                     // Tệp tồn tại
@@ -124,7 +125,7 @@ namespace Essay
             {
                 MessageBox.Show("Error  when setup Profile: " + ex.Message, "Error Form Main", MessageBoxButtons.OK);
             }
-           
+
 
             //    btnProfile.StateCommon.Back.Image = Image.FromFile($"{Variables._pathAvt}/husky2.png");
         }
@@ -236,7 +237,7 @@ namespace Essay
 
         }
 
-       
+
 
         private void ptbMini_Click(object sender, EventArgs e)
         {
@@ -274,7 +275,7 @@ namespace Essay
             {
                 btnStudents.Text = "Students";
                 btnHome.Text = "Home";
-                btnReport.Text = "Report";
+
                 btnUsers.Text = "Users";
 
             }
@@ -282,7 +283,7 @@ namespace Essay
             {
                 btnStudents.Text = "";
                 btnHome.Text = "";
-                btnReport.Text = "";
+
                 btnUsers.Text = "";
 
             }
@@ -400,6 +401,8 @@ namespace Essay
         private void btnHome_Click(object sender, EventArgs e)
         {
             pnContent.Controls.Clear();
+            this.lbTitleForm.Text = "Home";
+
         }
 
 
@@ -417,23 +420,63 @@ namespace Essay
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Do you want to close?", "Close?", MessageBoxButtons.YesNo) == DialogResult.No)
+
+            // If the user clicks the close button or presses Alt+F4
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;
+                // Show a confirmation dialog
+                DialogResult result = MessageBox.Show("Do you want to Close the application?", "Close", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // If the user chooses No, cancel the closing event
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                    return;
+                }
             }
-            else
+            // If the application is exiting by calling Application.Exit()
+            else if (e.CloseReason == CloseReason.ApplicationExitCall)
             {
-                new AdminController().SetisOnline(NameUser, false);
+
             }
-           
+            new AdminController().SetisOnline(NameUser, false);
+
             //MessageBox.Show("close");
         }
         private void ptbClose_Click(object sender, EventArgs e)
         {
-           
-            this.Close();         
-       
+
+            this.Close();
+
         }
-      
+
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to Log Out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // If the user chooses No, cancel the closing event
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            Application.Restart();
+        }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            frmMStudent frmstudent = new frmMStudent(typeUs);
+            pnContent.Controls.Clear();
+            isTabUsers = false;
+
+            // user.Anchor = AnchorStyles.Right;
+            pnContent.Controls.Add(frmstudent);
+            frmstudent.Dock = DockStyle.Fill;
+            this.lbTitleForm.Text = "Manager Students";
+        }
+
+        private void pnAllNavbar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -9,6 +9,18 @@
       <Column Name="LinkAVT" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SID" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Class" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="birthDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Student_Certification" Member="Certifications" ThisKey="SID" OtherKey="SID" Type="Certification" />
+    </Type>
+  </Table>
   <Table Name="dbo.Certification" Member="Certifications">
     <Type Name="Certification">
       <Column Name="IDCertificate" Type="System.String" DbType="VarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -17,7 +29,7 @@
       <Column Name="IssueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="ExpiryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Grade" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Student_Certification" Member="Student" ThisKey="SID" OtherKey="ID" Type="Student" IsForeignKey="true" />
+      <Association Name="Student_Certification" Member="Student" ThisKey="SID" OtherKey="SID" Type="Student" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Employee" Member="Employees">
@@ -27,7 +39,7 @@
       <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Pass" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="birthDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="isOnline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="LinkAVT" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
@@ -57,23 +69,11 @@
       <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Pass" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="birthDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="isOnline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="LinkAVT" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Manager_HistoryManager" Member="HistoryManagers" ThisKey="ID" OtherKey="ID" Type="HistoryManager" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Student" Member="Students">
-    <Type Name="Student">
-      <Column Name="ID" Type="System.String" DbType="VarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="Class" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="birthDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="isDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Student_Certification" Member="Certifications" ThisKey="ID" OtherKey="SID" Type="Certification" />
     </Type>
   </Table>
 </Database>

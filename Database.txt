@@ -33,7 +33,7 @@ Create table Manager
 	[User] varchar(250) unique,
 	[Pass] varchar(250) ,	
 	birthDay date,
-	Phone varchar(10),
+	Phone varchar(250),
 	[Status] int default(0),	/* 0 active, 1 block, -1 deleted */	
 	isOnline bit default(0),
 	LinkAVT Text default('user.png')	 			  /* Link folder store avatar */
@@ -49,7 +49,7 @@ Create table Employee
 	[User] varchar(250) unique,
 	[Pass] varchar(250) ,
 	birthDay date,
-	Phone varchar(10),
+	Phone varchar(250),
 	[Status] int default(0),	/* 0 active, 1 block, -1 deleted */
 	isOnline bit default(0),
 	LinkAVT Text default('user.png')	 			  /* Link folder store avatar */
@@ -60,15 +60,13 @@ Create table Employee
 go
 
 Create table Student(	 
-
-	[ID] varchar(250) Primary key,
+	[ID] int IDENTITY(1,1) Primary key,
+	[SID] varchar(250) unique,
 	[Name] varchar(250),
 	Class varchar(250),
 	birthDay date,
 	[Address] varchar(250),
-	Phone varchar(10),
-	isDelete bit,
-	
+	Phone varchar(250)	
 )
 
 go
@@ -84,7 +82,7 @@ Create table Certification
 	
 		
 	CONSTRAINT FK_StudentCertificate FOREIGN KEY ([SID])
-    REFERENCES Student([ID])
+    REFERENCES Student([SID])
 
 )
 go

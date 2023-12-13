@@ -20,7 +20,7 @@ namespace Essay
             //    linkAvt = "husky2.png"
             //});
             Application.Run(new frmMain());
-            //Application.Run(new Test());
+           // Application.Run(new Test());
         }
     }
 }
