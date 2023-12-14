@@ -1,0 +1,277 @@
+Create Database Essay
+
+go
+
+USE [Essay]
+GO
+/****** Object:  Table [dbo].[Admin]    Script Date: 12/13/2023 9:48:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Admin](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[User] [varchar](250) NULL,
+	[Password] [varchar](250) NULL,
+	[Name] [varchar](250) NULL,
+	[LinkAVT] [text] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Certification]    Script Date: 12/13/2023 9:48:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Certification](
+	[IDCertificate] [varchar](250) NOT NULL,
+	[Name] [varchar](250) NULL,
+	[SID] [varchar](250) NULL,
+	[IssueDate] [date] NULL,
+	[ExpiryDate] [date] NULL,
+	[Grade] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDCertificate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 12/13/2023 9:48:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](250) NULL,
+	[User] [varchar](250) NULL,
+	[Pass] [varchar](250) NULL,
+	[birthDay] [date] NULL,
+	[Phone] [varchar](250) NULL,
+	[Status] [int] NULL,
+	[isOnline] [bit] NULL,
+	[LinkAVT] [text] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HistoryEmployee]    Script Date: 12/13/2023 9:48:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HistoryEmployee](
+	[IDLogin] [int] IDENTITY(1,1) NOT NULL,
+	[ID] [int] NULL,
+	[TimeLogin] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDLogin] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HistoryManager]    Script Date: 12/13/2023 9:48:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HistoryManager](
+	[IDLogin] [int] IDENTITY(1,1) NOT NULL,
+	[ID] [int] NULL,
+	[TimeLogin] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDLogin] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Manager]    Script Date: 12/13/2023 9:48:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Manager](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](250) NULL,
+	[User] [varchar](250) NULL,
+	[Pass] [varchar](250) NULL,
+	[birthDay] [date] NULL,
+	[Phone] [varchar](250) NULL,
+	[Status] [int] NULL,
+	[isOnline] [bit] NULL,
+	[LinkAVT] [text] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Student]    Script Date: 12/13/2023 9:48:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Student](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[SID] [varchar](250) NULL,
+	[Name] [varchar](250) NULL,
+	[Class] [varchar](250) NULL,
+	[birthDay] [date] NULL,
+	[Address] [varchar](250) NULL,
+	[Phone] [varchar](250) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Admin] ON 
+GO
+INSERT [dbo].[Admin] ([ID], [User], [Password], [Name], [LinkAVT]) VALUES (1, N'Admin', N'123456', N'sad11111', N'Admin_1.png')
+GO
+SET IDENTITY_INSERT [dbo].[Admin] OFF
+GO
+INSERT [dbo].[Certification] ([IDCertificate], [Name], [SID], [IssueDate], [ExpiryDate], [Grade]) VALUES (N'fdg-546gfd', N'Aptis', N'S001', CAST(N'2023-12-04' AS Date), CAST(N'2023-12-27' AS Date), N'111')
+GO
+INSERT [dbo].[Certification] ([IDCertificate], [Name], [SID], [IssueDate], [ExpiryDate], [Grade]) VALUES (N'vvvvv', N'1111', N'S007', CAST(N'2023-12-20' AS Date), CAST(N'2024-01-04' AS Date), N'167')
+GO
+SET IDENTITY_INSERT [dbo].[Employee] ON 
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [User], [Pass], [birthDay], [Phone], [Status], [isOnline], [LinkAVT]) VALUES (1, N'fjh', N'32432', N'324234', CAST(N'2023-11-06' AS Date), N'42342343', 0, 0, N'Employee_1.png')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [User], [Pass], [birthDay], [Phone], [Status], [isOnline], [LinkAVT]) VALUES (2, N'nkj', N'788', N'54353', CAST(N'2023-12-05' AS Date), N'55555', 0, 0, N'Employee_2.png')
+GO
+SET IDENTITY_INSERT [dbo].[Employee] OFF
+GO
+SET IDENTITY_INSERT [dbo].[HistoryEmployee] ON 
+GO
+INSERT [dbo].[HistoryEmployee] ([IDLogin], [ID], [TimeLogin]) VALUES (1, 1, CAST(N'2023-11-25T13:32:04.360' AS DateTime))
+GO
+INSERT [dbo].[HistoryEmployee] ([IDLogin], [ID], [TimeLogin]) VALUES (2, 1, CAST(N'2023-11-25T13:33:13.657' AS DateTime))
+GO
+INSERT [dbo].[HistoryEmployee] ([IDLogin], [ID], [TimeLogin]) VALUES (3, 1, CAST(N'2023-11-25T13:36:57.427' AS DateTime))
+GO
+INSERT [dbo].[HistoryEmployee] ([IDLogin], [ID], [TimeLogin]) VALUES (4, 2, CAST(N'2023-12-02T20:50:25.437' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[HistoryEmployee] OFF
+GO
+SET IDENTITY_INSERT [dbo].[HistoryManager] ON 
+GO
+INSERT [dbo].[HistoryManager] ([IDLogin], [ID], [TimeLogin]) VALUES (1, 1, CAST(N'2023-11-25T13:31:44.883' AS DateTime))
+GO
+INSERT [dbo].[HistoryManager] ([IDLogin], [ID], [TimeLogin]) VALUES (2, 2, CAST(N'2023-12-02T20:48:25.757' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[HistoryManager] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Manager] ON 
+GO
+INSERT [dbo].[Manager] ([ID], [Name], [User], [Pass], [birthDay], [Phone], [Status], [isOnline], [LinkAVT]) VALUES (1, N'1111', N'1212', N'2121212', CAST(N'2023-11-06' AS Date), N'111111', 0, 0, N'Manager_1.png')
+GO
+INSERT [dbo].[Manager] ([ID], [Name], [User], [Pass], [birthDay], [Phone], [Status], [isOnline], [LinkAVT]) VALUES (2, N'6546', N'654h', N'55555', CAST(N'2023-12-06' AS Date), N'123456', 0, 0, N'Manager_2.png')
+GO
+SET IDENTITY_INSERT [dbo].[Manager] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Student] ON 
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (88, N'S001', N' John Doe', N'10A1', CAST(N'2015-10-26' AS Date), N'1. 123 Main St', N'(171) 555-2222')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (89, N'S002', N' Jane Smith', N'10A1', CAST(N'2007-12-25' AS Date), N'2. 456 Maple Dr', N'(100) 555-4822')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (90, N'S003', N'Joe Johnson', N'10A1', CAST(N'2014-04-20' AS Date), N'3. 789 Oak Ln', N'(313) 555-5735')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (91, N'S004', N'Jill Jackson', N'10A1', CAST(N'2004-07-06' AS Date), N'4. 321 Elm St', N'(03) 3555-5011')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (92, N'S005', N'Jim James', N'10A2', CAST(N'2010-04-23' AS Date), N'5. 654 Pine Dr', N'1. 123-456-7890')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (93, N'S006', N'Jenny Jenkins', N'10A2', CAST(N'2004-06-20' AS Date), N'6. 987 Spruce Ln', N'2. 234-567-8901')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (94, N'S007', N'Jack Jackson', N'10A2', CAST(N'2016-12-10' AS Date), N'7. 123 Cedar St', N'3. 345-678-9012')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (95, N'S008', N'Jessica Johnson', N'11A1', CAST(N'2013-12-16' AS Date), N'8. 456 Birch Dr', N'4. 456-789-0123')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (96, N'S009', N'Jeff James', N'11A1', CAST(N'2003-05-10' AS Date), N'9. 789 Willow Ln', N'5. 567-890-1234')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (97, N'S010', N'Julia Jenkins', N'11A1', CAST(N'2007-04-19' AS Date), N'10. 321 Poplar St', N'6. 678-901-2345')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (98, N'S011', N'Jacob Jackson', N'11A1', CAST(N'2012-04-15' AS Date), N'11. 654 Dogwood Dr', N'7. 789-012-3456')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (99, N'S012', N'Jasmine Johnson', N'11A1', CAST(N'2016-06-21' AS Date), N'12. 987 Fir Ln', N'8. 890-123-4567')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (100, N'S013', N' Jerry James', N'12A1', CAST(N'2003-03-29' AS Date), N'13. 123 Pine St', N'9. 901-234-5678')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (101, N'S014', N' Jenna Jenkins', N'12A1', CAST(N'2004-08-29' AS Date), N'14. 456 Oak Dr', N'10. 012-345-6789')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (102, N'S015', N'Jordan Jackson', N'12A1', CAST(N'2014-05-07' AS Date), N'15. 789 Maple Ln', N'11. 123-456-7890')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (103, N'S016', N'Joseph Johnson', N'12A1', CAST(N'2007-11-29' AS Date), N'16. 321 Birch St', N'12. 234-567-8901')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (104, N'S017', N'Jennifer James', N'12A1', CAST(N'2004-08-06' AS Date), N'17. 654 Willow Dr', N'13. 345-678-9012')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (105, N'S018', N'Jared Jenkins', N'12A1', CAST(N'2012-07-30' AS Date), N'18. 987 Poplar Ln', N'14. 456-789-0123')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (106, N'S019', N'Jessie Jackson', N'12A1', CAST(N'2009-01-29' AS Date), N'19. 123 Dogwood St', N'15. 567-890-1234')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (107, N'S020', N'Joshua Johnson', N'12A1', CAST(N'2006-02-21' AS Date), N'20. 456 Fir Dri', N'16. 678-901-2345')
+GO
+INSERT [dbo].[Student] ([ID], [SID], [Name], [Class], [birthDay], [Address], [Phone]) VALUES (108, N'S021', N'ulie James', N'12A1', CAST(N'2008-10-16' AS Date), N'20. 456 Fir Dri', N'17. 789-012-3456')
+GO
+SET IDENTITY_INSERT [dbo].[Student] OFF
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__Employee__BD20C6F1317768D0]    Script Date: 12/13/2023 9:48:15 PM ******/
+ALTER TABLE [dbo].[Employee] ADD UNIQUE NONCLUSTERED 
+(
+	[User] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__Manager__BD20C6F1BC423471]    Script Date: 12/13/2023 9:48:15 PM ******/
+ALTER TABLE [dbo].[Manager] ADD UNIQUE NONCLUSTERED 
+(
+	[User] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__Student__CA195971111B9C60]    Script Date: 12/13/2023 9:48:15 PM ******/
+ALTER TABLE [dbo].[Student] ADD UNIQUE NONCLUSTERED 
+(
+	[SID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Admin] ADD  DEFAULT ('user.png') FOR [LinkAVT]
+GO
+ALTER TABLE [dbo].[Employee] ADD  DEFAULT ((0)) FOR [Status]
+GO
+ALTER TABLE [dbo].[Employee] ADD  DEFAULT ((0)) FOR [isOnline]
+GO
+ALTER TABLE [dbo].[Employee] ADD  DEFAULT ('user.png') FOR [LinkAVT]
+GO
+ALTER TABLE [dbo].[Manager] ADD  DEFAULT ((0)) FOR [Status]
+GO
+ALTER TABLE [dbo].[Manager] ADD  DEFAULT ((0)) FOR [isOnline]
+GO
+ALTER TABLE [dbo].[Manager] ADD  DEFAULT ('user.png') FOR [LinkAVT]
+GO
+ALTER TABLE [dbo].[Certification]  WITH CHECK ADD  CONSTRAINT [FK_StudentCertificate] FOREIGN KEY([SID])
+REFERENCES [dbo].[Student] ([SID])
+GO
+ALTER TABLE [dbo].[Certification] CHECK CONSTRAINT [FK_StudentCertificate]
+GO
+ALTER TABLE [dbo].[HistoryEmployee]  WITH CHECK ADD  CONSTRAINT [FK_HisLoginE] FOREIGN KEY([ID])
+REFERENCES [dbo].[Employee] ([ID])
+GO
+ALTER TABLE [dbo].[HistoryEmployee] CHECK CONSTRAINT [FK_HisLoginE]
+GO
+ALTER TABLE [dbo].[HistoryManager]  WITH CHECK ADD  CONSTRAINT [FK_HisLoginM] FOREIGN KEY([ID])
+REFERENCES [dbo].[Manager] ([ID])
+GO
+ALTER TABLE [dbo].[HistoryManager] CHECK CONSTRAINT [FK_HisLoginM]
+GO
