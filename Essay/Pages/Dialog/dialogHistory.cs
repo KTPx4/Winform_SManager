@@ -111,7 +111,7 @@ namespace Essay.Pages.Dialog
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error When Show Data: " + ex.Message);
+                //MessageBox.Show("Error When Show Data: " + ex.Message);
             }
         }
 
